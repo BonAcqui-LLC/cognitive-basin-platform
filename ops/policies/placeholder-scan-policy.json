@@ -18,7 +18,8 @@
     "ops/policies/placeholder-scan-policy.json",
     "tools/ci/scan_placeholders.py",
     "tests/test_completion_integrity_acceptance.py",
-    "tests/test_cognitive_basin_scenarios.py"
+    "tests/test_cognitive_basin_scenarios.py",
+    "tests/test_placeholder_scanner.py"
   ],
   "authorized": {
     "PLACEHOLDER": [
