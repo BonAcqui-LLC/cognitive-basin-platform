@@ -14,6 +14,8 @@ def main():
     bad = []
     for f in files:
         if not any(f.endswith(e) for e in (".py",".js",".ts",".json",".toml",".md",".txt",".yml")): continue
+        # Skip self and policy to avoid self-match on the prohibited pattern literals (analogous to placeholder scanner authorized/excludes)
+        if 'scan_credentials.py' in f or 'credential-scan-policy.json' in f: continue
         try:
             c = Path(f).read_text(errors="ignore")
         except: continue
