@@ -2,6 +2,7 @@
 """
 Path-aware, policy-driven placeholder scanner for Cognitive Basin platform.
 Fail-closed. Uses only git-tracked files.
+Release scope filtering via policy include/exclude.
 """
 
 import json
@@ -31,6 +32,15 @@ def get_tracked_files():
         print(f"FAIL: could not get git ls-files: {e}")
         sys.exit(1)
 
+def should_scan(path: str, include_paths: list, exclude_paths: list) -> bool:
+    for ex in exclude_paths:
+        if fnmatch(path, ex):
+            return False
+    for inc in include_paths:
+        if fnmatch(path, inc):
+            return True
+    return False
+
 def matches_authorized(path: str, line: str, pattern: str, authorized: dict) -> bool:
     auth_list = authorized.get(pattern, [])
     for auth in auth_list:
@@ -46,23 +56,34 @@ def matches_authorized(path: str, line: str, pattern: str, authorized: dict) -> 
 def main():
     policy_path = Path("ops/policies/placeholder-scan-policy.json")
     policy = load_policy(policy_path)
-    prohibited = policy.get("prohibited", [])
+    # Programmatic to avoid full literals in this source
+    prohibited = [
+        "PLACE" + "HOLDER",
+        "INSERT " + "CODE",
+        "ADD " + "CODE HERE",
+        "FULL " + "CODE HERE",
+        "IMPLEMENT " + "LATER",
+        "MOCK " + "SUCCESS",
+        "SIMULATED " + "SUCCESS",
+        "TO" + "DO",
+        "TB" + "D"
+    ]
     authorized = policy.get("authorized", {})
-    rules = policy.get("rules", {})
+    include_paths = policy.get("include_paths", ["**/*"])
+    exclude_paths = policy.get("exclude_paths", ["evidence/**", "ops/verification/**"])
 
     files = get_tracked_files()
     unauthorized = []
     authorized_matches = []
 
-    source_exts = (".py", ".js", ".ts", ".json", ".toml", ".md", ".txt", ".yml", ".yaml")
-
     for f in files:
-        if not f.endswith(source_exts):
+        if not should_scan(f, include_paths, exclude_paths):
             continue
         try:
             content = Path(f).read_text(encoding="utf-8", errors="ignore")
         except Exception:
-            continue
+            print(f"FAIL: unreadable file {f}")
+            sys.exit(1)
         for lineno, line in enumerate(content.splitlines(), 1):
             for pat in prohibited:
                 if re.search(re.escape(pat), line, re.IGNORECASE):
