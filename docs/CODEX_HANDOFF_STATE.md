@@ -1,10 +1,10 @@
 # Codex Handoff State
 
 Current verified main:
-`ab8714eb0120859a1c5d30f0e2f1a197da76aca8`
+`cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b`
 
 Current implementation branch:
-`build/provider-sandbox-codex`
+`build/evaluation-natural-math-codex`
 
 Phase 0 closure status:
 - repository/worktree identity verified once
@@ -17,11 +17,12 @@ Phase 0 closure status:
 Known branch lineage:
 - merged EphUX local feature head: `0666093e560841d26b67fdca2a9eb9fedf02e614`
 - merged main commit carrying the productized EphUX local surface: `ab8714eb0120859a1c5d30f0e2f1a197da76aca8`
-- active provider/sandbox worktree branched from verified `main`
+- merged main commit carrying the provider and sandbox tranche: `cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b`
+- active evaluation/Natural Math worktree branched from verified `main`
 
 Audit artifact root:
 `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-product-main-audit-ab8714e`
 
 Next implementation target:
-- provider fabric and sandbox hardening are in-branch: governed routing, cost/evidence ledger, live inventory, bounded compact-reasoner packets, runner receipts, and adversarial acceptance
-- next focus is evaluation plus Natural Math expansion from a fresh branch after provider/sandbox merge and main CI verification
+- evaluation lab is in-branch: typed task registry, interface comparison harness, and failure corpus
+- Natural Math lab is in-branch: deterministic simulation, exact geometry checks, parameter sweeps, static visualizations, and aggregate acceptance wiring

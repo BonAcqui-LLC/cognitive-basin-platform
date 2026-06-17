@@ -23,7 +23,7 @@ jobs:
 
       - name: Python compilation
         run: |
-          python -m py_compile packages/ternary/states.py packages/contracts/capability_registry.py packages/completion_integrity/guard.py python/cognitive_basin/pipeline.py tests/test_completion_integrity_acceptance.py tests/test_cognitive_basin_scenarios.py tests/test_placeholder_scanner.py tools/ci/scan_placeholders.py tools/ci/scan_credentials.py
+          python -m py_compile packages/ternary/states.py packages/contracts/capability_registry.py packages/completion_integrity/guard.py python/cognitive_basin/pipeline.py python/cognitive_basin/acceptance.py python/evaluation_lab/contracts.py python/evaluation_lab/core.py python/evaluation_lab/failure_corpus.py python/evaluation_lab/acceptance.py python/natural_math_lab/geometry.py python/natural_math_lab/core.py python/natural_math_lab/acceptance.py tests/test_completion_integrity_acceptance.py tests/test_cognitive_basin_scenarios.py tests/test_placeholder_scanner.py tests/test_evaluation_lab_acceptance.py tests/test_natural_math_lab_acceptance.py tests/test_cognitive_basin_acceptance.py tests/test_cognitive_basin_package_layout.py tools/ci/scan_placeholders.py tools/ci/scan_credentials.py
           echo "Python compile: PASS"
 
       - name: JSON parsing
@@ -79,10 +79,10 @@ jobs:
       - name: Replay equality
         run: python -m pytest tests/test_cognitive_basin_scenarios.py -q --tb=no -k "EVENT_REPLAY"
 
-      - name: BasinLab provider and sandbox tranche tests
+      - name: BasinLab provider, evaluation, and Natural Math tranche tests
         run: |
-          python -m pytest tests/test_basinlab_hardening.py tests/test_basinlab_spectrum.py tests/test_provider_lab_acceptance.py tests/test_sandbox_lab_acceptance.py -q --tb=no
-          echo "Provider and sandbox tranche tests: PASS"
+          python -m pytest tests/test_basinlab_hardening.py tests/test_basinlab_spectrum.py tests/test_provider_lab_acceptance.py tests/test_sandbox_lab_acceptance.py tests/test_evaluation_lab_acceptance.py tests/test_natural_math_lab_acceptance.py tests/test_cognitive_basin_acceptance.py tests/test_cognitive_basin_package_layout.py -q --tb=no
+          echo "Provider, evaluation, and Natural Math tranche tests: PASS"
 
       - name: Deterministic BasinLab acceptance
         run: python -m basinlab.acceptance --all
@@ -96,13 +96,22 @@ jobs:
       - name: Deterministic sandbox lab acceptance
         run: python -m sandbox_lab.acceptance --all
 
+      - name: Deterministic evaluation lab acceptance
+        run: python -m evaluation_lab.acceptance --all
+
+      - name: Deterministic Natural Math lab acceptance
+        run: python -m natural_math_lab.acceptance --all
+
+      - name: Deterministic aggregate Cognitive Basin acceptance
+        run: python -m cognitive_basin.acceptance --all
+
       - name: Capability registry validation
         run: |
           python -c "
           import json
           data = json.load(open('ops/manifests/capability-registry.json'))
           caps = data.get('capabilities', {})
-          req = ['ternary.epistemic','ternary.action','completion_integrity.guard','deployment.verify','tests.unit']
+          req = ['ternary.epistemic','ternary.action','completion_integrity.guard','deployment.verify','tests.unit','evaluation_lab.registry','natural_math_lab.simulation','cognitive_basin.acceptance.aggregate']
           for r in req:
             assert r in caps, r
           print('capability-registry validation: PASS')

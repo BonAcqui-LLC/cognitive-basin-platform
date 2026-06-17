@@ -3,11 +3,11 @@
     "status": "VERIFIED",
     "canonical_repository": "C:\\Users\\moop\\cognitive-basin-platform",
     "shared_git_common_dir": "C:\\Users\\moop\\cognitive-basin-platform\\.git",
-    "remote_main_sha": "ab8714eb0120859a1c5d30f0e2f1a197da76aca8"
+    "remote_main_sha": "cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b"
   },
   "ci": {
     "status": "VERIFIED",
-    "main_run_id": 27717532798,
+    "main_run_id": 27718801072,
     "workflow": "ci-non-deploying",
     "conclusion": "success"
   },
@@ -33,13 +33,19 @@
       "python/basinlab",
       "python/ephux_local",
       "python/provider_lab",
-      "python/sandbox_lab"
+      "python/sandbox_lab",
+      "python/evaluation_lab",
+      "python/natural_math_lab",
+      "python/cognitive_basin"
     ],
     "compatibility_wrappers": [
       "basinlab",
       "ephux_local",
       "provider_lab",
-      "sandbox_lab"
+      "sandbox_lab",
+      "evaluation_lab",
+      "natural_math_lab",
+      "cognitive_basin"
     ],
     "duplicated_business_logic": false,
     "wrapper_tests_green": true
@@ -62,6 +68,27 @@
     ],
     "adversarial_acceptance": true,
     "production_secure_claimed": false
+  },
+  "evaluation_lab": {
+    "status": "IMPLEMENTED",
+    "typed_task_registry": true,
+    "interface_comparison": true,
+    "failure_corpus": true,
+    "majority_wrong_suite": true,
+    "unresolved_suite": true
+  },
+  "natural_math_lab": {
+    "status": "IMPLEMENTED",
+    "deterministic_simulation": true,
+    "parameter_sweep": true,
+    "exact_geometry": true,
+    "static_visualizations": true,
+    "default_repo_mutation": false
+  },
+  "aggregate_acceptance": {
+    "status": "IMPLEMENTED",
+    "suite_manifest": true,
+    "clean_environment_wrapper_check": true
   },
   "artifacts": {
     "status": "GENERATED",
