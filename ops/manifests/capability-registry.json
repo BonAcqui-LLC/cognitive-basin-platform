@@ -42,6 +42,30 @@
       "required_evidence": ["production_monitor", "staging_plus_prod"],
       "status": "SPECIFIED",
       "notes": "Production operational claim requires prod evidence; local-only blocks"
+    },
+    "basinlab.kernel.persistence": {
+      "required_evidence": [
+        "source:python/basinlab/kernel/subprocess_kernel.py",
+        "test:test_basinlab_vertical_slice"
+      ],
+      "status": "SPECIFIED",
+      "notes": "Persistent execution backend with retained namespace, snapshot, restore, and reset"
+    },
+    "basinlab.commit.proposal": {
+      "required_evidence": [
+        "source:python/basinlab/session.py",
+        "test:test_basinlab_vertical_slice"
+      ],
+      "status": "SPECIFIED",
+      "notes": "Governed commit proposal remains subject to GUARD and Completion Integrity"
+    },
+    "basinlab.replay": {
+      "required_evidence": [
+        "source:python/basinlab/session.py",
+        "test:test_basinlab_vertical_slice"
+      ],
+      "status": "SPECIFIED",
+      "notes": "Replay reconstructs final governed state from recorded BasinLab events"
     }
   }
 }
