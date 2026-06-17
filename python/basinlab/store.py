@@ -351,6 +351,31 @@ class SessionStore:
             schema_version=int(row["schema_version"]),
         )
 
+    def list_sessions(self) -> List[StoredSession]:
+        sessions: List[StoredSession] = []
+        with closing(self._connect()) as connection:
+            rows = connection.execute(
+                "SELECT * FROM sessions ORDER BY updated_at DESC, created_at DESC, session_id ASC"
+            ).fetchall()
+        for row in rows:
+            if int(row["schema_version"]) != SCHEMA_VERSION:
+                raise SessionSchemaMismatchError(
+                    f"Session {row['session_id']} uses schema {row['schema_version']}, expected {SCHEMA_VERSION}"
+                )
+            sessions.append(
+                StoredSession(
+                    session_id=row["session_id"],
+                    created_at=float(row["created_at"]),
+                    updated_at=float(row["updated_at"]),
+                    metadata=json.loads(row["metadata_json"]),
+                    final_basin=json.loads(row["final_basin_json"]),
+                    latest_event_id=row["latest_event_id"],
+                    latest_snapshot_hash=row["latest_snapshot_hash"],
+                    schema_version=int(row["schema_version"]),
+                )
+            )
+        return sessions
+
     def read_events(self, session_id: str) -> List[Dict[str, Any]]:
         self.get_session(session_id)
         events: List[Dict[str, Any]] = []
@@ -379,6 +404,33 @@ class SessionStore:
         if _sha256_text(snapshot_json) != row["snapshot_hash"]:
             raise SessionCorruptionError(f"Corrupt snapshot record detected for session {session_id}")
         return {"snapshot": json.loads(snapshot_json), "snapshot_hash": row["snapshot_hash"]}
+
+    def list_snapshots(self, session_id: str) -> List[Dict[str, Any]]:
+        self.get_session(session_id)
+        snapshots: List[Dict[str, Any]] = []
+        with closing(self._connect()) as connection:
+            rows = connection.execute(
+                """
+                SELECT seq, event_id, snapshot_json, snapshot_hash
+                FROM snapshots
+                WHERE session_id = ?
+                ORDER BY seq ASC
+                """,
+                (session_id,),
+            ).fetchall()
+        for row in rows:
+            snapshot_json = row["snapshot_json"]
+            if _sha256_text(snapshot_json) != row["snapshot_hash"]:
+                raise SessionCorruptionError(f"Corrupt snapshot record detected for session {session_id}")
+            snapshots.append(
+                {
+                    "seq": int(row["seq"]),
+                    "event_id": row["event_id"],
+                    "snapshot": json.loads(snapshot_json),
+                    "snapshot_hash": row["snapshot_hash"],
+                }
+            )
+        return snapshots
 
     def list_artifacts(self, session_id: str) -> List[Dict[str, Any]]:
         self.get_session(session_id)

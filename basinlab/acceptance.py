@@ -1,3 +1,5 @@
+"""Compatibility entrypoint for ``python -m basinlab.acceptance``."""
+
 from python.basinlab.acceptance import main
 
 

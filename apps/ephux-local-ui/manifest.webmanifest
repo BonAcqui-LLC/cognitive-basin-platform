@@ -1,0 +1,10 @@
+{
+  "name": "EphUX Local Integration",
+  "short_name": "EphUX Local",
+  "description": "Installable local-only shell for BasinLab-backed EphUX sessions.",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "background_color": "#f3ecdc",
+  "theme_color": "#214634"
+}

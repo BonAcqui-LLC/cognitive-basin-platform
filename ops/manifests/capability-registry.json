@@ -398,6 +398,39 @@
       "limitations": ["Exercises the local service path only; it does not verify remote deployment, cloud auth, or external browser-store packaging."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
+    },
+    "ephux_local.review.controls": {
+      "description": "Human review event controls for evidence decisions, commit decisions, notes, and HOLD provenance",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Human approval is recorded as provenance only; it does not assert claim truth or perform a git commit."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.portable_bundle": {
+      "description": "Portable session export and import with bundle hash validation and overwrite protection",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Import restores embedded text artifacts and report artifacts only; opaque binary artifacts remain metadata-only."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.pwa.shell": {
+      "description": "Installable local-only PWA shell with responsive layout, offline shell caching, and non-persisted local token entry",
+      "required_evidence": ["source:apps/ephux-local-ui/index.html", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "apps/ephux-local-ui",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Offline support is shell-only and intentionally does not cache authenticated API results or fabricate completion state."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     }
   }
 }

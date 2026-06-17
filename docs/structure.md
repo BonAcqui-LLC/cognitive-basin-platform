@@ -13,3 +13,9 @@ New implementation code goes in the appropriate package with clear lineage comme
 See docs/ for architecture, ADR, and specifications.
 
 This structure supports the canonical flow: PERCEPT → ATAL → RIGOR → CIRCUIT → GUARD → SERA and the understanding/memory layers.
+
+Canonical package layout:
+
+- `python/basinlab` and `python/ephux_local` contain the implementation.
+- top-level `basinlab` and `ephux_local` are compatibility wrappers only.
+- wrapper packages must stay thin, explicit, documented, and covered by tests.

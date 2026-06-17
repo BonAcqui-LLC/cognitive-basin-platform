@@ -5,6 +5,7 @@ Loopback-only local EphUX / Guardian service backed by BasinLab.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import html
 import json
@@ -31,6 +32,7 @@ from python.basinlab.reliability import DecisionClaim, ReliabilityEngine
 from python.basinlab.reports import write_report_bundle
 from python.basinlab.scars import ScarRegistry
 from python.basinlab.session import BasinLabSession, default_store_path, replay_persisted_session
+from python.basinlab.recovery import RecoveryRequirement, RecoveryRoute
 from python.basinlab.spectrum import CandidateTrajectory
 from python.basinlab.store import SessionStore
 from python.basinlab.team_narrative import NarrativeRecord, TeamNarrative
@@ -41,6 +43,7 @@ from .contracts import ActivationRecord, IntakeRecord, IntakeState, Sanitization
 
 MAX_REQUEST_BYTES = 48_000
 ALLOWED_UPLOAD_EXTENSIONS = {".txt", ".md", ".json"}
+TEXT_ARTIFACT_SUFFIXES = {".txt", ".md", ".json", ".html", ".csv", ".log"}
 INSTRUCTION_CONFLICT_PATTERNS = [
     re.compile(r"ignore\s+previous\s+instructions", re.IGNORECASE),
     re.compile(r"system\s+prompt", re.IGNORECASE),
@@ -60,6 +63,7 @@ class LocalServiceConfig:
     port: int = 8765
     store_dir: Path = field(default_factory=lambda: default_store_path())
     report_dir: Path = field(default_factory=lambda: default_store_path() / "reports")
+    ui_asset_dir: Path = field(default_factory=lambda: Path(__file__).resolve().parents[2] / "apps" / "ephux-local-ui")
     extension_origin: str = "chrome-extension://ephux-local-dev"
     max_request_bytes: int = MAX_REQUEST_BYTES
     token: str = field(default_factory=lambda: secrets.token_urlsafe(24))
@@ -102,6 +106,26 @@ def _sanitize_filename(name: str) -> str:
     if ".." in name or "/" in name or "\\" in name:
         raise ValueError("Path traversal is not allowed in uploaded file names")
     return Path(name).name
+
+
+def _file_sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _report_summary_from_bundle(report: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "candidate_spectrum": report.get("candidate_spectrum", {}),
+        "decision_critical_claims": report.get("decision_critical_claims", []),
+        "evidence_links": report.get("evidence_links", []),
+        "reliability_verdicts": report.get("reliability_verdicts", []),
+        "contradictions": report.get("contradictions", []),
+        "scars": report.get("scars", []),
+        "recovery_routes": report.get("recovery_routes", []),
+        "association_updates": report.get("association_updates", []),
+        "hold_intervals": report.get("hold_intervals", []),
+        "commit_decisions": report.get("commit_decisions", []),
+        "action_proposals": report.get("action_proposals", []),
+    }
 
 
 def _provider_inventory() -> List[Dict[str, Any]]:
@@ -241,6 +265,7 @@ class EphuxLocalService:
             store=self.store,
             session_metadata={
                 "purpose": payload.get("purpose", ""),
+                "context": payload.get("context", ""),
                 "privacy_setting": payload.get("privacy_setting", "local-only"),
                 "constraints": payload.get("constraints", []),
             },
@@ -248,10 +273,51 @@ class EphuxLocalService:
             session_id = str(session.session_id)
         return self.get_session(session_id)
 
+    def list_sessions(self) -> List[Dict[str, Any]]:
+        sessions = []
+        for item in self.store.list_sessions():
+            sessions.append(
+                {
+                    "session_id": item.session_id,
+                    "created_at": item.created_at,
+                    "updated_at": item.updated_at,
+                    "purpose": item.metadata.get("purpose", ""),
+                    "context": item.metadata.get("context", ""),
+                    "privacy_setting": item.metadata.get("privacy_setting", "local-only"),
+                    "final_basin": item.final_basin,
+                    "event_count": len(self.store.read_events(item.session_id)),
+                }
+            )
+        return sessions
+
     def get_session(self, session_id: str) -> Dict[str, Any]:
         inspected = self.store.inspect_session(session_id)
-        inspected["events"] = self.store.read_events(session_id)
-        inspected["report_location"] = str(self.report_dir / session_id / f"{session_id}.html")
+        events = self.store.read_events(session_id)
+        report = self.generate_report(session_id)
+        report_data = report["report"]
+        review_events = [event for event in events if event.get("type", "").startswith("session.review.")]
+        inspected["events"] = events
+        inspected["timeline"] = events
+        inspected["review_events"] = review_events
+        inspected["report_location"] = report["html_path"]
+        inspected["report_data"] = report_data
+        inspected["current_epistemic_state"] = inspected["final_basin"].get("epistemic", EpistemicState.UNRESOLVED.value)
+        inspected["current_action_state"] = inspected["final_basin"].get("action", ActionState.HOLD.value)
+        inspected["candidate_spectrum"] = report_data.get("candidate_spectrum", {})
+        inspected["decision_critical_claims"] = report_data.get("decision_critical_claims", [])
+        inspected["supporting_evidence"] = report_data.get("evidence_links", [])
+        inspected["contradictory_evidence"] = report_data.get("contradictions", [])
+        inspected["hold_reasons"] = report_data.get("hold_intervals", [])
+        inspected["retract_reasons"] = report_data.get("contradictions", [])
+        inspected["contradiction_scars"] = report_data.get("scars", [])
+        inspected["recovery_routes"] = report_data.get("recovery_routes", [])
+        inspected["associations"] = report_data.get("association_updates", [])
+        inspected["latest_action_proposal"] = (
+            report_data.get("action_proposals", [])[-1] if report_data.get("action_proposals") else None
+        )
+        inspected["latest_commit_decision"] = (
+            report_data.get("commit_decisions", [])[-1] if report_data.get("commit_decisions") else None
+        )
         return inspected
 
     def session_events(self, session_id: str) -> List[Dict[str, Any]]:
@@ -491,6 +557,49 @@ class EphuxLocalService:
             "report_location": report["html_path"],
         }
 
+    def review_session(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        review_action = str(payload.get("review_action", "")).strip()
+        reviewer = str(payload.get("reviewer", "local-reviewer")).strip() or "local-reviewer"
+        provenance = str(payload.get("provenance", "human-local-review")).strip() or "human-local-review"
+        note = str(payload.get("note", "")).strip()
+        if not review_action:
+            raise ValueError("review_action is required")
+
+        events = self.store.read_events(session_id)
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        record = {
+            "review": {
+                "review_action": review_action,
+                "reviewer": reviewer,
+                "target_id": str(payload.get("target_id", "")),
+                "target_type": str(payload.get("target_type", "session")),
+                "decision": str(payload.get("decision", "")),
+                "note": note,
+                "provenance": provenance,
+                "contradictory_evidence": list(payload.get("contradictory_evidence", [])),
+                "approved_claims": list(payload.get("approved_claims", [])),
+            }
+        }
+        if review_action == "approve_commit":
+            commit_events = [event for event in events if event.get("type") == "commit"]
+            if not commit_events:
+                raise ValueError("No commit proposal exists to approve")
+            latest = commit_events[-1]["decision"]
+            if not latest.get("allowed", False):
+                raise PermissionError("Commit cannot be approved because policy denied the proposal")
+        elif review_action == "place_hold":
+            return self.hold_session(
+                session_id,
+                {
+                    "reason": payload.get("reason", note or "human review hold"),
+                    "required_evidence": payload.get("required_evidence", []),
+                    "review_condition": payload.get("review_condition", "human review pending"),
+                    "recovery_path": payload.get("recovery_path", "submit additional evidence"),
+                },
+            )
+        self._append_event(session_id, "review", f"session.review.{review_action}", record, basin=basin)
+        return self.get_session(session_id)
+
     def guardian_intake(self, payload: Dict[str, Any], raw_text: str = "") -> Dict[str, Any]:
         body: Dict[str, Any]
         if raw_text:
@@ -603,7 +712,145 @@ class EphuxLocalService:
             "sanitization_state": sanitization_state.value if "sanitization_state" in locals() else SanitizationState.UNSANITIZED.value,
         }
 
-    def generate_report(self, session_id: str) -> Dict[str, str]:
+    def export_session_bundle(self, session_id: str) -> Dict[str, Any]:
+        inspected = self.store.inspect_session(session_id)
+        events = self.store.read_events(session_id)
+        snapshots = self.store.list_snapshots(session_id)
+        report = self.generate_report(session_id)
+        report_json = report["report"]
+        report_html = Path(report["html_path"]).read_text(encoding="utf-8")
+        artifacts = []
+        for artifact in self.store.list_artifacts(session_id):
+            record = dict(artifact)
+            artifact_path = Path(artifact["artifact_path"])
+            if artifact_path.exists() and artifact_path.suffix.lower() in TEXT_ARTIFACT_SUFFIXES and artifact_path.is_file():
+                record["embedded_text"] = artifact_path.read_text(encoding="utf-8")
+            artifacts.append(record)
+        bundle = {
+            "bundle_version": "1.0",
+            "exported_at": time.time(),
+            "session": inspected,
+            "events": events,
+            "snapshots": snapshots,
+            "claims": [event.get("claim", {}) for event in events if event.get("type") == "session.claim"],
+            "evidence": [event.get("evidence", {}) for event in events if event.get("type") == "session.evidence"],
+            "scars": [event.get("scar", {}) for event in events if event.get("type") == "session.scar"],
+            "recovery_routes": report_json.get("recovery_routes", []),
+            "associations": report_json.get("association_updates", []),
+            "reports": {
+                "json": report_json,
+                "html": report_html,
+            },
+            "artifacts": artifacts,
+        }
+        hashes = {
+            "events_sha256": _sha256_text(_canonical_json(bundle["events"])),
+            "snapshots_sha256": _sha256_text(_canonical_json(bundle["snapshots"])),
+            "reports_sha256": _sha256_text(_canonical_json(bundle["reports"])),
+            "artifacts_sha256": _sha256_text(_canonical_json(bundle["artifacts"])),
+        }
+        bundle["hashes"] = hashes
+        bundle["bundle_sha256"] = _sha256_text(_canonical_json(bundle))
+        return bundle
+
+    def import_session_bundle(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        required = {"bundle_version", "session", "events", "snapshots", "reports", "artifacts", "hashes"}
+        missing = sorted(required - set(payload))
+        if missing:
+            raise ValueError(f"Import bundle is missing fields: {missing}")
+        session_record = payload["session"]
+        session_id = str(session_record["session_id"])
+        if self.store.session_exists(session_id):
+            raise ValueError(f"Import would overwrite existing session: {session_id}")
+        expected = payload["hashes"]
+        checks = {
+            "events_sha256": _sha256_text(_canonical_json(payload["events"])),
+            "snapshots_sha256": _sha256_text(_canonical_json(payload["snapshots"])),
+            "reports_sha256": _sha256_text(_canonical_json(payload["reports"])),
+            "artifacts_sha256": _sha256_text(_canonical_json(payload["artifacts"])),
+        }
+        for key, actual in checks.items():
+            if expected.get(key, "") != actual:
+                raise ValueError(f"Import hash mismatch for {key}")
+
+        metadata = dict(session_record.get("metadata", {}))
+        metadata["imported_from_bundle_sha256"] = payload.get("bundle_sha256", "")
+        metadata["imported_at"] = time.time()
+        self.store.create_session(metadata, session_id=session_id)
+        snapshots_by_event = {
+            item.get("event_id", ""): item.get("snapshot", {})
+            for item in payload.get("snapshots", [])
+        }
+        events = list(payload["events"])
+        last_index = len(events) - 1
+        for index, event in enumerate(events):
+            final_basin = session_record.get("final_basin", {}) if index == last_index else None
+            snapshot = snapshots_by_event.get(event.get("event_id", ""), None)
+            self.store.append_event(session_id, event, snapshot=snapshot, final_basin=final_basin)
+
+        target_dir = self.report_dir / session_id
+        target_dir.mkdir(parents=True, exist_ok=True)
+        html_path = target_dir / f"{session_id}.html"
+        json_path = target_dir / f"{session_id}.json"
+        html_path.write_text(str(payload["reports"].get("html", "")), encoding="utf-8")
+        json_path.write_text(json.dumps(payload["reports"].get("json", {}), indent=2), encoding="utf-8")
+        self.store.register_artifact(session_id, html_path, event_id=session_id, artifact_type="trajectory_html", metadata={"imported": True})
+        self.store.register_artifact(session_id, json_path, event_id=session_id, artifact_type="trajectory_json", metadata={"imported": True})
+
+        imported_dir = self.config.store_dir / "imported-artifacts" / session_id
+        imported_dir.mkdir(parents=True, exist_ok=True)
+        for artifact in payload.get("artifacts", []):
+            embedded_text = artifact.get("embedded_text")
+            artifact_path = Path(str(artifact.get("artifact_path", "")))
+            if not embedded_text or not artifact_path.name:
+                continue
+            restored = imported_dir / artifact_path.name
+            restored.write_text(str(embedded_text), encoding="utf-8")
+            self.store.register_artifact(
+                session_id,
+                restored,
+                event_id=str(artifact.get("artifact_id", session_id)),
+                artifact_type=str(artifact.get("metadata", {}).get("artifact_type", "artifact")),
+                temporary=bool(artifact.get("temporary", False)),
+                metadata={"imported": True, "original_path": str(artifact_path)},
+            )
+        return self.get_session(session_id)
+
+    def _candidate_spectrum(self, purpose: str, evidence: List[Dict[str, Any]], claims: List[Dict[str, Any]]) -> Dict[str, Any]:
+        retained = [
+            {
+                "trajectory_id": "candidate-evidence-first",
+                "answer": f"Advance '{purpose}' only with auditable evidence.",
+                "reasoning": "Local EphUX prefers evidence-bearing progress over unsupported completion claims.",
+                "approach": "evidence-first",
+                "provider": "local-strategy",
+            },
+            {
+                "trajectory_id": "candidate-contradiction-check",
+                "answer": f"Stress-test '{purpose}' against contradictions before extending.",
+                "reasoning": f"Observed evidence count={len(evidence)} and claim count={len(claims)} inform contradiction review.",
+                "approach": "contradiction-check",
+                "provider": "local-strategy",
+            },
+        ]
+        if evidence:
+            retained.append(
+                {
+                    "trajectory_id": "candidate-recovery-route",
+                    "answer": f"Use submitted evidence to recover '{purpose}' from HOLD when requirements are satisfied.",
+                    "reasoning": "Recovery should preserve contradiction history rather than erase it.",
+                    "approach": "recovery-route",
+                    "provider": "local-strategy",
+                }
+            )
+        return {
+            "retained": retained,
+            "merged": [],
+            "rejected": [],
+            "providers": [provider["name"] for provider in _provider_inventory()],
+        }
+
+    def generate_report(self, session_id: str) -> Dict[str, Any]:
         inspected = self.store.inspect_session(session_id)
         events = self.store.read_events(session_id)
         claims = [event for event in events if event.get("type") == "session.claim"]
@@ -612,14 +859,59 @@ class EphuxLocalService:
         retracts = [event for event in events if event.get("type") == "session.retract"]
         actions = [event for event in events if event.get("type") == "action"]
         commits = [event for event in events if event.get("type") == "commit"]
+        reviews = [event for event in events if event.get("type", "").startswith("session.review.")]
         replay = replay_persisted_session(self.store, session_id)
+        purpose = inspected["metadata"].get("purpose", "local ephux session")
+        spectrum = self._candidate_spectrum(purpose, evidence, claims)
+        recovery_routes = []
+        associations = []
+        for scar_event in [event for event in events if event.get("type") == "session.scar"]:
+            scar = scar_event.get("scar", {})
+            scar_id = scar.get("scar_id", "")
+            claim_id = scar.get("claim_id", "")
+            contradictory_evidence = list(scar.get("evidence", []))
+            route = RecoveryRoute(
+                route_id=f"recovery-{scar_id or claim_id or 'local'}",
+                originating_scar_id=scar_id,
+                evidence_required=[RecoveryRequirement(description="Resolve contradiction", required_evidence=contradictory_evidence)],
+                prohibited_shortcuts=["ignore contradiction", "approve without evidence"],
+                permitted_transitions=["CONTRADICTED->UNRESOLVED", "UNRESOLVED->SUPPORTED"],
+                review_requirement="Human review required",
+                success_condition="Contradictory evidence is answered with new support",
+                failure_condition="Contradictions remain unresolved",
+                retained_uncertainty="Contradiction history remains visible after recovery",
+            )
+            recovery_routes.append(
+                {
+                    "route_id": route.route_id,
+                    "originating_scar_id": route.originating_scar_id,
+                    "evidence_required": [requirement.__dict__ for requirement in route.evidence_required],
+                    "prohibited_shortcuts": list(route.prohibited_shortcuts),
+                    "permitted_transitions": list(route.permitted_transitions),
+                    "review_requirement": route.review_requirement,
+                    "success_condition": route.success_condition,
+                    "failure_condition": route.failure_condition,
+                    "retained_uncertainty": route.retained_uncertainty,
+                }
+            )
+        for node in self.memory_map.nodes.values():
+            associations.append(
+                {
+                    "memory_id": node.memory_id,
+                    "purpose_links": list(node.purpose_links),
+                    "evidence_links": list(node.evidence_links),
+                    "recovery_routes": list(node.recovery_routes),
+                    "survival_reason": node.survival_reason,
+                }
+            )
         report = {
             "scenario": session_id,
             "passed": inspected["final_basin"].get("action") != ActionState.RETRACT.value,
-            "purpose": inspected["metadata"].get("purpose", "local ephux session"),
+            "purpose": purpose,
+            "context": inspected["metadata"].get("context", ""),
             "plan": [action["result"]["proposal"]["summary"] for action in actions],
-            "retrieved_associations": [],
-            "candidate_spectrum": {"providers": [provider["name"] for provider in _provider_inventory()]},
+            "retrieved_associations": associations,
+            "candidate_spectrum": spectrum,
             "candidate_deduplication": {"note": "Local product path uses stored claims and provider availability"},
             "action_proposals": [action["result"]["proposal"] for action in actions],
             "rigor_decisions": [event for event in events if event.get("type", "").startswith("guardian.intake")],
@@ -632,10 +924,11 @@ class EphuxLocalService:
             "reliability_verdicts": [claim.get("decision", {}) for claim in claims],
             "contradictions": [event.get("retract", {}) for event in retracts],
             "scars": [event.get("scar", {}) for event in events if event.get("type") == "session.scar"],
-            "recovery_routes": [],
-            "association_updates": [],
+            "recovery_routes": recovery_routes,
+            "association_updates": associations,
             "hold_intervals": [event.get("hold", {}) for event in holds],
             "commit_decisions": [item["decision"] for item in commits],
+            "review_decisions": [item.get("review", {}) for item in reviews],
             "replay_result": {
                 "basin": replay["basin"].to_record(),
                 "errors": replay["errors"],
@@ -663,7 +956,7 @@ class EphuxLocalService:
             artifact_type="trajectory_json",
             metadata={"generated_by": "ephux_local"},
         )
-        return {"html_path": str(html_path), "json_path": str(json_path)}
+        return {"html_path": str(html_path), "json_path": str(json_path), "report": report}
 
     def capabilities(self) -> Dict[str, Any]:
         registry_path = Path(__file__).resolve().parents[2] / "ops" / "manifests" / "capability-registry.json"
@@ -678,6 +971,7 @@ class EphuxLocalService:
                 "port": self.config.port,
                 "loopback_only": self.config.host in {"127.0.0.1", "localhost"},
                 "request_size_limit": self.config.max_request_bytes,
+                "installable_pwa": True,
             },
         }
 
@@ -687,138 +981,13 @@ class EphuxLocalService:
             "activation_endpoint": "/activation",
             "token_header": "X-Ephux-Token",
             "report_url_template": f"http://{self.config.host}:{self.config.port}/sessions/{{session_id}}/report?format=html",
+            "session_list_endpoint": "/sessions",
+            "session_import_endpoint": "/sessions/import",
         }
 
     def ui_html(self) -> str:
-        token = html.escape(self.config.token)
-        return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>EphUX Local</title>
-  <style>
-    :root {{
-      --paper: #f6f2e7;
-      --ink: #1f261b;
-      --accent: #315f48;
-      --soft: #d8e4d7;
-      --warn: #9a5b44;
-    }}
-    body {{ margin: 0; font-family: Georgia, 'Times New Roman', serif; color: var(--ink); background: radial-gradient(circle at top, #fffdf8, var(--paper)); }}
-    main {{ max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }}
-    h1, h2 {{ font-family: 'Palatino Linotype', 'Book Antiqua', serif; }}
-    .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }}
-    .card {{ background: rgba(255,255,255,0.74); border: 1px solid #c2cfbe; border-radius: 1rem; padding: 1rem; box-shadow: 0 12px 24px rgba(31,38,27,0.06); }}
-    textarea, input {{ width: 100%; box-sizing: border-box; margin-top: 0.5rem; padding: 0.7rem; border-radius: 0.7rem; border: 1px solid #b7c4b2; font-family: inherit; }}
-    button {{ margin-top: 0.75rem; background: var(--accent); color: white; border: none; border-radius: 999px; padding: 0.7rem 1rem; font-family: inherit; cursor: pointer; }}
-    pre {{ white-space: pre-wrap; word-break: break-word; background: #fbfcf8; border: 1px solid #d2dccd; padding: 0.75rem; border-radius: 0.75rem; max-height: 360px; overflow: auto; }}
-    .status {{ color: var(--warn); font-style: italic; }}
-  </style>
-</head>
-<body>
-  <main>
-    <h1>EphUX Local Integration</h1>
-    <p class="status">Loopback-only development service. Not production-secure.</p>
-    <div class="grid">
-      <section class="card">
-        <h2>Start Session</h2>
-        <label>Purpose<input id="purpose"></label>
-        <button onclick="startSession()">Create Session</button>
-      </section>
-      <section class="card">
-        <h2>Guardian Intake</h2>
-        <label>Session ID<input id="intake-session"></label>
-        <label>Text<textarea id="intake-text" rows="8"></textarea></label>
-        <button onclick="sendIntake()">Submit Intake</button>
-      </section>
-      <section class="card">
-        <h2>Activation</h2>
-        <label>Purpose<input id="activation-purpose"></label>
-        <button onclick="activate()">Start Activation</button>
-      </section>
-    </div>
-    <div class="grid" style="margin-top: 1rem;">
-      <section class="card">
-        <h2>Current Session</h2>
-        <label>Session ID<input id="session-id"></label>
-        <button onclick="refreshSession()">Refresh Session</button>
-        <button onclick="openReport()">Open Report</button>
-      </section>
-      <section class="card">
-        <h2>Evidence / Contradictions</h2>
-        <label>Evidence<textarea id="evidence-text" rows="5"></textarea></label>
-        <button onclick="submitEvidence()">Submit Evidence</button>
-        <label>Claim<textarea id="claim-text" rows="5"></textarea></label>
-        <button onclick="submitClaim()">Submit Claim</button>
-      </section>
-    </div>
-    <section class="card" style="margin-top: 1rem;">
-      <h2>Session Output</h2>
-      <pre id="output">Ready.</pre>
-    </section>
-  </main>
-  <script>
-    const TOKEN = "{token}";
-    async function api(path, method="GET", body=null, raw=false) {{
-      const headers = {{ "X-Ephux-Token": TOKEN }};
-      if (body && !raw) headers["Content-Type"] = "application/json";
-      const response = await fetch(path, {{
-        method,
-        headers,
-        body: body ? (raw ? body : JSON.stringify(body)) : null
-      }});
-      const text = await response.text();
-      if (!response.ok) throw new Error(text);
-      try {{ return JSON.parse(text); }} catch {{ return text; }}
-    }}
-    function write(data) {{
-      document.getElementById("output").textContent = typeof data === "string" ? data : JSON.stringify(data, null, 2);
-    }}
-    async function startSession() {{
-      const purpose = document.getElementById("purpose").value;
-      const data = await api("/sessions", "POST", {{ purpose }});
-      document.getElementById("session-id").value = data.session_id;
-      document.getElementById("intake-session").value = data.session_id;
-      write(data);
-    }}
-    async function sendIntake() {{
-      const session_id = document.getElementById("intake-session").value;
-      const text = document.getElementById("intake-text").value;
-      write(await api("/guardian/intake", "POST", {{ session_id, text }}));
-    }}
-    async function activate() {{
-      const purpose = document.getElementById("activation-purpose").value;
-      const data = await api("/activation", "POST", {{ purpose, provider_preference: "scripted" }});
-      document.getElementById("session-id").value = data.session_id;
-      document.getElementById("intake-session").value = data.session_id;
-      write(data);
-    }}
-    async function refreshSession() {{
-      const session_id = document.getElementById("session-id").value;
-      write(await api(`/sessions/${{session_id}}`));
-    }}
-    async function submitEvidence() {{
-      const session_id = document.getElementById("session-id").value;
-      const detail = document.getElementById("evidence-text").value;
-      write(await api(`/sessions/${{session_id}}/evidence`, "POST", {{ detail }}));
-    }}
-    async function submitClaim() {{
-      const session_id = document.getElementById("session-id").value;
-      const statement = document.getElementById("claim-text").value;
-      const contradictory = statement.toLowerCase().includes("contradiction");
-      write(await api(`/sessions/${{session_id}}/claims`, "POST", {{
-        statement,
-        contradictory_evidence: contradictory ? ["user marked contradiction"] : [],
-        supporting_evidence: contradictory ? [] : ["user provided local evidence"]
-      }}));
-    }}
-    async function openReport() {{
-      const session_id = document.getElementById("session-id").value;
-      window.open(`/sessions/${{session_id}}/report?format=html`, "_blank");
-    }}
-  </script>
-</body>
-</html>"""
+        index_path = self.config.ui_asset_dir / "index.html"
+        return index_path.read_text(encoding="utf-8")
 
 
 def _json_response(handler: BaseHTTPRequestHandler, status: int, payload: Dict[str, Any], *, origin: str = "") -> None:
@@ -843,6 +1012,17 @@ def _text_response(handler: BaseHTTPRequestHandler, status: int, text: str, *, c
         handler.send_header("Vary", "Origin")
     handler.end_headers()
     handler.wfile.write(body)
+
+
+def _asset_content_type(path: Path) -> str:
+    suffix = path.suffix.lower()
+    return {
+        ".html": "text/html; charset=utf-8",
+        ".js": "application/javascript; charset=utf-8",
+        ".css": "text/css; charset=utf-8",
+        ".webmanifest": "application/manifest+json; charset=utf-8",
+        ".json": "application/json; charset=utf-8",
+    }.get(suffix, "text/plain; charset=utf-8")
 
 
 def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
@@ -891,17 +1071,33 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                 if parsed.path == "/":
                     _text_response(self, 200, app.ui_html(), content_type="text/html; charset=utf-8", origin=origin)
                     return
+                if parsed.path in {"/app.js", "/manifest.webmanifest", "/sw.js"}:
+                    file_name = parsed.path.lstrip("/")
+                    asset_path = app.config.ui_asset_dir / file_name
+                    _text_response(self, 200, asset_path.read_text(encoding="utf-8"), content_type=_asset_content_type(asset_path), origin=origin)
+                    return
                 if parsed.path == "/health":
                     _json_response(self, 200, {"ok": True, "service": "ephux_local"}, origin=origin)
                     return
                 if parsed.path == "/capabilities":
                     _json_response(self, 200, app.capabilities(), origin=origin)
                     return
+                if parsed.path == "/sessions":
+                    self._authorized()
+                    _json_response(self, 200, {"sessions": app.list_sessions()}, origin=origin)
+                    return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/events"):
+                    self._authorized()
                     session_id = parsed.path.split("/")[2]
                     _json_response(self, 200, {"session_id": session_id, "events": app.session_events(session_id)}, origin=origin)
                     return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/export"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.export_session_bundle(session_id), origin=origin)
+                    return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/report"):
+                    self._authorized()
                     session_id = parsed.path.split("/")[2]
                     report = app.generate_report(session_id)
                     if parse_qs(parsed.query).get("format") == ["html"]:
@@ -910,10 +1106,13 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                         _json_response(self, 200, report, origin=origin)
                     return
                 if parsed.path.startswith("/sessions/"):
+                    self._authorized()
                     session_id = parsed.path.split("/")[2]
                     _json_response(self, 200, app.get_session(session_id), origin=origin)
                     return
                 _json_response(self, 404, {"error": "Not found"}, origin=origin)
+            except PermissionError as exc:
+                _json_response(self, 403, {"error": str(exc)}, origin=origin)
             except Exception as exc:
                 _json_response(self, 400, {"error": str(exc)}, origin=origin)
 
@@ -926,6 +1125,10 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                 if parsed.path == "/sessions":
                     payload = self._parse_json()
                     _json_response(self, 201, app.create_session(payload), origin=origin)
+                    return
+                if parsed.path == "/sessions/import":
+                    payload = self._parse_json()
+                    _json_response(self, 201, app.import_session_bundle(payload), origin=origin)
                     return
                 if parsed.path == "/guardian/intake":
                     content_type = self.headers.get("Content-Type", "")
@@ -969,6 +1172,11 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     session_id = parsed.path.split("/")[2]
                     payload = self._parse_json()
                     _json_response(self, 200, app.retract_session(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/review"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.review_session(session_id, payload), origin=origin)
                     return
                 _json_response(self, 404, {"error": "Not found"}, origin=origin)
             except PermissionError as exc:

@@ -1,0 +1,47 @@
+{
+  "repository_identity": {
+    "status": "VERIFIED",
+    "canonical_repository": "C:\\Users\\moop\\cognitive-basin-platform",
+    "shared_git_common_dir": "C:\\Users\\moop\\cognitive-basin-platform\\.git",
+    "remote_main_sha": "114a2c1f84296c3d0db009b6f984ee9e49d2695d"
+  },
+  "ci": {
+    "status": "VERIFIED",
+    "main_run_id": 27713166589,
+    "workflow": "ci-non-deploying",
+    "conclusion": "success"
+  },
+  "local_ephux_service": {
+    "status": "PRODUCTIZED_BASELINE",
+    "routes_verified": 14,
+    "required_routes_present": true,
+    "acceptance_scenarios_passed": 12,
+    "acceptance_scenarios_total": 12
+  },
+  "local_ephux_surface": {
+    "status": "IMPLEMENTED",
+    "installable_pwa_shell": true,
+    "embedded_token_in_shell": false,
+    "session_list_and_reopen": true,
+    "portable_export_import": true,
+    "human_review_controls": true,
+    "browser_verified": true
+  },
+  "package_layout": {
+    "status": "VERIFIED",
+    "canonical_implementation_roots": [
+      "python/basinlab",
+      "python/ephux_local"
+    ],
+    "compatibility_wrappers": [
+      "basinlab",
+      "ephux_local"
+    ],
+    "duplicated_business_logic": false,
+    "wrapper_tests_green": true
+  },
+  "artifacts": {
+    "status": "GENERATED",
+    "root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\phase0-main-audit-114a2c1"
+  }
+}

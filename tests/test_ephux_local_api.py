@@ -77,6 +77,18 @@ def test_all_required_endpoints_round_trip(running_service):
     assert status == 200
     assert "EphUX Local Integration" in body
 
+    status, body, _ = client.request("GET", "/manifest.webmanifest")
+    assert status == 200
+    assert "EphUX Local Integration" in body
+
+    status, body, _ = client.request("GET", "/app.js")
+    assert status == 200
+    assert "persisted sessions" in body
+
+    status, body, _ = client.request("GET", "/sw.js")
+    assert status == 200
+    assert "CACHE_NAME" in body
+
     status, body, _ = client.request("GET", "/health")
     assert status == 200
     assert json.loads(body)["ok"] is True
@@ -95,7 +107,7 @@ def test_all_required_endpoints_round_trip(running_service):
     session = json.loads(body)
     session_id = session["session_id"]
 
-    status, body, _ = client.request("GET", f"/sessions/{session_id}")
+    status, body, _ = client.request("GET", f"/sessions/{session_id}", token=client.token)
     assert status == 200
     assert json.loads(body)["session_id"] == session_id
 
@@ -152,16 +164,17 @@ def test_all_required_endpoints_round_trip(running_service):
     assert status == 200
     assert json.loads(body)["final_basin"]["action"] == "RETRACT"
 
-    status, body, _ = client.request("GET", f"/sessions/{session_id}/events")
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/events", token=client.token)
     assert status == 200
     assert len(json.loads(body)["events"]) >= 7
 
-    status, body, _ = client.request("GET", f"/sessions/{session_id}/report")
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/report", token=client.token)
     assert status == 200
     report = json.loads(body)
     assert Path(report["html_path"]).exists()
+    assert "candidate_spectrum" in report["report"]
 
-    status, body, _ = client.request("GET", f"/sessions/{session_id}/report?format=html")
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/report?format=html", token=client.token)
     assert status == 200
     assert "<script>" not in body
 
@@ -237,7 +250,7 @@ def test_restart_persistence_provider_unavailable_and_extension_contract(running
     try:
         host2, port2 = server2.server_address
         client2 = ServiceClient(f"http://{host2}:{port2}", client.token)
-        status, body, _ = client2.request("GET", f"/sessions/{session_id}")
+        status, body, _ = client2.request("GET", f"/sessions/{session_id}", token=client.token)
         assert status == 200
         assert json.loads(body)["session_id"] == session_id
 
@@ -248,6 +261,68 @@ def test_restart_persistence_provider_unavailable_and_extension_contract(running
         server2.shutdown()
         server2.server_close()
         thread2.join(timeout=10)
+
+
+def test_session_list_export_import_review_and_pwa(running_service):
+    app, client, root = running_service
+
+    status, body, _ = client.request("POST", "/sessions", {"purpose": "portable", "context": "import export"}, token=client.token)
+    assert status == 201
+    session = json.loads(body)
+    session_id = session["session_id"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/actions",
+        {"step_id": "portable-a1", "summary": "seed", "code": "alpha = 4"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/review",
+        {"review_action": "note", "note": "portable note", "reviewer": "tester", "provenance": "pytest"},
+        token=client.token,
+    )
+    assert status == 200
+    reviewed = json.loads(body)
+    assert reviewed["review_events"][-1]["review"]["review_action"] == "note"
+
+    status, body, _ = client.request("GET", "/sessions", token=client.token)
+    assert status == 200
+    listing = json.loads(body)["sessions"]
+    assert any(item["session_id"] == session_id for item in listing)
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/export", token=client.token)
+    assert status == 200
+    bundle = json.loads(body)
+    assert bundle["session"]["session_id"] == session_id
+    assert bundle["hashes"]["events_sha256"]
+
+    import tempfile
+    from python.ephux_local.service import start_service_in_thread
+
+    with tempfile.TemporaryDirectory() as td:
+        import_root = Path(td)
+        config = LocalServiceConfig(port=0, store_dir=import_root / "store", report_dir=import_root / "reports", token=client.token)
+        app2, server2, thread2 = start_service_in_thread(config)
+        try:
+            host2, port2 = server2.server_address
+            client2 = ServiceClient(f"http://{host2}:{port2}", client.token)
+            status, body, _ = client2.request("POST", "/sessions/import", bundle, token=client.token)
+            assert status == 201
+            imported = json.loads(body)
+            assert imported["session_id"] == session_id
+
+            status, body, _ = client2.request("GET", f"/sessions/{session_id}", token=client.token)
+            assert status == 200
+            reopened = json.loads(body)
+            assert reopened["metadata"]["imported_from_bundle_sha256"] == bundle["bundle_sha256"]
+        finally:
+            server2.shutdown()
+            server2.server_close()
+            thread2.join(timeout=10)
 
 
 def test_acceptance_command_and_extension_files(running_service):

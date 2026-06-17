@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#214634">
+  <title>EphUX Local Integration</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <style>
+    :root {
+      --paper: #f3ecdc;
+      --panel: rgba(255, 253, 247, 0.9);
+      --ink: #172219;
+      --accent: #214634;
+      --accent-2: #8a5a32;
+      --line: #c9ceb9;
+      --soft: #e3dfd0;
+      --danger: #8b3c32;
+      --ok: #1f5c40;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.95), transparent 34%),
+        linear-gradient(160deg, #f8f4ea 0%, #ece4d0 52%, #e0dccd 100%);
+    }
+    header, main { max-width: 1380px; margin: 0 auto; padding: 1rem; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.5rem;
+    }
+    h1, h2, h3 { margin: 0 0 0.5rem; font-family: "Palatino Linotype", "Book Antiqua", serif; }
+    p { line-height: 1.45; }
+    .banner {
+      background: linear-gradient(135deg, rgba(33,70,52,0.92), rgba(138,90,50,0.88));
+      color: #fff8eb;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 20px 40px rgba(23,34,25,0.12);
+    }
+    .banner strong { display: block; font-size: 1.2rem; margin-bottom: 0.35rem; }
+    .chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.9rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .stack { display: grid; gap: 1rem; }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 1.2rem;
+      padding: 1rem;
+      box-shadow: 0 14px 28px rgba(23,34,25,0.08);
+      backdrop-filter: blur(6px);
+    }
+    .panel[data-tone="accent"] { background: rgba(227, 239, 228, 0.86); }
+    .panel[data-tone="warn"] { background: rgba(248, 238, 231, 0.9); }
+    .cluster { display: grid; gap: 0.8rem; }
+    .row { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    label { display: grid; gap: 0.35rem; font-size: 0.95rem; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #b9c2ac;
+      border-radius: 0.85rem;
+      padding: 0.75rem 0.85rem;
+      font: inherit;
+      background: rgba(255,255,255,0.92);
+      color: var(--ink);
+    }
+    textarea { min-height: 7rem; resize: vertical; }
+    button {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fffdf7;
+      padding: 0.72rem 1rem;
+      font: inherit;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.12s ease;
+    }
+    button.secondary { background: #6b7f62; }
+    button.warn { background: var(--accent-2); }
+    button.danger { background: var(--danger); }
+    button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(33,70,52,0.2);
+      outline-offset: 2px;
+    }
+    button:hover { transform: translateY(-1px); }
+    .button-row { display: flex; gap: 0.55rem; flex-wrap: wrap; }
+    .session-list { display: grid; gap: 0.55rem; }
+    .session-list button {
+      text-align: left;
+      background: #f8f6ef;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 0.8rem;
+    }
+    .session-list button.active { background: #e1eddc; border-color: #99b191; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+    .metric {
+      background: #fbfaf5;
+      border: 1px solid var(--soft);
+      border-radius: 1rem;
+      padding: 0.8rem;
+    }
+    .metric strong { display: block; font-size: 1.05rem; }
+    .list-card {
+      border: 1px solid var(--soft);
+      border-radius: 1rem;
+      padding: 0.8rem;
+      background: #fbfaf5;
+    }
+    .list-card ul { margin: 0; padding-left: 1.1rem; }
+    .timeline {
+      display: grid;
+      gap: 0.5rem;
+      max-height: 26rem;
+      overflow: auto;
+    }
+    .timeline article {
+      border-left: 4px solid var(--accent);
+      background: #fbfaf5;
+      border-radius: 0 1rem 1rem 0;
+      padding: 0.75rem 0.9rem;
+    }
+    .state {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.85rem;
+      background: #ebefe8;
+      border: 1px solid #b8c6b3;
+    }
+    .state.warn { background: #f6ece5; border-color: #d5b49a; }
+    .state.danger { background: #f4e4e2; border-color: #d1a2a0; }
+    .statusbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      background: #fbfaf5;
+      border: 1px solid var(--line);
+    }
+    .statusbar strong { display: block; }
+    .mono { font-family: "Consolas", "Courier New", monospace; }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 18rem;
+      overflow: auto;
+      background: #fbfaf5;
+      border: 1px solid var(--soft);
+      border-radius: 1rem;
+      padding: 0.8rem;
+    }
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="banner">
+      <strong>EphUX Local Integration</strong>
+      <p>Loopback-only private product surface for BasinLab-backed review, intake, activation, and governed session work. Not deployed.</p>
+      <div class="chips">
+        <span class="chip">Local only</span>
+        <span class="chip">No cached secrets</span>
+        <span class="chip">Governed actions</span>
+        <span class="chip">Persisted sessions</span>
+      </div>
+    </div>
+    <section class="panel" aria-labelledby="connection-heading">
+      <h2 id="connection-heading">Connection</h2>
+      <div class="cluster">
+        <label for="tokenInput">Local token
+          <input id="tokenInput" autocomplete="off" spellcheck="false">
+        </label>
+        <label for="providerPreference">Provider preference
+          <select id="providerPreference">
+            <option value="scripted">scripted</option>
+            <option value="generalist">generalist</option>
+            <option value="compact-reasoner">compact-reasoner</option>
+            <option value="openai-compatible">openai-compatible</option>
+            <option value="vibethinker">vibethinker</option>
+          </select>
+        </label>
+        <button id="refreshSessions">Load Sessions</button>
+      </div>
+    </section>
+  </header>
+
+  <main class="grid">
+    <aside class="stack" aria-label="Session controls">
+      <section class="panel" data-tone="accent">
+        <h2>New Session</h2>
+        <div class="cluster">
+          <label for="purposeInput">Purpose
+            <input id="purposeInput">
+          </label>
+          <label for="contextInput">Context
+            <textarea id="contextInput"></textarea>
+          </label>
+          <div class="button-row">
+            <button id="createSession">Create Session</button>
+            <button id="startActivation" class="secondary">Activation</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Guardian Intake</h2>
+        <div class="cluster">
+          <label for="intakeText">Text
+            <textarea id="intakeText"></textarea>
+          </label>
+          <label for="sanitizationEvidence">Sanitization evidence
+            <input id="sanitizationEvidence" value="reviewed locally">
+          </label>
+          <button id="submitIntake" class="secondary">Submit Intake</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Sessions</h2>
+        <div class="session-list" id="sessionList" aria-live="polite"></div>
+      </section>
+
+      <section class="panel" data-tone="warn">
+        <h2>Import / Export</h2>
+        <div class="cluster">
+          <div class="button-row">
+            <button id="exportSession">Export Session</button>
+            <button id="openReport" class="secondary">Open Report</button>
+          </div>
+          <label for="importBundle">Import bundle
+            <input id="importBundle" type="file" accept=".json,application/json">
+          </label>
+        </div>
+      </section>
+    </aside>
+
+    <section class="stack" aria-label="Session detail">
+      <section class="panel">
+        <h2>Current Session</h2>
+        <div class="metrics" id="metrics"></div>
+        <div class="statusbar">
+          <div>
+            <strong id="activeSession">No session selected</strong>
+            <span id="connectionState">Awaiting token and session.</span>
+          </div>
+          <span class="state warn" id="localOnlyBadge">LOCAL ONLY / NOT DEPLOYED</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Actions And Review</h2>
+        <div class="row">
+          <label for="actionSummary">Action summary
+            <input id="actionSummary">
+          </label>
+          <label for="actionStepId">Step ID
+            <input id="actionStepId" value="ui-action-1">
+          </label>
+        </div>
+        <label for="actionCode">Action code
+          <textarea id="actionCode"></textarea>
+        </label>
+        <div class="button-row">
+          <button id="runAction">Run Action</button>
+          <button id="submitEvidence" class="secondary">Submit Evidence</button>
+          <button id="submitClaim" class="secondary">Submit Claim</button>
+          <button id="proposeCommit" class="warn">Commit Proposal</button>
+          <button id="holdSession" class="warn">Place HOLD</button>
+          <button id="retractSession" class="danger">Retract</button>
+        </div>
+        <div class="row">
+          <label for="evidenceText">Evidence
+            <textarea id="evidenceText"></textarea>
+          </label>
+          <label for="claimText">Claim
+            <textarea id="claimText"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label for="reviewAction">Human review action
+            <select id="reviewAction">
+              <option value="accept_evidence">accept evidence</option>
+              <option value="reject_evidence">reject evidence</option>
+              <option value="mark_unverified">mark unverified</option>
+              <option value="add_contradiction">add contradiction</option>
+              <option value="place_hold">place hold</option>
+              <option value="propose_release">propose release</option>
+              <option value="reject_commit">reject commit</option>
+              <option value="approve_commit">approve commit</option>
+              <option value="note">add note</option>
+            </select>
+          </label>
+          <label for="reviewNote">Review note
+            <textarea id="reviewNote"></textarea>
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="submitReview" class="secondary">Record Review</button>
+          <button id="refreshSession" class="secondary">Refresh Session</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Report Summary</h2>
+        <div class="row">
+          <article class="list-card">
+            <h3>Candidate Spectrum</h3>
+            <pre id="candidateSpectrum"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Claims And Evidence</h3>
+            <pre id="claimsEvidence"></pre>
+          </article>
+          <article class="list-card">
+            <h3>HOLD / RETRACT / Recovery</h3>
+            <pre id="holdsRecovery"></pre>
+          </article>
+        </div>
+        <div class="row">
+          <article class="list-card">
+            <h3>Associations / Scars</h3>
+            <pre id="associationsScars"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Action Proposal / Commit Proposal</h3>
+            <pre id="proposalState"></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Timeline</h2>
+        <div class="timeline" id="timeline" aria-live="polite"></div>
+      </section>
+    </section>
+  </main>
+
+  <div class="visually-hidden" aria-live="polite" id="announcer"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

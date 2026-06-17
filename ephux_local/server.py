@@ -1,3 +1,5 @@
+"""Compatibility entrypoint for ``python -m ephux_local.server``."""
+
 from python.ephux_local.service import main
 
 
