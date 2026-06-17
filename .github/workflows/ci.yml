@@ -1,10 +1,11 @@
-name: ci-non-deploying
+﻿name: ci-non-deploying
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   integrity:
@@ -53,3 +54,4 @@ jobs:
         run: |
           echo "CI is explicitly non-deploying. No Cloudflare, DNS, paid, or production steps present."
           echo "Deployment permissions: CONFIGURED AS FORBIDDEN"
+
