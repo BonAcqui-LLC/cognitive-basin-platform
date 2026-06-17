@@ -1,0 +1,27 @@
+{
+  "local_http_service": {
+    "loopback_bind": "ENFORCED",
+    "local_token": "ENFORCED",
+    "restricted_cors": "ENFORCED",
+    "request_size_limit": "ENFORCED",
+    "content_type_enforcement": "ENFORCED",
+    "safe_error_responses": "ENFORCED",
+    "secret_redaction_in_reports": "BEST EFFORT",
+    "arbitrary_filesystem_paths": "ENFORCED",
+    "production_security": "NOT PROVIDED"
+  },
+  "execution_guard": {
+    "separate_process": "ENFORCED",
+    "restricted_builtins": "ENFORCED",
+    "import_block": "ENFORCED",
+    "subprocess_block": "ENFORCED",
+    "network_block": "ENFORCED",
+    "filesystem_mutation_block": "ENFORCED",
+    "timeout": "BEST EFFORT",
+    "process_isolation": "UNSUPPORTED ON CURRENT PLATFORM"
+  },
+  "notes": [
+    "These controls describe the verified local-only EphUX and BasinLab baseline on 2026-06-17.",
+    "No production deployment or remote secret authority is included in this control inventory."
+  ]
+}

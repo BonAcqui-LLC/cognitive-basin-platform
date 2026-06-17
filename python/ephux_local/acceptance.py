@@ -87,7 +87,12 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, An
             results.append({"scenario": "report_path", "passed": status == 200 and report["html_path"].endswith(".html")})
 
             status, body = _request(base_url, config.token, "GET", f"/sessions/{restart_session}/report?format=html")
-            results.append({"scenario": "report_html", "passed": status == 200 and "EphUX" not in body and "<script>" not in body})
+            results.append(
+                {
+                    "scenario": "report_html",
+                    "passed": status == 200 and "<script>" not in body and restart_session in body,
+                }
+            )
 
             status, body = _request(base_url, config.token, "POST", "/activation", {"purpose": "Natural Math", "provider_preference": "vibethinker"})
             provider_state = json.loads(body)
