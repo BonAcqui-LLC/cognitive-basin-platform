@@ -25,7 +25,9 @@
     "PLACEHOLDER": [
       "packages/completion_integrity/guard.py",
       "ops/manifests/capability-registry.json",
-      "packages/contracts/capability_registry.py"
+      "packages/contracts/capability_registry.py",
+      ".github/workflows/ci.yml",
+      "ops/manifests/capability-states.md"
     ],
     "INSERT CODE": [
       "packages/completion_integrity/guard.py"
