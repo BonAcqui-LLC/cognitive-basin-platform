@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0-m1-foundation",
+  "last_updated": "2026-06-17",
+  "source": "cognitive-basin-platform bootstrap (M1)",
+  "capabilities": {
+    "ternary.epistemic": {
+      "required_evidence": ["source:evidence/legacy/contracts.py", "test:epistemic"],
+      "status": "SPECIFIED",
+      "notes": "SUPPORTED / UNRESOLVED / CONTRADICTED"
+    },
+    "ternary.action": {
+      "required_evidence": ["source:evidence/legacy/controller.py", "test:action", "controller:HOLD"],
+      "status": "SPECIFIED",
+      "notes": "EXTEND / HOLD / RETRACT with scars"
+    },
+    "completion_integrity.guard": {
+      "required_evidence": ["test:completion_integrity_acceptance", "source:packages/completion_integrity/guard.py"],
+      "status": "SPECIFIED",
+      "notes": "Must detect PLACEHOLDER, missing artifacts, failed commands, absent remote commits"
+    }
+  }
+}
