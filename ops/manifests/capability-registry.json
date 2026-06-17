@@ -1,7 +1,7 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "last_updated": "2026-06-17",
-  "source": "cognitive-basin-platform BasinLab persistence and memory tranche",
+  "source": "cognitive-basin-platform EphUX local integration tranche",
   "capabilities": {
     "ternary.epistemic": {
       "description": "SUPPORTED / UNRESOLVED / CONTRADICTED truth-state contract",
@@ -75,7 +75,7 @@
       "implementation_path": "python/basinlab/kernel/subprocess_kernel.py",
       "evidence_path": "tests/test_basinlab_vertical_slice.py",
       "test_path": "tests/test_basinlab_vertical_slice.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Process isolation is best effort and not a hardened security boundary."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -86,7 +86,7 @@
       "implementation_path": "python/basinlab/session.py",
       "evidence_path": "tests/test_basinlab_hardening.py",
       "test_path": "tests/test_basinlab_hardening.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Timeout enforcement depends on subprocess request timeouts rather than instruction-level preemption."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -97,7 +97,7 @@
       "implementation_path": "python/basinlab/session.py",
       "evidence_path": "tests/test_basinlab_hardening.py",
       "test_path": "tests/test_basinlab_hardening.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Large or non-serializable values are summarized instead of fully checkpointed."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -108,7 +108,7 @@
       "implementation_path": "python/basinlab/session.py",
       "evidence_path": "tests/test_basinlab_hardening.py",
       "test_path": "tests/test_basinlab_hardening.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Checkpoint authority remains subordinate to event replay and hash verification."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -119,7 +119,7 @@
       "implementation_path": "python/basinlab/store.py",
       "evidence_path": "tests/test_basinlab_persistence_store.py",
       "test_path": "tests/test_basinlab_persistence_store.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Single-host local SQLite backend only; no distributed coordination or encryption layer."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -130,7 +130,7 @@
       "implementation_path": "python/basinlab/session.py",
       "evidence_path": "tests/test_basinlab_vertical_slice.py",
       "test_path": "tests/test_basinlab_vertical_slice.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Produces governed decisions only; it does not perform git commits by itself."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -141,7 +141,7 @@
       "implementation_path": "python/basinlab/session.py",
       "evidence_path": "tests/test_basinlab_persistence_store.py",
       "test_path": "tests/test_basinlab_persistence_store.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Non-action sessions replay final governed reports rather than executable namespace state."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -152,7 +152,7 @@
       "implementation_path": "python/basinlab/spectrum.py",
       "evidence_path": "tests/test_basinlab_spectrum.py",
       "test_path": "tests/test_basinlab_spectrum.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Current providers are deterministic local fixtures only."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -163,7 +163,7 @@
       "implementation_path": "python/basinlab/spectrum.py",
       "evidence_path": "tests/test_basinlab_spectrum.py",
       "test_path": "tests/test_basinlab_spectrum.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Deduplication remains text- and approach-driven rather than embedding-based."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -174,7 +174,7 @@
       "implementation_path": "python/basinlab/reliability.py",
       "evidence_path": "tests/test_basinlab_spectrum.py",
       "test_path": "tests/test_basinlab_spectrum.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Evidence inputs are deterministic fixtures rather than live retrieval outputs."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -185,7 +185,7 @@
       "implementation_path": "python/basinlab/reliability.py",
       "evidence_path": "tests/test_basinlab_spectrum.py",
       "test_path": "tests/test_basinlab_spectrum.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Operates only on provided claims; no automatic contradiction discovery yet."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -196,7 +196,7 @@
       "implementation_path": "python/basinlab/reliability.py",
       "evidence_path": "tests/test_basinlab_spectrum.py",
       "test_path": "tests/test_basinlab_spectrum.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Criticality is currently scenario-declared, not inferred."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -207,7 +207,7 @@
       "implementation_path": "python/basinlab/scars.py",
       "evidence_path": "tests/test_basinlab_governance_memory.py",
       "test_path": "tests/test_basinlab_governance_memory.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Scars are local data structures; no cross-session merge policy yet."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -218,7 +218,7 @@
       "implementation_path": "python/basinlab/recovery.py",
       "evidence_path": "tests/test_basinlab_governance_memory.py",
       "test_path": "tests/test_basinlab_governance_memory.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Recovery remains deterministic and local rather than human-workflow integrated."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -229,7 +229,7 @@
       "implementation_path": "python/basinlab/associations.py",
       "evidence_path": "tests/test_basinlab_governance_memory.py",
       "test_path": "tests/test_basinlab_governance_memory.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Association graph remains in-memory and deterministic."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -240,7 +240,7 @@
       "implementation_path": "python/basinlab/compression.py",
       "evidence_path": "tests/test_basinlab_compression.py",
       "test_path": "tests/test_basinlab_compression.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Compression criteria are caller-supplied and deterministic."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -251,7 +251,7 @@
       "implementation_path": "python/basinlab/natural_math.py",
       "evidence_path": "tests/test_basinlab_natural_math.py",
       "test_path": "tests/test_basinlab_natural_math.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Local process states remain separate from Cognitive Basin action enums by convention and code location."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -262,7 +262,7 @@
       "implementation_path": "python/basinlab/cli/main.py",
       "evidence_path": "tests/test_basinlab_acceptance.py",
       "test_path": "tests/test_basinlab_acceptance.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Local filesystem session store only; no remote connector integration."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -273,7 +273,7 @@
       "implementation_path": "python/basinlab/acceptance.py",
       "evidence_path": "tests/test_basinlab_acceptance.py",
       "test_path": "tests/test_basinlab_acceptance.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Deterministic local demonstrations only; no live model or deploy authority."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -284,7 +284,7 @@
       "implementation_path": "python/basinlab/reports.py",
       "evidence_path": "tests/test_basinlab_reports.py",
       "test_path": "tests/test_basinlab_reports.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Reports are static local artifacts and do not embed interactive remote assets."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -295,7 +295,7 @@
       "implementation_path": "python/basinlab/providers.py",
       "evidence_path": "docs/basinlab_clean_room_note.md",
       "test_path": "tests/test_basinlab_acceptance.py",
-      "states": ["IMPLEMENTED_AS_ADAPTER", "UNIT TESTED", "LIVE MODEL UNAVAILABLE", "NO_TOOL_AUTHORITY"],
+      "states": ["IMPLEMENTED_AS_ADAPTER", "TESTED", "LIVE MODEL UNAVAILABLE", "NO_TOOL_AUTHORITY"],
       "limitations": ["No downloaded weights, no live inference, no execution authority, and no commit authority."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -306,7 +306,7 @@
       "implementation_path": "python/basinlab/stabilization.py",
       "evidence_path": "tests/test_basinlab_memory_layers.py",
       "test_path": "tests/test_basinlab_memory_layers.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Current tranche provides deterministic primitives, not a full pipeline integration yet."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -317,7 +317,7 @@
       "implementation_path": "python/basinlab/hold.py",
       "evidence_path": "tests/test_basinlab_memory_layers.py",
       "test_path": "tests/test_basinlab_memory_layers.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Current release tracks HOLD fog records but does not yet auto-attach them to every BasinLab session."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -328,7 +328,7 @@
       "implementation_path": "python/basinlab/memory_map.py",
       "evidence_path": "tests/test_basinlab_memory_layers.py",
       "test_path": "tests/test_basinlab_memory_layers.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["In-memory local structure only; no persisted cross-session index yet."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
@@ -339,8 +339,63 @@
       "implementation_path": "python/basinlab/team_narrative.py",
       "evidence_path": "tests/test_basinlab_memory_layers.py",
       "test_path": "tests/test_basinlab_memory_layers.py",
-      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Current tranche stores continuity records locally and does not yet merge them with persisted session replay."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.service.loopback": {
+      "description": "Loopback-only local HTTP service exposing BasinLab-backed EphUX endpoints and local UI",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Restricted to local loopback use and development-only security controls; no production deployment posture."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.guardian.intake": {
+      "description": "Guardian Intake endpoint with bounded uploads, duplicate detection, redaction, and hold/reject routing",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Sanitization and conflict checks are deterministic local heuristics rather than a full remote moderation stack."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.activation": {
+      "description": "Local activation flow that anchors purpose, routes provider preference, and emits governed next-step state",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Unavailable providers are reported as limitations; only scripted local execution is guaranteed in this tranche."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.extension.dev": {
+      "description": "Development browser-extension scaffold for local Guardian Intake selection handoff and activation",
+      "required_evidence": ["source:apps/ephux-extension-dev/manifest.json", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "apps/ephux-extension-dev",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Development scaffold only; not packaged for store distribution and not intended for production browsing contexts."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.acceptance": {
+      "description": "End-to-end local acceptance runner for intake, activation, replay, reporting, and provider limitation behavior",
+      "required_evidence": ["source:python/ephux_local/acceptance.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/acceptance.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Exercises the local service path only; it does not verify remote deployment, cloud auth, or external browser-store packaging."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
     }
