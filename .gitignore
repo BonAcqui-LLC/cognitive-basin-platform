@@ -1,0 +1,79 @@
+﻿# cognitive-basin-platform .gitignore
+# Created as part of pre-push security gate
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Build / dist
+dist/
+build/
+*.egg-info/
+.next/
+out/
+
+# Cloudflare / Wrangler / deployment
+.wrangler/
+.dev.vars
+wrangler.toml.bak
+.mf/
+
+# Environment & secrets (strictly excluded)
+.env
+.env.*
+*.env
+.envrc
+.env.local
+.dev.vars
+*.pem
+*.key
+*secret*
+*token*
+*credential*
+gho_*
+sk-*
+xai-*
+ALL_TOKENS_KEYS_FOR_GROK.txt
+mcp_credentials.json
+auth.json
+*.p12
+*.pfx
+
+# Logs & temp
+logs/
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
+
+# IDE / OS
+.idea/
+.vscode/
+*.sublime-*
+.history/
+
+# Test / coverage
+coverage/
+.nyc_output/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Large binaries / media we do not want in repo
+*.zip
+*.tar.gz
+*.mp4
+*.mov
+*.iso
+
+# Recovery evidence (never import whole recovery tree)
+recovery/
+Cognitive-Basin-Recovery*/
+
+# Placeholder for intentionally empty but reserved dirs (see docs/structure.md)
+# .gitkeep is used only for reserved dirs and marked SPECIFIED
