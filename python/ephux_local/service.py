@@ -722,18 +722,18 @@ class EphuxLocalService:
     <div class="grid">
       <section class="card">
         <h2>Start Session</h2>
-        <label>Purpose<input id="purpose" placeholder="What is this session trying to do?"></label>
+        <label>Purpose<input id="purpose"></label>
         <button onclick="startSession()">Create Session</button>
       </section>
       <section class="card">
         <h2>Guardian Intake</h2>
         <label>Session ID<input id="intake-session"></label>
-        <label>Text<textarea id="intake-text" rows="8" placeholder="Paste intake text here"></textarea></label>
+        <label>Text<textarea id="intake-text" rows="8"></textarea></label>
         <button onclick="sendIntake()">Submit Intake</button>
       </section>
       <section class="card">
         <h2>Activation</h2>
-        <label>Purpose<input id="activation-purpose" placeholder="Activation purpose"></label>
+        <label>Purpose<input id="activation-purpose"></label>
         <button onclick="activate()">Start Activation</button>
       </section>
     </div>
@@ -746,9 +746,9 @@ class EphuxLocalService:
       </section>
       <section class="card">
         <h2>Evidence / Contradictions</h2>
-        <label>Evidence<textarea id="evidence-text" rows="5" placeholder="Add evidence detail"></textarea></label>
+        <label>Evidence<textarea id="evidence-text" rows="5"></textarea></label>
         <button onclick="submitEvidence()">Submit Evidence</button>
-        <label>Claim<textarea id="claim-text" rows="5" placeholder="Add a claim or contradiction"></textarea></label>
+        <label>Claim<textarea id="claim-text" rows="5"></textarea></label>
         <button onclick="submitClaim()">Submit Claim</button>
       </section>
     </div>
