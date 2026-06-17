@@ -95,6 +95,7 @@ class ActionFeedback:
     namespace_diff: NamespaceDiff = field(default_factory=NamespaceDiff)
     namespace_summary: Dict[str, NamespaceVariableSummary] = field(default_factory=dict)
     worker_recovered: bool = False
+    runner_receipt: Dict[str, Any] = field(default_factory=dict)
 
     def to_record(self) -> Dict[str, Any]:
         return {
@@ -114,6 +115,7 @@ class ActionFeedback:
                 name: summary.to_record() for name, summary in self.namespace_summary.items()
             },
             "worker_recovered": self.worker_recovered,
+            "runner_receipt": dict(self.runner_receipt),
         }
 
 

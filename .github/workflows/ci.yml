@@ -79,6 +79,23 @@ jobs:
       - name: Replay equality
         run: python -m pytest tests/test_cognitive_basin_scenarios.py -q --tb=no -k "EVENT_REPLAY"
 
+      - name: BasinLab provider and sandbox tranche tests
+        run: |
+          python -m pytest tests/test_basinlab_hardening.py tests/test_basinlab_spectrum.py tests/test_provider_lab_acceptance.py tests/test_sandbox_lab_acceptance.py -q --tb=no
+          echo "Provider and sandbox tranche tests: PASS"
+
+      - name: Deterministic BasinLab acceptance
+        run: python -m basinlab.acceptance --all
+
+      - name: Deterministic EphUX acceptance
+        run: python -m ephux_local.acceptance --all
+
+      - name: Deterministic provider lab acceptance
+        run: python -m provider_lab.acceptance --all
+
+      - name: Deterministic sandbox lab acceptance
+        run: python -m sandbox_lab.acceptance --all
+
       - name: Capability registry validation
         run: |
           python -c "

@@ -91,4 +91,6 @@ def test_cli_capabilities_and_providers_json():
     assert providers.returncode == 0
     assert "persistent_composition" in json.loads(caps.stdout)["scenarios"]
     assert "completion_integrity.guard" in json.loads(caps.stdout)["registry_entries"]
-    assert any(item["name"] == "vibethinker" for item in json.loads(providers.stdout))
+    provider_payload = json.loads(providers.stdout)
+    assert any(item["name"] == "vibethinker" for item in provider_payload["providers"])
+    assert "local_model_inventory" in provider_payload

@@ -9,8 +9,17 @@ import json
 from pathlib import Path
 
 from packages.contracts.capability_registry import load_registry
+from python.provider_lab import local_model_inventory, provider_inventory
 from ..demos import SCENARIOS, run_all_scenarios, run_scenario
-from ..providers import CompactReasonerProvider, GeneralistProvider, OpenAICompatibleProvider, VibeThinkerProvider
+from ..providers import (
+    AnthropicCompatibleProvider,
+    CompactReasonerProvider,
+    GeneralistProvider,
+    OpenAICompatibleProvider,
+    QwenCompatibleProvider,
+    ScriptedProvider,
+    VibeThinkerProvider,
+)
 from ..session import default_store_path, inspect_persisted_session, replay_persisted_session
 from ..store import SessionStore
 
@@ -93,9 +102,12 @@ def main() -> int:
         return 0
     if args.command == "providers":
         providers = [
+            ScriptedProvider(),
             GeneralistProvider(),
             CompactReasonerProvider(),
             OpenAICompatibleProvider(),
+            AnthropicCompatibleProvider(),
+            QwenCompatibleProvider(),
             VibeThinkerProvider(),
         ]
         payload = [
@@ -107,7 +119,7 @@ def main() -> int:
             }
             for provider in providers
         ]
-        _print(payload, args.json)
+        _print({"providers": payload, "inventory": provider_inventory(), "local_model_inventory": local_model_inventory()}, args.json)
         return 0
     return 1
 

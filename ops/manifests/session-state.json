@@ -1,28 +1,33 @@
 {
-  "timestamp": "2026-06-17T15:55:00-04:00",
-  "active_phase": "phase1_product_surface_slice_implemented",
+  "timestamp": "2026-06-17T17:03:00-04:00",
+  "active_phase": "phase2_provider_sandbox_slice_implemented",
   "canonical_repository": "C:\\Users\\moop\\cognitive-basin-platform",
-  "active_worktree": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\ephux-product-surface-codex",
-  "active_branch": "build/ephux-product-surface-codex",
-  "verified_main_sha": "114a2c1f84296c3d0db009b6f984ee9e49d2695d",
-  "verified_main_ci_run": 27713166589,
+  "active_worktree": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\provider-sandbox-codex",
+  "active_branch": "build/provider-sandbox-codex",
+  "verified_main_sha": "ab8714eb0120859a1c5d30f0e2f1a197da76aca8",
+  "verified_main_ci_run": 27717532798,
   "verified_main_ci_workflow": "ci-non-deploying",
   "worktree_classification": {
     "canonical_main": "intentional_worktree",
     "basinlab_persistence_memory": "intentional_worktree",
     "ephux_local_integration": "intentional_worktree",
-    "ephux_product_surface": "intentional_worktree"
+    "ephux_product_surface": "intentional_worktree",
+    "provider_sandbox": "intentional_worktree"
   },
   "baseline_verification": {
-    "repo_tests_passed": 112,
+    "repo_tests_passed": 118,
     "repo_tests_failed": 0,
     "ephux_acceptance_scenarios_passed": 12,
     "ephux_acceptance_scenarios_total": 12,
+    "provider_acceptance_scenarios_passed": 7,
+    "provider_acceptance_scenarios_total": 7,
+    "sandbox_acceptance_scenarios_passed": 19,
+    "sandbox_acceptance_scenarios_total": 19,
     "required_routes_verified": 14
   },
   "browser_verification": {
     "local_session_created_via_ui": true,
     "mobile_viewport_checked": true
   },
-  "audit_root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\phase0-main-audit-114a2c1"
+  "audit_root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\ephux-product-main-audit-ab8714e"
 }
