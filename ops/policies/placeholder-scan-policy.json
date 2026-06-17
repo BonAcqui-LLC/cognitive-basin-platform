@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "prohibited": [
+    "PLACEHOLDER", "INSERT CODE", "ADD CODE HERE", "FULL CODE HERE",
+    "IMPLEMENT LATER", "MOCK SUCCESS", "SIMULATED SUCCESS", "TODO", "TBD"
+  ],
+  "authorized": {
+    "PLACEHOLDER": [
+      "tests/test_completion_integrity_acceptance.py",
+      "packages/completion_integrity/guard.py",
+      ".github/workflows/ci.yml",
+      "ops/manifests/capability-registry.json",
+      "ops/verification/**/*.txt",
+      "ops/verification/**/*.json",
+      "packages/contracts/capability_registry.py",
+      "ops/verification/remote-verification-2026-06-17.txt"
+    ],
+    "INSERT CODE": [
+      "packages/completion_integrity/guard.py"
+    ],
+    "ADD CODE HERE": [
+      "packages/completion_integrity/guard.py"
+    ],
+    "FULL CODE HERE": [
+      "packages/completion_integrity/guard.py"
+    ],
+    "IMPLEMENT LATER": [
+      "packages/completion_integrity/guard.py",
+      "tests/test_completion_integrity_acceptance.py",
+      "tests/test_cognitive_basin_scenarios.py"
+    ],
+    "MOCK SUCCESS": [
+      "packages/completion_integrity/guard.py"
+    ],
+    "SIMULATED SUCCESS": [
+      "packages/completion_integrity/guard.py"
+    ],
+    "TODO": [
+      "docs/DECISIONS.md",
+      "evidence/legacy/*.py:comment or header",
+      "ops/verification/**/*.txt",
+      "ops/verification/**/*.json",
+      "packages/completion_integrity/guard.py"
+    ],
+    "TBD": [
+      "packages/completion_integrity/guard.py"
+    ]
+  },
+  "scopes": {
+    "implementation": ["packages/**"],
+    "tests": ["tests/**"],
+    "evidence": ["evidence/**", "ops/verification/**"],
+    "docs": ["docs/**"],
+    "ci": [".github/workflows/**"]
+  },
+  "rules": {
+    "default": "deny",
+    "require_explicit_scope_for_new_files": true,
+    "fail_closed_on_unknown_scope": true
+  }
+}
