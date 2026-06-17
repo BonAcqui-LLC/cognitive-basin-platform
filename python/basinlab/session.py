@@ -32,6 +32,7 @@ from .contracts import (
 from .kernel import SubprocessKernel
 from .kernel.subprocess_kernel import KernelCrashedError, KernelProtocolError
 from .sandbox import inspect_action_code
+from .store import SessionStore
 
 
 def _summary_objects(summary: Dict[str, Dict[str, Any]]) -> Dict[str, NamespaceVariableSummary]:
@@ -65,6 +66,11 @@ def encode_bindings(bindings: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     return encoded
 
 
+def default_store_path(root: str | Path | None = None) -> Path:
+    base = Path(root) if root else Path.cwd()
+    return base / ".basinlab_store"
+
+
 def _state_from_outcome(feedback: ActionFeedback) -> BasinGovernanceState:
     if feedback.rejected:
         return BasinGovernanceState(
@@ -90,7 +96,16 @@ def _state_from_outcome(feedback: ActionFeedback) -> BasinGovernanceState:
 
 
 class BasinLabSession:
-    def __init__(self, step_budget: int = 32, time_budget_s: float = 120.0) -> None:
+    def __init__(
+        self,
+        step_budget: int = 32,
+        time_budget_s: float = 120.0,
+        *,
+        store: SessionStore | None = None,
+        session_id: str | None = None,
+        session_metadata: Optional[Dict[str, Any]] = None,
+        resume_existing: bool = False,
+    ) -> None:
         self.kernel = SubprocessKernel()
         self.events: List[Dict[str, Any]] = []
         self.last_basin = BasinGovernanceState(
@@ -108,6 +123,16 @@ class BasinLabSession:
         self._step_ids: set[str] = set()
         self._committed_parent_ids: set[str] = set()
         self._last_checkpoint = CheckpointRecord()
+        self.store = store
+        self.session_id = session_id
+        self.session_metadata = dict(session_metadata or {})
+        self._resume_existing = resume_existing
+
+    @classmethod
+    def resume_from_store(cls, store: SessionStore, session_id: str) -> "BasinLabSession":
+        session = cls(store=store, session_id=session_id, resume_existing=True)
+        session.start()
+        return session
 
     def __enter__(self) -> "BasinLabSession":
         self.start()
@@ -122,6 +147,33 @@ class BasinLabSession:
         self._latest_event_id = event_id
         return event_id
 
+    def _rebuild_indices(self) -> None:
+        highest = 0
+        for event in self.events:
+            event_id = event.get("event_id", "")
+            if "-" in event_id:
+                suffix = event_id.rsplit("-", 1)[-1]
+                if suffix.isdigit():
+                    highest = max(highest, int(suffix))
+            if event.get("type") == "action":
+                result = event["result"]
+                self._step_ids.add(result["proposal"]["step_id"])
+                self._latest_action_event_id = event_id
+                self.last_basin = BasinGovernanceState(
+                    epistemic=EpistemicState(result["basin"]["epistemic"]),
+                    action=ActionState(result["basin"]["action"]),
+                    provisional=result["basin"]["provisional"],
+                    reason=result["basin"]["reason"],
+                )
+            elif event.get("type") == "commit":
+                decision = event["decision"]
+                if decision["allowed"]:
+                    parent_event_id = event.get("parent_event_id") or ""
+                    self._committed_parent_ids.add(parent_event_id)
+        self._next_event_index = highest + 1
+        if self.events:
+            self._latest_event_id = self.events[-1].get("event_id")
+
     def _steps_remaining(self) -> int:
         return max(0, self.step_budget - len(self._step_ids))
 
@@ -130,24 +182,65 @@ class BasinLabSession:
             return self.time_budget_s
         return self.time_budget_s - (time.time() - self.started_at)
 
+    def _persist_event(
+        self,
+        event: Dict[str, Any],
+        *,
+        snapshot: Optional[Dict[str, Dict[str, Any]]] = None,
+        basin: Optional[BasinGovernanceState] = None,
+    ) -> None:
+        if self.store is None or self.session_id is None:
+            return
+        self.store.append_event(
+            self.session_id,
+            event,
+            snapshot=snapshot,
+            final_basin=basin.to_record() if basin is not None else None,
+        )
+
     def start(self) -> None:
+        if self.store is not None and self._resume_existing:
+            if self.session_id is None or not self.store.session_exists(self.session_id):
+                raise ValueError("Cannot resume BasinLab session without an existing session ID")
+            self.kernel.start()
+            self.started_at = time.time()
+            self.events = self.store.read_events(self.session_id)
+            self._rebuild_indices()
+            latest_snapshot = self.store.latest_snapshot(self.session_id)
+            if latest_snapshot["snapshot"]:
+                self.kernel.restore(latest_snapshot["snapshot"])
+                namespace_summary = _summary_objects(self.kernel.inspect_namespace())
+                self._last_checkpoint = CheckpointRecord(
+                    snapshot=latest_snapshot["snapshot"],
+                    namespace_summary=namespace_summary,
+                    snapshot_hash=latest_snapshot["snapshot_hash"],
+                )
+            return
+
         self.kernel.start()
         self.started_at = time.time()
-        event_id = self._new_event_id("session")
-        self.events.append(
-            {
-                "type": "session_started",
-                "event_id": event_id,
-                "timestamp": time.time(),
-                "pid": self.kernel.pid,
+        if self.store is not None and self.session_id is None:
+            metadata = {
+                "step_budget": self.step_budget,
+                "time_budget_s": self.time_budget_s,
+                **self.session_metadata,
             }
-        )
+            self.session_id = self.store.create_session(metadata)
+        event_id = self._new_event_id("session")
+        event = {
+            "type": "session_started",
+            "event_id": event_id,
+            "timestamp": time.time(),
+            "pid": self.kernel.pid,
+        }
+        self.events.append(event)
         snapshot = self.kernel.snapshot_with_summary()
         self._last_checkpoint = CheckpointRecord(
             snapshot=snapshot.get("snapshot", {}),
             namespace_summary=_summary_objects(snapshot.get("namespace_summary", {})),
             snapshot_hash=checkpoint_hash(snapshot.get("snapshot", {})),
         )
+        self._persist_event(event, snapshot=self._last_checkpoint.snapshot, basin=self.last_basin)
 
     def close(self) -> None:
         self.kernel.close()
@@ -309,15 +402,15 @@ class BasinLabSession:
         )
         self.last_basin = basin
         self._latest_action_event_id = event_id
-        self.events.append(
-            {
-                "type": "action",
-                "event_id": event_id,
-                "parent_event_id": proposal.parent_event_id,
-                "timestamp": time.time(),
-                "result": result.to_record(),
-            }
-        )
+        event = {
+            "type": "action",
+            "event_id": event_id,
+            "parent_event_id": proposal.parent_event_id,
+            "timestamp": time.time(),
+            "result": result.to_record(),
+        }
+        self.events.append(event)
+        self._persist_event(event, snapshot=checkpoint.snapshot, basin=basin)
         return result
 
     def inspect_namespace(self) -> Dict[str, NamespaceVariableSummary]:
@@ -332,6 +425,14 @@ class BasinLabSession:
             namespace_summary=_summary_objects(snapshot.get("namespace_summary", {})),
             snapshot_hash=checkpoint_hash(snapshot.get("snapshot", {})),
         )
+        event = {
+            "type": "bindings_loaded",
+            "event_id": self._new_event_id("bindings"),
+            "timestamp": time.time(),
+            "binding_names": sorted(bindings),
+        }
+        self.events.append(event)
+        self._persist_event(event, snapshot=self._last_checkpoint.snapshot, basin=self.last_basin)
 
     def materialize_namespace(self) -> Dict[str, Any]:
         return decode_snapshot(self._last_checkpoint.snapshot)
@@ -405,15 +506,23 @@ class BasinLabSession:
             basin=basin,
             sera_event=sera_event,
         )
-        self.events.append(
-            {
-                "type": "commit",
-                "event_id": event_id,
-                "parent_event_id": parent_event_id,
-                "timestamp": time.time(),
-                "decision": decision.to_record(),
-            }
-        )
+        event = {
+            "type": "commit",
+            "event_id": event_id,
+            "parent_event_id": parent_event_id,
+            "timestamp": time.time(),
+            "decision": decision.to_record(),
+        }
+        self.events.append(event)
+        self._persist_event(event, basin=basin)
+        if self.store is not None and self.session_id is not None:
+            for artifact_path in proposal.artifact_paths:
+                self.store.register_artifact(
+                    self.session_id,
+                    artifact_path,
+                    event_id=event_id,
+                    artifact_type="commit_evidence",
+                )
         return decision
 
     def export_events(self) -> List[Dict[str, Any]]:
@@ -430,6 +539,7 @@ def replay_governed_session(events: List[Dict[str, Any]]) -> Dict[str, Any]:
     namespace: Dict[str, Any] = {}
     last_commit: Dict[str, Any] | None = None
     errors: List[str] = []
+    report: Dict[str, Any] | None = None
 
     for event in events:
         if event.get("type") == "action":
@@ -449,6 +559,22 @@ def replay_governed_session(events: List[Dict[str, Any]]) -> Dict[str, Any]:
             namespace = decode_snapshot(snapshot)
         elif event.get("type") == "commit":
             last_commit = event["decision"]
+            basin = BasinGovernanceState(
+                epistemic=EpistemicState(event["decision"]["basin"]["epistemic"]),
+                action=ActionState(event["decision"]["basin"]["action"]),
+                provisional=event["decision"]["basin"]["provisional"],
+                reason=event["decision"]["basin"]["reason"],
+            )
+        elif event.get("type") == "trajectory_report":
+            report = event["report"]
+            final_basin = report.get("final_basin_state", {})
+            if final_basin:
+                basin = BasinGovernanceState(
+                    epistemic=EpistemicState(final_basin["epistemic"]),
+                    action=ActionState(final_basin["action"]),
+                    provisional=final_basin["provisional"],
+                    reason=final_basin.get("reason", ""),
+                )
 
     return {
         "basin": basin,
@@ -456,11 +582,33 @@ def replay_governed_session(events: List[Dict[str, Any]]) -> Dict[str, Any]:
         "last_commit": last_commit,
         "events": list(events),
         "errors": errors,
+        "report": report,
     }
 
 
-def run_vertical_slice_demo() -> Dict[str, Any]:
-    with BasinLabSession() as session:
+def replay_persisted_session(store: SessionStore, session_id: str) -> Dict[str, Any]:
+    replay = replay_governed_session(store.read_events(session_id))
+    replay["replay_hash"] = store.record_replay_hash(
+        session_id,
+        {
+            "basin": replay["basin"].to_record(),
+            "namespace_keys": sorted(replay["namespace"]),
+            "errors": replay["errors"],
+            "last_commit": replay["last_commit"],
+        },
+    )
+    return replay
+
+
+def inspect_persisted_session(store: SessionStore, session_id: str) -> Dict[str, Any]:
+    inspection = store.inspect_session(session_id)
+    inspection["snapshot"] = store.latest_snapshot(session_id)
+    return inspection
+
+
+def run_vertical_slice_demo(store_dir: str | Path | None = None) -> Dict[str, Any]:
+    store = SessionStore(store_dir or default_store_path()) if store_dir else None
+    with BasinLabSession(store=store, session_metadata={"scenario": "vertical_slice"}) as session:
         initial_pid = session.kernel.pid
         first = session.execute_action(
             ActionProposal(
@@ -512,6 +660,7 @@ def run_vertical_slice_demo() -> Dict[str, Any]:
 
         replay = replay_governed_session(session.export_events())
         return {
+            "session_id": session.session_id,
             "initial_pid": initial_pid,
             "final_pid": session.kernel.pid,
             "first": first.to_record(),
@@ -522,6 +671,7 @@ def run_vertical_slice_demo() -> Dict[str, Any]:
             "replay": {
                 "basin": replay["basin"].to_record(),
                 "namespace": replay["namespace"],
+                "last_commit": replay["last_commit"],
                 "errors": replay["errors"],
             },
         }

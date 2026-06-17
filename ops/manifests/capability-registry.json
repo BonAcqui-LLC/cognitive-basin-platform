@@ -1,71 +1,348 @@
 {
-  "version": "0.1.0-m1-foundation",
+  "version": "0.2.0",
   "last_updated": "2026-06-17",
-  "source": "cognitive-basin-platform bootstrap (M1)",
+  "source": "cognitive-basin-platform BasinLab persistence and memory tranche",
   "capabilities": {
     "ternary.epistemic": {
-      "required_evidence": ["source:evidence/legacy/contracts.py", "test:epistemic"],
-      "status": "SPECIFIED",
-      "notes": "SUPPORTED / UNRESOLVED / CONTRADICTED"
+      "description": "SUPPORTED / UNRESOLVED / CONTRADICTED truth-state contract",
+      "required_evidence": ["source:packages/ternary/states.py", "test:tests/test_cognitive_basin_scenarios.py"],
+      "implementation_path": "packages/ternary/states.py",
+      "evidence_path": "tests/test_cognitive_basin_scenarios.py",
+      "test_path": "tests/test_cognitive_basin_scenarios.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Heuristic evidence weighting remains provisional in the legacy pipeline module."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "ternary.action": {
-      "required_evidence": ["source:evidence/legacy/controller.py", "test:action", "controller:HOLD"],
-      "status": "SPECIFIED",
-      "notes": "EXTEND / HOLD / RETRACT with scars"
+      "description": "EXTEND / HOLD / RETRACT action-state contract",
+      "required_evidence": ["source:packages/ternary/states.py", "test:tests/test_cognitive_basin_scenarios.py"],
+      "implementation_path": "packages/ternary/states.py",
+      "evidence_path": "tests/test_cognitive_basin_scenarios.py",
+      "test_path": "tests/test_cognitive_basin_scenarios.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Legacy pipeline routing is still intentionally minimal."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "completion_integrity.guard": {
-      "required_evidence": ["test:completion_integrity_acceptance", "source:packages/completion_integrity/guard.py"],
-      "status": "SPECIFIED",
-      "notes": "Must detect PLACEHOLDER, missing artifacts, failed commands, absent remote commits"
-    },
-    "deployment.verify": {
-      "required_evidence": ["deployment_artifact", "remote_deploy_evidence"],
-      "status": "SPECIFIED",
-      "notes": "Deployment verified claim requires deployment evidence file; local-only evidence insufficient"
-    },
-    "sanitization.complete": {
-      "required_evidence": ["sanitization_report"],
-      "status": "SPECIFIED",
-      "notes": "Sanitization completed claim requires matching evidence artifact"
-    },
-    "backup.restore": {
-      "required_evidence": ["restore_test_artifact"],
-      "status": "SPECIFIED",
-      "notes": "Backup restorable claim requires restoration test evidence"
+      "description": "Completion Integrity Guard for artifact reopening, placeholder detection, and claim-evidence checks",
+      "required_evidence": ["source:packages/completion_integrity/guard.py", "test:tests/test_completion_integrity_acceptance.py"],
+      "implementation_path": "packages/completion_integrity/guard.py",
+      "evidence_path": "tests/test_completion_integrity_acceptance.py",
+      "test_path": "tests/test_completion_integrity_acceptance.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Remote commit verification remains outside the local BasinLab session store."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "tests.unit": {
+      "description": "Local unit-test evidence claim recognized by Completion Integrity",
       "required_evidence": ["test_source", "test_report"],
-      "status": "SPECIFIED",
-      "notes": "Unit tests passed allowed only with local/tested scope (tests/ or local/ evidence)"
+      "implementation_path": "packages/completion_integrity/guard.py",
+      "evidence_path": "tests/test_completion_integrity_acceptance.py",
+      "test_path": "tests/test_completion_integrity_acceptance.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Maps evidence heuristically from artifact paths rather than structured test manifests."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "deployment.verify": {
+      "description": "Deployment-verified claim gating",
+      "required_evidence": ["deployment_artifact", "remote_deploy_evidence"],
+      "implementation_path": "packages/completion_integrity/guard.py",
+      "evidence_path": "tests/test_completion_integrity_acceptance.py",
+      "test_path": "tests/test_completion_integrity_acceptance.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["No deploy authority or remote deployment integration is active in this tranche."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "production.operational": {
+      "description": "Production operational claim gating",
       "required_evidence": ["production_monitor", "staging_plus_prod"],
-      "status": "SPECIFIED",
-      "notes": "Production operational claim requires prod evidence; local-only blocks"
+      "implementation_path": "packages/completion_integrity/guard.py",
+      "evidence_path": "tests/test_completion_integrity_acceptance.py",
+      "test_path": "tests/test_completion_integrity_acceptance.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["No production runtime is contacted or claimed by BasinLab acceptance."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "basinlab.kernel.persistence": {
-      "required_evidence": [
-        "source:python/basinlab/kernel/subprocess_kernel.py",
-        "test:test_basinlab_vertical_slice"
-      ],
-      "status": "SPECIFIED",
-      "notes": "Persistent execution backend with retained namespace, snapshot, restore, and reset"
+      "description": "Persistent subprocess execution backend with namespace retention",
+      "required_evidence": ["source:python/basinlab/kernel/subprocess_kernel.py", "test:tests/test_basinlab_vertical_slice.py"],
+      "implementation_path": "python/basinlab/kernel/subprocess_kernel.py",
+      "evidence_path": "tests/test_basinlab_vertical_slice.py",
+      "test_path": "tests/test_basinlab_vertical_slice.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Process isolation is best effort and not a hardened security boundary."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.execution.timeout": {
+      "description": "Bounded execution timeout and checkpoint-preserving recovery",
+      "required_evidence": ["source:python/basinlab/session.py", "test:tests/test_basinlab_hardening.py"],
+      "implementation_path": "python/basinlab/session.py",
+      "evidence_path": "tests/test_basinlab_hardening.py",
+      "test_path": "tests/test_basinlab_hardening.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Timeout enforcement depends on subprocess request timeouts rather than instruction-level preemption."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.namespace.inspection": {
+      "description": "Namespace summary, diff, and serialization-aware inspection",
+      "required_evidence": ["source:python/basinlab/session.py", "test:tests/test_basinlab_hardening.py"],
+      "implementation_path": "python/basinlab/session.py",
+      "evidence_path": "tests/test_basinlab_hardening.py",
+      "test_path": "tests/test_basinlab_hardening.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Large or non-serializable values are summarized instead of fully checkpointed."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.checkpoint.restore": {
+      "description": "Checkpoint snapshotting and restore into a fresh subprocess",
+      "required_evidence": ["source:python/basinlab/session.py", "test:tests/test_basinlab_hardening.py"],
+      "implementation_path": "python/basinlab/session.py",
+      "evidence_path": "tests/test_basinlab_hardening.py",
+      "test_path": "tests/test_basinlab_hardening.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Checkpoint authority remains subordinate to event replay and hash verification."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.session.persistence": {
+      "description": "SQLite-backed persisted session metadata, events, snapshots, artifacts, and replay hashes",
+      "required_evidence": ["source:python/basinlab/store.py", "test:tests/test_basinlab_persistence_store.py"],
+      "implementation_path": "python/basinlab/store.py",
+      "evidence_path": "tests/test_basinlab_persistence_store.py",
+      "test_path": "tests/test_basinlab_persistence_store.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Single-host local SQLite backend only; no distributed coordination or encryption layer."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "basinlab.commit.proposal": {
-      "required_evidence": [
-        "source:python/basinlab/session.py",
-        "test:test_basinlab_vertical_slice"
-      ],
-      "status": "SPECIFIED",
-      "notes": "Governed commit proposal remains subject to GUARD and Completion Integrity"
+      "description": "Governed commit proposal path through Basin state, GUARD, and Completion Integrity",
+      "required_evidence": ["source:python/basinlab/session.py", "test:tests/test_basinlab_vertical_slice.py"],
+      "implementation_path": "python/basinlab/session.py",
+      "evidence_path": "tests/test_basinlab_vertical_slice.py",
+      "test_path": "tests/test_basinlab_vertical_slice.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Produces governed decisions only; it does not perform git commits by itself."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     },
     "basinlab.replay": {
-      "required_evidence": [
-        "source:python/basinlab/session.py",
-        "test:test_basinlab_vertical_slice"
-      ],
-      "status": "SPECIFIED",
-      "notes": "Replay reconstructs final governed state from recorded BasinLab events"
+      "description": "Replay of governed BasinLab sessions from persisted events",
+      "required_evidence": ["source:python/basinlab/session.py", "test:tests/test_basinlab_persistence_store.py"],
+      "implementation_path": "python/basinlab/session.py",
+      "evidence_path": "tests/test_basinlab_persistence_store.py",
+      "test_path": "tests/test_basinlab_persistence_store.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Non-action sessions replay final governed reports rather than executable namespace state."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.candidate.spectrum": {
+      "description": "Deterministic candidate spectrum generation across strategies and providers",
+      "required_evidence": ["source:python/basinlab/spectrum.py", "test:tests/test_basinlab_spectrum.py"],
+      "implementation_path": "python/basinlab/spectrum.py",
+      "evidence_path": "tests/test_basinlab_spectrum.py",
+      "test_path": "tests/test_basinlab_spectrum.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Current providers are deterministic local fixtures only."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.candidate.deduplication": {
+      "description": "Answer deduplication without collapsing distinct approaches",
+      "required_evidence": ["source:python/basinlab/spectrum.py", "test:tests/test_basinlab_spectrum.py"],
+      "implementation_path": "python/basinlab/spectrum.py",
+      "evidence_path": "tests/test_basinlab_spectrum.py",
+      "test_path": "tests/test_basinlab_spectrum.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Deduplication remains text- and approach-driven rather than embedding-based."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.claim.reliability": {
+      "description": "Claim-level reliability engine for critical evidence and contradictions",
+      "required_evidence": ["source:python/basinlab/reliability.py", "test:tests/test_basinlab_spectrum.py"],
+      "implementation_path": "python/basinlab/reliability.py",
+      "evidence_path": "tests/test_basinlab_spectrum.py",
+      "test_path": "tests/test_basinlab_spectrum.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Evidence inputs are deterministic fixtures rather than live retrieval outputs."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.rejection.contradicted_majority": {
+      "description": "Contradicted majority answers lose to verified minority answers",
+      "required_evidence": ["source:python/basinlab/reliability.py", "test:tests/test_basinlab_spectrum.py"],
+      "implementation_path": "python/basinlab/reliability.py",
+      "evidence_path": "tests/test_basinlab_spectrum.py",
+      "test_path": "tests/test_basinlab_spectrum.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Operates only on provided claims; no automatic contradiction discovery yet."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.hold.unresolved_critical": {
+      "description": "Critical unresolved claims force HOLD rather than pressure-driven EXTEND",
+      "required_evidence": ["source:python/basinlab/reliability.py", "test:tests/test_basinlab_spectrum.py"],
+      "implementation_path": "python/basinlab/reliability.py",
+      "evidence_path": "tests/test_basinlab_spectrum.py",
+      "test_path": "tests/test_basinlab_spectrum.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Criticality is currently scenario-declared, not inferred."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.scars": {
+      "description": "Contradiction-scar recording with prior epistemic state retention",
+      "required_evidence": ["source:python/basinlab/scars.py", "test:tests/test_basinlab_governance_memory.py"],
+      "implementation_path": "python/basinlab/scars.py",
+      "evidence_path": "tests/test_basinlab_governance_memory.py",
+      "test_path": "tests/test_basinlab_governance_memory.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Scars are local data structures; no cross-session merge policy yet."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.recovery.routes": {
+      "description": "Evidence-gated recovery routes that preserve failed-history auditability",
+      "required_evidence": ["source:python/basinlab/recovery.py", "test:tests/test_basinlab_governance_memory.py"],
+      "implementation_path": "python/basinlab/recovery.py",
+      "evidence_path": "tests/test_basinlab_governance_memory.py",
+      "test_path": "tests/test_basinlab_governance_memory.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Recovery remains deterministic and local rather than human-workflow integrated."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.associations": {
+      "description": "Association retrieval and weighted updates without treating context as truth",
+      "required_evidence": ["source:python/basinlab/associations.py", "test:tests/test_basinlab_governance_memory.py"],
+      "implementation_path": "python/basinlab/associations.py",
+      "evidence_path": "tests/test_basinlab_governance_memory.py",
+      "test_path": "tests/test_basinlab_governance_memory.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Association graph remains in-memory and deterministic."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.compression.verified": {
+      "description": "Verified compression preserving decisive replay references and final epistemic state",
+      "required_evidence": ["source:python/basinlab/compression.py", "test:tests/test_basinlab_compression.py"],
+      "implementation_path": "python/basinlab/compression.py",
+      "evidence_path": "tests/test_basinlab_compression.py",
+      "test_path": "tests/test_basinlab_compression.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Compression criteria are caller-supplied and deterministic."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.natural_math.workload": {
+      "description": "Natural Math persistent-growth workload using separate local process states",
+      "required_evidence": ["source:python/basinlab/natural_math.py", "test:tests/test_basinlab_natural_math.py"],
+      "implementation_path": "python/basinlab/natural_math.py",
+      "evidence_path": "tests/test_basinlab_natural_math.py",
+      "test_path": "tests/test_basinlab_natural_math.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Local process states remain separate from Cognitive Basin action enums by convention and code location."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.cli": {
+      "description": "CLI for run, run-all, inspect, replay, diff, providers, and capabilities",
+      "required_evidence": ["source:python/basinlab/cli/main.py", "test:tests/test_basinlab_acceptance.py"],
+      "implementation_path": "python/basinlab/cli/main.py",
+      "evidence_path": "tests/test_basinlab_acceptance.py",
+      "test_path": "tests/test_basinlab_acceptance.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Local filesystem session store only; no remote connector integration."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.acceptance": {
+      "description": "Acceptance runner covering all deterministic BasinLab demonstrations",
+      "required_evidence": ["source:python/basinlab/acceptance.py", "test:tests/test_basinlab_acceptance.py"],
+      "implementation_path": "python/basinlab/acceptance.py",
+      "evidence_path": "tests/test_basinlab_acceptance.py",
+      "test_path": "tests/test_basinlab_acceptance.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Deterministic local demonstrations only; no live model or deploy authority."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.reports.trajectory_html": {
+      "description": "Static local HTML trajectory reports with companion JSON and hostile-content escaping",
+      "required_evidence": ["source:python/basinlab/reports.py", "test:tests/test_basinlab_reports.py"],
+      "implementation_path": "python/basinlab/reports.py",
+      "evidence_path": "tests/test_basinlab_reports.py",
+      "test_path": "tests/test_basinlab_reports.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Reports are static local artifacts and do not embed interactive remote assets."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.provider.vibethinker": {
+      "description": "VibeThinker adapter surface as an optional provider record only",
+      "required_evidence": ["source:python/basinlab/providers.py", "test:tests/test_basinlab_acceptance.py"],
+      "implementation_path": "python/basinlab/providers.py",
+      "evidence_path": "docs/basinlab_clean_room_note.md",
+      "test_path": "tests/test_basinlab_acceptance.py",
+      "states": ["IMPLEMENTED_AS_ADAPTER", "UNIT TESTED", "LIVE MODEL UNAVAILABLE", "NO_TOOL_AUTHORITY"],
+      "limitations": ["No downloaded weights, no live inference, no execution authority, and no commit authority."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.stabilization": {
+      "description": "False-attractor-aware stabilization assessment with contradiction preservation",
+      "required_evidence": ["source:python/basinlab/stabilization.py", "test:tests/test_basinlab_memory_layers.py"],
+      "implementation_path": "python/basinlab/stabilization.py",
+      "evidence_path": "tests/test_basinlab_memory_layers.py",
+      "test_path": "tests/test_basinlab_memory_layers.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Current tranche provides deterministic primitives, not a full pipeline integration yet."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.hold.fog": {
+      "description": "Explicit HOLD fog tracking with entry reasons, required evidence, and release conditions",
+      "required_evidence": ["source:python/basinlab/hold.py", "test:tests/test_basinlab_memory_layers.py"],
+      "implementation_path": "python/basinlab/hold.py",
+      "evidence_path": "tests/test_basinlab_memory_layers.py",
+      "test_path": "tests/test_basinlab_memory_layers.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Current release tracks HOLD fog records but does not yet auto-attach them to every BasinLab session."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.memory.fractal_map": {
+      "description": "Auditable FractalMemoryMap with pruning events and replayable node history",
+      "required_evidence": ["source:python/basinlab/memory_map.py", "test:tests/test_basinlab_memory_layers.py"],
+      "implementation_path": "python/basinlab/memory_map.py",
+      "evidence_path": "tests/test_basinlab_memory_layers.py",
+      "test_path": "tests/test_basinlab_memory_layers.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["In-memory local structure only; no persisted cross-session index yet."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "basinlab.team_narrative": {
+      "description": "Auditable continuity records for contributors, decisions, conflicts, and recovery history",
+      "required_evidence": ["source:python/basinlab/team_narrative.py", "test:tests/test_basinlab_memory_layers.py"],
+      "implementation_path": "python/basinlab/team_narrative.py",
+      "evidence_path": "tests/test_basinlab_memory_layers.py",
+      "test_path": "tests/test_basinlab_memory_layers.py",
+      "states": ["IMPLEMENTED", "UNIT TESTED"],
+      "limitations": ["Current tranche stores continuity records locally and does not yet merge them with persisted session replay."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
     }
   }
 }

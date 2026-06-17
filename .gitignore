@@ -66,6 +66,8 @@ coverage/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.basinlab_store/
+artifacts/
 
 # Large binaries / media we do not want in repo
 *.zip
