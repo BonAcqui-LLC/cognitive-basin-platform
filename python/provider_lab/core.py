@@ -331,7 +331,7 @@ class ProviderRouter:
                 reason_bits.append("requested model matched")
             if request.task_domain in {"code", "repair"} and adapter.name in {"generalist", "compact-reasoner"}:
                 score += 10
-                reason_bits.append("task-domain affinity")
+                reason_bits.append("task affinity")
             if not reason_bits:
                 reason_bits.append("default fallback")
             scored.append((score, adapter, "; ".join(reason_bits)))
