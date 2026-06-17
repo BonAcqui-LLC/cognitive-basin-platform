@@ -1,0 +1,108 @@
+{
+  "inventory_date": "2026-06-17",
+  "authenticated_as": "persistentiterations",
+  "token_scopes": ["gist", "read:org", "repo", "workflow"],
+  "method": "gh CLI 2.94.0 via run_terminal_command after winget install + device auth (code 22CF-33AE)",
+  "org": "BonAcqui-LLC",
+  "org_repos": [
+    {
+      "full_name": "BonAcqui-LLC/natural-math-stick",
+      "description": "Canonical validation repository for the Natural Math Stick mechanism.",
+      "visibility": "private",
+      "updated_at": "2026-06-15T21:53:38Z",
+      "classification": "CANONICAL",
+      "relevance": "Natural Math core validation"
+    },
+    {
+      "full_name": "BonAcqui-LLC/cntm-natural-math-canonical-library",
+      "description": "Private canonical source library for CNTM, Natural Math, Fractalish, MCVA, and related BonAcqui research artifacts.",
+      "visibility": "private",
+      "updated_at": "2026-06-15T20:12:04Z",
+      "classification": "CANONICAL",
+      "relevance": "Direct match to recommended Cognitive-Basin-Canonical-Library concept; high value for M1"
+    },
+    {
+      "full_name": "BonAcqui-LLC/fractalish",
+      "description": "Public research home for Fractalish, Natural Math, Cognitive Basin, and morphology/process-memory research.",
+      "visibility": "public",
+      "updated_at": "2026-06-10T16:22:33Z",
+      "classification": "CURRENT_IMPLEMENTATION",
+      "relevance": "Primary public research surface for the project family"
+    },
+    {
+      "full_name": "BonAcqui-LLC/mcva-gate",
+      "description": "Ternary morphology classification with first-class HOLD state.",
+      "visibility": "private",
+      "updated_at": "2026-06-03T05:02:56Z",
+      "classification": "CURRENT_IMPLEMENTATION",
+      "relevance": "Ternary + HOLD (matches canonical action states)"
+    },
+    {
+      "full_name": "BonAcqui-LLC/shave-and-a-haircut",
+      "description": "Shave and a Haircut, Two Bits™ — Arena of Minds · A Public Cognition Laboratory Disguised as a Game Show",
+      "visibility": "private",
+      "updated_at": "2026-05-27T00:41:07Z",
+      "classification": "HISTORICAL / SUPPORTING",
+      "relevance": "Cognition laboratory concept"
+    },
+    {
+      "full_name": "BonAcqui-LLC/exomcp",
+      "description": "ExoMCP — AI Tool-Call Security & Behavioral Integrity. Independent monitoring layer for AI systems operating through MCP connections and agentic pipelines.",
+      "visibility": "public",
+      "updated_at": "2026-05-26T01:18:25Z",
+      "classification": "CURRENT_IMPLEMENTATION",
+      "relevance": "GUARD / SERA layer concepts, tool-poisoning / security"
+    },
+    {
+      "full_name": "BonAcqui-LLC/bonacqui-ip",
+      "description": "BonAcqui LLC — IP portfolio, concept memos, white papers, research, patents, and project documents",
+      "visibility": "private",
+      "updated_at": "2026-05-23T22:44:55Z",
+      "classification": "HISTORICAL",
+      "relevance": "IP / provenance layer"
+    },
+    {
+      "full_name": "BonAcqui-LLC/ephux",
+      "description": "EphUX browser extension, launch site, and reasoning-integrity product materials.",
+      "visibility": "private",
+      "updated_at": "2026-05-18T17:20:30Z",
+      "classification": "CURRENT_IMPLEMENTATION",
+      "relevance": "EphUX surface + Guardian / Intake related"
+    },
+    {
+      "full_name": "BonAcqui-LLC/bonacqui",
+      "description": "BonAcqui LLC corporate scaffolding, shared assets, and portfolio-level materials.",
+      "visibility": "private",
+      "updated_at": "2026-05-18T16:26:40Z",
+      "classification": "HISTORICAL",
+      "relevance": "Org scaffolding"
+    },
+    {
+      "full_name": "BonAcqui-LLC/udooz",
+      "description": "uDooz marketplace platform, public site, app, and Cloudflare deployment materials.",
+      "visibility": "private",
+      "updated_at": "2026-05-18T16:26:38Z",
+      "classification": "CURRENT_IMPLEMENTATION",
+      "relevance": "Recent udooz work (also mirrored in personal)"
+    }
+  ],
+  "personal_repos_sample": [
+    "persistentiterations/udooz (private, 2026-06-17) - uDooz web-first local classifieds prototype",
+    "persistentiterations/fractalish-ai-v2 (public)",
+    "persistentiterations/Fractalish-AI (public)",
+    "persistentiterations/ephux-com (private) - Cloudflare Workers site backup",
+    "persistentiterations/bonacqui-com (private)",
+    "persistentiterations/synaptient-* (multiple private backups)",
+    "persistentiterations/documents (private)"
+  ],
+  "observations": [
+    "No BonAcqui-LLC/cognitive-basin-platform exists.",
+    "No exact 'cognitive-basin-canonical' — closest is BonAcqui-LLC/cntm-natural-math-canonical-library (private, recently updated, explicitly for Fractalish/Natural Math/Cognitive Basin).",
+    "BonAcqui-LLC/fractalish is the declared public research home and is the strongest match for current implementation surface.",
+    "Strong alignment with project identity: Fractalish, Natural Math, Cognitive Basin, MCVA (ternary + HOLD), ExoMCP (GUARD layer), EphUX.",
+    "Many personal '*-com' entries are Cloudflare Worker site backups — historical deployment artifacts.",
+    "udooz activity is very recent on both personal and org.",
+    "Auth token has full 'repo' + 'read:org' + 'workflow' — sufficient for inventory, private repo creation, and Actions."
+  ],
+  "recommended_next": "Create BonAcqui-LLC/cognitive-basin-platform (private) as the dedicated implementation repo per bootstrap directive. Use existing BonAcqui-LLC/cntm-natural-math-canonical-library + fractalish for library/research surface. Separate concerns as specified."
+}

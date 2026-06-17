@@ -8,7 +8,13 @@
    - kv_namespaces_list + get
    - Confirm routes, bindings, deployments, no R2 activation
    - Any Pages, Email Routing, DNS records (read only)
-3. GitHub inventory: gh repo list (user + BonAcqui-LLC org). Look for cognitive-basin*, ephux*, fractalish*, guardian*.
+3. GitHub inventory (in progress):
+   - gh 2.94.0 installed via winget.
+   - Complete device auth now (one-time code: 22CF-33AE ; open https://github.com/login/device in browser and authorize).
+   - After success: run `gh repo list --org BonAcqui-LLC --limit 100` + personal repos.
+   - Record: name, visibility (private), default branch, updated, purpose from description/contents.
+   - Check existence of BonAcqui-LLC/cognitive-basin-platform and cognitive-basin-canonical.
+   - Plan creation (private only) after explicit approval in this recovery.
 4. Compare deployed Worker source (downloaded via MCP) vs local copies vs backup zips (hashes + content diff where small).
 5. Targeted canonical search:
    - Filename + content for "Cognitive Basin", "Fractalish", "PERCEPT", "ATAL", "RIGOR", "CIRCUIT", "GUARD", "SERA", "FractalMemoryMap", "Natural Math", "Basic Persistent Growth System", "TeamNarrative", "BasinLab", "PWDither", "Tri-Weavon", "ternary", "association brush|beacon|field", "contradiction scar", "recovery route", "HOLD fog", "Activation Kernel", "Guardian Intake"

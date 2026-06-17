@@ -79,8 +79,24 @@
 - **No production mutations performed or planned in this session without approval.**
 - R2 noted as previously disabled — will confirm; do not enable without pricing + approval check.
 
-## GitHub
-- Audit pending (gh CLI check + repo list)
+## GitHub (M2 - inventory complete for this pass)
+- gh CLI 2.94.0 installed via winget + authenticated as persistentiterations (scopes: gist, read:org, repo, workflow). Auth via device flow (code 22CF-33AE) completed successfully. `gh auth status` verified.
+- Full inventory retrieved:
+  - BonAcqui-LLC org: 10 repositories (see manifests/github-inventory-2026-06-17.json for full list + classifications).
+    Key relevant:
+    - BonAcqui-LLC/cntm-natural-math-canonical-library (private, CANONICAL — explicit match for recommended canonical library; covers CNTM/Natural Math/Fractalish/Cognitive Basin/MCVA)
+    - BonAcqui-LLC/fractalish (public, CURRENT_IMPLEMENTATION — declared "Public research home for Fractalish, Natural Math, Cognitive Basin...")
+    - BonAcqui-LLC/natural-math-stick (private, CANONICAL)
+    - BonAcqui-LLC/mcva-gate (private, ternary + first-class HOLD)
+    - BonAcqui-LLC/exomcp (public, ExoMCP tool-call security / behavioral integrity — aligns with GUARD)
+    - BonAcqui-LLC/ephux (private)
+    - BonAcqui-LLC/udooz (private, recent)
+  - Personal (persistentiterations): ~19+ listed (many Cloudflare Worker "*-com" site backups for ephux, bonacqui, synaptient, etc.; recent udooz private prototype; fractalish-ai-v2/Fractalish-AI public; documents/images).
+- No BonAcqui-LLC/cognitive-basin-platform exists.
+- No exact cognitive-basin-canonical — the cntm-natural-math-canonical-library is the closest and most on-point private canonical surface.
+- Classification summary (per bootstrap): Strong existing alignment with project identity in the org. Many personal entries are deployment backup artifacts (HISTORICAL / PARTIAL).
+- Git operations now possible directly (repo create private, clone, push, etc.) with verified remote state required before any claim.
+- Evidence: full raw output in session terminal log + manifests/github-inventory-2026-06-17.json.
 
 ## Implementation State (honest, evidence only)
 - PERCEPT / ATAL / RIGOR / CIRCUIT / GUARD / SERA layers: NOT BUILT (no code meeting the layer definitions has been located or verified yet)
