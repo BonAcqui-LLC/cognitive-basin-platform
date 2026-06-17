@@ -11,20 +11,24 @@ Intentional worktrees:
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-local-integration-codex`
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-product-surface-codex`
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\provider-sandbox-codex`
+- `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\evaluation-natural-math-codex`
 
 Repository identity:
-- remote `main`: `ab8714eb0120859a1c5d30f0e2f1a197da76aca8`
-- canonical local `main`: fast-forwarded to `ab8714eb0120859a1c5d30f0e2f1a197da76aca8`
-- verified product-surface main CI: run `27717532798`, workflow `ci-non-deploying`, conclusion `success`
+- remote `main`: `cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b`
+- canonical local `main`: fast-forwarded to `cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b`
+- verified provider/sandbox main CI: run `27718801072`, workflow `ci-non-deploying`, conclusion `success`
 - secondary EphUX path is a real Git worktree sharing `C:\Users\moop\cognitive-basin-platform\.git`
 
 Local verification:
-- repository tests: `118 passed`
+- repository tests: `128 passed`
 - EphUX acceptance: `12/12` scenarios passed
 - ProviderLab acceptance: `7/7` scenarios passed
 - SandboxLab acceptance: `19/19` scenarios passed
+- EvaluationLab acceptance: `19/19` task families covered, `40` comparison results passed
+- NaturalMathLab acceptance: `3` sweep runs passed with exact geometry checks green
+- Aggregate Cognitive Basin acceptance: all six deterministic suites passed
 - required API routes: all present and probed successfully
-- package layout: canonical implementation under `python/...`, top-level wrappers retained as thin compatibility shims
+- package layout: canonical implementation under `python/...`, top-level wrappers retained as thin compatibility shims, and aggregate clean-venv wrapper acceptance is green
 - browser verification: local shell opened in the in-app browser, created a persisted session, and passed a mobile-width reload check
 
 Verified local product surfaces:
@@ -44,6 +48,10 @@ Verified local product surfaces:
 - bounded compact-reasoner packet flow
 - runner receipts with explicit `ENFORCED` / `BEST_EFFORT` / `UNSUPPORTED` control classification
 - adversarial sandbox acceptance matrix
+- typed evaluation task registry and interface-comparison harness
+- synthetic failure corpus for unsupported completion and authority-bypass regressions
+- deterministic Natural Math simulation, exact rational geometry, and static visualization artifacts outside the repo by default
+- aggregate deterministic acceptance manifest spanning BasinLab, EphUX local, provider, sandbox, evaluation, and Natural Math
 
 Audit artifacts for product-surface merge commit `ab8714eb0120859a1c5d30f0e2f1a197da76aca8`:
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-product-main-audit-ab8714e\cognitive-basin-platform-ab8714e-source.zip`
