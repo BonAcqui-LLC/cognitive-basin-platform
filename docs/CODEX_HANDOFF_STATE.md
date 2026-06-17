@@ -1,10 +1,10 @@
 # Codex Handoff State
 
 Current verified main:
-`114a2c1f84296c3d0db009b6f984ee9e49d2695d`
+`ab8714eb0120859a1c5d30f0e2f1a197da76aca8`
 
 Current implementation branch:
-`build/ephux-product-surface-codex`
+`build/provider-sandbox-codex`
 
 Phase 0 closure status:
 - repository/worktree identity verified once
@@ -15,12 +15,13 @@ Phase 0 closure status:
 - exact-main audit artifacts generated
 
 Known branch lineage:
-- merged EphUX local feature head: `9848c64cdfcd3cee4c4e46572eed1951ce64a47c`
-- merged main commit carrying EphUX local baseline: `114a2c1f84296c3d0db009b6f984ee9e49d2695d`
+- merged EphUX local feature head: `0666093e560841d26b67fdca2a9eb9fedf02e614`
+- merged main commit carrying the productized EphUX local surface: `ab8714eb0120859a1c5d30f0e2f1a197da76aca8`
+- active provider/sandbox worktree branched from verified `main`
 
 Audit artifact root:
-`C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\phase0-main-audit-114a2c1`
+`C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-product-main-audit-ab8714e`
 
 Next implementation target:
-- continue from the productized local EphUX shell: persisted session list/reopen, portable import/export, human review events, and installable PWA support are now in-branch
-- next focus is deeper browser verification plus provider-fabric work, still without production infrastructure changes
+- provider fabric and sandbox hardening are in-branch: governed routing, cost/evidence ledger, live inventory, bounded compact-reasoner packets, runner receipts, and adversarial acceptance
+- next focus is evaluation plus Natural Math expansion from a fresh branch after provider/sandbox merge and main CI verification

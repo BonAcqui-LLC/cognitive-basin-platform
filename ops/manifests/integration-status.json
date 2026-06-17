@@ -3,11 +3,11 @@
     "status": "VERIFIED",
     "canonical_repository": "C:\\Users\\moop\\cognitive-basin-platform",
     "shared_git_common_dir": "C:\\Users\\moop\\cognitive-basin-platform\\.git",
-    "remote_main_sha": "114a2c1f84296c3d0db009b6f984ee9e49d2695d"
+    "remote_main_sha": "ab8714eb0120859a1c5d30f0e2f1a197da76aca8"
   },
   "ci": {
     "status": "VERIFIED",
-    "main_run_id": 27713166589,
+    "main_run_id": 27717532798,
     "workflow": "ci-non-deploying",
     "conclusion": "success"
   },
@@ -31,17 +31,40 @@
     "status": "VERIFIED",
     "canonical_implementation_roots": [
       "python/basinlab",
-      "python/ephux_local"
+      "python/ephux_local",
+      "python/provider_lab",
+      "python/sandbox_lab"
     ],
     "compatibility_wrappers": [
       "basinlab",
-      "ephux_local"
+      "ephux_local",
+      "provider_lab",
+      "sandbox_lab"
     ],
     "duplicated_business_logic": false,
     "wrapper_tests_green": true
   },
+  "provider_fabric": {
+    "status": "IMPLEMENTED",
+    "governed_router": true,
+    "usage_ledger": true,
+    "secret_safe_inventory": true,
+    "compact_reasoner_packet": true,
+    "vibethinker_adapter_live_tested": false
+  },
+  "sandbox_runner": {
+    "status": "IMPLEMENTED",
+    "runner_receipts": true,
+    "restriction_classification": [
+      "ENFORCED",
+      "BEST_EFFORT",
+      "UNSUPPORTED"
+    ],
+    "adversarial_acceptance": true,
+    "production_secure_claimed": false
+  },
   "artifacts": {
     "status": "GENERATED",
-    "root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\phase0-main-audit-114a2c1"
+    "root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\ephux-product-main-audit-ab8714e"
   }
 }
