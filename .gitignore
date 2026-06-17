@@ -35,6 +35,9 @@ wrangler.toml.bak
 *token*
 *credential*
 gho_*
+# Re-include CI scanners and policy (their names contain the pattern for discoverability but hold no secrets/keys)
+!tools/ci/scan_credentials.py
+!ops/policies/credential-scan-policy.json
 sk-*
 xai-*
 ALL_TOKENS_KEYS_FOR_GROK.txt
