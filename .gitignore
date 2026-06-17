@@ -75,5 +75,10 @@ coverage/
 recovery/
 Cognitive-Basin-Recovery*/
 
+# Local verification artifacts and run helpers (do not pollute git status)
+ops/verification/
+run_full_sequence.py
+docs/DECISIONS.md
+
 # Placeholder for intentionally empty but reserved dirs (see docs/structure.md)
 # .gitkeep is used only for reserved dirs and marked SPECIFIED

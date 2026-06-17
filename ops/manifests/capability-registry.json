@@ -17,6 +17,31 @@
       "required_evidence": ["test:completion_integrity_acceptance", "source:packages/completion_integrity/guard.py"],
       "status": "SPECIFIED",
       "notes": "Must detect PLACEHOLDER, missing artifacts, failed commands, absent remote commits"
+    },
+    "deployment.verify": {
+      "required_evidence": ["deployment_artifact", "remote_deploy_evidence"],
+      "status": "SPECIFIED",
+      "notes": "Deployment verified claim requires deployment evidence file; local-only evidence insufficient"
+    },
+    "sanitization.complete": {
+      "required_evidence": ["sanitization_report"],
+      "status": "SPECIFIED",
+      "notes": "Sanitization completed claim requires matching evidence artifact"
+    },
+    "backup.restore": {
+      "required_evidence": ["restore_test_artifact"],
+      "status": "SPECIFIED",
+      "notes": "Backup restorable claim requires restoration test evidence"
+    },
+    "tests.unit": {
+      "required_evidence": ["test_source", "test_report"],
+      "status": "SPECIFIED",
+      "notes": "Unit tests passed allowed only with local/tested scope (tests/ or local/ evidence)"
+    },
+    "production.operational": {
+      "required_evidence": ["production_monitor", "staging_plus_prod"],
+      "status": "SPECIFIED",
+      "notes": "Production operational claim requires prod evidence; local-only blocks"
     }
   }
 }

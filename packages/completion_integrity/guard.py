@@ -53,14 +53,76 @@ def _contains_prohibited_placeholder(content: str) -> List[str]:
             found.append(ph)
     return found
 
+def load_registry(path: str = "ops/manifests/capability-registry.json") -> dict:
+    try:
+        p = Path(path)
+        if not p.exists():
+            return {"capabilities": {}}
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {"capabilities": {}}
+
+def extract_claimed_capabilities(claim: str) -> List[str]:
+    if not claim:
+        return []
+    cl = claim.lower()
+    caps: List[str] = []
+    if "deployment verified" in cl or ("deploy" in cl and "verif" in cl):
+        caps.append("deployment.verify")
+    if "sanitization completed" in cl:
+        caps.append("sanitization.complete")
+    if "backup restorable" in cl:
+        caps.append("backup.restore")
+    if "unit tests passed" in cl:
+        caps.append("tests.unit")
+    if "production operational" in cl:
+        caps.append("production.operational")
+    return caps
+
+def _evaluate_claim_evidence(claim: str, artifact_paths: List[str], registry: dict) -> List[str]:
+    reasons: List[str] = []
+    claimed = extract_claimed_capabilities(claim)
+    if not claimed:
+        return reasons
+    caps = registry.get("capabilities", {})
+    for cap in claimed:
+        if cap not in caps:
+            reasons.append(f"Unknown capability in claim: {cap}")
+            continue
+        reqs = caps[cap].get("required_evidence", [])
+        has_sufficient = False
+        for ap in (artifact_paths or []):
+            apl = ap.lower()
+            if "tests.unit" in cap:
+                if "test" in apl or "local" in apl:
+                    has_sufficient = True
+            elif "production" in cap:
+                if "prod" in apl or "remote" in apl or "staging" in apl:
+                    has_sufficient = True
+            elif "deploy" in cap:
+                if "deploy" in apl or "remote" in apl:
+                    has_sufficient = True
+            elif "sanitiz" in cap or "backup" in cap:
+                if "sanitiz" in apl or "backup" in apl or "restore" in apl or "report" in apl:
+                    has_sufficient = True
+            else:
+                if artifact_paths:
+                    has_sufficient = True
+        if not (artifact_paths and has_sufficient):
+            reasons.append(f"Capability {cap} requires evidence {reqs} but no/insufficient matching artifact for claim")
+    return reasons
+
 def attempt_transition(
     capability_name: str,
     artifact_paths: List[str],
     claimed_status: str = "IMPLEMENTED",
-    extra_evidence: Dict[str, Any] | None = None
+    extra_evidence: Dict[str, Any] | None = None,
+    output_claim: str = ""
 ) -> IntegrityResult:
     """
     Central gate. Returns allowed=False for any violation.
+    Now integrates Completion Integrity for capability claims:
+    output claim -> extract caps -> registry lookup -> evidence req eval.
     """
     extra = extra_evidence or {}
     reasons: List[str] = []
@@ -75,12 +137,17 @@ def attempt_transition(
         if bad:
             reasons.append(f"Prohibited placeholder(s) {bad} in {ap}")
 
+    # Completion Integrity: capability claim + registry + evidence strength eval (provisional)
+    claim_reasons = _evaluate_claim_evidence(output_claim, artifact_paths or [], load_registry())
+    reasons.extend(claim_reasons)
+
     if reasons:
         denial = {
             "capability": capability_name,
             "attempted_status": claimed_status,
             "denied_because": reasons,
             "artifacts_checked": artifact_paths,
+            "output_claim": output_claim[:200] if output_claim else "",
         }
         extra["denial_record"] = denial
         return IntegrityResult(False, " | ".join(reasons), extra)

@@ -83,13 +83,14 @@ class CIRCUIT:
         return CircuitDecision(action=action, epistemic=rigor.epistemic, provisional=provisional, budget=effective_budget)
 
 class GUARD:
-    def check(self, circuit: CircuitDecision, artifact_paths: List[str] = None) -> Dict[str, Any]:
+    def check(self, circuit: CircuitDecision, artifact_paths: List[str] = None, output_claim: str = "") -> Dict[str, Any]:
         if artifact_paths is None:
             artifact_paths = []
         guard_result = attempt_transition(
             capability_name="basin.commit",
             artifact_paths=artifact_paths,
-            claimed_status="IMPLEMENTED" if circuit.action == ActionState.EXTEND else "PROVISIONAL"
+            claimed_status="IMPLEMENTED" if circuit.action == ActionState.EXTEND else "PROVISIONAL",
+            output_claim=output_claim
         )
         allowed = guard_result.allowed and circuit.action != ActionState.RETRACT
         return {
@@ -125,12 +126,17 @@ class CommitGate:
     def allow(self, guard_result: Dict[str, Any]) -> bool:
         return guard_result["allowed"] and not guard_result["provisional"]
 
-def run_basin_pipeline(percept_data: Any, pressure: float = 0.5, contradictions: int = 0, artifact_paths: List[str] = None, prior_events: List[Dict] = None) -> Dict[str, Any]:
+def run_basin_pipeline(percept_data: Any, pressure: float = 0.5, contradictions: int = 0, artifact_paths: List[str] = None, prior_events: List[Dict] = None, completion_claim: str = "") -> Dict[str, Any]:
     if prior_events is None:
         prior_events = []
     p = Percept(percept_data)
     atal = ATAL().modulate(p, pressure)
     data_str = str(percept_data).lower() if percept_data else ""
+    # IMPLEMENTED / PROVISIONAL HEURISTIC
+    # The rule that lowers evidence_strength to 0.4 when text contains "insufficient" or "weak"
+    # is a temporary deterministic test heuristic only.
+    # Follow-up: structured EvidenceItem objects with explicit support weights.
+    # Arbitrary wording alone must not become the final source of epistemic truth.
     if contradictions == 0:
         if "insufficient" in data_str or "weak" in data_str:
             evidence_strength = 0.4
@@ -140,7 +146,7 @@ def run_basin_pipeline(percept_data: Any, pressure: float = 0.5, contradictions:
         evidence_strength = 1.0
     rigor = RIGOR().analyze(contradictions=contradictions, evidence_strength=evidence_strength)
     circuit = CIRCUIT().route(rigor, pressure=pressure)
-    guard = GUARD().check(circuit, artifact_paths)
+    guard = GUARD().check(circuit, artifact_paths, output_claim=completion_claim)
     sera = SERA().record(guard, prior_events.copy())
     basin = BasinState(
         epistemic=EpistemicState(guard["epistemic"]),
