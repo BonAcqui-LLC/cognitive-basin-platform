@@ -1,0 +1,1 @@
+﻿Live ephux worker source fetched via MCP cloudflare-bindings__workers_get_worker_code 2026-06-16. See CURRENT_STATE and evidence manifest for exact content hash comparison to backups.

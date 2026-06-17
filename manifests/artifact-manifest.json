@@ -1,0 +1,106 @@
+{
+  "manifest_version": "0.1.0-m0-baseline",
+  "created": "2026-06-16T22:00:00Z",
+  "recovery_root": "C:\\Users\\moop\\Cognitive-Basin-Recovery-2026-06-16",
+  "session": "fresh-evidence-based-recovery",
+  "prior_reports": "UNTRUSTED",
+  "artifacts": [
+    {
+      "original_path": "C:\\Users\\moop\\EphUX-Rebuild-2026-06-16.zip",
+      "type": "ZIP_ARCHIVE",
+      "sha256": "8BD64F4F5E64717AF6E399089493B2975C13A16EB9881E5D7658D5609EC7286F",
+      "size": 42863,
+      "classification": "HISTORICAL",
+      "notes": "Rebuild zip. Re-audited via hash."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\EphUX_Cloudflare_Backup_2026-06-16-verified.zip",
+      "type": "ZIP_ARCHIVE",
+      "sha256": "4A5FD7FFEB168E89C80E5A4921DE73906569361E3885776B2F8903107E67DDAA",
+      "size": 24255,
+      "classification": "UNVERIFIED",
+      "notes": "Labeled 'verified' in prior session. Contains small worker sources + restoration manifests. Re-hashed and contents inspected."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\EphUX_Cloudflare_Backup_2026-06-16-verified\\workers\\ephux.js",
+      "type": "WORKER_SOURCE",
+      "sha256": "PLACEHOLDER - see verified dir hash in tool output",
+      "classification": "HISTORICAL",
+      "notes": "Backup copy of ephux static worker."
+    },
+    {
+      "original_path": "LIVE_CLOUDFLARE:ephux (id 36bb88d1579f4890abc71b7b941acb9a)",
+      "type": "LIVE_DEPLOYED_WORKER",
+      "sha256": "84f61f53b4c4dd4606c28276a17c64960d1fb8cc502ee746f7fcef951617 (content boundary from MCP)",
+      "classification": "LIVE_DEPLOYED",
+      "size_bytes": 905,
+      "modified": "2026-05-18T16:15:38Z (from get_worker)",
+      "bindings": ["ASSETS"],
+      "source_copied_to": "evidence/live-deployed-2026-06-16/ephux-worker.js",
+      "notes": "Static redirect + ASSETS fetch only. Matches prior hypothesis size. No complex logic."
+    },
+    {
+      "original_path": "LIVE_CLOUDFLARE:ephux-activation-kernel (id 1158d88092364f77ae979ffefc0c480f)",
+      "type": "LIVE_DEPLOYED_WORKER",
+      "sha256": "b82e2123a2a59a7a6d128d799f91aedba57b28fb6ef0de5910131f324d1d (MCP boundary)",
+      "classification": "LIVE_DEPLOYED",
+      "modified": "2026-06-15T19:49Z",
+      "bindings": ["AI", "INTAKE_KV"],
+      "source_copied_to": "evidence/live-deployed-2026-06-16/ephux-activation-kernel-worker.js",
+      "notes": "Implements Activation Doctrine, ternary Supported/Unsupported/Indeterminate for decision + integrity_classification, pre-filter for prompt_injection/exfil, KV logging of activations (7d TTL), strict JSON schema enforcement + fallback to Indeterminate, PWDither sketch in doctrine/fewshots, receptor_event_suggestions. Uses llama-3.2-3b-instruct. Partial realization of some canonical concepts (ternary, receptor, guard flags, purpose anchoring)."
+    },
+    {
+      "original_path": "LIVE_CLOUDFLARE:ephux-guardian-intake (id eac17b42ad3345b6a8b2f3679c52a585)",
+      "type": "LIVE_DEPLOYED_WORKER",
+      "sha256": "2ce1e3cca848bd3a81b2f43f210dd7e1c78851753b5f1eb3da84c79388f7 (MCP boundary)",
+      "classification": "LIVE_DEPLOYED",
+      "modified": "2026-06-15T10:14Z",
+      "bindings": ["INTAKE_KV"],
+      "source_copied_to": "evidence/live-deployed-2026-06-16/ephux-guardian-intake-worker.js",
+      "notes": "POST /intake (generates one-time token + receptorEvent with basic injection flag check, 'sanitized_content' is placeholder with note 'full sanitization + R2 in prod'), /view/{token} (consume + display), email handler. KV one-time. Matches prior hypothesis. 'Original raw content never reached any AI' comment present."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\ephux-next\\basin-lab\\core\\contracts.py",
+      "type": "PYTHON_CONTRACTS",
+      "sha256": "TO BE COMPUTED - see local file",
+      "classification": "CANONICAL",
+      "author": "James Clow / Melissa Clow (BonAcqui LLC)",
+      "notes": "Defines EpistemicState (SUPPORTED/UNRESOLVED/CONTRADICTED), ActionState (RETRACT/HOLD/EXTEND), ArtifactManifest, RegionRecord, ClaimRecord, BasinState etc. Pure stdlib dataclasses. Explicitly references PERCEPT/ATAL/RIGOR modules. Matches directive canonical objects and ternary (epistemic + action separate)."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\ephux-next\\basin-lab\\core\\controller.py",
+      "type": "PYTHON_CONTROLLER",
+      "classification": "CANONICAL",
+      "author": "James Clow / Melissa Clow (BonAcqui LLC)",
+      "notes": "BasinController with start_activation(purpose, module), propose_candidate using RIGOR (count contradictions -> CONTRADICTED/RETRACT, SUPPORTED/EXTEND, else UNRESOLVED/HOLD), scars (FailureScar), budget, held/retracted. HOLD explicitly consumes budget and records ignored regions. Direct match to 'ternary action', HOLD fog concepts, stabilization via scars/recovery."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\ephux-next\\baseline-immutable\\20260616-135933\\EphUX\\guardian_whitepaper_text.txt",
+      "type": "WHITEPAPER_EXCERPT",
+      "classification": "CANONICAL",
+      "author": "James Clow / Melissa Clow (BonAcqui LLC)",
+      "notes": "Explicitly documents the flow: Raw Intake ... In Cognitive Basin terms: ... PERCEPT → ATAL → RIGOR → CIRCUIT → FractalMemoryMap → GUARD → SERA. Session-scoped intake, ReceptorEvent. Project family: Guardian / Fractalish AI / Cognitive Basin. High value source document."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\ephux-next (tree)",
+      "type": "SOURCE_TREE",
+      "classification": "CURRENT_IMPLEMENTATION_PARTIAL",
+      "notes": "Contains baseline-immutable, basin-lab (Python contracts+controller+tests), release packages, stabilization copies, reports, extension code, design handoffs. Multiple historical copies of workers. High density of canonical terminology. Targeted search performed; full copy avoided due to size + .gitignore."
+    }
+  ],
+  "cloudflare_observations": {
+    "account_hypothesis_verified": "partial (workers and KV ID match exactly)",
+    "r2_enabled": false,
+    "r2_error": "403 Please enable R2 through the Cloudflare Dashboard",
+    "kv_namespaces": ["GUARDIAN_INTAKE_KV (b777366e906f424ba033590cbddf3f08 - exact match)", "others: WB_SUBSCRIBERS, SYNAPTIENT_REGISTRY, ENTRO_SUBSCRIBERS"],
+    "production_routes_untouched": true,
+    "no_paid_products_activated": true
+  },
+  "github": {
+    "gh_cli_present": false,
+    "local_git_found": [".codex/memories", "Codex subdirs"],
+    "full_remote_inventory": "DEFERRED (install gh + auth or use other means; no delete/overwrite performed)"
+  },
+  "classifications_used": ["LIVE_DEPLOYED", "CANONICAL", "HISTORICAL", "UNVERIFIED", "PARTIAL", "CURRENT_IMPLEMENTATION_PARTIAL"],
+  "completion_integrity_notes": "All entries backed by tool output (MCP use_tool + Get-FileHash + read/grep/list_dir). Sources written locally and hashed. No placeholders claimed implemented. Ternary and layers present in source but full PERCEPT/ATAL/etc stack and complete Basin not yet verified as 'implemented' beyond kernel + contracts."
+}

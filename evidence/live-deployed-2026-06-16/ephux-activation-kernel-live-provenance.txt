@@ -1,0 +1,1 @@
+﻿Live ephux-activation-kernel fetched. Contains Activation Doctrine, ternary decision/integrity, PWDither sketch, KV logging to INTAKE_KV, pre-filter for injection, strict JSON enforcement.

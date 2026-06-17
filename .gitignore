@@ -1,0 +1,111 @@
+# Cognitive Basin / Fractalish / EphUX Recovery - .gitignore
+# Created before any project file ingestion per bootstrap directive.
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+
+# Build / dist
+dist/
+build/
+out/
+.next/
+.nuxt/
+*.min.js
+*.min.css
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+wrangler.toml.bak
+.mf/
+miniflare/
+
+# Environment & secrets (NEVER commit)
+.env
+.env.*
+*.env
+.envrc
+*.pem
+*.key
+*secret*
+*token*
+*credential*
+ALL_TOKENS_KEYS_FOR_GROK.txt
+mcp_credentials.json
+auth.json
+
+# Logs & temp
+logs/
+*.log
+*.logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Recovery workspace internals (self-protect)
+quarantine/
+evidence/raw-personal/
+ops/manifests/session-state.json
+ops/manifests/blockers.json
+ops/manifests/evidence-index.json
+logs/
+
+# IDE / OS
+.idea/
+.vscode/
+*.sublime-*
+*.code-workspace
+.history/
+
+# Archives we intentionally quarantine or re-hash only
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+EphUX*_Backup*/
+EphUX-Rebuild*/
+FractalishBuild/
+ephux-next/
+
+# Large binary / media (do not auto-ingest)
+*.mp4
+*.mov
+*.iso
+*.dmg
+*.exe
+*.msi
+*.dll
+*.bin
+
+# Test / coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Misc
+*.bak
+*.orig
+# Allow specific small manifests and canon only after review
+!ops/manifests/
+!docs/
+!canon/
+!evidence/index.json
+!manifests/artifact-manifest.json
+
+# Do not track credential stores or unrelated personal data
+Documents/
+Pictures/
+Videos/
+Downloads/
+Desktop/
+OneDrive/
+AppData/

@@ -1,0 +1,1 @@
+﻿Live ephux-guardian-intake fetched. One-time token + receptorEvent in KV, basic injection flag, placeholder sanitization note, email handler.
