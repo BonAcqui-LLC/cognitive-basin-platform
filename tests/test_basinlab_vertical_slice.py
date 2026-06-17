@@ -1,5 +1,5 @@
 """
-Executable vertical-slice tests for BasinLab.
+Executable vertical-slice and hardening-adjacent tests for BasinLab.
 """
 
 import sys
@@ -28,6 +28,7 @@ def test_state_survives_between_actions():
                 summary="Use retained state in a later action",
                 code="double_value = value * 2\nprint(double_value)",
                 expected_variables=["double_value"],
+                parent_event_id=first.event_id,
             )
         )
 
@@ -41,7 +42,7 @@ def test_state_survives_between_actions():
 
 def test_runtime_error_becomes_feedback_and_can_be_repaired_without_restart():
     with BasinLabSession() as session:
-        session.execute_action(
+        seeded = session.execute_action(
             ActionProposal(
                 step_id="seed",
                 summary="Create retained seed",
@@ -56,6 +57,7 @@ def test_runtime_error_becomes_feedback_and_can_be_repaired_without_restart():
                 summary="Trigger a recoverable NameError",
                 code="result = seed + missing_term",
                 expected_variables=["result"],
+                parent_event_id=seeded.event_id,
             )
         )
         repaired = session.execute_action(
@@ -64,6 +66,7 @@ def test_runtime_error_becomes_feedback_and_can_be_repaired_without_restart():
                 summary="Repair after failure without restarting",
                 code="missing_term = 4\nresult = seed + missing_term\nprint(result)",
                 expected_variables=["missing_term", "result"],
+                parent_event_id=failing.event_id,
             )
         )
 
@@ -98,7 +101,7 @@ def test_forbidden_action_is_rejected_before_execution():
 
 def test_commit_cannot_bypass_guard_or_completion_integrity(tmp_path):
     with BasinLabSession() as session:
-        session.execute_action(
+        blocked = session.execute_action(
             ActionProposal(
                 step_id="blocked",
                 summary="Attempt forbidden import first",
@@ -109,21 +112,24 @@ def test_commit_cannot_bypass_guard_or_completion_integrity(tmp_path):
             CommitProposal(
                 summary="Commit after a forbidden action",
                 completion_claim="Unit tests passed.",
+                parent_event_id=blocked.event_id,
             )
         )
 
-        session.execute_action(
+        safe = session.execute_action(
             ActionProposal(
                 step_id="safe",
                 summary="Create safe state",
                 code="safe_value = 21",
                 expected_variables=["safe_value"],
+                parent_event_id=denied_after_guard.event_id,
             )
         )
         denied_after_integrity = session.propose_commit(
             CommitProposal(
                 summary="Commit with unsupported deployment claim",
                 completion_claim="Deployment verified.",
+                parent_event_id=safe.event_id,
             )
         )
 
@@ -135,18 +141,22 @@ def test_commit_cannot_bypass_guard_or_completion_integrity(tmp_path):
                 summary="Commit with valid local test evidence",
                 artifact_paths=[str(evidence)],
                 completion_claim="Unit tests passed.",
+                parent_event_id=safe.event_id,
             )
         )
 
         assert denied_after_guard.allowed is False
         assert denied_after_integrity.allowed is False
-        assert any("Deployment verified" in reason or "deployment.verify" in reason for reason in denied_after_integrity.reasons)
+        assert any(
+            "Deployment verified" in reason or "deployment.verify" in reason
+            for reason in denied_after_integrity.reasons
+        )
         assert allowed.allowed is True
 
 
 def test_replay_reconstructs_final_governed_state():
     with BasinLabSession() as session:
-        session.execute_action(
+        seeded = session.execute_action(
             ActionProposal(
                 step_id="seed",
                 summary="Create retained variable",
@@ -160,10 +170,12 @@ def test_replay_reconstructs_final_governed_state():
                 summary="Update retained variable",
                 code="counter = counter + 2\nmessage = f'counter={counter}'",
                 expected_variables=["counter", "message"],
+                parent_event_id=seeded.event_id,
             )
         )
 
         replay = replay_governed_session(session.export_events())
+        assert replay["errors"] == []
         assert replay["basin"].epistemic == EpistemicState.SUPPORTED
         assert replay["basin"].action == ActionState.EXTEND
         assert replay["namespace"]["counter"] == 5
@@ -180,3 +192,4 @@ def test_demo_runs_end_to_end():
     assert demo["blocked"]["feedback"]["rejected"] is True
     assert demo["commit"]["allowed"] is True
     assert demo["replay"]["namespace"]["beta"] == 12
+    assert demo["replay"]["errors"] == []

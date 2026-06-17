@@ -10,22 +10,34 @@ import subprocess
 import sys
 import threading
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from .base import PersistentKernel
+
+
+class KernelProtocolError(RuntimeError):
+    pass
+
+
+class KernelCrashedError(RuntimeError):
+    pass
 
 
 class SubprocessKernel(PersistentKernel):
     def __init__(self) -> None:
         self._proc: subprocess.Popen[str] | None = None
         self._responses: "queue.Queue[Dict[str, Any]]" = queue.Queue()
+        self._stderr_lines: List[str] = []
         self._reader: threading.Thread | None = None
+        self._stderr_reader: threading.Thread | None = None
         self.pid: int | None = None
         self.repo_root = Path(__file__).resolve().parents[3]
 
     def start(self) -> None:
         if self._proc and self._proc.poll() is None:
             return
+        self._responses = queue.Queue()
+        self._stderr_lines = []
         self._proc = subprocess.Popen(
             [sys.executable, "-m", "python.basinlab.kernel.worker"],
             cwd=str(self.repo_root),
@@ -37,7 +49,9 @@ class SubprocessKernel(PersistentKernel):
             bufsize=1,
         )
         self._reader = threading.Thread(target=self._stdout_reader, daemon=True)
+        self._stderr_reader = threading.Thread(target=self._stderr_reader_loop, daemon=True)
         self._reader.start()
+        self._stderr_reader.start()
         response = self._request({"op": "start"}, timeout_s=2.0)
         self.pid = response.get("pid")
 
@@ -51,41 +65,80 @@ class SubprocessKernel(PersistentKernel):
             except json.JSONDecodeError as exc:
                 self._responses.put({"ok": False, "error": f"Invalid worker JSON: {exc}"})
 
+    def _stderr_reader_loop(self) -> None:
+        assert self._proc is not None and self._proc.stderr is not None
+        for line in self._proc.stderr:
+            text = line.rstrip()
+            if text:
+                self._stderr_lines.append(text)
+
     def _ensure_running(self) -> None:
         self.start()
         if self._proc is None or self._proc.poll() is not None:
-            raise RuntimeError("BasinLab kernel is not running")
+            raise KernelCrashedError("BasinLab kernel is not running")
 
     def _request(self, payload: Dict[str, Any], timeout_s: float = 5.0) -> Dict[str, Any]:
         self._ensure_running()
         assert self._proc is not None and self._proc.stdin is not None
-        self._proc.stdin.write(json.dumps(payload) + "\n")
-        self._proc.stdin.flush()
+        try:
+            self._proc.stdin.write(json.dumps(payload) + "\n")
+            self._proc.stdin.flush()
+        except OSError as exc:
+            self._terminate()
+            raise KernelCrashedError(f"BasinLab kernel write failed: {exc}") from exc
         try:
             response = self._responses.get(timeout=timeout_s)
         except queue.Empty as exc:
             self._terminate()
-            raise TimeoutError(f"BasinLab kernel timed out waiting for {payload['op']}") from exc
+            raise TimeoutError(f"BasinLab kernel timed out waiting for {payload.get('op', '<unknown>')}") from exc
         if not response.get("ok", False):
-            raise RuntimeError(response.get("error", "Unknown worker failure"))
+            raise KernelProtocolError(response.get("error", "Unknown worker failure"))
         return response
+
+    def protocol_request(self, payload: Dict[str, Any], timeout_s: float = 5.0) -> Dict[str, Any]:
+        return self._request(payload, timeout_s=timeout_s)
 
     def execute(self, code: str, timeout_s: float = 5.0) -> Dict[str, Any]:
         return self._request({"op": "execute", "code": code}, timeout_s=timeout_s)
 
-    def inspect_namespace(self) -> Dict[str, Dict[str, str]]:
+    def inspect_namespace(self) -> Dict[str, Dict[str, Any]]:
         response = self._request({"op": "inspect_namespace"}, timeout_s=2.0)
         return response.get("namespace_summary", {})
 
-    def snapshot(self) -> Dict[str, Dict[str, str]]:
+    def snapshot(self) -> Dict[str, Dict[str, Any]]:
         response = self._request({"op": "snapshot"}, timeout_s=2.0)
         return response.get("snapshot", {})
 
-    def restore(self, snapshot: Dict[str, Dict[str, str]]) -> None:
+    def snapshot_with_summary(self) -> Dict[str, Any]:
+        return self._request({"op": "snapshot"}, timeout_s=2.0)
+
+    def restore(self, snapshot: Dict[str, Dict[str, Any]]) -> None:
         self._request({"op": "restore", "snapshot": snapshot}, timeout_s=2.0)
 
     def reset(self) -> None:
         self._request({"op": "reset"}, timeout_s=2.0)
+
+    def simulate_crash_for_test(self) -> None:
+        try:
+            self._request({"op": "crash"}, timeout_s=1.0)
+        except Exception:
+            pass
+        self._terminate()
+
+    def send_malformed_message_for_test(self) -> str:
+        self._ensure_running()
+        assert self._proc is not None and self._proc.stdin is not None
+        self._proc.stdin.write("{not-json}\n")
+        self._proc.stdin.flush()
+        response = self._responses.get(timeout=2.0)
+        return response.get("error", "")
+
+    def restart(self) -> None:
+        self._terminate()
+        self.start()
+
+    def last_stderr(self) -> str:
+        return "\n".join(self._stderr_lines[-20:])
 
     def _terminate(self) -> None:
         if self._proc and self._proc.poll() is None:
@@ -102,6 +155,5 @@ class SubprocessKernel(PersistentKernel):
                 self._terminate()
             else:
                 self._proc.wait(timeout=2.0)
-                self._proc = None
-                self.pid = None
-
+        self._proc = None
+        self.pid = None

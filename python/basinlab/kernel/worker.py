@@ -52,6 +52,7 @@ SAFE_BUILTINS = {
 }
 
 MAX_PICKLE_BYTES = 262144
+MAX_TEXT_CHARS = 8192
 
 
 def _make_namespace() -> Dict[str, Any]:
@@ -61,51 +62,82 @@ def _make_namespace() -> Dict[str, Any]:
 SESSION_NAMESPACE: Dict[str, Any] = _make_namespace()
 
 
+def _trim_text(text: str) -> Tuple[str, bool]:
+    if len(text) <= MAX_TEXT_CHARS:
+        return text, False
+    suffix = "\n...[truncated by BasinLab worker]"
+    return text[: MAX_TEXT_CHARS - len(suffix)] + suffix, True
+
+
 def _summarize_value(value: Any) -> str:
     text = repr(value)
     if len(text) > 160:
         text = text[:157] + "..."
-    return f"{type(value).__name__}: {text}"
+    return text
 
 
-def _serialize_value(value: Any) -> Dict[str, str] | None:
+def _serialize_value(value: Any) -> Tuple[Dict[str, Any] | None, Dict[str, Any]]:
+    summary = {
+        "type_name": type(value).__name__,
+        "repr_text": _summarize_value(value),
+        "serializable": False,
+        "serialized_bytes": 0,
+    }
     try:
         payload = pickle.dumps(value, protocol=pickle.HIGHEST_PROTOCOL)
     except Exception:
-        return None
+        return None, summary
     if len(payload) > MAX_PICKLE_BYTES:
-        return None
-    return {
-        "encoding": "pickle+base64",
-        "payload": base64.b64encode(payload).decode("ascii"),
-        "summary": _summarize_value(value),
-    }
+        return None, summary
+    summary["serializable"] = True
+    summary["serialized_bytes"] = len(payload)
+    return (
+        {
+            "encoding": "pickle+base64",
+            "payload": base64.b64encode(payload).decode("ascii"),
+            "summary": summary["repr_text"],
+        },
+        summary,
+    )
 
 
-def _deserialize_value(entry: Dict[str, str]) -> Any:
+def _deserialize_value(entry: Dict[str, Any]) -> Any:
     payload = base64.b64decode(entry["payload"].encode("ascii"))
     return pickle.loads(payload)
 
 
-def _tracked_state() -> Tuple[Dict[str, Dict[str, str]], Dict[str, str]]:
-    serialized: Dict[str, Dict[str, str]] = {}
-    summaries: Dict[str, str] = {}
+def _tracked_state() -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
+    serialized: Dict[str, Dict[str, Any]] = {}
+    summaries: Dict[str, Dict[str, Any]] = {}
     for name, value in SESSION_NAMESPACE.items():
         if name.startswith("_") or name == "__builtins__":
             continue
-        summaries[name] = _summarize_value(value)
-        encoded = _serialize_value(value)
+        encoded, summary = _serialize_value(value)
+        summaries[name] = summary
         if encoded is not None:
             serialized[name] = encoded
     return serialized, summaries
 
 
-def _diff(before: Dict[str, Dict[str, str]], after: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
-    before_keys = set(before)
-    after_keys = set(after)
+def _state_fingerprint(summary: Dict[str, Any], serialized: Dict[str, Any] | None) -> str:
+    if serialized is not None:
+        return serialized["payload"]
+    return json.dumps(summary, sort_keys=True)
+
+
+def _diff(
+    before_serialized: Dict[str, Dict[str, Any]],
+    before_summary: Dict[str, Dict[str, Any]],
+    after_serialized: Dict[str, Dict[str, Any]],
+    after_summary: Dict[str, Dict[str, Any]],
+) -> Dict[str, Any]:
+    before_keys = set(before_summary)
+    after_keys = set(after_summary)
     updated = []
     for name in sorted(before_keys & after_keys):
-        if before[name]["payload"] != after[name]["payload"]:
+        if _state_fingerprint(before_summary[name], before_serialized.get(name)) != _state_fingerprint(
+            after_summary[name], after_serialized.get(name)
+        ):
             updated.append(name)
     return {
         "created": sorted(after_keys - before_keys),
@@ -117,7 +149,7 @@ def _diff(before: Dict[str, Dict[str, str]], after: Dict[str, Dict[str, str]]) -
 def _handle_execute(message: Dict[str, Any]) -> Dict[str, Any]:
     code = message["code"]
     started = time.perf_counter()
-    before_state, _ = _tracked_state()
+    before_serialized, before_summary = _tracked_state()
     stdout_buffer = io.StringIO()
     stderr_buffer = io.StringIO()
     exception_type = ""
@@ -133,18 +165,24 @@ def _handle_execute(message: Dict[str, Any]) -> Dict[str, Any]:
             traceback.format_exception(type(exc), exc, exc.__traceback__, limit=6)
         )
 
-    after_state, summaries = _tracked_state()
+    after_serialized, summaries = _tracked_state()
+    stdout, stdout_truncated = _trim_text(stdout_buffer.getvalue())
+    stderr, stderr_truncated = _trim_text(stderr_buffer.getvalue())
+    trimmed_traceback, traceback_truncated = _trim_text(condensed_traceback)
     duration_s = time.perf_counter() - started
     return {
         "ok": True,
-        "stdout": stdout_buffer.getvalue(),
-        "stderr": stderr_buffer.getvalue(),
+        "stdout": stdout,
+        "stderr": stderr,
         "exception_type": exception_type,
-        "traceback": condensed_traceback,
+        "traceback": trimmed_traceback,
         "duration_s": duration_s,
-        "namespace_diff": _diff(before_state, after_state),
+        "stdout_truncated": stdout_truncated,
+        "stderr_truncated": stderr_truncated,
+        "traceback_truncated": traceback_truncated,
+        "namespace_diff": _diff(before_serialized, before_summary, after_serialized, summaries),
         "namespace_summary": summaries,
-        "snapshot": after_state,
+        "snapshot": after_serialized,
     }
 
 
@@ -168,14 +206,16 @@ def _dispatch(message: Dict[str, Any]) -> Dict[str, Any]:
         _, summaries = _tracked_state()
         return {"ok": True, "namespace_summary": summaries}
     if op == "snapshot":
-        snapshot, _ = _tracked_state()
-        return {"ok": True, "snapshot": snapshot}
+        snapshot, summaries = _tracked_state()
+        return {"ok": True, "snapshot": snapshot, "namespace_summary": summaries}
     if op == "restore":
         return _handle_restore(message)
     if op == "reset":
         SESSION_NAMESPACE.clear()
         SESSION_NAMESPACE.update(_make_namespace())
         return {"ok": True}
+    if op == "crash":
+        raise RuntimeError("Intentional BasinLab test crash")
     if op == "close":
         return {"ok": True, "closing": True}
     return {"ok": False, "error": f"Unknown op: {op}"}
