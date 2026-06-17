@@ -1,0 +1,29 @@
+﻿Remote verification performed 2026-06-17 after platform creation and pushes.
+
+Repository: BonAcqui-LLC/cognitive-basin-platform
+Visibility: PRIVATE (confirmed via gh repo view --json)
+Default branch: main (pushed)
+Recovery evidence branch: recovery/evidence-baseline-2026-06-17 (pushed from recovery repo)
+Tag: recovery-evidence-baseline-2026-06-17
+
+Local recovery HEAD at push: 5f325d8f8b217ef7115bdc549b126f079b69bf29
+Remote refs confirmed via ls-remote.
+
+Platform main commit (latest): 1c2096d (contains monorepo + contracts + registry + guard + test + CI)
+
+Security gate: PASSED (pre first push and subsequent)
+- No prohibited placeholders in source
+- 0 credential patterns
+- No forbidden files
+- .gitignore strict (excludes ALL_TOKENS..., .env*, gho_*, sk-*, etc.)
+
+CI: .github/workflows/ci.yml present on remote (non-deploying)
+- Contains placeholder scan, credential scan, Python compile, capability registry validation, completion_integrity_acceptance test
+- Explicitly contains no deploy, Cloudflare, DNS, Pages, secrets, or paid service steps.
+
+No Cloudflare state changed (no wrangler deploy, no bindings mutation, no routes).
+No production secrets created.
+No public visibility.
+No Codespaces or third-party app enablement performed.
+
+All per explicit approval boundaries 2026-06-17.

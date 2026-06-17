@@ -1,0 +1,19 @@
+﻿Platform Foundation Verification Packet
+Date: 2026-06-17
+Repository: BonAcqui-LLC/cognitive-basin-platform (PRIVATE)
+Verification commands executed exactly as specified.
+
+Files:
+01-status.txt - git status --porcelain=v1
+02-log.txt - git log --oneline --decorate --graph --all -20
+03-show-HEAD~2.txt
+04-show-HEAD~1.txt
+05-show-HEAD.txt
+06-ls-files.txt
+07-remote.txt
+08-rev-parse-HEAD.txt
+09-ls-remote.txt
+10-gh-repo-view.json
+11-gh-api-ci-workflow.json
+
+All outputs are raw from the commands (sanitized only by removing any auth tokens if present in output; none were in these).

@@ -1,0 +1,28 @@
+﻿{
+  "imports": [
+    {
+      "original_path": "C:\\Users\\moop\\ephux-next\\basin-lab\\core\\contracts.py",
+      "imported_to": "evidence/legacy/contracts.py",
+      "date": "2026-06-17",
+      "authors": "James Clow, Melissa Clow, BonAcqui LLC",
+      "classification": "CANONICAL",
+      "notes": "EpistemicState (SUPPORTED/UNRESOLVED/CONTRADICTED), ActionState (RETRACT/HOLD/EXTEND), BasinState, ClaimRecord, ArtifactManifest. Matches directive exactly."
+    },
+    {
+      "original_path": "C:\\Users\\moop\\ephux-next\\basin-lab\\core\\controller.py",
+      "imported_to": "evidence/legacy/controller.py",
+      "date": "2026-06-17",
+      "authors": "James Clow, Melissa Clow, BonAcqui LLC",
+      "classification": "CANONICAL",
+      "notes": "BasinController with propose_candidate driving RETRACT/HOLD/EXTEND based on contradictions. HOLD records ignored regions and consumes budget. Scars for recovery."
+    },
+    {
+      "original_path": "live Cloudflare ephux-activation-kernel (MCP fetch 2026-06-17)",
+      "imported_to": "evidence/legacy/ephux-activation-kernel-worker.js",
+      "date": "2026-06-17",
+      "authors": "Architecture by James Clow and Melissa Clow",
+      "classification": "LIVE_DEPLOYED_SOURCE",
+      "notes": "Implements doctrine with ternary output, pre-filter, KV provenance. Used for M0 verification."
+    }
+  ]
+}
