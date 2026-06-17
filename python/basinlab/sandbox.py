@@ -12,8 +12,8 @@ from typing import Any, Dict, List
 
 
 ENFORCED = "ENFORCED"
-BEST_EFFORT = "BEST EFFORT"
-UNSUPPORTED = "UNSUPPORTED ON CURRENT PLATFORM"
+BEST_EFFORT = "BEST_EFFORT"
+UNSUPPORTED = "UNSUPPORTED"
 
 FORBIDDEN_CALLS = {
     "eval",
@@ -43,6 +43,20 @@ FORBIDDEN_MODULES = {
     "ctypes",
     "multiprocessing",
     "threading",
+    "asyncio",
+}
+
+FORBIDDEN_ATTRS = {
+    "environ",
+    "system",
+    "popen",
+    "spawn",
+    "fork",
+    "execv",
+    "execve",
+    "socket",
+    "connect",
+    "request",
 }
 
 
@@ -83,8 +97,12 @@ def inspect_action_code(code: str) -> GuardDecision:
         "subprocess_block": ENFORCED,
         "network_block": ENFORCED,
         "filesystem_mutation_block": ENFORCED,
+        "memory_limit": BEST_EFFORT,
+        "workspace_write_confinement": BEST_EFFORT,
+        "orphan_cleanup": BEST_EFFORT,
         "timeout": BEST_EFFORT,
         "process_isolation": UNSUPPORTED,
+        "network_egress_runtime": UNSUPPORTED,
     }
     reasons: List[str] = []
 
@@ -113,5 +131,7 @@ def inspect_action_code(code: str) -> GuardDecision:
         elif isinstance(node, ast.Attribute):
             if node.attr.startswith("__"):
                 reasons.append(f"Dunder attribute access is disabled: {node.attr}")
+            if node.attr in FORBIDDEN_ATTRS:
+                reasons.append(f"Forbidden attribute usage before execution: {node.attr}")
 
     return GuardDecision(not reasons, reasons, controls)

@@ -29,8 +29,7 @@ from .contracts import (
     NamespaceVariableSummary,
     PreExecutionCheck,
 )
-from .kernel import SubprocessKernel
-from .kernel.subprocess_kernel import KernelCrashedError, KernelProtocolError
+from .runner import RunnerExecutionError, SubprocessRunner
 from .sandbox import inspect_action_code
 from .store import SessionStore
 
@@ -106,7 +105,8 @@ class BasinLabSession:
         session_metadata: Optional[Dict[str, Any]] = None,
         resume_existing: bool = False,
     ) -> None:
-        self.kernel = SubprocessKernel()
+        self.runner = SubprocessRunner()
+        self.kernel = self.runner
         self.events: List[Dict[str, Any]] = []
         self.last_basin = BasinGovernanceState(
             epistemic=EpistemicState.UNRESOLVED,
@@ -202,14 +202,14 @@ class BasinLabSession:
         if self.store is not None and self._resume_existing:
             if self.session_id is None or not self.store.session_exists(self.session_id):
                 raise ValueError("Cannot resume BasinLab session without an existing session ID")
-            self.kernel.start()
+            self.runner.start()
             self.started_at = time.time()
             self.events = self.store.read_events(self.session_id)
             self._rebuild_indices()
             latest_snapshot = self.store.latest_snapshot(self.session_id)
             if latest_snapshot["snapshot"]:
-                self.kernel.restore(latest_snapshot["snapshot"])
-                namespace_summary = _summary_objects(self.kernel.inspect_namespace())
+                self.runner.restore(latest_snapshot["snapshot"])
+                namespace_summary = _summary_objects(self.runner.inspect_namespace())
                 self._last_checkpoint = CheckpointRecord(
                     snapshot=latest_snapshot["snapshot"],
                     namespace_summary=namespace_summary,
@@ -217,7 +217,7 @@ class BasinLabSession:
                 )
             return
 
-        self.kernel.start()
+        self.runner.start()
         self.started_at = time.time()
         if self.store is not None and self.session_id is None:
             metadata = {
@@ -234,7 +234,7 @@ class BasinLabSession:
             "pid": self.kernel.pid,
         }
         self.events.append(event)
-        snapshot = self.kernel.snapshot_with_summary()
+        snapshot = self.runner.snapshot_with_summary()
         self._last_checkpoint = CheckpointRecord(
             snapshot=snapshot.get("snapshot", {}),
             namespace_summary=_summary_objects(snapshot.get("namespace_summary", {})),
@@ -243,10 +243,10 @@ class BasinLabSession:
         self._persist_event(event, snapshot=self._last_checkpoint.snapshot, basin=self.last_basin)
 
     def close(self) -> None:
-        self.kernel.close()
+        self.runner.close()
 
     def reset(self) -> None:
-        self.kernel.reset()
+        self.runner.reset()
         self._last_checkpoint = CheckpointRecord()
 
     def _preflight(self, proposal: ActionProposal) -> PreExecutionCheck:
@@ -302,9 +302,9 @@ class BasinLabSession:
         )
 
     def _restore_last_checkpoint(self) -> None:
-        self.kernel.restart()
+        self.runner.restart()
         if self._last_checkpoint.snapshot:
-            self.kernel.restore(self._last_checkpoint.snapshot)
+            self.runner.restore(self._last_checkpoint.snapshot)
 
     def execute_action(self, proposal: ActionProposal) -> ActionResult:
         preflight = self._preflight(proposal)
@@ -333,17 +333,18 @@ class BasinLabSession:
             self._step_ids.add(proposal.step_id)
         else:
             try:
-                execution = self.kernel.execute(proposal.code, timeout_s=proposal.max_duration_s)
-            except (TimeoutError, KernelCrashedError, KernelProtocolError) as exc:
+                execution = self.runner.execute(proposal.code, timeout_s=proposal.max_duration_s)
+            except RunnerExecutionError as exc:
                 worker_recovered = True
                 self._restore_last_checkpoint()
                 feedback = ActionFeedback(
                     rejected=False,
-                    timed_out=isinstance(exc, TimeoutError),
+                    timed_out=exc.timed_out,
                     rejection_reason=str(exc),
-                    exception_type="" if isinstance(exc, TimeoutError) else type(exc).__name__,
+                    exception_type="" if exc.timed_out else exc.error_class,
                     worker_recovered=True,
                     namespace_summary=self._last_checkpoint.namespace_summary,
+                    runner_receipt=exc.receipt.to_record(),
                 )
                 checkpoint = self._last_checkpoint
             else:
@@ -360,6 +361,7 @@ class BasinLabSession:
                     namespace_diff=NamespaceDiff(**execution.get("namespace_diff", {})),
                     namespace_summary=checkpoint.namespace_summary,
                     worker_recovered=worker_recovered,
+                    runner_receipt=execution.get("runner_receipt", {}),
                 )
                 if not feedback.exception_type:
                     self._last_checkpoint = checkpoint
@@ -414,12 +416,12 @@ class BasinLabSession:
         return result
 
     def inspect_namespace(self) -> Dict[str, NamespaceVariableSummary]:
-        response = self.kernel.inspect_namespace()
+        response = self.runner.inspect_namespace()
         return _summary_objects(response)
 
     def load_bindings(self, bindings: Dict[str, Any]) -> None:
-        self.kernel.load_bindings(encode_bindings(bindings))
-        snapshot = self.kernel.snapshot_with_summary()
+        self.runner.load_bindings(encode_bindings(bindings))
+        snapshot = self.runner.snapshot_with_summary()
         self._last_checkpoint = CheckpointRecord(
             snapshot=snapshot.get("snapshot", {}),
             namespace_summary=_summary_objects(snapshot.get("namespace_summary", {})),

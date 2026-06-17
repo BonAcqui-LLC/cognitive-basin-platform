@@ -10,7 +10,6 @@ import hashlib
 import html
 import json
 import os
-import platform
 import re
 import secrets
 import threading
@@ -37,6 +36,7 @@ from python.basinlab.spectrum import CandidateTrajectory
 from python.basinlab.store import SessionStore
 from python.basinlab.team_narrative import NarrativeRecord, TeamNarrative
 from python.cognitive_basin.pipeline import run_basin_pipeline
+from python.provider_lab import local_model_inventory, provider_inventory
 
 from .contracts import ActivationRecord, IntakeRecord, IntakeState, SanitizationState
 
@@ -129,24 +129,8 @@ def _report_summary_from_bundle(report: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def _provider_inventory() -> List[Dict[str, Any]]:
-    hardware = {
-        "platform": platform.platform(),
-        "processor": platform.processor(),
-        "cpu_count": os.cpu_count(),
-    }
-    cache_candidates = {
-        "huggingface": Path.home() / ".cache" / "huggingface",
-        "ollama": Path.home() / ".ollama" / "models",
-        "lm_studio": Path.home() / ".cache" / "lm-studio",
-        "gpt4all": Path.home() / "AppData" / "Local" / "nomic.ai",
-    }
-    caches = {
-        name: {
-            "path": str(path),
-            "exists": path.exists(),
-        }
-        for name, path in cache_candidates.items()
-    }
+    inventory = {entry["provider_name"]: entry for entry in provider_inventory()}
+    hardware = local_model_inventory()
     providers = [
         ScriptedProvider(name="scripted"),
         GeneralistProvider(),
@@ -160,11 +144,9 @@ def _provider_inventory() -> List[Dict[str, Any]]:
             "model": provider.model,
             "can_execute": provider.can_execute,
             "can_commit": provider.can_commit,
-            "available": provider.name == "scripted"
-            or (provider.name == "openai-compatible" and bool(os.environ.get("OPENAI_API_KEY")))
-            or False,
+            "available": inventory.get(provider.name, {}).get("reachable", False),
+            "inventory": inventory.get(provider.name, {}),
             "hardware": hardware,
-            "model_caches": caches,
         }
         for provider in providers
     ]
