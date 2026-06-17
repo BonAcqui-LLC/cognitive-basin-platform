@@ -115,6 +115,9 @@ class SubprocessKernel(PersistentKernel):
     def restore(self, snapshot: Dict[str, Dict[str, Any]]) -> None:
         self._request({"op": "restore", "snapshot": snapshot}, timeout_s=2.0)
 
+    def load_bindings(self, bindings: Dict[str, Dict[str, Any]]) -> None:
+        self._request({"op": "load_bindings", "bindings": bindings}, timeout_s=2.0)
+
     def reset(self) -> None:
         self._request({"op": "reset"}, timeout_s=2.0)
 

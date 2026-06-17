@@ -9,6 +9,7 @@ reuses only the public ideas and the existing Cognitive Basin contracts.
 from .associations import AssociationField
 from .compression import VerifiedCompression
 from .contracts import ActionProposal, CommitProposal
+from .natural_math import seeded_three_world
 from .planner import GeneralistPlanner
 from .providers import CompactReasonerProvider, GeneralistProvider, ScriptedProvider, VibeThinkerProvider
 from .reliability import ReliabilityEngine, minority_wins_demo
@@ -31,6 +32,7 @@ __all__ = [
     "ReliabilityEngine",
     "ScarRegistry",
     "ScriptedProvider",
+    "seeded_three_world",
     "VerifiedCompression",
     "VibeThinkerProvider",
     "minority_wins_demo",

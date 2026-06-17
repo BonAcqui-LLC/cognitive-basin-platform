@@ -53,6 +53,18 @@ def decode_snapshot(snapshot: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
     return materialized
 
 
+def encode_bindings(bindings: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    encoded: Dict[str, Dict[str, Any]] = {}
+    for name, value in bindings.items():
+        payload = pickle.dumps(value, protocol=pickle.HIGHEST_PROTOCOL)
+        encoded[name] = {
+            "encoding": "pickle+base64",
+            "payload": base64.b64encode(payload).decode("ascii"),
+            "summary": repr(value)[:160],
+        }
+    return encoded
+
+
 def _state_from_outcome(feedback: ActionFeedback) -> BasinGovernanceState:
     if feedback.rejected:
         return BasinGovernanceState(
@@ -311,6 +323,15 @@ class BasinLabSession:
     def inspect_namespace(self) -> Dict[str, NamespaceVariableSummary]:
         response = self.kernel.inspect_namespace()
         return _summary_objects(response)
+
+    def load_bindings(self, bindings: Dict[str, Any]) -> None:
+        self.kernel.load_bindings(encode_bindings(bindings))
+        snapshot = self.kernel.snapshot_with_summary()
+        self._last_checkpoint = CheckpointRecord(
+            snapshot=snapshot.get("snapshot", {}),
+            namespace_summary=_summary_objects(snapshot.get("namespace_summary", {})),
+            snapshot_hash=checkpoint_hash(snapshot.get("snapshot", {})),
+        )
 
     def materialize_namespace(self) -> Dict[str, Any]:
         return decode_snapshot(self._last_checkpoint.snapshot)

@@ -195,6 +195,13 @@ def _handle_restore(message: Dict[str, Any]) -> Dict[str, Any]:
     return {"ok": True, "namespace_summary": summaries}
 
 
+def _handle_load_bindings(message: Dict[str, Any]) -> Dict[str, Any]:
+    for name, entry in message.get("bindings", {}).items():
+        SESSION_NAMESPACE[name] = _deserialize_value(entry)
+    _, summaries = _tracked_state()
+    return {"ok": True, "namespace_summary": summaries}
+
+
 def _dispatch(message: Dict[str, Any]) -> Dict[str, Any]:
     op = message.get("op")
     if op == "start":
@@ -210,6 +217,8 @@ def _dispatch(message: Dict[str, Any]) -> Dict[str, Any]:
         return {"ok": True, "snapshot": snapshot, "namespace_summary": summaries}
     if op == "restore":
         return _handle_restore(message)
+    if op == "load_bindings":
+        return _handle_load_bindings(message)
     if op == "reset":
         SESSION_NAMESPACE.clear()
         SESSION_NAMESPACE.update(_make_namespace())
