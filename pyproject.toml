@@ -13,4 +13,4 @@ dependencies = []
 dev = ["pytest>=8.0"]
 
 [tool.setuptools.packages.find]
-include = ["basinlab*", "packages*", "python*"]
+include = ["basinlab*", "ephux_local*", "packages*", "python*"]

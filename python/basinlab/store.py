@@ -10,6 +10,7 @@ import os
 import sqlite3
 import time
 import uuid
+from contextlib import closing
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
@@ -76,7 +77,7 @@ class SessionStore:
         return connection
 
     def _initialize(self) -> None:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             connection.executescript(
                 """
                 CREATE TABLE IF NOT EXISTS meta (
@@ -146,11 +147,12 @@ class SessionStore:
                 raise SessionSchemaMismatchError(
                     f"Unsupported BasinLab session schema version: {current_version['value']}"
                 )
+            connection.commit()
 
     def create_session(self, metadata: Dict[str, Any], session_id: Optional[str] = None) -> str:
         created_at = time.time()
         identifier = session_id or f"bls-{uuid.uuid4().hex[:12]}"
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             connection.execute(
                 """
                 INSERT INTO sessions(
@@ -167,10 +169,11 @@ class SessionStore:
                     SCHEMA_VERSION,
                 ),
             )
+            connection.commit()
         return identifier
 
     def session_exists(self, session_id: str) -> bool:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             row = connection.execute("SELECT 1 FROM sessions WHERE session_id = ?", (session_id,)).fetchone()
         return row is not None
 
@@ -185,7 +188,7 @@ class SessionStore:
     ) -> None:
         payload_json = _canonical_json(event)
         payload_hash = _sha256_text(payload_json)
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             try:
                 connection.execute("BEGIN IMMEDIATE")
                 row = connection.execute(
@@ -278,7 +281,7 @@ class SessionStore:
             "pruned": False,
             "metadata": payload,
         }
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             connection.execute(
                 """
                 INSERT OR REPLACE INTO artifacts(
@@ -298,11 +301,12 @@ class SessionStore:
                     _canonical_json(payload),
                 ),
             )
+            connection.commit()
         return record
 
     def prune_temporary_artifacts(self, session_id: str) -> List[str]:
         pruned: List[str] = []
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             rows = connection.execute(
                 """
                 SELECT artifact_id, artifact_path
@@ -324,10 +328,11 @@ class SessionStore:
                     (session_id, row["artifact_id"]),
                 )
                 pruned.append(str(artifact_path))
+            connection.commit()
         return pruned
 
     def get_session(self, session_id: str) -> StoredSession:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             row = connection.execute("SELECT * FROM sessions WHERE session_id = ?", (session_id,)).fetchone()
         if row is None:
             raise SessionStoreError(f"Unknown session ID: {session_id}")
@@ -349,7 +354,7 @@ class SessionStore:
     def read_events(self, session_id: str) -> List[Dict[str, Any]]:
         self.get_session(session_id)
         events: List[Dict[str, Any]] = []
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             rows = connection.execute(
                 "SELECT payload_json, payload_hash FROM events WHERE session_id = ? ORDER BY seq ASC",
                 (session_id,),
@@ -363,7 +368,7 @@ class SessionStore:
 
     def latest_snapshot(self, session_id: str) -> Dict[str, Any]:
         self.get_session(session_id)
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             row = connection.execute(
                 "SELECT snapshot_json, snapshot_hash FROM snapshots WHERE session_id = ? ORDER BY seq DESC LIMIT 1",
                 (session_id,),
@@ -377,7 +382,7 @@ class SessionStore:
 
     def list_artifacts(self, session_id: str) -> List[Dict[str, Any]]:
         self.get_session(session_id)
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             rows = connection.execute(
                 """
                 SELECT artifact_id, artifact_path, artifact_hash, exists_on_disk, temporary, pruned, metadata_json
@@ -406,7 +411,7 @@ class SessionStore:
     def record_replay_hash(self, session_id: str, replay_result: Dict[str, Any]) -> str:
         payload_json = _canonical_json(replay_result)
         replay_hash = _sha256_text(payload_json)
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             connection.execute(
                 """
                 INSERT OR REPLACE INTO replay_hashes(session_id, replay_hash, created_at, result_json)
@@ -414,6 +419,7 @@ class SessionStore:
                 """,
                 (session_id, replay_hash, time.time(), payload_json),
             )
+            connection.commit()
         return replay_hash
 
     def inspect_session(self, session_id: str) -> Dict[str, Any]:
@@ -472,12 +478,14 @@ class SessionStore:
         }
 
     def tamper_event_for_test(self, session_id: str, seq: int, payload: Dict[str, Any]) -> None:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             connection.execute(
                 "UPDATE events SET payload_json = ? WHERE session_id = ? AND seq = ?",
                 (_canonical_json(payload), session_id, seq),
             )
+            connection.commit()
 
     def set_schema_version_for_test(self, version: int) -> None:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             connection.execute("UPDATE meta SET value = ? WHERE key = 'schema_version'", (str(version),))
+            connection.commit()

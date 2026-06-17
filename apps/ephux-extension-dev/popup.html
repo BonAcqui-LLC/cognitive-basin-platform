@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EphUX Local Dev</title>
+  <style>
+    body { font-family: Georgia, serif; min-width: 320px; padding: 12px; background: #f7f2e8; color: #1f261b; }
+    input, textarea { width: 100%; box-sizing: border-box; margin-top: 6px; margin-bottom: 8px; }
+    button { width: 100%; margin-top: 6px; }
+    pre { white-space: pre-wrap; background: #fffdf8; border: 1px solid #ccd5c5; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:18px;">EphUX Local Dev</h1>
+  <p>Development-only extension. Sends selected text to the local loopback service.</p>
+  <label>Local API base<input id="baseUrl" value="http://127.0.0.1:8765"></label>
+  <label>Local token<input id="token" placeholder="Paste X-Ephux-Token"></label>
+  <label>Purpose<input id="purpose" value="Review selected text"></label>
+  <button id="sendSelection">Send Selected Text</button>
+  <button id="startActivation">Start Activation</button>
+  <pre id="output">Ready.</pre>
+  <script src="popup.js"></script>
+</body>
+</html>
