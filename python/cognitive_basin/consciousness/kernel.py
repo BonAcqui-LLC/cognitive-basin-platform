@@ -470,17 +470,17 @@ class OperationalConsciousnessKernel:
             return self.last_cycle
         was_paused = self.paused
         self.paused = False
-        placeholder = self.run_cycle(
+        snapshot_cycle = self.run_cycle(
             events=events,
             connectors=connectors,
             claimed_capabilities=claimed_capabilities,
             tested_capabilities=tested_capabilities,
             allow_internal_action=False,
         )
-        placeholder.paused = True
+        snapshot_cycle.paused = True
         self.paused = was_paused
-        self.last_cycle = placeholder
-        return placeholder
+        self.last_cycle = snapshot_cycle
+        return snapshot_cycle
 
     def snapshot(self) -> ConsciousnessSnapshot:
         last = self.last_cycle
