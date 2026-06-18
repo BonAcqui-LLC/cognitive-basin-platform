@@ -630,6 +630,153 @@
         </article>
       </section>
 
+      <section class="panel" data-tone="cool">
+        <h2>Predictive Cognition Surface</h2>
+        <p>Structured world model, prediction, interoception, causal reasoning, perspectives, planning, rehearsal, anomalies, and calibration.</p>
+        <div class="row">
+          <label for="predictiveEntityType">Entity type
+            <input id="predictiveEntityType" value="BRANCH">
+          </label>
+          <label for="predictiveEntityId">Entity id
+            <input id="predictiveEntityId" value="branch-1">
+          </label>
+          <label for="predictivePropertyName">Property
+            <input id="predictivePropertyName" value="status">
+          </label>
+          <label for="predictivePropertyCategory">Category
+            <select id="predictivePropertyCategory">
+              <option value="OBSERVED">OBSERVED</option>
+              <option value="INFERRED">INFERRED</option>
+              <option value="PREDICTED">PREDICTED</option>
+              <option value="SIMULATED">SIMULATED</option>
+              <option value="REMEMBERED">REMEMBERED</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label for="predictivePropertyValue">Property value
+            <input id="predictivePropertyValue" value="green">
+          </label>
+          <label for="predictiveExpectedValue">Expected value
+            <input id="predictiveExpectedValue" value="green">
+          </label>
+          <label for="predictiveHorizon">Prediction horizon
+            <select id="predictiveHorizon">
+              <option value="NEXT_CYCLE">NEXT_CYCLE</option>
+              <option value="SESSION">SESSION</option>
+              <option value="PROJECT">PROJECT</option>
+            </select>
+          </label>
+          <label for="predictiveConfidence">Prediction confidence
+            <input id="predictiveConfidence" value="0.8">
+          </label>
+        </div>
+        <div class="row">
+          <label for="predictiveAssumption">Assumption
+            <input id="predictiveAssumption" value="tests remain green">
+          </label>
+          <label for="predictiveEvidence">Evidence
+            <input id="predictiveEvidence" value="local deterministic evidence">
+          </label>
+          <label for="predictiveCausalSource">Causal source
+            <input id="predictiveCausalSource" value="ci-green">
+          </label>
+          <label for="predictiveCausalTarget">Causal target
+            <input id="predictiveCausalTarget" value="branch-ready">
+          </label>
+          <label for="predictiveCausalRelation">Causal relation
+            <select id="predictiveCausalRelation">
+              <option value="HYPOTHESIZED">HYPOTHESIZED</option>
+              <option value="CORRELATION">CORRELATION</option>
+              <option value="SIMULATION_SUPPORTED">SIMULATION_SUPPORTED</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label for="predictivePerspectiveOwner">Perspective owner
+            <input id="predictivePerspectiveOwner" value="James Clow">
+          </label>
+          <label for="predictivePerspectiveClass">Perspective class
+            <select id="predictivePerspectiveClass">
+              <option value="PARTICIPANT_JAMES">PARTICIPANT_JAMES</option>
+              <option value="PARTICIPANT_MELISSA">PARTICIPANT_MELISSA</option>
+              <option value="UNKNOWN">UNKNOWN</option>
+            </select>
+          </label>
+          <label for="predictivePerspectiveLabel">Perspective label
+            <select id="predictivePerspectiveLabel">
+              <option value="goal">goal</option>
+              <option value="knowledge">knowledge</option>
+              <option value="belief">belief</option>
+              <option value="uncertainty">uncertainty</option>
+            </select>
+          </label>
+          <label for="predictivePerspectiveEvidence">Evidence category
+            <select id="predictivePerspectiveEvidence">
+              <option value="EXPLICITLY_STATED">EXPLICITLY_STATED</option>
+              <option value="OBSERVED_BEHAVIOR">OBSERVED_BEHAVIOR</option>
+              <option value="UNKNOWN">UNKNOWN</option>
+            </select>
+          </label>
+        </div>
+        <label for="predictivePerspectiveStatement">Perspective statement
+          <textarea id="predictivePerspectiveStatement">Please verify before acting.</textarea>
+        </label>
+        <label for="predictiveRehearsalDetail">Rehearsal detail
+          <textarea id="predictiveRehearsalDetail">simulate connector outage and verify recovery path</textarea>
+        </label>
+        <div class="button-row">
+          <button id="submitWorldObservation" class="secondary">Add World Observation</button>
+          <button id="submitPredictionRequest" class="secondary">Add Prediction</button>
+          <button id="submitCausalHypothesis" class="secondary">Add Causal Hypothesis</button>
+          <button id="submitPerspectiveRecord" class="secondary">Add Perspective</button>
+          <button id="submitRehearsalRequest" class="secondary">Add Rehearsal</button>
+          <button id="reviewPredictiveWorld">Review Predictive State</button>
+        </div>
+        <div class="row">
+          <article class="list-card">
+            <h3>World Model</h3>
+            <pre id="predictiveWorld"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Predictions And Residuals</h3>
+            <pre id="predictivePrediction"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Interoception And Regulation</h3>
+            <pre id="predictiveInteroception"></pre>
+          </article>
+        </div>
+        <div class="row">
+          <article class="list-card">
+            <h3>Causal Model</h3>
+            <pre id="predictiveCausal"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Participant Perspectives</h3>
+            <pre id="predictivePerspectives"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Plans</h3>
+            <pre id="predictivePlans"></pre>
+          </article>
+        </div>
+        <div class="row">
+          <article class="list-card">
+            <h3>Rehearsals</h3>
+            <pre id="predictiveRehearsals"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Anomalies</h3>
+            <pre id="predictiveAnomalies"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Calibration</h3>
+            <pre id="predictiveCalibration"></pre>
+          </article>
+        </div>
+      </section>
+
       <section class="panel">
         <h2>Report Summary</h2>
         <div class="row">

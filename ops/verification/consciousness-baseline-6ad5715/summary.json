@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-06-18T16:35:00-04:00",
+  "baseline_main": "6ad571592874e4906b44d339af8a34c3e5e7f903",
+  "branch": "build/predictive-world-interoception-codex",
+  "focus": [
+    "predictive world model",
+    "machine interoception",
+    "causal learning",
+    "perspective architecture",
+    "skipped test repair",
+    "workflow runtime warning repair"
+  ],
+  "skipped_test": {
+    "file": "tests/test_connectors.py",
+    "line": 48,
+    "classification": "STALE_SKIP",
+    "disposition": "repaired_and_skip_removed"
+  },
+  "workflow_runtime_warning": {
+    "file": ".github/workflows/ci.yml",
+    "from": {
+      "actions/checkout": "v4",
+      "actions/setup-python": "v5"
+    },
+    "to": {
+      "actions/checkout": "v7",
+      "actions/setup-python": "v6"
+    },
+    "disposition": "repaired_in_branch"
+  }
+}

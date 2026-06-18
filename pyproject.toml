@@ -25,6 +25,7 @@ include = [
     "memory_governance*",
     "natural_math_lab*",
     "packages*",
+    "predictive_cognition*",
     "provider_lab*",
     "python*",
     "sandbox_lab*",

@@ -15,11 +15,13 @@ from python.evaluation_lab import build_task_registry, run_evaluation_suite
 def test_evaluation_registry_covers_expected_families():
     tasks, families = build_task_registry()
     family_ids = {family.family_id for family in families}
-    assert len(tasks) >= 31
+    assert len(tasks) >= 46
     assert "natural_math" in family_ids
     assert "capability_boundary_sampling" in family_ids
     assert "percept_fusion" in family_ids
     assert "authority_boundary_detection" in family_ids
+    assert "prediction" in family_ids
+    assert "participant_perspective" in family_ids
 
 
 def test_evaluation_lab_acceptance_passes(tmp_path):

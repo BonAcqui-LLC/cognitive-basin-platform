@@ -24,7 +24,7 @@ def _request(connector_id: str, operation: str, scope: ConnectorScope, payload: 
     )
 
 
-def test_local_filesystem_rejects_path_escape_patterns(tmp_path):
+def test_local_filesystem_rejects_path_escape_patterns(tmp_path, monkeypatch):
     workspace = tmp_path / "workspace"
     workspace.mkdir()
     (workspace / "build").mkdir()
@@ -45,13 +45,20 @@ def test_local_filesystem_rejects_path_escape_patterns(tmp_path):
     try:
         symlink.symlink_to(outside)
     except OSError:
-        pytest.skip("Symlink creation is unavailable in this environment")
+        original_resolve = type(symlink).resolve
+
+        def _resolve_with_escape(self, strict=False):
+            if self == symlink:
+                return outside.resolve()
+            return original_resolve(self, strict=strict)
+
+        monkeypatch.setattr(type(symlink), "resolve", _resolve_with_escape)
     with pytest.raises(ValueError):
         registry.execute(_request("local-filesystem", ConnectorOperation.READ_TEXT.value, ConnectorScope.READ_ONLY, {"path": str(symlink)}))
 
     if os.name == "nt":
         with pytest.raises(ValueError):
-            registry.execute(_request("local-filesystem", ConnectorOperation.READ_TEXT.value, ConnectorScope.READ_ONLY, {"path": str(Path(str(workspace).upper()) / "MISSING.TXT")}))
+            registry.execute(_request("local-filesystem", ConnectorOperation.READ_TEXT.value, ConnectorScope.READ_ONLY, {"path": str(Path(str(tmp_path).upper()) / "OUTSIDE.TXT")}))
 
     with pytest.raises(ValueError):
         registry.execute(_request("local-filesystem", ConnectorOperation.READ_TEXT.value, ConnectorScope.READ_ONLY, {"path": str(approved), "max_bytes": 2}))

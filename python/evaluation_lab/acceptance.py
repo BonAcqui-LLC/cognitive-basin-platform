@@ -13,9 +13,13 @@ from .core import build_task_registry, run_evaluation_suite
 from .failure_corpus import evaluate_failure_corpus
 
 
-def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, Any]:
+def run_acceptance_suite(
+    artifact_dir: str | Path | None = None,
+    *,
+    comparison_task_limit: int = 8,
+) -> Dict[str, Any]:
     tasks, families = build_task_registry()
-    evaluation = run_evaluation_suite(artifact_dir)
+    evaluation = run_evaluation_suite(artifact_dir, comparison_task_limit=comparison_task_limit)
     failure_corpus = evaluate_failure_corpus()
     summary = {
         "passed": evaluation["passed"] and all(item["blocked"] == "True" for item in failure_corpus),
