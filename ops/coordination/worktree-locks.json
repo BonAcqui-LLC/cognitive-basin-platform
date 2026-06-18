@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T02:35:00-04:00",
+  "generated_at": "2026-06-18T15:10:00-04:00",
   "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
   "locks": [
     {
@@ -26,7 +26,7 @@
       "branch": "build/connectors-cloudflare-readiness-codex",
       "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-connectors-cloudflare-readiness-codex",
       "owner": "Codex",
-      "status": "active",
+      "status": "merged",
       "scope": [
         "python/cognitive_basin/connectors/**",
         "python/cognitive_basin/authority/**",
@@ -39,7 +39,29 @@
         "ops/coordination/**",
         "ops/manifests/capability-registry.json"
       ],
-      "notes": "Active owner for connector contracts, external action authority, Cloudflare-readiness code, connector acceptance suites, and connector-related EphUX UI."
+      "notes": "Merged connector tranche for connector contracts, external action authority, Cloudflare-readiness code, connector acceptance suites, and connector-related EphUX UI."
+    },
+    {
+      "branch": "build/operational-consciousness-kernel-codex",
+      "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-operational-consciousness-kernel-codex",
+      "owner": "Codex",
+      "status": "active",
+      "scope": [
+        "python/cognitive_basin/consciousness/**",
+        "python/consciousness_lab/**",
+        "consciousness_lab/**",
+        "python/ephux_local/**",
+        "apps/ephux-local-ui/**",
+        "python/evaluation_lab/**",
+        "tests/test_consciousness*",
+        "tests/test_ephux_local_api.py",
+        "tests/test_cognitive_basin_acceptance.py",
+        "tests/test_cognitive_basin_package_layout.py",
+        "tests/test_evaluation_lab_acceptance.py",
+        "ops/coordination/**",
+        "ops/manifests/capability-registry.json"
+      ],
+      "notes": "Active owner for operational consciousness kernel, percept/workspace/attention/self-model/continuity/purpose/counterfactual/metacognition/episode layers, EphUX product surface, and consciousness acceptance."
     },
     {
       "branch": "build/client-provider-security-release-codex",

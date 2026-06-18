@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-18T02:35:00-04:00",
+  "generated_at": "2026-06-18T15:10:00-04:00",
   "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
   "inventory": [
     {
       "path": "C:/Users/moop/cognitive-basin-platform",
       "branch": "main",
-      "head": "0cbdfa0a7bd99f59f1e48ad9edce08493fa3fe8c",
+      "head": "8dae215299f8bba762fb245b59677de900196e68",
       "git_common_dir": ".git",
       "clean": true,
       "active_or_obsolete": "active-canonical",
@@ -25,10 +25,20 @@
     {
       "path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-connectors-cloudflare-readiness-codex",
       "branch": "build/connectors-cloudflare-readiness-codex",
-      "head": "0cbdfa0a7bd99f59f1e48ad9edce08493fa3fe8c",
+      "head": "c192df8ad5e04ee949b0bfe2350a5267875c3b12",
       "git_common_dir": "C:/Users/moop/cognitive-basin-platform/.git",
       "clean": true,
-      "active_or_obsolete": "active-connectors-cloudflare-readiness",
+      "active_or_obsolete": "obsolete-merged",
+      "parent_directory_relationship": ["flat-or-standalone"],
+      "safe_removal_eligibility": true
+    },
+    {
+      "path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-operational-consciousness-kernel-codex",
+      "branch": "build/operational-consciousness-kernel-codex",
+      "head": "8dae215299f8bba762fb245b59677de900196e68",
+      "git_common_dir": "C:/Users/moop/cognitive-basin-platform/.git",
+      "clean": false,
+      "active_or_obsolete": "active-operational-consciousness-kernel",
       "parent_directory_relationship": ["flat-or-standalone"],
       "safe_removal_eligibility": false
     },
