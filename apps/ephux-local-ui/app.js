@@ -103,6 +103,11 @@ function renderGovernanceViews(memoryState, narrativeState, privacyState) {
   $("privacyState").textContent = pretty(privacyState || {});
 }
 
+function renderConnectorViews(connectors, actions) {
+  $("connectorInventory").textContent = pretty(connectors || []);
+  $("externalActionState").textContent = pretty(actions || {});
+}
+
 async function refreshGovernanceViews() {
   if (!state.activeSessionId) {
     return;
@@ -113,6 +118,16 @@ async function refreshGovernanceViews() {
     api(`/sessions/${state.activeSessionId}/narrative?participant=${participant}`),
   ]);
   renderGovernanceViews(memoryState, narrativeState, memoryState?.privacy || {});
+}
+
+async function refreshConnectorViews() {
+  const connectors = await api("/connectors");
+  let actions = {};
+  if (state.activeSessionId) {
+    const participant = encodeURIComponent(selectedParticipant());
+    actions = await api(`/sessions/${state.activeSessionId}/external-actions?participant=${participant}`);
+  }
+  renderConnectorViews(connectors?.connectors || [], actions);
 }
 
 function renderSession(session) {
@@ -161,6 +176,10 @@ function renderSession(session) {
     },
     session?.privacy_governance || {}
   );
+  renderConnectorViews(session?.connectors || [], {
+    session_id: state.activeSessionId,
+    external_actions: session?.external_actions || [],
+  });
   renderTimeline(session?.timeline || []);
   status(`Loaded session ${state.activeSessionId}.`, "ok");
 }
@@ -430,6 +449,69 @@ async function placeLegalHold() {
   await refreshGovernanceViews();
 }
 
+async function proposeExternalAction() {
+  const result = await api(`/sessions/${state.activeSessionId}/external-actions`, "POST", explicitParticipantPayload({
+    connector_id: $("connectorId").value.trim(),
+    operation: $("connectorOperation").value.trim(),
+    target_locator: $("connectorTarget").value.trim(),
+    account_label: $("connectorAccount").value.trim() || "sanitized-account",
+    environment: $("connectorEnvironment").value,
+    payload: {
+      branch: $("connectorBranch").value.trim(),
+      url: $("connectorUrl").value.trim(),
+      headers: { Authorization: $("connectorAuthHeader").value.trim() },
+    },
+    expected_cost: $("connectorCost").value,
+    visibility_scope: selectedVisibilityEnum(),
+    verification_steps: ["verify fixture receipt"],
+    rollback_steps: [$("connectorRollback").value.trim()].filter(Boolean),
+    rollback_required: $("connectorAuthority").value !== "READ_ONLY",
+  }));
+  $("externalActionState").textContent = pretty(result);
+  await refreshSession();
+  await refreshConnectorViews();
+}
+
+async function approveExternalAction() {
+  const proposalId = $("externalProposalId").value.trim();
+  const result = await api(`/sessions/${state.activeSessionId}/external-actions/${proposalId}/approve`, "POST", explicitParticipantPayload({
+    note: $("connectorApprovalNote").value.trim() || "approve connector action",
+  }));
+  $("externalActionState").textContent = pretty(result);
+  await refreshSession();
+  await refreshConnectorViews();
+}
+
+async function denyExternalAction() {
+  const proposalId = $("externalProposalId").value.trim();
+  const result = await api(`/sessions/${state.activeSessionId}/external-actions/${proposalId}/deny`, "POST", explicitParticipantPayload({
+    reason: $("connectorApprovalNote").value.trim() || "deny connector action",
+  }));
+  $("externalActionState").textContent = pretty(result);
+  await refreshSession();
+  await refreshConnectorViews();
+}
+
+async function revokeExternalAction() {
+  const proposalId = $("externalProposalId").value.trim();
+  const result = await api(`/sessions/${state.activeSessionId}/external-actions/${proposalId}/revoke`, "POST", explicitParticipantPayload({
+    reason: $("connectorApprovalNote").value.trim() || "revoke connector action",
+  }));
+  $("externalActionState").textContent = pretty(result);
+  await refreshSession();
+  await refreshConnectorViews();
+}
+
+async function executeExternalAction() {
+  const proposalId = $("externalProposalId").value.trim();
+  const result = await api(`/sessions/${state.activeSessionId}/external-actions/${proposalId}/execute`, "POST", {
+    fixture_execute: true,
+  });
+  $("externalActionState").textContent = pretty(result);
+  await refreshSession();
+  await refreshConnectorViews();
+}
+
 async function exportSession() {
   if (!state.activeSessionId) {
     status("No active session to export.", "warn");
@@ -524,6 +606,12 @@ bind("addCommitment", addCommitment);
 bind("exportPrivacy", exportPrivacy);
 bind("requestDeletion", requestDeletion);
 bind("placeLegalHold", placeLegalHold);
+bind("refreshConnectors", refreshConnectorViews);
+bind("proposeExternalAction", proposeExternalAction);
+bind("approveExternalAction", approveExternalAction);
+bind("denyExternalAction", denyExternalAction);
+bind("revokeExternalAction", revokeExternalAction);
+bind("executeExternalAction", executeExternalAction);
 $("importBundle").addEventListener("change", async (event) => {
   try {
     if (!currentToken()) {
@@ -539,6 +627,17 @@ $("participantSelect")?.addEventListener("change", async () => {
   try {
     if (state.activeSessionId && currentToken()) {
       await refreshGovernanceViews();
+      await refreshConnectorViews();
+    }
+  } catch (error) {
+    status(error.message, "danger");
+  }
+});
+$("visibilitySelect")?.addEventListener("change", async () => {
+  try {
+    if (state.activeSessionId && currentToken()) {
+      await refreshGovernanceViews();
+      await refreshConnectorViews();
     }
   } catch (error) {
     status(error.message, "danger");

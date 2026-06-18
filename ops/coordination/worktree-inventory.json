@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-18T01:15:00-04:00",
+  "generated_at": "2026-06-18T02:35:00-04:00",
   "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
   "inventory": [
     {
       "path": "C:/Users/moop/cognitive-basin-platform",
       "branch": "main",
-      "head": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+      "head": "0cbdfa0a7bd99f59f1e48ad9edce08493fa3fe8c",
       "git_common_dir": ".git",
       "clean": true,
       "active_or_obsolete": "active-canonical",
@@ -15,10 +15,20 @@
     {
       "path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-memory-governance-codex",
       "branch": "build/memory-governance-codex",
-      "head": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+      "head": "3f4274f4929d2703c17301033b659b0e81e2105c",
       "git_common_dir": "C:/Users/moop/cognitive-basin-platform/.git",
-      "clean": false,
-      "active_or_obsolete": "active-memory-governance",
+      "clean": true,
+      "active_or_obsolete": "obsolete-merged",
+      "parent_directory_relationship": ["flat-or-standalone"],
+      "safe_removal_eligibility": true
+    },
+    {
+      "path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-connectors-cloudflare-readiness-codex",
+      "branch": "build/connectors-cloudflare-readiness-codex",
+      "head": "0cbdfa0a7bd99f59f1e48ad9edce08493fa3fe8c",
+      "git_common_dir": "C:/Users/moop/cognitive-basin-platform/.git",
+      "clean": true,
+      "active_or_obsolete": "active-connectors-cloudflare-readiness",
       "parent_directory_relationship": ["flat-or-standalone"],
       "safe_removal_eligibility": false
     },

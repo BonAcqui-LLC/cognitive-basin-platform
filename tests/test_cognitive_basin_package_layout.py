@@ -71,3 +71,5 @@ def test_clean_temp_virtualenv_runs_aggregate_acceptance():
         assert "evaluation_lab" in summary["suites"]
         assert "natural_math_lab" in summary["suites"]
         assert "memory_governance" in summary["suites"]
+        assert "action_permit" in summary["suites"]
+        assert "connector_lab" in summary["suites"]

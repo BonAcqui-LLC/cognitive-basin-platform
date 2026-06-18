@@ -44,6 +44,23 @@ from python.cognitive_basin.memory import (
     MemoryRecoveryLink,
     MemoryScarLink,
 )
+from python.cognitive_basin.authority import (
+    ActionPermit,
+    ActionTarget,
+    ApprovalGrant,
+    AuthorityClass,
+    AuthorityLedger,
+    AuthorityManager,
+    AuthorityRequirement,
+    ExecutionReceipt,
+    ExternalActionProposal,
+    PermitRevocation,
+    RollbackPlan,
+    SideEffectDeclaration,
+    VerificationPlan,
+)
+from python.cognitive_basin.authority.manager import payload_hash
+from python.cognitive_basin.connectors import ConnectorRequest, ConnectorScope, build_default_registry
 from python.cognitive_basin.privacy import (
     RetentionClass,
     SensitivityLevel,
@@ -61,7 +78,7 @@ from python.provider_lab import local_model_inventory, provider_inventory
 from .contracts import ActivationRecord, IntakeRecord, IntakeState, SanitizationState
 
 
-MAX_REQUEST_BYTES = 48_000
+MAX_REQUEST_BYTES = 256_000
 ALLOWED_UPLOAD_EXTENSIONS = {".txt", ".md", ".json"}
 TEXT_ARTIFACT_SUFFIXES = {".txt", ".md", ".json", ".html", ".csv", ".log"}
 INSTRUCTION_CONFLICT_PATTERNS = [
@@ -193,6 +210,8 @@ class EphuxLocalService:
         self.store = SessionStore(config.store_dir)
         self.report_dir = config.report_dir
         self.report_dir.mkdir(parents=True, exist_ok=True)
+        self.authority = AuthorityManager()
+        self.connector_registry = build_default_registry(Path(__file__).resolve().parents[2])
         self.narrative_seeds = [
             NarrativeRecord(
                 person="James Clow",
@@ -343,6 +362,45 @@ class EphuxLocalService:
             raise ValueError(f"Unknown memory item: {memory_id}")
         return MemoryItem.from_record(memory_map.items[memory_id].to_record())
 
+    def _external_action_ledger(self, session_id: str) -> AuthorityLedger:
+        return AuthorityLedger.from_events(self.store.read_events(session_id))
+
+    def _visibility_enum(self, raw_value: str) -> VisibilityScope:
+        normalized = str(raw_value or "SHARED_PROJECT").strip().replace("-", "_").upper()
+        try:
+            return VisibilityScope(normalized)
+        except Exception:
+            return VisibilityScope.SHARED_PROJECT
+
+    def _external_action_visible(self, record: Dict[str, Any], viewer_participant: str) -> bool:
+        scope = self._visibility_enum(str(record.get("visibility_scope", VisibilityScope.SHARED_PROJECT.value)))
+        viewer = explicit_participant(viewer_participant)
+        if scope in {VisibilityScope.SHARED_PROJECT, VisibilityScope.SESSION_ONLY, VisibilityScope.EXPORTABLE_REDACTED, VisibilityScope.AUDIT_RETAINED}:
+            return True
+        if scope == VisibilityScope.PRIVATE_JAMES:
+            return viewer == "James Clow"
+        if scope == VisibilityScope.PRIVATE_MELISSA:
+            return viewer == "Melissa Clow"
+        return viewer == explicit_participant(record.get("participant"))
+
+    def _required_authority_for_operation(self, connector_id: str, operation: str, environment: str) -> AuthorityRequirement:
+        env = str(environment or "LOCAL").strip().upper()
+        if connector_id == "local-filesystem" and operation == "WRITE_TEXT":
+            return AuthorityRequirement(AuthorityClass.LOCAL_WRITE, "Local filesystem mutation requires explicit local-write permit")
+        if connector_id == "github" and operation == "BRANCH_PUSH":
+            if env == "PRODUCTION":
+                return AuthorityRequirement(AuthorityClass.PRODUCTION_WRITE, "Production release authority is required")
+            return AuthorityRequirement(AuthorityClass.PRIVATE_REPOSITORY_WRITE, "Repository write authority is required")
+        if connector_id == "cloudflare":
+            if env == "PRODUCTION":
+                return AuthorityRequirement(AuthorityClass.PRODUCTION_WRITE, "Production Cloudflare changes require production authority", requires_rollback=True)
+            return AuthorityRequirement(AuthorityClass.PREVIEW_DEPLOYMENT, "Preview Cloudflare changes require preview deployment authority", requires_rollback=True)
+        if connector_id == "stripe":
+            return AuthorityRequirement(AuthorityClass.BILLING_CHANGE, "Billing changes require billing authority", requires_rollback=True)
+        if operation in {"DELETE", "DESTROY", "HTTP_WRITE"}:
+            return AuthorityRequirement(AuthorityClass.DESTRUCTIVE_OPERATION, "Destructive operations require separate authority", requires_rollback=True)
+        return AuthorityRequirement(AuthorityClass.READ_ONLY, "Read-only connector access")
+
     def _open_session(self, session_id: str) -> BasinLabSession:
         session = BasinLabSession.resume_from_store(self.store, session_id)
         inspected = self.store.inspect_session(session_id)
@@ -393,6 +451,7 @@ class EphuxLocalService:
         memory_state = self.session_memory(session_id)
         narrative_state = self.session_narrative(session_id)
         privacy_state = self._privacy_state(session_id)
+        external_actions = self.list_external_actions(session_id)["external_actions"]
         report = self.generate_report(session_id)
         report_data = report["report"]
         review_events = [event for event in events if event.get("type", "").startswith("session.review.")]
@@ -425,6 +484,7 @@ class EphuxLocalService:
         inspected["memory_replay_receipts"] = memory_state["replay_receipts"]
         inspected["team_narrative"] = narrative_state["records"]
         inspected["privacy_governance"] = privacy_state
+        inspected["external_actions"] = external_actions
         return inspected
 
     def session_events(self, session_id: str) -> List[Dict[str, Any]]:
@@ -1278,6 +1338,221 @@ class EphuxLocalService:
             "privacy": self._privacy_state(session_id),
         }
 
+    def list_connectors(self) -> List[Dict[str, Any]]:
+        return self.connector_registry.list_connectors()
+
+    def get_connector(self, connector_id: str) -> Dict[str, Any]:
+        return self.connector_registry.get(connector_id).inventory_record()
+
+    def connector_request(self, connector_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        request = ConnectorRequest(
+            request_id=f"connector-{uuid.uuid4().hex[:12]}",
+            session_id=str(payload.get("session_id", "")),
+            connector_id=connector_id,
+            operation=str(payload.get("operation", "")),
+            scope=ConnectorScope(str(payload.get("scope", ConnectorScope.READ_ONLY.value))),
+            payload=dict(payload.get("payload", {})),
+            replay_key=str(payload.get("replay_key", "")),
+            timeout_s=float(payload.get("timeout_s", 5.0)),
+            permit_id=str(payload.get("permit_id", "")),
+        )
+        return self.connector_registry.execute(request).to_record()
+
+    def list_external_actions(self, session_id: str, viewer_participant: str = "UNKNOWN") -> Dict[str, Any]:
+        ledger = self._external_action_ledger(session_id)
+        actions = []
+        for proposal in ledger.proposals.values():
+            record = proposal.to_record()
+            record["visibility_scope"] = record.get("provenance", {}).get("visibility_scope", VisibilityScope.SHARED_PROJECT.value)
+            if not self._external_action_visible(record, viewer_participant):
+                continue
+            if proposal.permit_id and proposal.permit_id in ledger.permits:
+                record["permit"] = ledger.permits[proposal.permit_id].to_record()
+            if proposal.proposal_id in ledger.grants:
+                record["grant"] = ledger.grants[proposal.proposal_id].to_record()
+            if proposal.proposal_id in ledger.denials:
+                record["denial"] = ledger.denials[proposal.proposal_id].to_record()
+            actions.append(record)
+        actions.sort(key=lambda item: item.get("created_at", 0.0))
+        return {"session_id": session_id, "viewer_participant": explicit_participant(viewer_participant), "external_actions": actions}
+
+    def get_external_action(self, session_id: str, proposal_id: str, viewer_participant: str = "UNKNOWN") -> Dict[str, Any]:
+        for item in self.list_external_actions(session_id, viewer_participant)["external_actions"]:
+            if item["proposal_id"] == proposal_id:
+                return item
+        raise ValueError(f"Unknown external action proposal: {proposal_id}")
+
+    def propose_external_action(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        connector_id = str(payload.get("connector_id", "")).strip()
+        operation = str(payload.get("operation", "")).strip()
+        target_locator = str(payload.get("target_locator", "")).strip()
+        if not connector_id or not operation or not target_locator:
+            raise ValueError("connector_id, operation, and target_locator are required")
+        target = ActionTarget(
+            target_type=str(payload.get("target_type", "resource")).strip() or "resource",
+            target_locator=target_locator,
+            environment=str(payload.get("environment", "LOCAL")).strip() or "LOCAL",
+            metadata=dict(payload.get("target_metadata", {})),
+        )
+        request_payload = dict(payload.get("payload", {}))
+        requirement = self._required_authority_for_operation(connector_id, operation, target.environment)
+        proposal = ExternalActionProposal(
+            proposal_id=f"proposal-{uuid.uuid4().hex[:12]}",
+            session_id=session_id,
+            participant=participant,
+            system="ephux_local",
+            connector_id=connector_id,
+            account_label=str(payload.get("account_label", "sanitized-account")).strip() or "sanitized-account",
+            operation=operation,
+            target=target,
+            payload_hash=payload_hash(request_payload),
+            payload_preview=request_payload,
+            side_effects=[
+                SideEffectDeclaration(
+                    effect_type=str(payload.get("side_effect", "connector-operation")),
+                    description=str(payload.get("side_effect_description", "Connector-governed external operation")),
+                    reversible=bool(payload.get("reversible", True)),
+                    destructive=bool(payload.get("destructive", False)),
+                    cost_impact=str(payload.get("expected_cost", "LOW")),
+                )
+            ],
+            reversible=bool(payload.get("reversible", True)),
+            expected_cost=str(payload.get("expected_cost", "LOW")),
+            privacy_impact=str(payload.get("privacy_impact", "LOW")),
+            security_impact=str(payload.get("security_impact", "LOW")),
+            required_authority=requirement,
+            verification_plan=VerificationPlan(steps=list(payload.get("verification_steps", ["verify fixture receipt"]))),
+            rollback_plan=RollbackPlan(
+                steps=list(payload.get("rollback_steps", [])),
+                rollback_target=target_locator,
+                required=bool(payload.get("rollback_required", requirement.requires_rollback)),
+            ),
+            expires_at=float(payload.get("expires_at", time.time() + 1800)),
+            provenance={"source": "ephux_local", "visibility_scope": str(payload.get("visibility_scope", VisibilityScope.SHARED_PROJECT.value))},
+            created_at=time.time(),
+        )
+        event = self._append_event(
+            session_id,
+            "external",
+            "session.external_action.proposed",
+            {"external_action": {"proposal": proposal.to_record()}},
+            basin=self.store.inspect_session(session_id).get("final_basin", _default_basin()),
+        )
+        return {"proposal": proposal.to_record(), "event_id": event["event_id"]}
+
+    def approve_external_action(self, session_id: str, proposal_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        ledger = self._external_action_ledger(session_id)
+        if proposal_id not in ledger.proposals:
+            raise ValueError("Unknown proposal")
+        proposal = ledger.proposals[proposal_id]
+        grant, permit = self.authority.issue_permit(
+            proposal,
+            issued_by_participant=participant,
+            note=str(payload.get("note", "approved")).strip() or "approved",
+            now=time.time(),
+            expires_in_s=float(payload.get("expires_in_s", 1800)),
+            single_use=bool(payload.get("single_use", True)),
+        )
+        self._append_event(
+            session_id,
+            "external",
+            "session.external_action.approved",
+            {"external_action": {"grant": grant.to_record(), "permit": permit.to_record()}},
+            basin=self.store.inspect_session(session_id).get("final_basin", _default_basin()),
+        )
+        return {"grant": grant.to_record(), "permit": permit.to_record()}
+
+    def deny_external_action(self, session_id: str, proposal_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        ledger = self._external_action_ledger(session_id)
+        if proposal_id not in ledger.proposals:
+            raise ValueError("Unknown proposal")
+        denial = self.authority.deny_proposal(
+            ledger.proposals[proposal_id],
+            participant=participant,
+            reason=str(payload.get("reason", "denied")).strip() or "denied",
+            now=time.time(),
+        )
+        self._append_event(
+            session_id,
+            "external",
+            "session.external_action.denied",
+            {"external_action": {"denial": denial.to_record()}},
+            basin=self.store.inspect_session(session_id).get("final_basin", _default_basin()),
+        )
+        return {"denial": denial.to_record()}
+
+    def revoke_external_action(self, session_id: str, proposal_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        ledger = self._external_action_ledger(session_id)
+        proposal = ledger.proposals.get(proposal_id)
+        if proposal is None or not proposal.permit_id or proposal.permit_id not in ledger.permits:
+            raise ValueError("No permit exists to revoke")
+        permit = ledger.permits[proposal.permit_id]
+        revocation = self.authority.revoke_permit(
+            permit,
+            participant=participant,
+            reason=str(payload.get("reason", "revoked")).strip() or "revoked",
+            now=time.time(),
+        )
+        self._append_event(
+            session_id,
+            "external",
+            "session.external_action.revoked",
+            {"external_action": {"proposal_id": proposal_id, "revocation": revocation.to_record()}},
+            basin=self.store.inspect_session(session_id).get("final_basin", _default_basin()),
+        )
+        return {"revocation": revocation.to_record()}
+
+    def execute_external_action(self, session_id: str, proposal_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        ledger = self._external_action_ledger(session_id)
+        proposal = ledger.proposals.get(proposal_id)
+        if proposal is None:
+            raise ValueError("Unknown proposal")
+        if not proposal.permit_id or proposal.permit_id not in ledger.permits:
+            raise ValueError("No valid permit exists for execution")
+        permit = ledger.permits[proposal.permit_id]
+        self.authority.validate_permit(proposal, permit, ledger, now=time.time())
+        request = ConnectorRequest(
+            request_id=f"external-{uuid.uuid4().hex[:12]}",
+            session_id=session_id,
+            connector_id=proposal.connector_id,
+            operation=proposal.operation,
+            scope=ConnectorScope.READ_ONLY if proposal.required_authority.authority == AuthorityClass.READ_ONLY else ConnectorScope.WRITE,
+            payload=proposal.payload_preview | dict(payload.get("payload_overrides", {})) | {"fixture_execute": bool(payload.get("fixture_execute", True))},
+            replay_key=proposal.proposal_id,
+            timeout_s=float(payload.get("timeout_s", 5.0)),
+            permit_id=permit.permit_id,
+        )
+        response = self.connector_registry.execute(request, proposal).to_record()
+        receipt = ExecutionReceipt(
+            proposal_id=proposal_id,
+            connector_id=proposal.connector_id,
+            status="EXECUTED" if response["ok"] else "HELD",
+            verification_result="FIXTURE_OK" if response["ok"] else "DENIED",
+            response_hash=payload_hash(response["body"]),
+            timestamp=time.time(),
+            permit_id=permit.permit_id,
+            redacted_fields=list(response.get("receipt", {}).get("redacted_headers", [])) if response.get("receipt") else [],
+            details=response,
+        )
+        self._append_event(
+            session_id,
+            "external",
+            "session.external_action.executed",
+            {"external_action": {"proposal_id": proposal_id, "permit_id": permit.permit_id, "receipt": receipt.to_record()}},
+            basin=self.store.inspect_session(session_id).get("final_basin", _default_basin()),
+        )
+        return {"proposal_id": proposal_id, "permit_id": permit.permit_id, "response": response, "receipt": receipt.to_record()}
+
+    def external_action_receipt(self, session_id: str, proposal_id: str) -> Dict[str, Any]:
+        for event in self.store.read_events(session_id):
+            if event.get("type") == "session.external_action.executed" and event.get("external_action", {}).get("proposal_id") == proposal_id:
+                return event["external_action"]["receipt"]
+        raise ValueError("No execution receipt exists for this proposal")
+
     def guardian_intake(self, payload: Dict[str, Any], raw_text: str = "") -> Dict[str, Any]:
         body: Dict[str, Any]
         if raw_text:
@@ -1542,6 +1817,7 @@ class EphuxLocalService:
         commits = [event for event in events if event.get("type") == "commit"]
         reviews = [event for event in events if event.get("type", "").startswith("session.review.")]
         lab_runs = [event for event in events if event.get("type") in {"session.lab.evaluation", "session.lab.natural_math"}]
+        external_actions = self.list_external_actions(session_id)["external_actions"]
         replay = replay_persisted_session(self.store, session_id)
         purpose = inspected["metadata"].get("purpose", "local ephux session")
         spectrum = self._candidate_spectrum(purpose, evidence, claims)
@@ -1615,6 +1891,8 @@ class EphuxLocalService:
             },
             "team_narrative": narrative.to_records(),
             "privacy_governance": privacy_state,
+            "connectors": self.list_connectors(),
+            "external_actions": external_actions,
             "hold_intervals": [event.get("hold", {}) for event in holds],
             "commit_decisions": [item["decision"] for item in commits],
             "review_decisions": [item.get("review", {}) for item in reviews],
@@ -1655,6 +1933,7 @@ class EphuxLocalService:
             "registry": registry,
             "security_controls": _security_controls(self.config),
             "providers": _provider_inventory(),
+            "connectors": self.list_connectors(),
             "extension_contract": self.extension_contract(),
             "service": {
                 "host": self.config.host,
@@ -1676,6 +1955,15 @@ class EphuxLocalService:
             "session_import_endpoint": "/sessions/import",
             "session_lab_list_endpoint": "/sessions/{session_id}/labs",
             "session_memory_endpoint": "/sessions/{session_id}/memory",
+            "connector_inventory_endpoint": "/connectors",
+            "connector_request_endpoint": "/connectors/{connector_id}/requests",
+            "session_external_actions_endpoint": "/sessions/{session_id}/external-actions",
+            "session_external_action_detail_endpoint": "/sessions/{session_id}/external-actions/{proposal_id}",
+            "session_external_action_approve_endpoint": "/sessions/{session_id}/external-actions/{proposal_id}/approve",
+            "session_external_action_deny_endpoint": "/sessions/{session_id}/external-actions/{proposal_id}/deny",
+            "session_external_action_revoke_endpoint": "/sessions/{session_id}/external-actions/{proposal_id}/revoke",
+            "session_external_action_execute_endpoint": "/sessions/{session_id}/external-actions/{proposal_id}/execute",
+            "session_external_action_receipt_endpoint": "/sessions/{session_id}/external-actions/{proposal_id}/receipt",
             "session_memory_retrieve_endpoint": "/sessions/{session_id}/memory/retrieve",
             "session_memory_promote_endpoint": "/sessions/{session_id}/memory/promote",
             "session_memory_demote_endpoint": "/sessions/{session_id}/memory/demote",
@@ -1789,9 +2077,39 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                 if parsed.path == "/capabilities":
                     _json_response(self, 200, app.capabilities(), origin=origin)
                     return
+                if parsed.path == "/connectors":
+                    self._authorized()
+                    _json_response(self, 200, {"connectors": app.list_connectors()}, origin=origin)
+                    return
+                if parsed.path.startswith("/connectors/"):
+                    self._authorized()
+                    connector_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.get_connector(connector_id), origin=origin)
+                    return
                 if parsed.path == "/sessions":
                     self._authorized()
                     _json_response(self, 200, {"sessions": app.list_sessions()}, origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/external-actions"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    participant = parse_qs(parsed.query).get("participant", ["UNKNOWN"])[0]
+                    _json_response(self, 200, app.list_external_actions(session_id, participant), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/receipt") and "/external-actions/" in parsed.path:
+                    self._authorized()
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    proposal_id = parts[4]
+                    _json_response(self, 200, app.external_action_receipt(session_id, proposal_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and "/external-actions/" in parsed.path:
+                    self._authorized()
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    proposal_id = parts[4]
+                    participant = parse_qs(parsed.query).get("participant", ["UNKNOWN"])[0]
+                    _json_response(self, 200, app.get_external_action(session_id, proposal_id, participant), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/events"):
                     self._authorized()
@@ -1850,6 +2168,11 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     payload = self._parse_json()
                     _json_response(self, 201, app.create_session(payload), origin=origin)
                     return
+                if parsed.path.startswith("/connectors/") and parsed.path.endswith("/requests"):
+                    connector_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.connector_request(connector_id, payload), origin=origin)
+                    return
                 if parsed.path == "/sessions/import":
                     payload = self._parse_json()
                     _json_response(self, 201, app.import_session_bundle(payload), origin=origin)
@@ -1901,6 +2224,39 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     session_id = parsed.path.split("/")[2]
                     payload = self._parse_json()
                     _json_response(self, 200, app.review_session(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/external-actions"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 201, app.propose_external_action(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/approve") and "/external-actions/" in parsed.path:
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    proposal_id = parts[4]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.approve_external_action(session_id, proposal_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/deny") and "/external-actions/" in parsed.path:
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    proposal_id = parts[4]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.deny_external_action(session_id, proposal_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/revoke") and "/external-actions/" in parsed.path:
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    proposal_id = parts[4]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.revoke_external_action(session_id, proposal_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/execute") and "/external-actions/" in parsed.path:
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    proposal_id = parts[4]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.execute_external_action(session_id, proposal_id, payload), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/memory/retrieve"):
                     session_id = parsed.path.split("/")[2]

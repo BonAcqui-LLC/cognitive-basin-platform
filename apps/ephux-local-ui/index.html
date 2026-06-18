@@ -463,6 +463,90 @@
       </section>
 
       <section class="panel">
+        <h2>Connector Authority</h2>
+        <div class="row">
+          <label for="connectorId">Connector ID
+            <input id="connectorId" value="github">
+          </label>
+          <label for="connectorOperation">Operation
+            <input id="connectorOperation" value="BRANCH_PUSH">
+          </label>
+        </div>
+        <div class="row">
+          <label for="connectorTarget">Target
+            <input id="connectorTarget" value="refs/heads/build/fixture">
+          </label>
+          <label for="connectorAccount">Account / tenant
+            <input id="connectorAccount" value="sanitized-account">
+          </label>
+        </div>
+        <div class="row">
+          <label for="connectorEnvironment">Environment
+            <select id="connectorEnvironment">
+              <option value="LOCAL">LOCAL</option>
+              <option value="PREVIEW">PREVIEW</option>
+              <option value="PRODUCTION">PRODUCTION</option>
+            </select>
+          </label>
+          <label for="connectorAuthority">Authority label
+            <select id="connectorAuthority">
+              <option value="READ_ONLY">READ ONLY</option>
+              <option value="LOCAL_WRITE">LOCAL WRITE</option>
+              <option value="PRIVATE_REPOSITORY_WRITE">WRITE REQUIRES PERMIT</option>
+              <option value="PREVIEW_DEPLOYMENT">PREVIEW</option>
+              <option value="PRODUCTION_WRITE">PRODUCTION</option>
+              <option value="BILLING_CHANGE">BILLING</option>
+              <option value="DESTRUCTIVE_OPERATION">DESTRUCTIVE</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label for="connectorBranch">Branch / local payload
+            <input id="connectorBranch" value="build/fixture">
+          </label>
+          <label for="connectorUrl">Allowlisted URL
+            <input id="connectorUrl" value="https://status.project.local/health">
+          </label>
+        </div>
+        <div class="row">
+          <label for="connectorCost">Cost class
+            <select id="connectorCost">
+              <option value="FREE">FREE</option>
+              <option value="LOW">LOW</option>
+              <option value="METERED">METERED</option>
+              <option value="BILLING_SENSITIVE">BILLING</option>
+            </select>
+          </label>
+          <label for="connectorAuthHeader">Sensitive header sample
+            <input id="connectorAuthHeader" value="">
+          </label>
+        </div>
+        <div class="row">
+          <label for="connectorRollback">Rollback plan
+            <textarea id="connectorRollback"></textarea>
+          </label>
+          <label for="connectorApprovalNote">Approval / denial / revoke note
+            <textarea id="connectorApprovalNote"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label for="externalProposalId">External proposal ID
+            <input id="externalProposalId">
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="refreshConnectors" class="secondary">Refresh Connectors</button>
+          <button id="proposeExternalAction" class="secondary">Propose External Action</button>
+          <button id="approveExternalAction" class="warn">Approve</button>
+          <button id="denyExternalAction" class="warn">Deny</button>
+          <button id="revokeExternalAction" class="danger">Revoke</button>
+          <button id="executeExternalAction">Execute With Permit</button>
+        </div>
+        <pre id="connectorInventory" aria-label="Connector inventory, availability, read and write capabilities, side effects, cost classes"></pre>
+        <pre id="externalActionState" aria-label="External action proposals, required authority, side effects, rollback plans, execution receipts"></pre>
+      </section>
+
+      <section class="panel">
         <h2>Report Summary</h2>
         <div class="row">
           <article class="list-card">

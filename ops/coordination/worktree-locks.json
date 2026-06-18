@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-18T01:15:00-04:00",
+  "generated_at": "2026-06-18T02:35:00-04:00",
   "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
   "locks": [
     {
       "branch": "build/memory-governance-codex",
       "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-memory-governance-codex",
       "owner": "Codex",
-      "status": "active",
+      "status": "merged",
       "scope": [
         "python/cognitive_basin/**",
         "python/basinlab/memory_map.py",
@@ -25,15 +25,21 @@
     {
       "branch": "build/connectors-cloudflare-readiness-codex",
       "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-connectors-cloudflare-readiness-codex",
-      "owner": "reserved",
-      "status": "pending",
+      "owner": "Codex",
+      "status": "active",
       "scope": [
-        "python/provider_lab/**",
+        "python/cognitive_basin/connectors/**",
+        "python/cognitive_basin/authority/**",
         "python/ephux_local/**",
-        "ops/manifests/**",
-        "cloudflare-readiness/**"
+        "apps/ephux-local-ui/**",
+        "tests/test_connector*",
+        "tests/test_action_permit*",
+        "tests/test_ephux_local_api.py",
+        "tests/test_cognitive_basin_acceptance.py",
+        "ops/coordination/**",
+        "ops/manifests/capability-registry.json"
       ],
-      "notes": "Reserved flat worktree path; do not overlap active memory-governance edits."
+      "notes": "Active owner for connector contracts, external action authority, Cloudflare-readiness code, connector acceptance suites, and connector-related EphUX UI."
     },
     {
       "branch": "build/client-provider-security-release-codex",

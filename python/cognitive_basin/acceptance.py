@@ -11,6 +11,8 @@ import time
 from pathlib import Path
 
 from python.basinlab.demos import run_all_scenarios
+from python.action_permit.acceptance import run_acceptance_suite as run_action_permit_acceptance
+from python.connector_lab.acceptance import run_acceptance_suite as run_connector_lab_acceptance
 from python.ephux_local.acceptance import run_acceptance_suite as run_ephux_acceptance
 from python.evaluation_lab.acceptance import run_acceptance_suite as run_evaluation_acceptance
 from python.memory_governance.acceptance import run_acceptance_suite as run_memory_governance_acceptance
@@ -73,6 +75,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "evaluation_lab": ["Local deterministic registry and failure corpus only."],
             "natural_math_lab": ["Encoded local simulation only; no empirical claim beyond rules."],
             "memory_governance": result.get("limitations", ["Session-scoped governed memory only in current tranche."]),
+            "action_permit": ["Explicit participant-issued permits only; no inherited authority."],
+            "connector_lab": ["Fixture-backed connector execution only; no production deployment or live writes."],
         }
         skipped_map = {
             "basinlab": ["No production commit or deployment."],
@@ -82,6 +86,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "evaluation_lab": ["No live external benchmark execution."],
             "natural_math_lab": ["No non-deterministic or remote workloads."],
             "memory_governance": ["No auto-deletion and no legal-hold release workflow."],
+            "action_permit": ["No implicit approvals, role inference, or credential-derived authority."],
+            "connector_lab": ["No live external writes and no production deployment."],
         }
         return result, _suite_metadata(
             name,
@@ -100,6 +106,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
     evaluation, evaluation_meta = run_named("evaluation_lab", run_evaluation_acceptance, "evaluation_lab")
     natural_math, natural_math_meta = run_named("natural_math_lab", run_natural_math_acceptance, "natural_math_lab")
     memory_governance, memory_meta = run_named("memory_governance", run_memory_governance_acceptance, "memory_governance")
+    action_permit, action_permit_meta = run_named("action_permit", run_action_permit_acceptance, "action_permit")
+    connector_lab, connector_meta = run_named("connector_lab", run_connector_lab_acceptance, "connector_lab")
     summary = {
         "passed": all(
             [
@@ -110,6 +118,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
                 evaluation["passed"],
                 natural_math["passed"],
                 memory_governance["passed"],
+                action_permit["passed"],
+                connector_lab["passed"],
             ]
         ),
         "exact_commit": exact_commit,
@@ -121,6 +131,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "evaluation_lab": evaluation_meta,
             "natural_math_lab": natural_math_meta,
             "memory_governance": memory_meta,
+            "action_permit": action_permit_meta,
+            "connector_lab": connector_meta,
         },
     }
     if root:

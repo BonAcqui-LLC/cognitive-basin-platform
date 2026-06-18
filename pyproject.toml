@@ -14,8 +14,11 @@ dev = ["pytest>=8.0"]
 
 [tool.setuptools.packages.find]
 include = [
+    "action_permit*",
     "basinlab*",
+    "cloudflare_readiness*",
     "cognitive_basin*",
+    "connector_lab*",
     "ephux_local*",
     "evaluation_lab*",
     "memory_governance*",
