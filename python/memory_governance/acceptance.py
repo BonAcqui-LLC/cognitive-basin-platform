@@ -290,11 +290,12 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, An
 
         secret_session = service.create_session({"purpose": "redacted export", "privacy_setting": "exportable-redacted"})
         secret_session_id = secret_session["session_id"]
+        export_fixture = "governed export artifact " * 12
         service.add_evidence(
             secret_session_id,
             {
-                "detail": "token sk-12345678901234567890 should redact in export",
-                "temporary_artifact_text": "token sk-12345678901234567890 should redact in export",
+                "detail": export_fixture,
+                "temporary_artifact_text": export_fixture,
                 "visibility_scope": "EXPORTABLE_REDACTED",
                 **_participant_payload("James Clow"),
             },
