@@ -86,6 +86,16 @@ from python.cognitive_basin.consciousness.purpose import (
     PurposePriority,
     PurposeSource,
 )
+from python.cognitive_basin.causality import (
+    CausalClaim,
+    CausalEvidence,
+    InterventionControl,
+    InterventionPrediction,
+    InterventionProposal,
+    InterventionTarget,
+    InterventionValue,
+    InterventionVariable,
+)
 from python.cognitive_basin.privacy import (
     RetentionClass,
     SensitivityLevel,
@@ -96,6 +106,7 @@ from python.cognitive_basin.privacy import (
 )
 from python.cognitive_basin.team_narrative import NarrativeRecord, TeamNarrative
 from python.cognitive_basin.pipeline import run_basin_pipeline
+from python.cognitive_basin.world_model import WorldObservation
 from python.evaluation_lab.acceptance import run_acceptance_suite as run_evaluation_lab_acceptance
 from python.natural_math_lab.acceptance import run_acceptance_suite as run_natural_math_lab_acceptance
 from python.provider_lab import local_model_inventory, provider_inventory
@@ -527,6 +538,51 @@ class EphuxLocalService:
             status=str(payload.get("status", "ACTIVE")),
         )
 
+    def _world_observation_from_payload(self, payload: Dict[str, Any], index: int = 1) -> WorldObservation:
+        return WorldObservation(
+            observation_id=str(payload.get("observation_id", f"observation-{uuid.uuid4().hex[:8]}")),
+            entity_type=str(payload.get("entity_type", "ABSTRACT_OBJECT")),
+            property_name=str(payload.get("property_name", payload.get("topic", f"property-{index}"))),
+            value=payload.get("value", payload.get("content", "")),
+            category=str(payload.get("category", "OBSERVED")).upper(),
+            source=str(payload.get("source", "ephux-local")),
+            provenance=str(payload.get("provenance", "ephux-local")),
+            timestamp=float(payload.get("timestamp", time.time())),
+            entity_id=str(payload.get("entity_id", "")),
+            identity_hints=dict(payload.get("identity_hints", {})),
+            visibility=str(payload.get("visibility", "SHARED_PROJECT")),
+            uncertainty=float(payload.get("uncertainty", 0.0)),
+            contradiction_links=list(payload.get("contradiction_links", [])),
+        )
+
+    def _causal_claim_from_payload(self, payload: Dict[str, Any]) -> CausalClaim:
+        evidence_payloads = payload.get("evidence", [])
+        if not evidence_payloads:
+            evidence_payloads = [{"detail": str(payload.get("evidence_detail", "deterministic local evidence"))}]
+        return CausalClaim(
+            claim_id=str(payload.get("claim_id", f"claim-{uuid.uuid4().hex[:8]}")),
+            source_node_id=str(payload.get("source_node_id", payload.get("source_variable", ""))),
+            target_node_id=str(payload.get("target_node_id", payload.get("target_variable", ""))),
+            relation_type=str(payload.get("relation_type", "HYPOTHESIZED")).upper(),
+            evidence=[CausalEvidence(str(item.get("detail", item))) for item in evidence_payloads],
+            confounders=list(payload.get("confounders", [])),
+            alternative_explanations=list(payload.get("alternative_explanations", [])),
+            confidence=float(payload.get("confidence", 0.4)),
+            validity_scope=str(payload.get("validity_scope", "LOCAL")),
+        )
+
+    def _intervention_from_payload(self, payload: Dict[str, Any]) -> InterventionProposal:
+        return InterventionProposal(
+            proposal_id=str(payload.get("proposal_id", f"intervention-{uuid.uuid4().hex[:8]}")),
+            target=InterventionTarget(str(payload.get("target_id", "")), str(payload.get("target_type", "SIMULATION"))),
+            variable=InterventionVariable(str(payload.get("variable", payload.get("property_name", "")))),
+            value=InterventionValue(payload.get("value")),
+            control=InterventionControl(payload.get("control_value")),
+            prediction=InterventionPrediction(str(payload.get("prediction_detail", "bounded local intervention"))),
+            allowed_domain=str(payload.get("allowed_domain", "SIMULATION")),
+            simulated=bool(payload.get("simulated", True)),
+        )
+
     def session_consciousness(self, session_id: str) -> Dict[str, Any]:
         return self._consciousness_kernel(session_id).snapshot().to_record()
 
@@ -560,6 +616,58 @@ class EphuxLocalService:
             if episode.get("episode_id") == episode_id:
                 return {"session_id": session_id, "episode": episode}
         raise ValueError(f"Unknown consciousness episode: {episode_id}")
+
+    def session_world(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "world": consciousness.get("world", {})}
+
+    def session_world_entities(self, session_id: str) -> Dict[str, Any]:
+        world = self.session_world(session_id)["world"]
+        return {"session_id": session_id, "entities": world.get("snapshot", {}).get("entities", [])}
+
+    def session_world_events(self, session_id: str) -> Dict[str, Any]:
+        world = self.session_world(session_id)["world"]
+        return {"session_id": session_id, "events": world.get("snapshot", {}).get("events", [])}
+
+    def session_predictions(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "prediction": consciousness.get("prediction", {})}
+
+    def session_prediction_errors(self, session_id: str) -> Dict[str, Any]:
+        prediction = self.session_predictions(session_id)["prediction"]
+        return {"session_id": session_id, "prediction_errors": prediction.get("residuals", [])}
+
+    def session_interoception(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "interoception": consciousness.get("interoception", {})}
+
+    def session_regulation(self, session_id: str) -> Dict[str, Any]:
+        interoception = self.session_interoception(session_id)["interoception"]
+        return {"session_id": session_id, "regulation": {"pressures": interoception.get("pressures", []), "proposals": interoception.get("proposals", [])}}
+
+    def session_causal_model(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "causal_model": consciousness.get("causal_model", {})}
+
+    def session_perspectives(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "perspectives": consciousness.get("perspectives", {})}
+
+    def session_plans(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "plans": consciousness.get("plans", [])}
+
+    def session_rehearsals(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "rehearsals": consciousness.get("rehearsals", {})}
+
+    def session_anomalies(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "anomalies": consciousness.get("anomalies", {})}
+
+    def session_calibration(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "calibration": consciousness.get("calibration", {})}
 
     def add_consciousness_percepts(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         percept_payloads = payload.get("percepts", [])
@@ -630,6 +738,122 @@ class EphuxLocalService:
         )
         return self.session_consciousness(session_id)
 
+    def add_world_observations(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        observation_payloads = payload.get("observations", [])
+        if not observation_payloads:
+            observation_payloads = [payload]
+        observations = [self._world_observation_from_payload(item, index) for index, item in enumerate(observation_payloads, start=1)]
+        self._append_event(
+            session_id,
+            "world",
+            "session.world.observation",
+            {"observations": [item.to_record() for item in observations]},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_world(session_id)
+
+    def add_prediction_request(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        prediction = {
+            "entity_id": str(payload.get("entity_id", "")),
+            "property_name": str(payload.get("property_name", payload.get("topic", "state"))),
+            "expected_value": payload.get("expected_value"),
+            "horizon": str(payload.get("horizon", "NEXT_CYCLE")),
+            "source_model": str(payload.get("source_model", "predictive-cognition")),
+            "confidence": float(payload.get("confidence", 0.6)),
+            "assumptions": list(payload.get("assumptions", [])),
+            "evidence": list(payload.get("evidence", [])),
+            "verification_method": str(payload.get("verification_method", "future observation")),
+            "expiry": float(payload.get("expiry", time.time() + 60.0)),
+        }
+        self._append_event(
+            session_id,
+            "prediction",
+            "session.prediction.request",
+            {"prediction": prediction},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return {"session_id": session_id, "prediction_request": prediction}
+
+    def add_causal_hypothesis(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        claim = self._causal_claim_from_payload(payload)
+        self._append_event(
+            session_id,
+            "causal",
+            "session.causal.hypothesis",
+            {"claim": claim.to_record()},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_causal_model(session_id)
+
+    def add_intervention_request(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        proposal = self._intervention_from_payload(payload)
+        self._append_event(
+            session_id,
+            "intervention",
+            "session.intervention",
+            {"intervention": proposal.to_record()},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return {"session_id": session_id, "intervention": proposal.to_record()}
+
+    def add_perspective_record(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        record = {
+            "owner_id": str(payload.get("owner_id", payload.get("participant", "UNKNOWN"))),
+            "owner_class": str(payload.get("owner_class", "UNKNOWN")),
+            "statement": str(payload.get("statement", payload.get("detail", ""))),
+            "label": str(payload.get("label", "uncertainty")),
+            "evidence_category": str(payload.get("evidence_category", "UNKNOWN")),
+        }
+        self._append_event(
+            session_id,
+            "perspective",
+            "session.perspective.record",
+            {"perspective": record},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_perspectives(session_id)
+
+    def add_plan_request(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        request = {
+            "purpose": str(payload.get("purpose", payload.get("description", ""))),
+            "horizon": str(payload.get("horizon", "SESSION")),
+            "requested_by": str(payload.get("requested_by", "ephux-local")),
+        }
+        self._append_event(
+            session_id,
+            "plan",
+            "session.plan.request",
+            {"plan_request": request},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return {"session_id": session_id, "plan_request": request, "plans": self.session_plans(session_id)["plans"]}
+
+    def add_rehearsal_request(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        detail = str(payload.get("detail", "offline rehearsal"))
+        self._append_event(
+            session_id,
+            "rehearsal",
+            "session.rehearsal.request",
+            {"detail": detail},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return {"session_id": session_id, "detail": detail}
+
+    def review_world(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        review = {
+            "requested_by": str(payload.get("requested_by", "ephux-local")),
+            "world": self.session_world(session_id)["world"],
+            "prediction_errors": self.session_prediction_errors(session_id)["prediction_errors"],
+        }
+        self._append_event(
+            session_id,
+            "world",
+            "session.world.review",
+            {"review": review},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return {"session_id": session_id, "review": review}
+
     def review_consciousness(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         consciousness = self.session_consciousness(session_id)
         review = {
@@ -653,6 +877,26 @@ class EphuxLocalService:
             kernel.add_percept(self._percept_from_payload(percept_payload, index))
         for index, constant_payload in enumerate(payload.get("constants", []), start=1):
             kernel.add_constant(self._constant_from_payload(constant_payload, index))
+        for index, observation_payload in enumerate(payload.get("observations", []), start=1):
+            kernel.add_world_observation(self._world_observation_from_payload(observation_payload, index))
+        if payload.get("prediction_request"):
+            kernel.add_prediction_spec(dict(payload.get("prediction_request", {})))
+        for prediction_payload in payload.get("predictions", []):
+            kernel.add_prediction_spec(dict(prediction_payload))
+        if payload.get("causal_claim"):
+            kernel.add_causal_claim(self._causal_claim_from_payload(dict(payload.get("causal_claim", {}))))
+        for claim_payload in payload.get("causal_claims", []):
+            kernel.add_causal_claim(self._causal_claim_from_payload(dict(claim_payload)))
+        if payload.get("intervention"):
+            kernel.add_intervention(self._intervention_from_payload(dict(payload.get("intervention", {}))))
+        for intervention_payload in payload.get("interventions", []):
+            kernel.add_intervention(self._intervention_from_payload(dict(intervention_payload)))
+        if payload.get("perspective"):
+            kernel.add_perspective_record(dict(payload.get("perspective", {})))
+        for perspective_payload in payload.get("perspectives", []):
+            kernel.add_perspective_record(dict(perspective_payload))
+        if payload.get("rehearsal_detail"):
+            kernel.add_rehearsal_request(str(payload.get("rehearsal_detail")))
         if payload.get("purpose") or payload.get("description"):
             kernel.add_purpose(self._purpose_from_payload(payload))
         result = kernel.run_cycle(
@@ -724,7 +968,18 @@ class EphuxLocalService:
         ) as session:
             session_id = str(session.session_id)
         self._seed_session_narrative(session_id)
-        return self.get_session(session_id)
+        stored = self.store.get_session(session_id)
+        return {
+            "session_id": stored.session_id,
+            "created_at": stored.created_at,
+            "updated_at": stored.updated_at,
+            "purpose": stored.metadata.get("purpose", ""),
+            "context": stored.metadata.get("context", ""),
+            "privacy_setting": stored.metadata.get("privacy_setting", "local-only"),
+            "constraints": stored.metadata.get("constraints", []),
+            "final_basin": stored.final_basin or _default_basin(),
+            "event_count": 0,
+        }
 
     def list_sessions(self) -> List[Dict[str, Any]]:
         sessions = []
@@ -1192,7 +1447,7 @@ class EphuxLocalService:
     def run_evaluation_lab(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         artifact_root = self.report_dir / session_id / "labs" / f"evaluation-{int(time.time())}"
         artifact_root.mkdir(parents=True, exist_ok=True)
-        summary = run_evaluation_lab_acceptance(artifact_root)
+        summary = run_evaluation_lab_acceptance(artifact_root, comparison_task_limit=4)
         event_id = self._next_event_id(session_id, "lab")
         basin = self._lab_basin(
             self.store.inspect_session(session_id).get("final_basin", {}),
@@ -2271,6 +2526,27 @@ class EphuxLocalService:
             "session_consciousness_percepts_endpoint": "/sessions/{session_id}/consciousness/percepts",
             "session_consciousness_attention_write_endpoint": "/sessions/{session_id}/consciousness/attention",
             "session_consciousness_review_endpoint": "/sessions/{session_id}/consciousness/review",
+            "session_world_endpoint": "/sessions/{session_id}/world",
+            "session_world_entities_endpoint": "/sessions/{session_id}/world/entities",
+            "session_world_events_endpoint": "/sessions/{session_id}/world/events",
+            "session_prediction_endpoint": "/sessions/{session_id}/predictions",
+            "session_prediction_errors_endpoint": "/sessions/{session_id}/prediction-errors",
+            "session_interoception_endpoint": "/sessions/{session_id}/interoception",
+            "session_regulation_endpoint": "/sessions/{session_id}/regulation",
+            "session_causal_model_endpoint": "/sessions/{session_id}/causal-model",
+            "session_perspectives_endpoint": "/sessions/{session_id}/perspectives",
+            "session_plans_endpoint": "/sessions/{session_id}/plans",
+            "session_rehearsals_endpoint": "/sessions/{session_id}/rehearsals",
+            "session_anomalies_endpoint": "/sessions/{session_id}/anomalies",
+            "session_calibration_endpoint": "/sessions/{session_id}/calibration",
+            "session_world_observations_endpoint": "/sessions/{session_id}/world/observations",
+            "session_prediction_write_endpoint": "/sessions/{session_id}/predictions",
+            "session_causal_hypothesis_write_endpoint": "/sessions/{session_id}/causal-hypotheses",
+            "session_intervention_write_endpoint": "/sessions/{session_id}/interventions",
+            "session_perspective_write_endpoint": "/sessions/{session_id}/perspectives",
+            "session_plan_write_endpoint": "/sessions/{session_id}/plans",
+            "session_rehearsal_write_endpoint": "/sessions/{session_id}/rehearsals",
+            "session_world_review_endpoint": "/sessions/{session_id}/world/review",
             "connector_inventory_endpoint": "/connectors",
             "connector_request_endpoint": "/connectors/{connector_id}/requests",
             "session_external_actions_endpoint": "/sessions/{session_id}/external-actions",
@@ -2303,26 +2579,32 @@ class EphuxLocalService:
 
 def _json_response(handler: BaseHTTPRequestHandler, status: int, payload: Dict[str, Any], *, origin: str = "") -> None:
     body = json.dumps(payload, indent=2, default=str).encode("utf-8")
-    handler.send_response(status)
-    handler.send_header("Content-Type", "application/json; charset=utf-8")
-    handler.send_header("Content-Length", str(len(body)))
-    if origin:
-        handler.send_header("Access-Control-Allow-Origin", origin)
-        handler.send_header("Vary", "Origin")
-    handler.end_headers()
-    handler.wfile.write(body)
+    try:
+        handler.send_response(status)
+        handler.send_header("Content-Type", "application/json; charset=utf-8")
+        handler.send_header("Content-Length", str(len(body)))
+        if origin:
+            handler.send_header("Access-Control-Allow-Origin", origin)
+            handler.send_header("Vary", "Origin")
+        handler.end_headers()
+        handler.wfile.write(body)
+    except OSError:
+        return
 
 
 def _text_response(handler: BaseHTTPRequestHandler, status: int, text: str, *, content_type: str = "text/plain; charset=utf-8", origin: str = "") -> None:
     body = text.encode("utf-8")
-    handler.send_response(status)
-    handler.send_header("Content-Type", content_type)
-    handler.send_header("Content-Length", str(len(body)))
-    if origin:
-        handler.send_header("Access-Control-Allow-Origin", origin)
-        handler.send_header("Vary", "Origin")
-    handler.end_headers()
-    handler.wfile.write(body)
+    try:
+        handler.send_response(status)
+        handler.send_header("Content-Type", content_type)
+        handler.send_header("Content-Length", str(len(body)))
+        if origin:
+            handler.send_header("Access-Control-Allow-Origin", origin)
+            handler.send_header("Vary", "Origin")
+        handler.end_headers()
+        handler.wfile.write(body)
+    except OSError:
+        return
 
 
 def _asset_content_type(path: Path) -> str:
@@ -2486,6 +2768,71 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     episode_id = parts[5]
                     _json_response(self, 200, app.session_consciousness_episode(session_id, episode_id), origin=origin)
                     return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/world"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_world(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/world/entities"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_world_entities(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/world/events"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_world_events(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/predictions"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_predictions(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/prediction-errors"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_prediction_errors(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/interoception"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_interoception(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/regulation"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_regulation(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/causal-model"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_causal_model(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/perspectives"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_perspectives(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/plans"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_plans(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/rehearsals"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_rehearsals(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/anomalies"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_anomalies(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/calibration"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_calibration(session_id), origin=origin)
+                    return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative"):
                     self._authorized()
                     session_id = parsed.path.split("/")[2]
@@ -2613,6 +2960,46 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     session_id = parsed.path.split("/")[2]
                     payload = self._parse_json()
                     _json_response(self, 200, app.review_consciousness(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/world/observations"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_world_observations(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/predictions"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_prediction_request(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/causal-hypotheses"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_causal_hypothesis(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/interventions"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_intervention_request(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/perspectives"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_perspective_record(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/plans"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_plan_request(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/rehearsals"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_rehearsal_request(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/world/review"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.review_world(session_id, payload), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/review"):
                     session_id = parsed.path.split("/")[2]

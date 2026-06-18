@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-18T15:10:00-04:00",
+  "generated_at": "2026-06-18T16:35:00-04:00",
   "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
   "inventory": [
     {
       "path": "C:/Users/moop/cognitive-basin-platform",
       "branch": "main",
-      "head": "8dae215299f8bba762fb245b59677de900196e68",
+      "head": "6ad571592874e4906b44d339af8a34c3e5e7f903",
       "git_common_dir": ".git",
       "clean": true,
       "active_or_obsolete": "active-canonical",
@@ -35,10 +35,20 @@
     {
       "path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-operational-consciousness-kernel-codex",
       "branch": "build/operational-consciousness-kernel-codex",
-      "head": "8dae215299f8bba762fb245b59677de900196e68",
+      "head": "6ad571592874e4906b44d339af8a34c3e5e7f903",
       "git_common_dir": "C:/Users/moop/cognitive-basin-platform/.git",
       "clean": false,
-      "active_or_obsolete": "active-operational-consciousness-kernel",
+      "active_or_obsolete": "obsolete-merged",
+      "parent_directory_relationship": ["flat-or-standalone"],
+      "safe_removal_eligibility": false
+    },
+    {
+      "path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-predictive-world-interoception-codex",
+      "branch": "build/predictive-world-interoception-codex",
+      "head": "6ad571592874e4906b44d339af8a34c3e5e7f903",
+      "git_common_dir": "C:/Users/moop/cognitive-basin-platform/.git",
+      "clean": false,
+      "active_or_obsolete": "active-predictive-world-interoception",
       "parent_directory_relationship": ["flat-or-standalone"],
       "safe_removal_eligibility": false
     },

@@ -32,12 +32,13 @@ def test_clean_temp_virtualenv_runs_aggregate_acceptance():
                 str(python_exe),
                 "-c",
                 (
-                    "import basinlab, cognitive_basin, consciousness_lab, ephux_local, evaluation_lab, "
+                    "import basinlab, cognitive_basin, consciousness_lab, ephux_local, evaluation_lab, predictive_cognition, "
                     "natural_math_lab, provider_lab, sandbox_lab; "
                     "print(basinlab.BasinLabSession.__module__); "
                     "print(consciousness_lab.run_acceptance_suite.__module__); "
                     "print(ephux_local.EphuxLocalService.__module__); "
                     "print(evaluation_lab.run_evaluation_suite.__module__); "
+                    "print(predictive_cognition.run_acceptance_suite.__module__); "
                     "print(natural_math_lab.run_parameter_sweep.__module__)"
                 ),
             ],
@@ -51,6 +52,7 @@ def test_clean_temp_virtualenv_runs_aggregate_acceptance():
         assert "python.consciousness_lab." in stdout
         assert "python.ephux_local." in stdout
         assert "python.evaluation_lab." in stdout
+        assert "python.predictive_cognition." in stdout
         assert "python.natural_math_lab." in stdout
 
         artifact_dir = Path(td) / "artifacts"
@@ -76,3 +78,4 @@ def test_clean_temp_virtualenv_runs_aggregate_acceptance():
         assert "action_permit" in summary["suites"]
         assert "connector_lab" in summary["suites"]
         assert "consciousness_lab" in summary["suites"]
+        assert "predictive_cognition" in summary["suites"]

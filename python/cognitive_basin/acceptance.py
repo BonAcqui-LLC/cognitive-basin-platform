@@ -18,6 +18,7 @@ from python.ephux_local.acceptance import run_acceptance_suite as run_ephux_acce
 from python.evaluation_lab.acceptance import run_acceptance_suite as run_evaluation_acceptance
 from python.memory_governance.acceptance import run_acceptance_suite as run_memory_governance_acceptance
 from python.natural_math_lab.acceptance import run_acceptance_suite as run_natural_math_acceptance
+from python.predictive_cognition.acceptance import run_acceptance_suite as run_predictive_cognition_acceptance
 from python.provider_lab.acceptance import run_acceptance_suite as run_provider_acceptance
 from python.sandbox_lab.acceptance import run_acceptance_suite as run_sandbox_acceptance
 
@@ -79,6 +80,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "action_permit": ["Explicit participant-issued permits only; no inherited authority."],
             "connector_lab": ["Fixture-backed connector execution only; no production deployment or live writes."],
             "consciousness_lab": ["Operational machine-consciousness layer only; no claim of subjective experience or sentience."],
+            "predictive_cognition": ["Machine-native predictive cognition only; no claim of subjective experience or hidden mental-state access."],
         }
         skipped_map = {
             "basinlab": ["No production commit or deployment."],
@@ -91,6 +93,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "action_permit": ["No implicit approvals, role inference, or credential-derived authority."],
             "connector_lab": ["No live external writes and no production deployment."],
             "consciousness_lab": ["No subjective-experience claims and no autonomous external authority."],
+            "predictive_cognition": ["No production deployment and no unrestricted autonomous learning."],
         }
         return result, _suite_metadata(
             name,
@@ -112,6 +115,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
     action_permit, action_permit_meta = run_named("action_permit", run_action_permit_acceptance, "action_permit")
     connector_lab, connector_meta = run_named("connector_lab", run_connector_lab_acceptance, "connector_lab")
     consciousness_lab, consciousness_meta = run_named("consciousness_lab", run_consciousness_acceptance, "consciousness_lab")
+    predictive_cognition, predictive_cognition_meta = run_named("predictive_cognition", run_predictive_cognition_acceptance, "predictive_cognition")
     summary = {
         "passed": all(
             [
@@ -125,6 +129,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
                 action_permit["passed"],
                 connector_lab["passed"],
                 consciousness_lab["passed"],
+                predictive_cognition["passed"],
             ]
         ),
         "exact_commit": exact_commit,
@@ -139,6 +144,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "action_permit": action_permit_meta,
             "connector_lab": connector_meta,
             "consciousness_lab": consciousness_meta,
+            "predictive_cognition": predictive_cognition_meta,
         },
     }
     if root:

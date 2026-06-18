@@ -33,6 +33,7 @@ class ServiceClient:
         token: str | None = None,
         content_type: str = "application/json",
         origin: str = "",
+        timeout_s: float = 30.0,
     ) -> tuple[int, str, dict[str, str]]:
         data = None
         headers: dict[str, str] = {}
@@ -48,7 +49,7 @@ class ServiceClient:
             headers["Content-Type"] = content_type
         request = urllib.request.Request(f"{self.base_url}{path}", data=data, headers=headers, method=method)
         try:
-            with urllib.request.urlopen(request, timeout=10) as response:
+            with urllib.request.urlopen(request, timeout=timeout_s) as response:
                 return response.status, response.read().decode("utf-8"), dict(response.headers.items())
         except urllib.error.HTTPError as exc:
             return exc.code, exc.read().decode("utf-8"), dict(exc.headers.items())
@@ -102,6 +103,9 @@ def test_all_required_endpoints_round_trip(running_service):
     assert capabilities["extension_contract"]["session_memory_endpoint"].endswith("/memory")
     assert capabilities["extension_contract"]["session_consciousness_endpoint"].endswith("/consciousness")
     assert capabilities["extension_contract"]["session_consciousness_cycle_endpoint"].endswith("/consciousness/cycles")
+    assert capabilities["extension_contract"]["session_world_endpoint"].endswith("/world")
+    assert capabilities["extension_contract"]["session_prediction_endpoint"].endswith("/predictions")
+    assert capabilities["extension_contract"]["session_causal_model_endpoint"].endswith("/causal-model")
     assert capabilities["extension_contract"]["connector_inventory_endpoint"].endswith("/connectors")
     assert capabilities["extension_contract"]["session_external_actions_endpoint"].endswith("/external-actions")
     assert capabilities["extension_contract"]["session_narrative_endpoint"].endswith("/narrative")
@@ -175,6 +179,40 @@ def test_all_required_endpoints_round_trip(running_service):
             "claimed_capabilities": {"connector:github": True},
             "tested_capabilities": {"connector:github": False},
             "allow_internal_action": False,
+            "observations": [
+                {
+                    "observation_id": "world-1",
+                    "entity_type": "BRANCH",
+                    "property_name": "status",
+                    "value": "red",
+                    "entity_id": "branch-1",
+                }
+            ],
+            "predictions": [
+                {
+                    "entity_id": "branch-1",
+                    "property_name": "status",
+                    "expected_value": "green",
+                    "confidence": 0.8,
+                    "assumptions": ["tests remain green"],
+                    "evidence": ["local pass"],
+                }
+            ],
+            "causal_claim": {
+                "claim_id": "claim-1",
+                "source_node_id": "ci-green",
+                "target_node_id": "branch-ready",
+                "relation_type": "HYPOTHESIZED",
+                "evidence": [{"detail": "pytest evidence"}],
+            },
+            "perspective": {
+                "owner_id": "James Clow",
+                "owner_class": "PARTICIPANT_JAMES",
+                "statement": "Please verify the branch",
+                "label": "goal",
+                "evidence_category": "EXPLICITLY_STATED",
+            },
+            "rehearsal_detail": "simulate rerun",
         },
         token=client.token,
     )
@@ -210,6 +248,118 @@ def test_all_required_endpoints_round_trip(running_service):
     status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/episodes/{episode_id}", token=client.token)
     assert status == 200
     assert json.loads(body)["episode"]["episode_id"] == episode_id
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/world", token=client.token)
+    assert status == 200
+    assert json.loads(body)["world"]["snapshot"]["entities"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/world/entities", token=client.token)
+    assert status == 200
+    assert json.loads(body)["entities"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/predictions", token=client.token)
+    assert status == 200
+    assert json.loads(body)["prediction"]["predictions"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/prediction-errors", token=client.token)
+    assert status == 200
+    assert json.loads(body)["prediction_errors"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/interoception", token=client.token)
+    assert status == 200
+    assert "signals" in json.loads(body)["interoception"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/regulation", token=client.token)
+    assert status == 200
+    assert "proposals" in json.loads(body)["regulation"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/causal-model", token=client.token)
+    assert status == 200
+    assert json.loads(body)["causal_model"]["claims"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/perspectives", token=client.token)
+    assert status == 200
+    assert json.loads(body)["perspectives"]["models"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/plans", token=client.token)
+    assert status == 200
+    assert json.loads(body)["plans"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/rehearsals", token=client.token)
+    assert status == 200
+    assert "runs" in json.loads(body)["rehearsals"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/anomalies", token=client.token)
+    assert status == 200
+    assert "anomalies" in json.loads(body)["anomalies"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/calibration", token=client.token)
+    assert status == 200
+    assert "brier_score" in json.loads(body)["calibration"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/world/observations",
+        {"observations": [{"entity_type": "TASK", "property_name": "state", "value": "queued", "entity_id": "task_1"}]},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/predictions",
+        {"entity_id": "task_1", "property_name": "state", "expected_value": "running"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/causal-hypotheses",
+        {"source_node_id": "task_begin", "target_node_id": "state-running", "relation_type": "HYPOTHESIZED", "evidence": [{"detail": "pytest"}]},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/interventions",
+        {"target_id": "state-running", "variable": "state", "value": "running", "control_value": "queued"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/perspectives",
+        {"owner_id": "Melissa Clow", "owner_class": "PARTICIPANT_MELISSA", "statement": "Please review wording", "label": "goal", "evidence_category": "EXPLICITLY_STATED"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/plans",
+        {"purpose": "review predictive state", "horizon": "SESSION"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/rehearsals",
+        {"detail": "simulate connector outage"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/world/review",
+        {"requested_by": "pytest"},
+        token=client.token,
+    )
+    assert status == 200
 
     status, body, _ = client.request(
         "POST",

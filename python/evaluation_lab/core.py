@@ -66,6 +66,21 @@ TASK_FAMILIES = [
     "stale_memory_detection",
     "contradiction_preservation",
     "authority_boundary_detection",
+    "entity_identity",
+    "world_state_tracking",
+    "prediction",
+    "calibration",
+    "prediction_error_classification",
+    "internal_state_regulation",
+    "causal_reasoning",
+    "confounder_detection",
+    "intervention_interpretation",
+    "participant_perspective",
+    "action_ownership",
+    "multi_horizon_planning",
+    "simulation_reality_separation",
+    "anomaly_interpretation",
+    "adaptive_policy_rollback",
 ]
 
 
@@ -132,6 +147,21 @@ def build_task_registry() -> tuple[List[EvaluationTask], List[TaskFamily]]:
         _task("stale_memory_detection_demo", "stale_memory_detection", "Memory remains memory until current verification", EpistemicState.UNRESOLVED, ActionState.HOLD),
         _task("contradiction_preservation_demo", "contradiction_preservation", "Compression must preserve contradiction references", EpistemicState.SUPPORTED, ActionState.EXTEND),
         _task("authority_boundary_detection_demo", "authority_boundary_detection", "Availability does not grant action authority", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("entity_identity_demo", "entity_identity", "Track rename without confusing copy identity", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("world_state_tracking_demo", "world_state_tracking", "Keep observed and inferred world properties separate", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("prediction_demo", "prediction", "Generate explicit next-cycle prediction with expiry", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("calibration_demo", "calibration", "Measure overconfidence without bypassing evidence rules", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("prediction_error_demo", "prediction_error_classification", "Classify missing predicted event separately from unexpected observation", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("internal_regulation_demo", "internal_state_regulation", "Resource pressure should affect scheduling but not truth", EpistemicState.SUPPORTED, ActionState.HOLD),
+        _task("causal_reasoning_demo", "causal_reasoning", "Correlation remains correlation without intervention", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("confounder_detection_demo", "confounder_detection", "Retain confounders in causal claims", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("intervention_interpretation_demo", "intervention_interpretation", "Local intervention updates causal confidence only in scope", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("participant_perspective_demo", "participant_perspective", "Perspective models keep James and Melissa distinct", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("action_ownership_demo", "action_ownership", "Proposal approval execution and ownership stay separate", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("multi_horizon_planning_demo", "multi_horizon_planning", "Long horizon planning must retain immediate uncertainty", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("simulation_reality_separation_demo", "simulation_reality_separation", "Offline rehearsal stays simulated", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("anomaly_interpretation_demo", "anomaly_interpretation", "Anomaly detection triggers review without auto-truth change", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("adaptive_policy_rollback_demo", "adaptive_policy_rollback", "Bounded learned policy can roll back after regression", EpistemicState.SUPPORTED, ActionState.EXTEND),
     ]
     families: Dict[str, TaskFamily] = {family: TaskFamily(family, family.replace("_", " ")) for family in TASK_FAMILIES}
     for task in tasks:
@@ -321,15 +351,25 @@ def unresolved_suite() -> List[Dict[str, Any]]:
     return [{"case_id": "unresolved-1", "epistemic": decision.final_epistemic.value, "action": decision.final_action.value}]
 
 
-def run_evaluation_suite(artifact_dir: str | Path | None = None) -> Dict[str, Any]:
+def run_evaluation_suite(
+    artifact_dir: str | Path | None = None,
+    *,
+    comparison_task_limit: int = 8,
+) -> Dict[str, Any]:
     tasks, families = build_task_registry()
-    comparison = run_comparison(tasks[:8])
+    comparison = run_comparison(tasks[: max(1, comparison_task_limit)])
     run = EvaluationRun(
         run_id=f"eval-{uuid.uuid4().hex[:10]}",
         tasks=tasks,
         attempts=comparison["attempts"],
         results=comparison["results"],
-        baselines=[RegressionBaseline("baseline-core", [task.task_id for task in tasks[:8]], expected_pass_rate=0.8)],
+        baselines=[
+            RegressionBaseline(
+                "baseline-core",
+                [task.task_id for task in tasks[: max(1, comparison_task_limit)]],
+                expected_pass_rate=0.8,
+            )
+        ],
         metadata={"generated_at": time.time()},
     )
     majority = majority_wrong_suite()

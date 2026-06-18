@@ -112,6 +112,15 @@ function renderConsciousnessViews(consciousness) {
   $("consciousnessState").textContent = pretty(consciousness || {});
   $("consciousnessWorkspace").textContent = pretty(consciousness?.workspace || {});
   $("consciousnessEpisodes").textContent = pretty(consciousness?.episodes || []);
+  if ($("predictiveWorld")) $("predictiveWorld").textContent = pretty(consciousness?.world || {});
+  if ($("predictivePrediction")) $("predictivePrediction").textContent = pretty(consciousness?.prediction || {});
+  if ($("predictiveInteroception")) $("predictiveInteroception").textContent = pretty(consciousness?.interoception || {});
+  if ($("predictiveCausal")) $("predictiveCausal").textContent = pretty(consciousness?.causal_model || {});
+  if ($("predictivePerspectives")) $("predictivePerspectives").textContent = pretty(consciousness?.perspectives || {});
+  if ($("predictivePlans")) $("predictivePlans").textContent = pretty(consciousness?.plans || []);
+  if ($("predictiveRehearsals")) $("predictiveRehearsals").textContent = pretty(consciousness?.rehearsals || {});
+  if ($("predictiveAnomalies")) $("predictiveAnomalies").textContent = pretty(consciousness?.anomalies || {});
+  if ($("predictiveCalibration")) $("predictiveCalibration").textContent = pretty(consciousness?.calibration || {});
 }
 
 async function refreshGovernanceViews() {
@@ -591,6 +600,70 @@ async function reviewConsciousness() {
   await refreshSession();
 }
 
+async function submitWorldObservation() {
+  await api(`/sessions/${state.activeSessionId}/world/observations`, "POST", {
+    observations: [
+      {
+        entity_type: $("predictiveEntityType").value.trim(),
+        entity_id: $("predictiveEntityId").value.trim(),
+        property_name: $("predictivePropertyName").value.trim(),
+        value: $("predictivePropertyValue").value.trim(),
+        category: $("predictivePropertyCategory").value,
+      },
+    ],
+  });
+  await refreshSession();
+}
+
+async function submitPredictionRequest() {
+  await api(`/sessions/${state.activeSessionId}/predictions`, "POST", {
+    entity_id: $("predictiveEntityId").value.trim(),
+    property_name: $("predictivePropertyName").value.trim(),
+    expected_value: $("predictiveExpectedValue").value.trim(),
+    horizon: $("predictiveHorizon").value,
+    confidence: Number($("predictiveConfidence").value || "0.7"),
+    assumptions: [$("predictiveAssumption").value.trim()].filter(Boolean),
+    evidence: [$("predictiveEvidence").value.trim()].filter(Boolean),
+  });
+  await refreshSession();
+}
+
+async function submitCausalHypothesis() {
+  await api(`/sessions/${state.activeSessionId}/causal-hypotheses`, "POST", {
+    source_node_id: $("predictiveCausalSource").value.trim(),
+    target_node_id: $("predictiveCausalTarget").value.trim(),
+    relation_type: $("predictiveCausalRelation").value,
+    evidence: [{ detail: $("predictiveEvidence").value.trim() || "ui evidence" }],
+  });
+  await refreshSession();
+}
+
+async function submitPerspectiveRecord() {
+  await api(`/sessions/${state.activeSessionId}/perspectives`, "POST", {
+    owner_id: $("predictivePerspectiveOwner").value.trim(),
+    owner_class: $("predictivePerspectiveClass").value,
+    statement: $("predictivePerspectiveStatement").value.trim(),
+    label: $("predictivePerspectiveLabel").value,
+    evidence_category: $("predictivePerspectiveEvidence").value,
+  });
+  await refreshSession();
+}
+
+async function submitRehearsalRequest() {
+  await api(`/sessions/${state.activeSessionId}/rehearsals`, "POST", {
+    detail: $("predictiveRehearsalDetail").value.trim(),
+  });
+  await refreshSession();
+}
+
+async function reviewPredictiveWorld() {
+  const result = await api(`/sessions/${state.activeSessionId}/world/review`, "POST", {
+    requested_by: "ephux-local-ui",
+  });
+  if ($("predictiveWorld")) $("predictiveWorld").textContent = pretty(result);
+  await refreshSession();
+}
+
 async function exportSession() {
   if (!state.activeSessionId) {
     status("No active session to export.", "warn");
@@ -698,6 +771,12 @@ bind("runConsciousnessCycle", runConsciousnessCycle);
 bind("pauseConsciousness", pauseConsciousness);
 bind("resumeConsciousness", resumeConsciousness);
 bind("reviewConsciousness", reviewConsciousness);
+bind("submitWorldObservation", submitWorldObservation);
+bind("submitPredictionRequest", submitPredictionRequest);
+bind("submitCausalHypothesis", submitCausalHypothesis);
+bind("submitPerspectiveRecord", submitPerspectiveRecord);
+bind("submitRehearsalRequest", submitRehearsalRequest);
+bind("reviewPredictiveWorld", reviewPredictiveWorld);
 $("importBundle").addEventListener("change", async (event) => {
   try {
     if (!currentToken()) {
