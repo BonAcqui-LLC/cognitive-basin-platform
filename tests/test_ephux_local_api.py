@@ -100,6 +100,8 @@ def test_all_required_endpoints_round_trip(running_service):
     assert capabilities["extension_contract"]["evaluation_lab_endpoint"].endswith("/labs/evaluation")
     assert capabilities["extension_contract"]["natural_math_lab_endpoint"].endswith("/labs/natural-math")
     assert capabilities["extension_contract"]["session_memory_endpoint"].endswith("/memory")
+    assert capabilities["extension_contract"]["connector_inventory_endpoint"].endswith("/connectors")
+    assert capabilities["extension_contract"]["session_external_actions_endpoint"].endswith("/external-actions")
     assert capabilities["extension_contract"]["session_narrative_endpoint"].endswith("/narrative")
     assert capabilities["extension_contract"]["session_memory_retrieve_endpoint"].endswith("/memory/retrieve")
     assert capabilities["extension_contract"]["session_privacy_export_endpoint"].endswith("/privacy/export")
@@ -149,6 +151,20 @@ def test_all_required_endpoints_round_trip(running_service):
     assert len(memory_payload["items"]) >= 2
     assert all(item["participant"] == "UNKNOWN" for item in memory_payload["items"])
 
+    status, body, _ = client.request("GET", "/connectors", token=client.token)
+    assert status == 200
+    connectors = json.loads(body)["connectors"]
+    assert any(item["identity"]["connector_id"] == "github" for item in connectors)
+
+    status, body, _ = client.request(
+        "POST",
+        "/connectors/github/requests",
+        {"operation": "REPOSITORY_METADATA", "scope": "READ_ONLY", "payload": {}},
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["ok"] is True
+
     status, body, _ = client.request(
         "POST",
         f"/sessions/{session_id}/memory/retrieve",
@@ -184,6 +200,72 @@ def test_all_required_endpoints_round_trip(running_service):
     )
     assert status == 200
     assert "items" in json.loads(body)
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/external-actions",
+        {
+            "connector_id": "github",
+            "operation": "BRANCH_PUSH",
+            "target_locator": "refs/heads/build/fixture",
+            "environment": "PREVIEW",
+            "payload": {"branch": "build/fixture"},
+            "participant": "James Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "visibility_scope": "SHARED_PROJECT",
+        },
+        token=client.token,
+    )
+    assert status == 201
+    external = json.loads(body)["proposal"]
+    proposal_id = external["proposal_id"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/external-actions/{proposal_id}/approve",
+        {
+            "participant": "James Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "note": "self approval should fail",
+        },
+        token=client.token,
+    )
+    assert status == 400
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/external-actions/{proposal_id}/approve",
+        {
+            "participant": "Melissa Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "note": "approve fixture push",
+        },
+        token=client.token,
+    )
+    assert status == 200
+    permit = json.loads(body)["permit"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/external-actions/{proposal_id}/execute",
+        {"fixture_execute": True},
+        token=client.token,
+    )
+    assert status == 200
+    executed = json.loads(body)
+    assert executed["permit_id"] == permit["permit_id"]
+    assert executed["response"]["ok"] is True
+
+    status, body, _ = client.request(
+        "GET",
+        f"/sessions/{session_id}/external-actions/{proposal_id}/receipt",
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["status"] == "EXECUTED"
 
     status, body, _ = client.request(
         "POST",
