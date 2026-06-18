@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-18T01:15:00-04:00",
+  "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
+  "local_main_head": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+  "remote_main_head": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+  "expected_current_main": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+  "canonical_main_clean": true,
+  "git_common_dir": ".git",
+  "origin_remote": {
+    "fetch": "https://github.com/BonAcqui-LLC/cognitive-basin-platform.git",
+    "push": "https://github.com/BonAcqui-LLC/cognitive-basin-platform.git"
+  },
+  "exact_main_ci_status": "FAILED",
+  "exact_main_ci_run": {
+    "database_id": 27736685766,
+    "workflow_name": "ci-non-deploying",
+    "event": "push",
+    "head_branch": "main",
+    "head_sha": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+    "status": "completed",
+    "conclusion": "failure",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/actions/runs/27736685766"
+  },
+  "failure_cause": {
+    "job_name": "integrity",
+    "step_name": "BasinLab provider, EphUX lab-product, evaluation, and Natural Math tranche tests",
+    "observed_failure": "tests/test_cognitive_basin_package_layout.py::test_clean_temp_virtualenv_runs_aggregate_acceptance",
+    "observed_error": "FileNotFoundError on Linux for /tmp/.../venv/Scripts/python.exe"
+  },
+  "local_repair_observation": {
+    "branch": "build/memory-governance-codex",
+    "repair": "package-layout tests now choose bin/python on non-Windows and Scripts/python.exe on Windows",
+    "reproduced_targeted_suite": "42 passed",
+    "full_pytest": "131 passed",
+    "aggregate_acceptance": "passed"
+  },
+  "baseline_classification": "NOT_CI_CLEARED_UNTIL_NEW_MAIN_RUN"
+}

@@ -125,6 +125,109 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, An
             caps = json.loads(body)
             results.append({"scenario": "extension_contract", "passed": caps["security_controls"]["local_token"] == "ENFORCED"})
 
+            status, body = _request(
+                base_url,
+                config.token,
+                "POST",
+                f"/sessions/{restart_session}/evidence",
+                {
+                    "detail": "James private evidence",
+                    "temporary_artifact_text": "James private evidence",
+                    "participant": "James Clow",
+                    "participant_mode": "explicit",
+                    "participant_source": "explicit",
+                    "visibility_scope": "PRIVATE_JAMES",
+                },
+            )
+            status, body = _request(base_url, config.token, "GET", f"/sessions/{restart_session}/memory?participant=James%20Clow")
+            private_memory = json.loads(body)
+            status, body = _request(base_url, config.token, "GET", f"/sessions/{restart_session}/memory?participant=Melissa%20Clow")
+            melissa_view = json.loads(body)
+            results.append(
+                {
+                    "scenario": "memory_visibility_boundaries",
+                    "passed": all(item["visibility_scope"] != "PRIVATE_JAMES" for item in melissa_view["items"]),
+                }
+            )
+
+            status, body = _request(
+                base_url,
+                config.token,
+                "POST",
+                f"/sessions/{restart_session}/narrative/decisions",
+                {
+                    "participant": "Melissa Clow",
+                    "participant_mode": "explicit",
+                    "participant_source": "explicit",
+                    "decision": "Preserve contradiction state",
+                    "superseded_decision": "Old package ambiguity",
+                },
+            )
+            narrative = json.loads(body)
+            results.append(
+                {
+                    "scenario": "narrative_decision_surface",
+                    "passed": bool(narrative["participant_histories"]["Melissa Clow"]["superseded_decisions"]),
+                }
+            )
+
+            status, body = _request(
+                base_url,
+                config.token,
+                "POST",
+                f"/sessions/{restart_session}/privacy/export",
+                {
+                    "participant": "James Clow",
+                    "participant_mode": "explicit",
+                    "participant_source": "explicit",
+                },
+            )
+            privacy_export = json.loads(body)
+            results.append(
+                {
+                    "scenario": "privacy_export_surface",
+                    "passed": "items" in privacy_export,
+                }
+            )
+
+            memory_id = next(
+                item["memory_id"] for item in private_memory["items"] if item["visibility_scope"] == "PRIVATE_JAMES"
+            )
+            status, body = _request(
+                base_url,
+                config.token,
+                "POST",
+                f"/sessions/{restart_session}/privacy/legal-holds",
+                {
+                    "participant": "James Clow",
+                    "participant_mode": "explicit",
+                    "participant_source": "explicit",
+                    "target_memory_id": memory_id,
+                    "reason": "preserve",
+                },
+            )
+            hold = json.loads(body)
+            status, body = _request(
+                base_url,
+                config.token,
+                "POST",
+                f"/sessions/{restart_session}/memory/prune",
+                {
+                    "participant": "James Clow",
+                    "participant_mode": "explicit",
+                    "participant_source": "explicit",
+                    "memory_id": memory_id,
+                    "reason": "cleanup",
+                },
+            )
+            blocked = json.loads(body)
+            results.append(
+                {
+                    "scenario": "legal_hold_blocks_prune",
+                    "passed": hold["status"] == "ACTIVE" and blocked["allowed"] is False,
+                }
+            )
+
             summary = {"passed": all(item["passed"] for item in results), "scenario_count": len(results), "results": results}
             if artifact_dir:
                 path = Path(artifact_dir)

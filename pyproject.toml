@@ -18,6 +18,7 @@ include = [
     "cognitive_basin*",
     "ephux_local*",
     "evaluation_lab*",
+    "memory_governance*",
     "natural_math_lab*",
     "packages*",
     "provider_lab*",

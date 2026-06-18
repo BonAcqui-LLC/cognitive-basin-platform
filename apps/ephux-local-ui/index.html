@@ -229,6 +229,23 @@
             <option value="vibethinker">vibethinker</option>
           </select>
         </label>
+        <label for="participantSelect">Participant
+          <select id="participantSelect">
+            <option value="">UNKNOWN</option>
+            <option value="James Clow">James Clow</option>
+            <option value="Melissa Clow">Melissa Clow</option>
+          </select>
+        </label>
+        <label for="visibilitySelect">Visibility
+          <select id="visibilitySelect">
+            <option value="shared-project">SHARED_PROJECT</option>
+            <option value="private-james">PRIVATE_JAMES</option>
+            <option value="private-melissa">PRIVATE_MELISSA</option>
+            <option value="session-only">SESSION_ONLY</option>
+            <option value="exportable-redacted">EXPORTABLE_REDACTED</option>
+            <option value="audit-retained">AUDIT_RETAINED</option>
+          </select>
+        </label>
         <button id="refreshSessions">Load Sessions</button>
       </div>
     </section>
@@ -357,6 +374,92 @@
           <button id="submitReview" class="secondary">Record Review</button>
           <button id="refreshSession" class="secondary">Refresh Session</button>
         </div>
+      </section>
+
+      <section class="panel">
+        <h2>Memory Governance</h2>
+        <div class="row">
+          <label for="memoryId">Memory ID
+            <input id="memoryId">
+          </label>
+          <label for="recoveryRouteId">Recovery route
+            <input id="recoveryRouteId">
+          </label>
+        </div>
+        <div class="row">
+          <label for="retrievalPurpose">Retrieval purpose
+            <textarea id="retrievalPurpose"></textarea>
+          </label>
+          <label for="memoryNote">Promotion / demotion note
+            <textarea id="memoryNote"></textarea>
+          </label>
+        </div>
+        <label for="memoryContradiction">Contradiction state / detail
+          <textarea id="memoryContradiction"></textarea>
+        </label>
+        <div class="button-row">
+          <button id="retrieveMemory" class="secondary">Retrieve Memory</button>
+          <button id="promoteMemory" class="secondary">Promote Memory</button>
+          <button id="demoteMemory" class="warn">Demote Memory</button>
+          <button id="pruneMemory" class="danger">Prune Memory</button>
+        </div>
+        <pre id="memoryState" aria-label="Retained memory, retrieval purpose, evidence state, contradiction state, scars, recovery routes, promotion history, demotion history, pruning history"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Team Narrative</h2>
+        <div class="row">
+          <label for="contributionText">Contribution
+            <textarea id="contributionText"></textarea>
+          </label>
+          <label for="decisionText">Decision
+            <textarea id="decisionText"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label for="supersededDecisionText">Superseded decision
+            <textarea id="supersededDecisionText"></textarea>
+          </label>
+          <label for="disagreementText">Disagreement
+            <textarea id="disagreementText"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label for="unresolvedQuestionText">Unresolved disagreement
+            <textarea id="unresolvedQuestionText"></textarea>
+          </label>
+          <label for="commitmentText">Commitment
+            <textarea id="commitmentText"></textarea>
+          </label>
+        </div>
+        <div class="row">
+          <label for="failureText">Failure continuity
+            <textarea id="failureText"></textarea>
+          </label>
+          <label for="recoveryText">Recovery continuity
+            <textarea id="recoveryText"></textarea>
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="addContribution" class="secondary">Add Contribution</button>
+          <button id="addDecision" class="secondary">Add Decision</button>
+          <button id="addDisagreement" class="warn">Add Disagreement</button>
+          <button id="addCommitment" class="secondary">Add Commitment</button>
+        </div>
+        <pre id="narrativeState" aria-label="James contribution history, Melissa contribution history, UNKNOWN contribution history, decisions, disagreements, commitments, superseded decisions"></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Privacy Controls</h2>
+        <label for="privacyReason">Export / deletion / legal hold note
+          <textarea id="privacyReason"></textarea>
+        </label>
+        <div class="button-row">
+          <button id="exportPrivacy" class="secondary">Redacted Export</button>
+          <button id="requestDeletion" class="warn">Deletion Request</button>
+          <button id="placeLegalHold" class="danger">Legal Hold</button>
+        </div>
+        <pre id="privacyState" aria-label="Privacy export controls, deletion-request status, legal-hold status"></pre>
       </section>
 
       <section class="panel">

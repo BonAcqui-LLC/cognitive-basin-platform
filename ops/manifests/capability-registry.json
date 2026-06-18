@@ -329,7 +329,7 @@
       "evidence_path": "tests/test_basinlab_memory_layers.py",
       "test_path": "tests/test_basinlab_memory_layers.py",
       "states": ["IMPLEMENTED", "TESTED"],
-      "limitations": ["In-memory local structure only; no persisted cross-session index yet."],
+      "limitations": ["Memory remains session-scoped in the current tranche; there is no global cross-session retrieval index yet."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
     },
@@ -340,7 +340,7 @@
       "evidence_path": "tests/test_basinlab_memory_layers.py",
       "test_path": "tests/test_basinlab_memory_layers.py",
       "states": ["IMPLEMENTED", "TESTED"],
-      "limitations": ["Current tranche stores continuity records locally and does not yet merge them with persisted session replay."],
+      "limitations": ["Continuity is replay-visible per session, but there is not yet a global project-level narrative registry outside the session store."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
     },
@@ -418,6 +418,28 @@
       "test_path": "tests/test_ephux_local_api.py",
       "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Import restores embedded text artifacts and report artifacts only; opaque binary artifacts remain metadata-only."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.memory.governance": {
+      "description": "Session-backed governed memory items, retrieval ranking, replay receipts, and privacy-scoped continuity records through the loopback EphUX service",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py", "test:tests/test_memory_governance.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_memory_governance.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Retrieval is currently session-scoped and deterministic; there is no multi-session federated memory search yet."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.team_narrative": {
+      "description": "Explicit-participant team narrative records for James, Melissa, UNKNOWN, and future contributors, persisted through session replay",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py", "test:tests/test_memory_governance.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_memory_governance.py",
+      "states": ["IMPLEMENTED", "TESTED"],
+      "limitations": ["Participant identity must be explicit; the system intentionally does not infer identity from style, device, or account context."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
     },

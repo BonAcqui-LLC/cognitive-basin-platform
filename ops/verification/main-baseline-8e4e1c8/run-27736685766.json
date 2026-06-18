@@ -1,0 +1,19 @@
+{
+  "database_id": 27736685766,
+  "head_sha": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+  "head_branch": "main",
+  "event": "push",
+  "status": "completed",
+  "conclusion": "failure",
+  "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/actions/runs/27736685766",
+  "jobs": [
+    {
+      "database_id": 82054855535,
+      "name": "integrity",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_step": "BasinLab provider, EphUX lab-product, evaluation, and Natural Math tranche tests",
+      "failed_step_summary": "FAILED tests/test_cognitive_basin_package_layout.py::test_clean_temp_virtualenv_runs_aggregate_acceptance - FileNotFoundError for /tmp/.../venv/Scripts/python.exe"
+    }
+  ]
+}

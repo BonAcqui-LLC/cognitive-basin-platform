@@ -8,12 +8,9 @@ import sys
 import tempfile
 import venv
 from pathlib import Path
+from tools.test_support.venv_paths import venv_python
 
 ROOT = Path(__file__).parent.parent
-
-
-def _venv_python(venv_dir: Path) -> Path:
-    return venv_dir / "Scripts" / "python.exe"
 
 
 def test_import_basinlab_resolves_to_canonical_runtime():
@@ -29,7 +26,7 @@ def test_clean_temp_virtualenv_behaves_like_local_checkout():
         venv_dir = Path(td) / "venv"
         builder = venv.EnvBuilder(with_pip=True)
         builder.create(venv_dir)
-        python_exe = _venv_python(venv_dir)
+        python_exe = venv_python(venv_dir)
 
         install = subprocess.run(
             [str(python_exe), "-m", "pip", "install", "-q", "-e", f"{ROOT}[dev]"],

@@ -20,6 +20,27 @@ function currentToken() {
   return $("tokenInput").value.trim();
 }
 
+function selectedParticipant() {
+  return $("participantSelect")?.value ?? "";
+}
+
+function selectedVisibility() {
+  return $("visibilitySelect")?.value ?? "shared-project";
+}
+
+function selectedVisibilityEnum() {
+  return selectedVisibility().replace(/-/g, "_").toUpperCase();
+}
+
+function explicitParticipantPayload(extra = {}) {
+  return {
+    participant: selectedParticipant(),
+    participant_mode: "explicit",
+    participant_source: "explicit",
+    ...extra,
+  };
+}
+
 async function api(path, method = "GET", body = null) {
   const headers = {};
   const token = currentToken();
@@ -67,6 +88,33 @@ function renderTimeline(events) {
   }
 }
 
+function renderGovernanceViews(memoryState, narrativeState, privacyState) {
+  $("memoryState").textContent = pretty({
+    viewer_participant: memoryState?.viewer_participant,
+    purpose: memoryState?.purpose,
+    items: memoryState?.items || [],
+    retrievals: memoryState?.retrievals || [],
+    replay_receipts: memoryState?.replay_receipts || [],
+  });
+  $("narrativeState").textContent = pretty({
+    participant_histories: narrativeState?.participant_histories || {},
+    records: narrativeState?.records || [],
+  });
+  $("privacyState").textContent = pretty(privacyState || {});
+}
+
+async function refreshGovernanceViews() {
+  if (!state.activeSessionId) {
+    return;
+  }
+  const participant = encodeURIComponent(selectedParticipant());
+  const [memoryState, narrativeState] = await Promise.all([
+    api(`/sessions/${state.activeSessionId}/memory?participant=${participant}`),
+    api(`/sessions/${state.activeSessionId}/narrative?participant=${participant}`),
+  ]);
+  renderGovernanceViews(memoryState, narrativeState, memoryState?.privacy || {});
+}
+
 function renderSession(session) {
   state.activeSession = session;
   state.activeSessionId = session?.session_id || "";
@@ -99,6 +147,20 @@ function renderSession(session) {
     report_location: session?.report_location,
   });
   $("labRuns").textContent = pretty(session?.lab_runs || []);
+  renderGovernanceViews(
+    {
+      viewer_participant: selectedParticipant() || "UNKNOWN",
+      purpose: session?.purpose || "",
+      items: session?.memory_items || [],
+      retrievals: session?.memory_retrievals || [],
+      replay_receipts: session?.memory_replay_receipts || [],
+    },
+    {
+      records: session?.team_narrative || [],
+      participant_histories: Object.fromEntries((session?.team_narrative || []).map((item) => [item.participant_id, item])),
+    },
+    session?.privacy_governance || {}
+  );
   renderTimeline(session?.timeline || []);
   status(`Loaded session ${state.activeSessionId}.`, "ok");
 }
@@ -191,8 +253,11 @@ async function submitEvidence() {
   await api(`/sessions/${state.activeSessionId}/evidence`, "POST", {
     detail: $("evidenceText").value,
     temporary_artifact_text: $("evidenceText").value,
+    visibility_scope: selectedVisibilityEnum(),
+    ...explicitParticipantPayload(),
   });
   await refreshSession();
+  await refreshGovernanceViews();
 }
 
 async function submitClaim() {
@@ -202,8 +267,11 @@ async function submitClaim() {
     statement,
     supporting_evidence: contradictory ? [] : ["ui evidence"],
     contradictory_evidence: contradictory ? ["ui contradiction"] : [],
+    visibility_scope: selectedVisibilityEnum(),
+    ...explicitParticipantPayload(),
   });
   await refreshSession();
+  await refreshGovernanceViews();
 }
 
 async function proposeCommit() {
@@ -241,6 +309,125 @@ async function submitReview() {
   };
   await api(`/sessions/${state.activeSessionId}/review`, "POST", payload);
   await refreshSession();
+}
+
+async function retrieveMemory() {
+  const result = await api(`/sessions/${state.activeSessionId}/memory/retrieve`, "POST", explicitParticipantPayload({
+    purpose: $("retrievalPurpose").value.trim(),
+  }));
+  $("memoryState").textContent = pretty(result);
+  await refreshGovernanceViews();
+}
+
+async function promoteMemory() {
+  const result = await api(`/sessions/${state.activeSessionId}/memory/promote`, "POST", explicitParticipantPayload({
+    memory_id: $("memoryId").value.trim(),
+    note: $("memoryNote").value.trim() || "verified-use",
+    visibility_scope: selectedVisibility(),
+    provenance: "ephux-local-ui",
+  }));
+  $("memoryState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function demoteMemory() {
+  const contradiction = $("memoryContradiction").value.trim();
+  const result = await api(`/sessions/${state.activeSessionId}/memory/demote`, "POST", explicitParticipantPayload({
+    memory_id: $("memoryId").value.trim(),
+    note: $("memoryNote").value.trim() || "failed-use",
+    contradiction_detail: contradiction,
+    recovery_route_id: $("recoveryRouteId").value.trim(),
+    recovery_status: contradiction ? "open" : "",
+    provenance: "ephux-local-ui",
+  }));
+  $("memoryState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function pruneMemory() {
+  const result = await api(`/sessions/${state.activeSessionId}/memory/prune`, "POST", explicitParticipantPayload({
+    memory_id: $("memoryId").value.trim(),
+    reason: $("privacyReason").value.trim() || "retention-expiry",
+    provenance: "ephux-local-ui",
+  }));
+  $("memoryState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function addContribution() {
+  const result = await api(`/sessions/${state.activeSessionId}/narrative/contributions`, "POST", explicitParticipantPayload({
+    contribution: $("contributionText").value.trim(),
+    visibility_scope: selectedVisibility(),
+  }));
+  $("narrativeState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function addDecision() {
+  const result = await api(`/sessions/${state.activeSessionId}/narrative/decisions`, "POST", explicitParticipantPayload({
+    decision: $("decisionText").value.trim(),
+    superseded_decision: $("supersededDecisionText").value.trim(),
+    visibility_scope: selectedVisibility(),
+  }));
+  $("narrativeState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function addDisagreement() {
+  const result = await api(`/sessions/${state.activeSessionId}/narrative/disagreements`, "POST", explicitParticipantPayload({
+    disagreement: $("disagreementText").value.trim(),
+    unresolved_question: $("unresolvedQuestionText").value.trim(),
+    visibility_scope: selectedVisibility(),
+  }));
+  $("narrativeState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function addCommitment() {
+  const result = await api(`/sessions/${state.activeSessionId}/narrative/commitments`, "POST", explicitParticipantPayload({
+    commitment: $("commitmentText").value.trim(),
+    failure: $("failureText").value.trim(),
+    recovery: $("recoveryText").value.trim(),
+    visibility_scope: selectedVisibility(),
+  }));
+  $("narrativeState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function exportPrivacy() {
+  const result = await api(`/sessions/${state.activeSessionId}/privacy/export`, "POST", explicitParticipantPayload({
+    provenance: "ephux-local-ui",
+  }));
+  $("privacyState").textContent = pretty(result);
+}
+
+async function requestDeletion() {
+  const result = await api(`/sessions/${state.activeSessionId}/privacy/deletion-requests`, "POST", explicitParticipantPayload({
+    target_memory_id: $("memoryId").value.trim(),
+    reason: $("privacyReason").value.trim() || "deletion requested",
+    provenance: "ephux-local-ui",
+  }));
+  $("privacyState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
+}
+
+async function placeLegalHold() {
+  const result = await api(`/sessions/${state.activeSessionId}/privacy/legal-holds`, "POST", explicitParticipantPayload({
+    target_memory_id: $("memoryId").value.trim(),
+    reason: $("privacyReason").value.trim() || "legal hold requested",
+    provenance: "ephux-local-ui",
+  }));
+  $("privacyState").textContent = pretty(result);
+  await refreshSession();
+  await refreshGovernanceViews();
 }
 
 async function exportSession() {
@@ -326,6 +513,17 @@ bind("exportSession", exportSession);
 bind("openReport", async () => openReport());
 bind("runEvaluationLab", runEvaluationLab);
 bind("runNaturalMathLab", runNaturalMathLab);
+bind("retrieveMemory", retrieveMemory);
+bind("promoteMemory", promoteMemory);
+bind("demoteMemory", demoteMemory);
+bind("pruneMemory", pruneMemory);
+bind("addContribution", addContribution);
+bind("addDecision", addDecision);
+bind("addDisagreement", addDisagreement);
+bind("addCommitment", addCommitment);
+bind("exportPrivacy", exportPrivacy);
+bind("requestDeletion", requestDeletion);
+bind("placeLegalHold", placeLegalHold);
 $("importBundle").addEventListener("change", async (event) => {
   try {
     if (!currentToken()) {
@@ -333,6 +531,15 @@ $("importBundle").addEventListener("change", async (event) => {
       return;
     }
     await importBundle(event);
+  } catch (error) {
+    status(error.message, "danger");
+  }
+});
+$("participantSelect")?.addEventListener("change", async () => {
+  try {
+    if (state.activeSessionId && currentToken()) {
+      await refreshGovernanceViews();
+    }
   } catch (error) {
     status(error.message, "danger");
   }
