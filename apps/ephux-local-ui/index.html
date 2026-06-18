@@ -546,6 +546,90 @@
         <pre id="externalActionState" aria-label="External action proposals, required authority, side effects, rollback plans, execution receipts"></pre>
       </section>
 
+      <section class="panel" data-tone="accent">
+        <h2>Operational Consciousness Model</h2>
+        <p>Operational machine-consciousness surface. Not a claim of human-like subjective experience.</p>
+        <div class="row">
+          <label for="consciousnessPerceptTopic">Percept topic
+            <input id="consciousnessPerceptTopic" value="branch-readiness">
+          </label>
+          <label for="consciousnessSourceType">Source type
+            <select id="consciousnessSourceType">
+              <option value="HUMAN">HUMAN</option>
+              <option value="SYSTEM">SYSTEM</option>
+              <option value="CONNECTOR">CONNECTOR</option>
+              <option value="MEMORY">MEMORY</option>
+              <option value="PROVIDER">PROVIDER</option>
+            </select>
+          </label>
+        </div>
+        <label for="consciousnessPerceptContent">Percept content
+          <textarea id="consciousnessPerceptContent">The branch may be ready.</textarea>
+        </label>
+        <div class="row">
+          <label for="consciousnessConfidence">Confidence
+            <input id="consciousnessConfidence" value="0.8">
+          </label>
+          <label for="consciousnessSalience">Salience
+            <input id="consciousnessSalience" value="0.7">
+          </label>
+          <label for="consciousnessPurposeRelevance">Purpose relevance
+            <input id="consciousnessPurposeRelevance" value="0.9">
+          </label>
+        </div>
+        <div class="row">
+          <label for="consciousnessPurpose">Purpose
+            <input id="consciousnessPurpose" value="verify branch readiness">
+          </label>
+          <label for="consciousnessPriority">Priority weight
+            <input id="consciousnessPriority" value="1.0">
+          </label>
+          <label for="consciousnessUrgency">Priority urgency
+            <input id="consciousnessUrgency" value="0.8">
+          </label>
+        </div>
+        <div class="row">
+          <label for="consciousnessAttentionTarget">Attention lock target
+            <input id="consciousnessAttentionTarget" value="">
+          </label>
+          <label for="consciousnessCapabilityTested">Capability tested
+            <select id="consciousnessCapabilityTested">
+              <option value="false">false</option>
+              <option value="true">true</option>
+            </select>
+          </label>
+          <label for="consciousnessAllowInternal">Allow internal action
+            <select id="consciousnessAllowInternal">
+              <option value="false">false</option>
+              <option value="true">true</option>
+            </select>
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="submitConsciousnessPercept" class="secondary">Add Percept</button>
+          <button id="submitConsciousnessPurpose" class="secondary">Add Purpose</button>
+          <button id="setConsciousnessAttention" class="secondary">Lock Attention</button>
+          <button id="runConsciousnessCycle">Run Consciousness Cycle</button>
+          <button id="pauseConsciousness" class="warn">Pause</button>
+          <button id="resumeConsciousness" class="secondary">Resume</button>
+          <button id="reviewConsciousness" class="secondary">Review</button>
+        </div>
+        <div class="row">
+          <article class="list-card">
+            <h3>Consciousness State</h3>
+            <pre id="consciousnessState"></pre>
+          </article>
+          <article class="list-card">
+            <h3>Global Workspace</h3>
+            <pre id="consciousnessWorkspace"></pre>
+          </article>
+        </div>
+        <article class="list-card">
+          <h3>Conscious Episodes</h3>
+          <pre id="consciousnessEpisodes"></pre>
+        </article>
+      </section>
+
       <section class="panel">
         <h2>Report Summary</h2>
         <div class="row">

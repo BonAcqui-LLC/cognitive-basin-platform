@@ -108,6 +108,12 @@ function renderConnectorViews(connectors, actions) {
   $("externalActionState").textContent = pretty(actions || {});
 }
 
+function renderConsciousnessViews(consciousness) {
+  $("consciousnessState").textContent = pretty(consciousness || {});
+  $("consciousnessWorkspace").textContent = pretty(consciousness?.workspace || {});
+  $("consciousnessEpisodes").textContent = pretty(consciousness?.episodes || []);
+}
+
 async function refreshGovernanceViews() {
   if (!state.activeSessionId) {
     return;
@@ -128,6 +134,13 @@ async function refreshConnectorViews() {
     actions = await api(`/sessions/${state.activeSessionId}/external-actions?participant=${participant}`);
   }
   renderConnectorViews(connectors?.connectors || [], actions);
+}
+
+async function refreshConsciousnessViews() {
+  if (!state.activeSessionId) {
+    return;
+  }
+  renderConsciousnessViews(await api(`/sessions/${state.activeSessionId}/consciousness`));
 }
 
 function renderSession(session) {
@@ -180,6 +193,7 @@ function renderSession(session) {
     session_id: state.activeSessionId,
     external_actions: session?.external_actions || [],
   });
+  renderConsciousnessViews(session?.consciousness || {});
   renderTimeline(session?.timeline || []);
   status(`Loaded session ${state.activeSessionId}.`, "ok");
 }
@@ -512,6 +526,71 @@ async function executeExternalAction() {
   await refreshConnectorViews();
 }
 
+async function submitConsciousnessPercept() {
+  await api(`/sessions/${state.activeSessionId}/consciousness/percepts`, "POST", {
+    percepts: [
+      {
+        topic: $("consciousnessPerceptTopic").value.trim(),
+        content: $("consciousnessPerceptContent").value,
+        source_type: $("consciousnessSourceType").value,
+        confidence: Number($("consciousnessConfidence").value || "0.8"),
+        salience: Number($("consciousnessSalience").value || "0.5"),
+        purpose_relevance: Number($("consciousnessPurposeRelevance").value || "0.8"),
+      },
+    ],
+  });
+  await refreshSession();
+}
+
+async function submitConsciousnessPurpose() {
+  await api(`/sessions/${state.activeSessionId}/consciousness/purposes`, "POST", {
+    description: $("consciousnessPurpose").value.trim(),
+    source_type: "explicit human request",
+    source_detail: "ephux-local-ui",
+    priority_weight: Number($("consciousnessPriority").value || "1"),
+    priority_urgency: Number($("consciousnessUrgency").value || "0.2"),
+  });
+  await refreshSession();
+}
+
+async function setConsciousnessAttention() {
+  await api(`/sessions/${state.activeSessionId}/consciousness/attention`, "POST", {
+    lock_target_id: $("consciousnessAttentionTarget").value.trim(),
+    reason: "manual-ui-lock",
+  });
+  await refreshSession();
+}
+
+async function runConsciousnessCycle() {
+  const result = await api(`/sessions/${state.activeSessionId}/consciousness/cycles`, "POST", {
+    claimed_capabilities: { "connector:github": true },
+    tested_capabilities: {
+      "connector:github": $("consciousnessCapabilityTested").value === "true",
+    },
+    allow_internal_action: $("consciousnessAllowInternal").value === "true",
+  });
+  $("consciousnessState").textContent = pretty(result);
+  await refreshSession();
+}
+
+async function pauseConsciousness() {
+  await api(`/sessions/${state.activeSessionId}/consciousness/pause`, "POST", { reason: "manual-ui-pause" });
+  await refreshSession();
+}
+
+async function resumeConsciousness() {
+  await api(`/sessions/${state.activeSessionId}/consciousness/resume`, "POST", { reason: "manual-ui-resume" });
+  await refreshSession();
+}
+
+async function reviewConsciousness() {
+  const result = await api(`/sessions/${state.activeSessionId}/consciousness/review`, "POST", {
+    requested_by: "ephux-local-ui",
+  });
+  $("consciousnessState").textContent = pretty(result);
+  await refreshSession();
+}
+
 async function exportSession() {
   if (!state.activeSessionId) {
     status("No active session to export.", "warn");
@@ -612,6 +691,13 @@ bind("approveExternalAction", approveExternalAction);
 bind("denyExternalAction", denyExternalAction);
 bind("revokeExternalAction", revokeExternalAction);
 bind("executeExternalAction", executeExternalAction);
+bind("submitConsciousnessPercept", submitConsciousnessPercept);
+bind("submitConsciousnessPurpose", submitConsciousnessPurpose);
+bind("setConsciousnessAttention", setConsciousnessAttention);
+bind("runConsciousnessCycle", runConsciousnessCycle);
+bind("pauseConsciousness", pauseConsciousness);
+bind("resumeConsciousness", resumeConsciousness);
+bind("reviewConsciousness", reviewConsciousness);
 $("importBundle").addEventListener("change", async (event) => {
   try {
     if (!currentToken()) {
@@ -628,6 +714,7 @@ $("participantSelect")?.addEventListener("change", async () => {
     if (state.activeSessionId && currentToken()) {
       await refreshGovernanceViews();
       await refreshConnectorViews();
+      await refreshConsciousnessViews();
     }
   } catch (error) {
     status(error.message, "danger");
@@ -638,6 +725,7 @@ $("visibilitySelect")?.addEventListener("change", async () => {
     if (state.activeSessionId && currentToken()) {
       await refreshGovernanceViews();
       await refreshConnectorViews();
+      await refreshConsciousnessViews();
     }
   } catch (error) {
     status(error.message, "danger");
