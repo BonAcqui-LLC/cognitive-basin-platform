@@ -16,6 +16,8 @@ def test_aggregate_acceptance_passes(tmp_path):
     summary = run_acceptance_suite(tmp_path)
     assert summary["passed"] is True
     assert "evaluation_lab" in summary["suites"]
+    assert "memory_governance" in summary["suites"]
+    assert len(summary["suites"]) == 7
     assert (tmp_path / "combined-acceptance-manifest.json").exists()
 
 
@@ -29,3 +31,20 @@ def test_aggregate_acceptance_module_entrypoint(tmp_path):
     assert result.returncode == 0, result.stderr
     summary = json.loads((tmp_path / "combined-acceptance-manifest.json").read_text(encoding="utf-8"))
     assert summary["passed"] is True
+
+
+def test_aggregate_acceptance_fails_when_memory_governance_fails(monkeypatch, tmp_path):
+    from python import cognitive_basin as pkg  # noqa: F401
+    import python.cognitive_basin.acceptance as acceptance
+
+    def fake_memory_suite(_artifact_dir=None):
+        return {
+            "passed": False,
+            "scenario_count": 27,
+            "limitations": ["forced failure"],
+        }
+
+    monkeypatch.setattr(acceptance, "run_memory_governance_acceptance", fake_memory_suite)
+    summary = acceptance.run_acceptance_suite(tmp_path)
+    assert summary["passed"] is False
+    assert summary["suites"]["memory_governance"]["result"] == "FAIL"

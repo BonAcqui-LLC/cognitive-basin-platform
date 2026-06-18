@@ -3,17 +3,13 @@ Clean-environment package-layout checks for aggregate acceptance wrappers.
 """
 
 import json
-import os
 import subprocess
 import tempfile
 import venv
 from pathlib import Path
+from tools.test_support.venv_paths import venv_python
 
 ROOT = Path(__file__).parent.parent
-
-
-def _venv_python(venv_dir: Path) -> Path:
-    return venv_dir / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
 
 
 def test_clean_temp_virtualenv_runs_aggregate_acceptance():
@@ -21,7 +17,7 @@ def test_clean_temp_virtualenv_runs_aggregate_acceptance():
         venv_dir = Path(td) / "venv"
         builder = venv.EnvBuilder(with_pip=True)
         builder.create(venv_dir)
-        python_exe = _venv_python(venv_dir)
+        python_exe = venv_python(venv_dir)
 
         install = subprocess.run(
             [str(python_exe), "-m", "pip", "install", "-q", "-e", f"{ROOT}[dev]"],
@@ -74,3 +70,4 @@ def test_clean_temp_virtualenv_runs_aggregate_acceptance():
         assert summary["passed"] is True
         assert "evaluation_lab" in summary["suites"]
         assert "natural_math_lab" in summary["suites"]
+        assert "memory_governance" in summary["suites"]

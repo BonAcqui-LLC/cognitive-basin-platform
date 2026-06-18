@@ -20,6 +20,7 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+from copy import deepcopy
 from urllib.parse import parse_qs, urlparse
 
 from packages.ternary.states import ActionState, EpistemicState
@@ -296,6 +297,52 @@ class EphuxLocalService:
         )
         return stored
 
+    def _participant_from_payload(self, payload: Dict[str, Any]) -> str:
+        if bool(payload.get("infer_participant")):
+            raise ValueError("Participant inference is not allowed")
+        if str(payload.get("participant_mode", "explicit")).strip().lower() != "explicit":
+            raise ValueError("Participant mode must remain explicit")
+        if str(payload.get("participant_source", "explicit")).strip().lower() != "explicit":
+            raise ValueError("Participant source must remain explicit")
+        return explicit_participant(payload.get("participant"))
+
+    def _visible_to_participant(self, item: MemoryItem, viewer_participant: str) -> bool:
+        viewer = explicit_participant(viewer_participant)
+        if item.visibility_scope in {VisibilityScope.SHARED_PROJECT, VisibilityScope.SESSION_ONLY, VisibilityScope.AUDIT_RETAINED}:
+            return True
+        if item.visibility_scope == VisibilityScope.EXPORTABLE_REDACTED:
+            return True
+        if item.visibility_scope == VisibilityScope.PRIVATE_JAMES:
+            return viewer == "James Clow"
+        if item.visibility_scope == VisibilityScope.PRIVATE_MELISSA:
+            return viewer == "Melissa Clow"
+        return viewer == item.participant
+
+    def _privacy_state(self, session_id: str) -> Dict[str, Any]:
+        events = self.store.read_events(session_id)
+        legal_holds = [event.get("privacy", {}) for event in events if event.get("type") == "session.privacy.legal_hold"]
+        deletion_requests = [event.get("privacy", {}) for event in events if event.get("type") == "session.privacy.deletion_request"]
+        exports = [event.get("privacy", {}) for event in events if event.get("type") == "session.privacy.export"]
+        return {
+            "legal_holds": legal_holds,
+            "deletion_requests": deletion_requests,
+            "exports": exports,
+        }
+
+    def _active_legal_hold(self, session_id: str, memory_id: str) -> Optional[Dict[str, Any]]:
+        privacy_state = self._privacy_state(session_id)
+        for hold in privacy_state["legal_holds"]:
+            target = str(hold.get("target_memory_id", ""))
+            if target in {"", memory_id} and str(hold.get("status", "ACTIVE")) == "ACTIVE":
+                return hold
+        return None
+
+    def _clone_memory_item(self, session_id: str, memory_id: str) -> MemoryItem:
+        memory_map = self._build_memory_map(session_id)
+        if memory_id not in memory_map.items:
+            raise ValueError(f"Unknown memory item: {memory_id}")
+        return MemoryItem.from_record(memory_map.items[memory_id].to_record())
+
     def _open_session(self, session_id: str) -> BasinLabSession:
         session = BasinLabSession.resume_from_store(self.store, session_id)
         inspected = self.store.inspect_session(session_id)
@@ -345,6 +392,7 @@ class EphuxLocalService:
         events = self.store.read_events(session_id)
         memory_state = self.session_memory(session_id)
         narrative_state = self.session_narrative(session_id)
+        privacy_state = self._privacy_state(session_id)
         report = self.generate_report(session_id)
         report_data = report["report"]
         review_events = [event for event in events if event.get("type", "").startswith("session.review.")]
@@ -376,6 +424,7 @@ class EphuxLocalService:
         inspected["memory_retrievals"] = memory_state["retrievals"]
         inspected["memory_replay_receipts"] = memory_state["replay_receipts"]
         inspected["team_narrative"] = narrative_state["records"]
+        inspected["privacy_governance"] = privacy_state
         return inspected
 
     def session_events(self, session_id: str) -> List[Dict[str, Any]]:
@@ -427,7 +476,12 @@ class EphuxLocalService:
                 temporary=bool(payload.get("temporary", False)),
                 metadata={"source": payload.get("source", "local")},
             )
-        scope = self._visibility_scope(inspected["metadata"].get("privacy_setting", "local-only"))
+        participant = self._participant_from_payload(payload) if any(key in payload for key in {"participant", "participant_mode", "participant_source", "infer_participant"}) else "UNKNOWN"
+        scope = (
+            VisibilityScope(str(payload["visibility_scope"]))
+            if payload.get("visibility_scope")
+            else self._visibility_scope(inspected["metadata"].get("privacy_setting", "local-only"))
+        )
         fragment_text, _ = redact_text(redacted, scope)
         self._record_memory_item(
             session_id,
@@ -435,7 +489,7 @@ class EphuxLocalService:
                 memory_id=f"memory-{evidence_id}",
                 origin_session_id=session_id,
                 origin_event_id=evidence_id,
-                participant=explicit_participant(payload.get("participant")),
+                participant=participant,
                 purpose=str(inspected["metadata"].get("purpose", "")),
                 content_hash=content_hash(evidence_text),
                 provenance=str(payload.get("provenance", "user-provided")),
@@ -548,7 +602,12 @@ class EphuxLocalService:
                 {"scar": {"scar_id": scar.scar_id, "claim_id": scar.claim_id, "evidence": scar.contradictory_evidence}},
                 basin=basin,
             )
-        scope = self._visibility_scope(inspected["metadata"].get("privacy_setting", "local-only"))
+        participant = self._participant_from_payload(payload) if any(key in payload for key in {"participant", "participant_mode", "participant_source", "infer_participant"}) else "UNKNOWN"
+        scope = (
+            VisibilityScope(str(payload["visibility_scope"]))
+            if payload.get("visibility_scope")
+            else self._visibility_scope(inspected["metadata"].get("privacy_setting", "local-only"))
+        )
         claim_text, _ = redact_text(claim.statement, scope)
         contradiction_status = "contradicted" if claim.contradictory_evidence else "none"
         self._record_memory_item(
@@ -557,7 +616,7 @@ class EphuxLocalService:
                 memory_id=f"memory-{claim_id}",
                 origin_session_id=session_id,
                 origin_event_id=claim_id,
-                participant=explicit_participant(payload.get("participant")),
+                participant=participant,
                 purpose=str(inspected["metadata"].get("purpose", "")),
                 content_hash=content_hash(claim.statement),
                 provenance=claim.provenance,
@@ -922,21 +981,301 @@ class EphuxLocalService:
         self._append_event(session_id, "narrative", "session.narrative", {"narrative": record.to_record()}, basin=basin)
         return self.session_narrative(session_id)
 
-    def session_narrative(self, session_id: str) -> Dict[str, Any]:
-        narrative = self._build_team_narrative(session_id)
-        return {"session_id": session_id, "records": narrative.to_records(), "events": list(narrative.events)}
+    def add_narrative_contribution(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        contribution = str(payload.get("contribution", "")).strip()
+        if not contribution:
+            raise ValueError("contribution is required")
+        return self.add_narrative(
+            session_id,
+            {
+                "person": participant if participant != "UNKNOWN" else "",
+                "contributions": [contribution],
+                "current_purposes": list(payload.get("current_purposes", [])),
+                "visibility_scope": payload.get("visibility_scope", "shared-project"),
+            },
+        )
 
-    def session_memory(self, session_id: str) -> Dict[str, Any]:
-        inspected = self.store.inspect_session(session_id)
-        memory_map = self._build_memory_map(session_id)
-        purpose = str(inspected["metadata"].get("purpose", session_id))
-        replay = replay_persisted_session(self.store, session_id)
+    def add_narrative_decision(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        decision = str(payload.get("decision", "")).strip()
+        if not decision:
+            raise ValueError("decision is required")
+        superseded = str(payload.get("superseded_decision", "")).strip()
+        return self.add_narrative(
+            session_id,
+            {
+                "person": participant if participant != "UNKNOWN" else "",
+                "decisions": [decision],
+                "superseded_decisions": [superseded] if superseded else [],
+                "current_purposes": list(payload.get("current_purposes", [])),
+                "visibility_scope": payload.get("visibility_scope", "shared-project"),
+            },
+        )
+
+    def add_narrative_disagreement(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        disagreement = str(payload.get("disagreement", "")).strip()
+        if not disagreement:
+            raise ValueError("disagreement is required")
+        unresolved = str(payload.get("unresolved_question", "")).strip()
+        return self.add_narrative(
+            session_id,
+            {
+                "person": participant if participant != "UNKNOWN" else "",
+                "conflicts": [disagreement],
+                "unresolved_questions": [unresolved] if unresolved else [],
+                "visibility_scope": payload.get("visibility_scope", "shared-project"),
+            },
+        )
+
+    def add_narrative_commitment(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        commitment = str(payload.get("commitment", "")).strip()
+        if not commitment:
+            raise ValueError("commitment is required")
+        failure = str(payload.get("failure", "")).strip()
+        recovery = str(payload.get("recovery", "")).strip()
+        return self.add_narrative(
+            session_id,
+            {
+                "person": participant if participant != "UNKNOWN" else "",
+                "commitments": [commitment],
+                "failures": [failure] if failure else [],
+                "recovery_history": [recovery] if recovery else [],
+                "visibility_scope": payload.get("visibility_scope", "shared-project"),
+            },
+        )
+
+    def session_narrative(self, session_id: str, viewer_participant: str = "UNKNOWN") -> Dict[str, Any]:
+        narrative = self._build_team_narrative(session_id)
+        records = narrative.to_records()
         return {
             "session_id": session_id,
-            "items": memory_map.export_records(),
-            "retrievals": [item.to_record() for item in memory_map.retrieve(purpose)],
+            "viewer_participant": explicit_participant(viewer_participant),
+            "records": records,
+            "events": list(narrative.events),
+            "participant_histories": {
+                record["participant_id"]: record for record in records
+            },
+        }
+
+    def retrieve_memory(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        purpose = str(payload.get("purpose", "")).strip() or str(self.store.inspect_session(session_id)["metadata"].get("purpose", session_id))
+        memory_state = self.session_memory(session_id, viewer_participant=participant, purpose_override=purpose)
+        return {
+            "session_id": session_id,
+            "viewer_participant": participant,
+            "purpose": purpose,
+            "retrievals": memory_state["retrievals"],
+            "items": memory_state["items"],
+        }
+
+    def promote_memory(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        provenance = str(payload.get("provenance", "memory-promote")).strip() or "memory-promote"
+        memory_id = str(payload.get("memory_id", "")).strip()
+        if not memory_id:
+            raise ValueError("memory_id is required")
+        item = self._clone_memory_item(session_id, memory_id)
+        if not self._visible_to_participant(item, participant):
+            raise PermissionError("Requested memory item is not visible to this participant")
+        note = str(payload.get("note", "verified-use")).strip() or "verified-use"
+        item.successful_uses.append(note)
+        if payload.get("replay_reference"):
+            item.replay_references.append(str(payload["replay_reference"]))
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        stored = self._record_memory_item(session_id, item, basin)
+        self._append_event(
+            session_id,
+            "memory",
+            "session.memory.promote",
+            {"memory_id": memory_id, "participant": participant, "provenance": provenance, "note": note},
+            basin=basin,
+        )
+        return {"session_id": session_id, "memory_item": stored.to_record()}
+
+    def demote_memory(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        provenance = str(payload.get("provenance", "memory-demote")).strip() or "memory-demote"
+        memory_id = str(payload.get("memory_id", "")).strip()
+        if not memory_id:
+            raise ValueError("memory_id is required")
+        item = self._clone_memory_item(session_id, memory_id)
+        if not self._visible_to_participant(item, participant):
+            raise PermissionError("Requested memory item is not visible to this participant")
+        note = str(payload.get("note", "failed-use")).strip() or "failed-use"
+        item.failed_uses.append(note)
+        if payload.get("contradiction_detail"):
+            item.contradiction_status = "contradicted"
+            item.contradiction_links.append(
+                MemoryContradictionLink(
+                    contradiction_id=f"{memory_id}-contradiction-{len(item.contradiction_links) + 1}",
+                    detail=str(payload["contradiction_detail"]),
+                    provenance=provenance,
+                )
+            )
+        if payload.get("recovery_route_id"):
+            item.recovery_links.append(
+                MemoryRecoveryLink(
+                    route_id=str(payload["recovery_route_id"]),
+                    status=str(payload.get("recovery_status", "open")),
+                    provenance=provenance,
+                )
+            )
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        stored = self._record_memory_item(session_id, item, basin)
+        self._append_event(
+            session_id,
+            "memory",
+            "session.memory.demote",
+            {"memory_id": memory_id, "participant": participant, "provenance": provenance, "note": note},
+            basin=basin,
+        )
+        return {"session_id": session_id, "memory_item": stored.to_record()}
+
+    def prune_memory(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        provenance = str(payload.get("provenance", "memory-prune")).strip() or "memory-prune"
+        memory_id = str(payload.get("memory_id", "")).strip()
+        if not memory_id:
+            raise ValueError("memory_id is required")
+        item = self._clone_memory_item(session_id, memory_id)
+        if not self._visible_to_participant(item, participant):
+            raise PermissionError("Requested memory item is not visible to this participant")
+        legal_hold = self._active_legal_hold(session_id, memory_id)
+        if legal_hold:
+            self._append_event(
+                session_id,
+                "memory",
+                "session.memory.prune_denied",
+                {"memory_id": memory_id, "participant": participant, "provenance": provenance, "reason": "legal_hold"},
+                basin=self.store.inspect_session(session_id)["final_basin"],
+            )
+            return {"session_id": session_id, "allowed": False, "reason": "legal_hold", "memory_id": memory_id}
+        if item.visibility_scope == VisibilityScope.AUDIT_RETAINED:
+            self._append_event(
+                session_id,
+                "memory",
+                "session.memory.prune_denied",
+                {"memory_id": memory_id, "participant": participant, "provenance": provenance, "reason": "audit_retained"},
+                basin=self.store.inspect_session(session_id)["final_basin"],
+            )
+            return {"session_id": session_id, "allowed": False, "reason": "audit_retained", "memory_id": memory_id}
+        reason = str(payload.get("reason", "retention-expiry")).strip() or "retention-expiry"
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        self._append_event(
+            session_id,
+            "memory",
+            "session.memory.prune",
+            {"memory_id": memory_id, "participant": participant, "provenance": provenance, "reason": reason},
+            basin=basin,
+        )
+        return {"session_id": session_id, "allowed": True, "memory_id": memory_id, "reason": reason}
+
+    def export_privacy(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        provenance = str(payload.get("provenance", "privacy-export")).strip() or "privacy-export"
+        memory_state = self.session_memory(session_id, viewer_participant=participant)
+        redacted_items = []
+        for item in memory_state["items"]:
+            item_copy = deepcopy(item)
+            for fragment in item_copy.get("memory_fragments", []):
+                text, _ = redact_text(str(fragment.get("text", "")), VisibilityScope.EXPORTABLE_REDACTED)
+                fragment["text"] = text
+            redacted_items.append(item_copy)
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        export_payload = {
+            "session_id": session_id,
+            "viewer_participant": participant,
+            "items": redacted_items,
+            "deletion_requests": self._privacy_state(session_id)["deletion_requests"],
+            "legal_holds": self._privacy_state(session_id)["legal_holds"],
+        }
+        self._append_event(
+            session_id,
+            "privacy",
+            "session.privacy.export",
+            {
+                "privacy": {
+                    "participant": participant,
+                    "provenance": provenance,
+                    "item_count": len(redacted_items),
+                    "redacted": True,
+                }
+            },
+            basin=basin,
+        )
+        return export_payload
+
+    def request_deletion(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        provenance = str(payload.get("provenance", "deletion-request")).strip() or "deletion-request"
+        reason = str(payload.get("reason", "")).strip()
+        if not reason:
+            raise ValueError("reason is required")
+        request_id = f"deletion-{uuid.uuid4().hex[:10]}"
+        record = {
+            "privacy": {
+                "request_id": request_id,
+                "participant": participant,
+                "provenance": provenance,
+                "reason": reason,
+                "target_memory_id": str(payload.get("target_memory_id", "")),
+                "status": "PENDING_REVIEW",
+            }
+        }
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        self._append_event(session_id, "privacy", "session.privacy.deletion_request", record, basin=basin)
+        return {"session_id": session_id, **record["privacy"]}
+
+    def place_legal_hold(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        participant = self._participant_from_payload(payload)
+        provenance = str(payload.get("provenance", "legal-hold")).strip() or "legal-hold"
+        reason = str(payload.get("reason", "")).strip()
+        if not reason:
+            raise ValueError("reason is required")
+        hold_id = f"hold-{uuid.uuid4().hex[:10]}"
+        record = {
+            "privacy": {
+                "hold_id": hold_id,
+                "participant": participant,
+                "provenance": provenance,
+                "reason": reason,
+                "target_memory_id": str(payload.get("target_memory_id", "")),
+                "status": "ACTIVE",
+            }
+        }
+        basin = self.store.inspect_session(session_id)["final_basin"]
+        self._append_event(session_id, "privacy", "session.privacy.legal_hold", record, basin=basin)
+        return {"session_id": session_id, **record["privacy"]}
+
+    def session_memory(self, session_id: str, viewer_participant: str = "UNKNOWN", purpose_override: str | None = None) -> Dict[str, Any]:
+        inspected = self.store.inspect_session(session_id)
+        memory_map = self._build_memory_map(session_id)
+        viewer = explicit_participant(viewer_participant)
+        purpose = str(purpose_override or inspected["metadata"].get("purpose", session_id))
+        replay = replay_persisted_session(self.store, session_id)
+        visible_items = [
+            item.to_record()
+            for item in memory_map.items.values()
+            if not item.pruned and self._visible_to_participant(item, viewer)
+        ]
+        retrievals = [
+            item.to_record()
+            for item in memory_map.retrieve(purpose)
+            if item.memory_id in {entry["memory_id"] for entry in visible_items}
+        ]
+        return {
+            "session_id": session_id,
+            "viewer_participant": viewer,
+            "purpose": purpose,
+            "items": visible_items,
+            "retrievals": retrievals,
             "replay_receipts": [item.to_record() for item in memory_map.replay_receipts(session_id, replay["replay_hash"])],
             "events": list(memory_map.events),
+            "privacy": self._privacy_state(session_id),
         }
 
     def guardian_intake(self, payload: Dict[str, Any], raw_text: str = "") -> Dict[str, Any]:
@@ -1194,6 +1533,7 @@ class EphuxLocalService:
         events = self.store.read_events(session_id)
         memory_map = self._build_memory_map(session_id)
         narrative = self._build_team_narrative(session_id)
+        privacy_state = self._privacy_state(session_id)
         claims = [event for event in events if event.get("type") == "session.claim"]
         evidence = [event for event in events if event.get("type") == "session.evidence"]
         holds = [event for event in events if event.get("type") == "session.hold"]
@@ -1274,6 +1614,7 @@ class EphuxLocalService:
                 "replay_receipts": [item.to_record() for item in memory_map.replay_receipts(session_id, replay["replay_hash"])],
             },
             "team_narrative": narrative.to_records(),
+            "privacy_governance": privacy_state,
             "hold_intervals": [event.get("hold", {}) for event in holds],
             "commit_decisions": [item["decision"] for item in commits],
             "review_decisions": [item.get("review", {}) for item in reviews],
@@ -1335,7 +1676,18 @@ class EphuxLocalService:
             "session_import_endpoint": "/sessions/import",
             "session_lab_list_endpoint": "/sessions/{session_id}/labs",
             "session_memory_endpoint": "/sessions/{session_id}/memory",
+            "session_memory_retrieve_endpoint": "/sessions/{session_id}/memory/retrieve",
+            "session_memory_promote_endpoint": "/sessions/{session_id}/memory/promote",
+            "session_memory_demote_endpoint": "/sessions/{session_id}/memory/demote",
+            "session_memory_prune_endpoint": "/sessions/{session_id}/memory/prune",
             "session_narrative_endpoint": "/sessions/{session_id}/narrative",
+            "session_narrative_contributions_endpoint": "/sessions/{session_id}/narrative/contributions",
+            "session_narrative_decisions_endpoint": "/sessions/{session_id}/narrative/decisions",
+            "session_narrative_disagreements_endpoint": "/sessions/{session_id}/narrative/disagreements",
+            "session_narrative_commitments_endpoint": "/sessions/{session_id}/narrative/commitments",
+            "session_privacy_export_endpoint": "/sessions/{session_id}/privacy/export",
+            "session_privacy_deletion_requests_endpoint": "/sessions/{session_id}/privacy/deletion-requests",
+            "session_privacy_legal_holds_endpoint": "/sessions/{session_id}/privacy/legal-holds",
             "evaluation_lab_endpoint": "/sessions/{session_id}/labs/evaluation",
             "natural_math_lab_endpoint": "/sessions/{session_id}/labs/natural-math",
         }
@@ -1454,12 +1806,14 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/memory"):
                     self._authorized()
                     session_id = parsed.path.split("/")[2]
-                    _json_response(self, 200, app.session_memory(session_id), origin=origin)
+                    participant = parse_qs(parsed.query).get("participant", ["UNKNOWN"])[0]
+                    _json_response(self, 200, app.session_memory(session_id, viewer_participant=participant), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative"):
                     self._authorized()
                     session_id = parsed.path.split("/")[2]
-                    _json_response(self, 200, app.session_narrative(session_id), origin=origin)
+                    participant = parse_qs(parsed.query).get("participant", ["UNKNOWN"])[0]
+                    _json_response(self, 200, app.session_narrative(session_id, viewer_participant=participant), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/export"):
                     self._authorized()
@@ -1548,10 +1902,65 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     payload = self._parse_json()
                     _json_response(self, 200, app.review_session(session_id, payload), origin=origin)
                     return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/memory/retrieve"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.retrieve_memory(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/memory/promote"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.promote_memory(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/memory/demote"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.demote_memory(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/memory/prune"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.prune_memory(session_id, payload), origin=origin)
+                    return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative"):
                     session_id = parsed.path.split("/")[2]
                     payload = self._parse_json()
                     _json_response(self, 200, app.add_narrative(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative/contributions"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_narrative_contribution(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative/decisions"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_narrative_decision(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative/disagreements"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_narrative_disagreement(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative/commitments"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_narrative_commitment(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/privacy/export"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.export_privacy(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/privacy/deletion-requests"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.request_deletion(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/privacy/legal-holds"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.place_legal_hold(session_id, payload), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/labs/evaluation"):
                     session_id = parsed.path.split("/")[2]

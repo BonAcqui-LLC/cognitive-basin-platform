@@ -101,6 +101,8 @@ def test_all_required_endpoints_round_trip(running_service):
     assert capabilities["extension_contract"]["natural_math_lab_endpoint"].endswith("/labs/natural-math")
     assert capabilities["extension_contract"]["session_memory_endpoint"].endswith("/memory")
     assert capabilities["extension_contract"]["session_narrative_endpoint"].endswith("/narrative")
+    assert capabilities["extension_contract"]["session_memory_retrieve_endpoint"].endswith("/memory/retrieve")
+    assert capabilities["extension_contract"]["session_privacy_export_endpoint"].endswith("/privacy/export")
     assert "ephux_local.service.loopback" in capabilities["registry"]["capabilities"]
     assert capabilities["registry"]["capabilities"]["basinlab.natural_math.workload"]["description"].startswith(
         "Natural Math"
@@ -149,12 +151,39 @@ def test_all_required_endpoints_round_trip(running_service):
 
     status, body, _ = client.request(
         "POST",
+        f"/sessions/{session_id}/memory/retrieve",
+        {"purpose": "round trip", "participant": "", "participant_mode": "explicit", "participant_source": "explicit"},
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["retrievals"]
+
+    status, body, _ = client.request(
+        "POST",
         f"/sessions/{session_id}/narrative",
         {"person": "", "conflicts": ["participant intentionally unspecified"]},
         token=client.token,
     )
     assert status == 200
     assert any(item["participant_id"] == "UNKNOWN" for item in json.loads(body)["records"])
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/narrative/contributions",
+        {"participant": "James Clow", "participant_mode": "explicit", "participant_source": "explicit", "contribution": "Architecture history"},
+        token=client.token,
+    )
+    assert status == 200
+    assert "James Clow" in json.loads(body)["participant_histories"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/privacy/export",
+        {"participant": "", "participant_mode": "explicit", "participant_source": "explicit"},
+        token=client.token,
+    )
+    assert status == 200
+    assert "items" in json.loads(body)
 
     status, body, _ = client.request(
         "POST",
@@ -386,6 +415,104 @@ def test_session_list_export_import_review_and_pwa(running_service):
             thread2.join(timeout=10)
 
 
+def test_memory_visibility_privacy_controls_and_participant_inference_rejection(running_service):
+    app, client, root = running_service
+
+    status, body, _ = client.request("POST", "/sessions", {"purpose": "privacy"}, token=client.token)
+    assert status == 201
+    session_id = json.loads(body)["session_id"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/evidence",
+        {
+            "detail": "James private evidence",
+            "temporary_artifact_text": "James private evidence",
+            "participant": "James Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "visibility_scope": "PRIVATE_JAMES",
+        },
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "GET",
+        f"/sessions/{session_id}/memory?participant=Melissa%20Clow",
+        token=client.token,
+    )
+    assert status == 200
+    assert all(item["visibility_scope"] != "PRIVATE_JAMES" for item in json.loads(body)["items"])
+
+    status, body, _ = client.request(
+        "GET",
+        f"/sessions/{session_id}/memory?participant=James%20Clow",
+        token=client.token,
+    )
+    assert status == 200
+    james_items = json.loads(body)["items"]
+    assert any(item["visibility_scope"] == "PRIVATE_JAMES" for item in james_items)
+    memory_id = james_items[0]["memory_id"]
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/privacy/legal-holds",
+        {
+            "participant": "James Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "target_memory_id": memory_id,
+            "reason": "preserve",
+        },
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["status"] == "ACTIVE"
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/memory/prune",
+        {
+            "participant": "James Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "memory_id": memory_id,
+            "reason": "cleanup",
+        },
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["allowed"] is False
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/privacy/deletion-requests",
+        {
+            "participant": "James Clow",
+            "participant_mode": "explicit",
+            "participant_source": "explicit",
+            "target_memory_id": memory_id,
+            "reason": "delete later",
+        },
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["status"] == "PENDING_REVIEW"
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/memory/retrieve",
+        {
+            "participant_mode": "inferred",
+            "participant_source": "style",
+            "purpose": "privacy",
+        },
+        token=client.token,
+    )
+    assert status == 400
+
+
 def test_acceptance_command_and_extension_files(running_service):
     app, client, root = running_service
     extension_root = Path(__file__).parent.parent / "apps" / "ephux-extension-dev"
@@ -397,6 +524,14 @@ def test_acceptance_command_and_extension_files(running_service):
     status, body, _ = client.request("GET", "/app.js")
     assert status == 200
     assert "Run Evaluation Lab" not in body or "runEvaluationLab" in body
+    assert "retrieveMemory" in body
+    assert "exportPrivacy" in body
+
+    status, body, _ = client.request("GET", "/")
+    assert status == 200
+    assert "Memory Governance" in body
+    assert "Team Narrative" in body
+    assert "Privacy Controls" in body
 
     with tempfile.TemporaryDirectory() as td:
         result = subprocess.run(
