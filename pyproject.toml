@@ -17,6 +17,7 @@ include = [
     "action_permit*",
     "basinlab*",
     "cloudflare_readiness*",
+    "consciousness_lab*",
     "cognitive_basin*",
     "connector_lab*",
     "ephux_local*",
