@@ -99,6 +99,8 @@ def test_all_required_endpoints_round_trip(running_service):
     assert "/guardian/intake" in capabilities["extension_contract"]["send_selection_endpoint"]
     assert capabilities["extension_contract"]["evaluation_lab_endpoint"].endswith("/labs/evaluation")
     assert capabilities["extension_contract"]["natural_math_lab_endpoint"].endswith("/labs/natural-math")
+    assert capabilities["extension_contract"]["session_memory_endpoint"].endswith("/memory")
+    assert capabilities["extension_contract"]["session_narrative_endpoint"].endswith("/narrative")
     assert "ephux_local.service.loopback" in capabilities["registry"]["capabilities"]
     assert capabilities["registry"]["capabilities"]["basinlab.natural_math.workload"]["description"].startswith(
         "Natural Math"
@@ -138,6 +140,21 @@ def test_all_required_endpoints_round_trip(running_service):
     )
     assert status == 200
     assert json.loads(body)["final_basin"]["action"] == "EXTEND"
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/memory", token=client.token)
+    assert status == 200
+    memory_payload = json.loads(body)
+    assert len(memory_payload["items"]) >= 2
+    assert all(item["participant"] == "UNKNOWN" for item in memory_payload["items"])
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/narrative",
+        {"person": "", "conflicts": ["participant intentionally unspecified"]},
+        token=client.token,
+    )
+    assert status == 200
+    assert any(item["participant_id"] == "UNKNOWN" for item in json.loads(body)["records"])
 
     status, body, _ = client.request(
         "POST",
@@ -204,6 +221,8 @@ def test_all_required_endpoints_round_trip(running_service):
     assert Path(report["html_path"]).exists()
     assert "candidate_spectrum" in report["report"]
     assert len(report["report"]["lab_runs"]) == 2
+    assert len(report["report"]["memory_governance"]["items"]) >= 2
+    assert any(item["participant_id"] == "James Clow" for item in report["report"]["team_narrative"])
 
     status, body, _ = client.request("GET", f"/sessions/{session_id}/report?format=html", token=client.token)
     assert status == 200
@@ -284,6 +303,16 @@ def test_restart_persistence_provider_unavailable_and_extension_contract(running
         status, body, _ = client2.request("GET", f"/sessions/{session_id}", token=client.token)
         assert status == 200
         assert json.loads(body)["session_id"] == session_id
+
+        status, body, _ = client2.request("GET", f"/sessions/{session_id}/memory", token=client.token)
+        assert status == 200
+        memory_payload = json.loads(body)
+        assert isinstance(memory_payload["items"], list)
+
+        status, body, _ = client2.request("GET", f"/sessions/{session_id}/narrative", token=client.token)
+        assert status == 200
+        records = json.loads(body)["records"]
+        assert {item["participant_id"] for item in records} >= {"James Clow", "Melissa Clow"}
 
         status, body, _ = client2.request("GET", "/capabilities")
         contract = json.loads(body)["extension_contract"]

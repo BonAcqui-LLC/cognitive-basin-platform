@@ -3,6 +3,7 @@ Package-layout and clean-environment tests for EphUX local wrappers.
 """
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -13,7 +14,7 @@ ROOT = Path(__file__).parent.parent
 
 
 def _venv_python(venv_dir: Path) -> Path:
-    return venv_dir / "Scripts" / "python.exe"
+    return venv_dir / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
 
 
 def test_import_ephux_local_resolves_to_canonical_runtime():

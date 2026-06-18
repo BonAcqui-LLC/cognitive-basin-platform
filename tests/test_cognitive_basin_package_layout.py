@@ -3,6 +3,7 @@ Clean-environment package-layout checks for aggregate acceptance wrappers.
 """
 
 import json
+import os
 import subprocess
 import tempfile
 import venv
@@ -12,7 +13,7 @@ ROOT = Path(__file__).parent.parent
 
 
 def _venv_python(venv_dir: Path) -> Path:
-    return venv_dir / "Scripts" / "python.exe"
+    return venv_dir / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
 
 
 def test_clean_temp_virtualenv_runs_aggregate_acceptance():

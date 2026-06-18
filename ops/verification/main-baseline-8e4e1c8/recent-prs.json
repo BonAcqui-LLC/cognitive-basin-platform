@@ -1,0 +1,62 @@
+[
+  {
+    "number": 7,
+    "title": "Build EphUX lab product surface",
+    "state": "MERGED",
+    "head_ref_name": "build/ephux-lab-product-codex",
+    "base_ref_name": "main",
+    "merge_commit": "8e4e1c8456679c0479982ac704b263a2191dc4e9",
+    "merged_at": "2026-06-18T04:26:50Z",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/pull/7"
+  },
+  {
+    "number": 6,
+    "title": "Build evaluation and Natural Math labs",
+    "state": "MERGED",
+    "head_ref_name": "build/evaluation-natural-math-codex",
+    "base_ref_name": "main",
+    "merge_commit": "4edc156b336eb8514dfc3a45169b8f078821948a",
+    "merged_at": "2026-06-17T21:10:14Z",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/pull/6"
+  },
+  {
+    "number": 5,
+    "title": "Add provider router and sandbox receipts",
+    "state": "MERGED",
+    "head_ref_name": "build/provider-sandbox-codex",
+    "base_ref_name": "main",
+    "merge_commit": "cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b",
+    "merged_at": "2026-06-17T20:48:26Z",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/pull/5"
+  },
+  {
+    "number": 4,
+    "title": "Productize EphUX local review surface",
+    "state": "MERGED",
+    "head_ref_name": "build/ephux-product-surface-codex",
+    "base_ref_name": "main",
+    "merge_commit": "ab8714eb0120859a1c5d30f0e2f1a197da76aca8",
+    "merged_at": "2026-06-17T20:25:36Z",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/pull/4"
+  },
+  {
+    "number": 2,
+    "title": "build: add basinlab persistence memory tranche",
+    "state": "MERGED",
+    "head_ref_name": "build/basinlab-persistence-memory-codex",
+    "base_ref_name": "main",
+    "merge_commit": "a14c6e8dbaf139262885ea79946199a231d95ff7",
+    "merged_at": "2026-06-17T17:21:43Z",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/pull/2"
+  },
+  {
+    "number": 1,
+    "title": "BasinLab tranche: runtime hardening, spectrum governance, natural math demos",
+    "state": "MERGED",
+    "head_ref_name": "build/basinlab-spectrum-signal-codex",
+    "base_ref_name": "main",
+    "merge_commit": "a856e87d98ec061be68f24653155157ebd325459",
+    "merged_at": "2026-06-17T12:00:55Z",
+    "url": "https://github.com/BonAcqui-LLC/cognitive-basin-platform/pull/1"
+  }
+]

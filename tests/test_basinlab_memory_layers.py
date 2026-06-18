@@ -7,8 +7,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from packages.ternary.states import ActionState, EpistemicState
 from python.basinlab.hold import HoldFogRecord, HoldFogTracker
 from python.basinlab.memory_map import FractalMemoryMap, MemoryNode
+from python.cognitive_basin.memory import MemoryEvidenceLink, MemoryFragment, MemoryPurposeLink
+from python.cognitive_basin.privacy import RetentionClass, SensitivityLevel, VisibilityScope
 from python.basinlab.stabilization import StabilizationEvidence, assess_stabilization
 from python.basinlab.team_narrative import NarrativeRecord, TeamNarrative
 
@@ -49,14 +52,27 @@ def test_memory_promotion_and_auditable_pruning():
     memory_map = FractalMemoryMap()
     node = MemoryNode(
         memory_id="m1",
-        purpose_links=["routing"],
-        evidence_links=["report-1"],
+        origin_session_id="session-1",
+        origin_event_id="event-1",
+        participant="UNKNOWN",
+        purpose="routing",
+        content_hash="hash-m1",
+        provenance="local",
+        evidence_status="supported",
+        epistemic_state=EpistemicState.SUPPORTED,
+        action_state=ActionState.EXTEND,
+        sensitivity=SensitivityLevel.MODERATE,
+        visibility_scope=VisibilityScope.SHARED_PROJECT,
+        retention_class=RetentionClass.SHARED_WORKING,
         survival_reason="successful response",
-        successful_response_memory=["kept"],
+        memory_fragments=[MemoryFragment("fragment-1", "routing detail", "hash-fragment", "local")],
+        purpose_links=[MemoryPurposeLink("routing", provenance="test")],
+        evidence_links=[MemoryEvidenceLink("report-1", "inspection report", provenance="test")],
+        successful_uses=["kept"],
     )
     memory_map.upsert(node)
     memory_map.prune("m1", "low retention weight")
-    assert memory_map.nodes["m1"].pruning_reason == "low retention weight"
+    assert memory_map.nodes["m1"].pruning_history[-1].reason == "low retention weight"
     assert memory_map.events[-1]["type"] == "memory_pruned"
 
 

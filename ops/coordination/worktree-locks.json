@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-06-18T01:15:00-04:00",
+  "canonical_repository_path": "C:/Users/moop/cognitive-basin-platform",
+  "locks": [
+    {
+      "branch": "build/memory-governance-codex",
+      "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-memory-governance-codex",
+      "owner": "Codex",
+      "status": "active",
+      "scope": [
+        "python/cognitive_basin/**",
+        "python/basinlab/memory_map.py",
+        "python/basinlab/team_narrative.py",
+        "python/ephux_local/service.py",
+        "tests/test_memory_governance.py",
+        "tests/test_basinlab_memory_layers.py",
+        "tests/test_ephux_local_api.py",
+        "tests/test_*package_layout.py",
+        "ops/coordination/**",
+        "ops/verification/main-baseline-8e4e1c8/**",
+        "ops/manifests/capability-registry.json"
+      ],
+      "notes": "Memory governance tranche plus exact-main CI repair for cross-platform clean-venv tests."
+    },
+    {
+      "branch": "build/connectors-cloudflare-readiness-codex",
+      "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-connectors-cloudflare-readiness-codex",
+      "owner": "reserved",
+      "status": "pending",
+      "scope": [
+        "python/provider_lab/**",
+        "python/ephux_local/**",
+        "ops/manifests/**",
+        "cloudflare-readiness/**"
+      ],
+      "notes": "Reserved flat worktree path; do not overlap active memory-governance edits."
+    },
+    {
+      "branch": "build/client-provider-security-release-codex",
+      "worktree_path": "C:/Users/moop/Cognitive-Basin-Worktrees/build-client-provider-security-release-codex",
+      "owner": "reserved",
+      "status": "pending",
+      "scope": [
+        "apps/**",
+        "python/ephux_local/**",
+        "release/**",
+        "security/**"
+      ],
+      "notes": "Reserved flat worktree path for later tranche; do not start until the memory-governance branch is settled."
+    }
+  ]
+}
