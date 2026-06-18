@@ -36,6 +36,8 @@ from python.basinlab.spectrum import CandidateTrajectory
 from python.basinlab.store import SessionStore
 from python.basinlab.team_narrative import NarrativeRecord, TeamNarrative
 from python.cognitive_basin.pipeline import run_basin_pipeline
+from python.evaluation_lab.acceptance import run_acceptance_suite as run_evaluation_lab_acceptance
+from python.natural_math_lab.acceptance import run_acceptance_suite as run_natural_math_lab_acceptance
 from python.provider_lab import local_model_inventory, provider_inventory
 
 from .contracts import ActivationRecord, IntakeRecord, IntakeState, SanitizationState
@@ -294,12 +296,14 @@ class EphuxLocalService:
         inspected["contradiction_scars"] = report_data.get("scars", [])
         inspected["recovery_routes"] = report_data.get("recovery_routes", [])
         inspected["associations"] = report_data.get("association_updates", [])
+        inspected["lab_runs"] = report_data.get("lab_runs", [])
         inspected["latest_action_proposal"] = (
             report_data.get("action_proposals", [])[-1] if report_data.get("action_proposals") else None
         )
         inspected["latest_commit_decision"] = (
             report_data.get("commit_decisions", [])[-1] if report_data.get("commit_decisions") else None
         )
+        inspected["latest_lab_run"] = report_data.get("lab_runs", [])[-1] if report_data.get("lab_runs") else None
         return inspected
 
     def session_events(self, session_id: str) -> List[Dict[str, Any]]:
@@ -538,6 +542,135 @@ class EphuxLocalService:
             "capability_limitations": capability_limitations,
             "report_location": report["html_path"],
         }
+
+    def _register_directory_artifacts(
+        self,
+        session_id: str,
+        artifact_root: Path,
+        *,
+        event_id: str,
+        artifact_type: str,
+    ) -> List[str]:
+        registered: List[str] = []
+        for path in sorted(artifact_root.rglob("*")):
+            if not path.is_file():
+                continue
+            self.store.register_artifact(
+                session_id,
+                path,
+                event_id=event_id,
+                artifact_type=artifact_type,
+                metadata={"generated_by": "ephux_local.lab", "relative_path": str(path.relative_to(artifact_root))},
+            )
+            registered.append(str(path))
+        return registered
+
+    def _lab_basin(self, current: Dict[str, Any], *, passed: bool, reason: str) -> Dict[str, Any]:
+        if not passed:
+            return BasinGovernanceState(
+                epistemic=EpistemicState.UNRESOLVED,
+                action=ActionState.HOLD,
+                provisional=True,
+                reason=reason,
+            ).to_record()
+        if current:
+            return current
+        return BasinGovernanceState(
+            epistemic=EpistemicState.SUPPORTED,
+            action=ActionState.EXTEND,
+            provisional=False,
+            reason=reason,
+        ).to_record()
+
+    def run_evaluation_lab(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        artifact_root = self.report_dir / session_id / "labs" / f"evaluation-{int(time.time())}"
+        artifact_root.mkdir(parents=True, exist_ok=True)
+        summary = run_evaluation_lab_acceptance(artifact_root)
+        event_id = self._next_event_id(session_id, "lab")
+        basin = self._lab_basin(
+            self.store.inspect_session(session_id).get("final_basin", {}),
+            passed=bool(summary.get("passed")),
+            reason="evaluation_lab_completed" if summary.get("passed") else "evaluation_lab_failed",
+        )
+        artifacts = self._register_directory_artifacts(
+            session_id,
+            artifact_root,
+            event_id=event_id,
+            artifact_type="evaluation_lab",
+        )
+        event = {
+            "type": "session.lab.evaluation",
+            "event_id": event_id,
+            "timestamp": time.time(),
+            "lab": {
+                "lab_kind": "evaluation",
+                "task_count": summary.get("task_count", 0),
+                "family_count": summary.get("family_count", 0),
+                "comparison_result_count": summary.get("comparison_result_count", 0),
+                "passed": bool(summary.get("passed")),
+                "artifact_root": str(artifact_root),
+                "artifact_paths": artifacts,
+                "requested_by": str(payload.get("requested_by", "local-ui")),
+            },
+        }
+        self.store.append_event(session_id, event, final_basin=basin)
+        return {
+            "session_id": session_id,
+            "event_id": event_id,
+            "lab_kind": "evaluation",
+            "artifact_root": str(artifact_root),
+            "artifact_paths": artifacts,
+            "summary": summary,
+            "basin": basin,
+        }
+
+    def run_natural_math_lab(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        artifact_root = self.report_dir / session_id / "labs" / f"natural-math-{int(time.time())}"
+        artifact_root.mkdir(parents=True, exist_ok=True)
+        summary = run_natural_math_lab_acceptance(artifact_root)
+        event_id = self._next_event_id(session_id, "lab")
+        basin = self._lab_basin(
+            self.store.inspect_session(session_id).get("final_basin", {}),
+            passed=bool(summary.get("passed")),
+            reason="natural_math_lab_completed" if summary.get("passed") else "natural_math_lab_failed",
+        )
+        artifacts = self._register_directory_artifacts(
+            session_id,
+            artifact_root,
+            event_id=event_id,
+            artifact_type="natural_math_lab",
+        )
+        event = {
+            "type": "session.lab.natural_math",
+            "event_id": event_id,
+            "timestamp": time.time(),
+            "lab": {
+                "lab_kind": "natural_math",
+                "run_count": summary.get("parameter_sweep", {}).get("run_count", 0),
+                "node_count": summary.get("simulation", {}).get("simulation_metrics", {}).get("node_count", 0),
+                "passed": bool(summary.get("passed")),
+                "artifact_root": str(artifact_root),
+                "artifact_paths": artifacts,
+                "requested_by": str(payload.get("requested_by", "local-ui")),
+            },
+        }
+        self.store.append_event(session_id, event, final_basin=basin)
+        return {
+            "session_id": session_id,
+            "event_id": event_id,
+            "lab_kind": "natural_math",
+            "artifact_root": str(artifact_root),
+            "artifact_paths": artifacts,
+            "summary": summary,
+            "basin": basin,
+        }
+
+    def session_labs(self, session_id: str) -> Dict[str, Any]:
+        events = [
+            event for event in self.store.read_events(session_id) if event.get("type") in {"session.lab.evaluation", "session.lab.natural_math"}
+        ]
+        runs = [event.get("lab", {}) | {"event_id": event.get("event_id", ""), "timestamp": event.get("timestamp", 0)} for event in events]
+        return {"session_id": session_id, "lab_runs": runs}
 
     def review_session(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         review_action = str(payload.get("review_action", "")).strip()
@@ -842,6 +975,7 @@ class EphuxLocalService:
         actions = [event for event in events if event.get("type") == "action"]
         commits = [event for event in events if event.get("type") == "commit"]
         reviews = [event for event in events if event.get("type", "").startswith("session.review.")]
+        lab_runs = [event for event in events if event.get("type") in {"session.lab.evaluation", "session.lab.natural_math"}]
         replay = replay_persisted_session(self.store, session_id)
         purpose = inspected["metadata"].get("purpose", "local ephux session")
         spectrum = self._candidate_spectrum(purpose, evidence, claims)
@@ -911,6 +1045,7 @@ class EphuxLocalService:
             "hold_intervals": [event.get("hold", {}) for event in holds],
             "commit_decisions": [item["decision"] for item in commits],
             "review_decisions": [item.get("review", {}) for item in reviews],
+            "lab_runs": [item.get("lab", {}) | {"event_id": item.get("event_id", "")} for item in lab_runs],
             "replay_result": {
                 "basin": replay["basin"].to_record(),
                 "errors": replay["errors"],
@@ -954,6 +1089,7 @@ class EphuxLocalService:
                 "loopback_only": self.config.host in {"127.0.0.1", "localhost"},
                 "request_size_limit": self.config.max_request_bytes,
                 "installable_pwa": True,
+                "labs_available": ["evaluation", "natural_math"],
             },
         }
 
@@ -965,6 +1101,9 @@ class EphuxLocalService:
             "report_url_template": f"http://{self.config.host}:{self.config.port}/sessions/{{session_id}}/report?format=html",
             "session_list_endpoint": "/sessions",
             "session_import_endpoint": "/sessions/import",
+            "session_lab_list_endpoint": "/sessions/{session_id}/labs",
+            "evaluation_lab_endpoint": "/sessions/{session_id}/labs/evaluation",
+            "natural_math_lab_endpoint": "/sessions/{session_id}/labs/natural-math",
         }
 
     def ui_html(self) -> str:
@@ -1073,6 +1212,11 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     session_id = parsed.path.split("/")[2]
                     _json_response(self, 200, {"session_id": session_id, "events": app.session_events(session_id)}, origin=origin)
                     return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/labs"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_labs(session_id), origin=origin)
+                    return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/export"):
                     self._authorized()
                     session_id = parsed.path.split("/")[2]
@@ -1159,6 +1303,16 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     session_id = parsed.path.split("/")[2]
                     payload = self._parse_json()
                     _json_response(self, 200, app.review_session(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/labs/evaluation"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.run_evaluation_lab(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/labs/natural-math"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.run_natural_math_lab(session_id, payload), origin=origin)
                     return
                 _json_response(self, 404, {"error": "Not found"}, origin=origin)
             except PermissionError as exc:

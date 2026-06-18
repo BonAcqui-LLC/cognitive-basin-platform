@@ -22,7 +22,7 @@ class FailureExample:
 
 def build_failure_corpus() -> List[FailureExample]:
     return [
-        FailureExample("placeholder_complete", "placeholder_code_reported_complete", "Unit tests passed.", [], "insufficient matching artifact"),
+        FailureExample("stub_complete", "stub_code_reported_complete", "Unit tests passed.", [], "insufficient matching artifact"),
         FailureExample("backup_valid", "malformed_backup_reported_valid", "backup restorable", [], "insufficient matching artifact"),
         FailureExample("archive_restorable", "untested_archive_reported_restorable", "backup restorable", [], "insufficient matching artifact"),
         FailureExample("ci_passed", "configured_ci_reported_passed", "Unit tests passed.", [], "insufficient matching artifact"),

@@ -12,6 +12,7 @@ Intentional worktrees:
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-product-surface-codex`
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\provider-sandbox-codex`
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\evaluation-natural-math-codex`
+- `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\evaluation-natural-math-codex\build\ephux-lab-product-codex`
 
 Repository identity:
 - remote `main`: `cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b`
@@ -21,7 +22,7 @@ Repository identity:
 
 Local verification:
 - repository tests: `128 passed`
-- EphUX acceptance: `12/12` scenarios passed
+- EphUX acceptance: `14/14` scenarios passed
 - ProviderLab acceptance: `7/7` scenarios passed
 - SandboxLab acceptance: `19/19` scenarios passed
 - EvaluationLab acceptance: `19/19` task families covered, `40` comparison results passed
@@ -52,6 +53,8 @@ Verified local product surfaces:
 - synthetic failure corpus for unsupported completion and authority-bypass regressions
 - deterministic Natural Math simulation, exact rational geometry, and static visualization artifacts outside the repo by default
 - aggregate deterministic acceptance manifest spanning BasinLab, EphUX local, provider, sandbox, evaluation, and Natural Math
+- session-attached evaluation-lab execution through the loopback EphUX product surface
+- session-attached Natural Math lab execution with retained visualization artifacts through the loopback EphUX product surface
 
 Audit artifacts for product-surface merge commit `ab8714eb0120859a1c5d30f0e2f1a197da76aca8`:
 - `C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\ephux-product-main-audit-ab8714e\cognitive-basin-platform-ab8714e-source.zip`

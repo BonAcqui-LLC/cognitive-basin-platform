@@ -97,6 +97,8 @@ def test_all_required_endpoints_round_trip(running_service):
     assert status == 200
     capabilities = json.loads(body)
     assert "/guardian/intake" in capabilities["extension_contract"]["send_selection_endpoint"]
+    assert capabilities["extension_contract"]["evaluation_lab_endpoint"].endswith("/labs/evaluation")
+    assert capabilities["extension_contract"]["natural_math_lab_endpoint"].endswith("/labs/natural-math")
     assert "ephux_local.service.loopback" in capabilities["registry"]["capabilities"]
     assert capabilities["registry"]["capabilities"]["basinlab.natural_math.workload"]["description"].startswith(
         "Natural Math"
@@ -168,11 +170,40 @@ def test_all_required_endpoints_round_trip(running_service):
     assert status == 200
     assert len(json.loads(body)["events"]) >= 7
 
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/labs/evaluation",
+        {"requested_by": "pytest"},
+        token=client.token,
+    )
+    assert status == 200
+    evaluation = json.loads(body)
+    assert evaluation["summary"]["passed"] is True
+    assert evaluation["summary"]["task_count"] >= 19
+    assert Path(evaluation["artifact_root"]).exists()
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/labs/natural-math",
+        {"requested_by": "pytest"},
+        token=client.token,
+    )
+    assert status == 200
+    natural_math = json.loads(body)
+    assert natural_math["summary"]["passed"] is True
+    assert natural_math["summary"]["parameter_sweep"]["run_count"] == 3
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/labs", token=client.token)
+    assert status == 200
+    lab_runs = json.loads(body)["lab_runs"]
+    assert {item["lab_kind"] for item in lab_runs} == {"evaluation", "natural_math"}
+
     status, body, _ = client.request("GET", f"/sessions/{session_id}/report", token=client.token)
     assert status == 200
     report = json.loads(body)
     assert Path(report["html_path"]).exists()
     assert "candidate_spectrum" in report["report"]
+    assert len(report["report"]["lab_runs"]) == 2
 
     status, body, _ = client.request("GET", f"/sessions/{session_id}/report?format=html", token=client.token)
     assert status == 200
@@ -257,6 +288,7 @@ def test_restart_persistence_provider_unavailable_and_extension_contract(running
         status, body, _ = client2.request("GET", "/capabilities")
         contract = json.loads(body)["extension_contract"]
         assert contract["token_header"] == "X-Ephux-Token"
+        assert contract["session_lab_list_endpoint"].endswith("/labs")
     finally:
         server2.shutdown()
         server2.server_close()
@@ -332,6 +364,10 @@ def test_acceptance_command_and_extension_files(running_service):
     popup = (extension_root / "popup.js").read_text(encoding="utf-8")
     assert manifest["manifest_version"] == 3
     assert "/guardian/intake" not in popup or "localFetch" in popup
+
+    status, body, _ = client.request("GET", "/app.js")
+    assert status == 200
+    assert "Run Evaluation Lab" not in body or "runEvaluationLab" in body
 
     with tempfile.TemporaryDirectory() as td:
         result = subprocess.run(
