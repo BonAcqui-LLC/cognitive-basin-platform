@@ -1,7 +1,7 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "last_updated": "2026-06-17",
-  "source": "cognitive-basin-platform evaluation and natural-math tranche",
+  "source": "cognitive-basin-platform EphUX lab product integration tranche",
   "capabilities": {
     "ternary.epistemic": {
       "description": "SUPPORTED / UNRESOLVED / CONTRADICTED truth-state contract",
@@ -418,6 +418,28 @@
       "test_path": "tests/test_ephux_local_api.py",
       "states": ["IMPLEMENTED", "TESTED"],
       "limitations": ["Import restores embedded text artifacts and report artifacts only; opaque binary artifacts remain metadata-only."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.labs.evaluation": {
+      "description": "Session-attached deterministic evaluation-lab execution with persisted artifacts, replay-visible event records, and loopback-only product controls",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Runs the deterministic evaluation harness only; it does not represent live external benchmark execution or deploy authority."],
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "ephux_local.labs.natural_math": {
+      "description": "Session-attached Natural Math lab execution with retained visualizations, exact-geometry summaries, and loopback-only product controls",
+      "required_evidence": ["source:python/ephux_local/service.py", "test:tests/test_ephux_local_api.py"],
+      "implementation_path": "python/ephux_local/service.py",
+      "evidence_path": "tests/test_ephux_local_api.py",
+      "test_path": "tests/test_ephux_local_api.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCAL ACCEPTANCE"],
+      "limitations": ["Runs the deterministic local Natural Math lab only and does not claim empirical validation beyond the encoded simulation rules."],
       "last_verified_commit": "",
       "last_verified_ci_run": ""
     },

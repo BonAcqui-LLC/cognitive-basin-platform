@@ -7,6 +7,7 @@ from __future__ import annotations
 import argparse
 import json
 import tempfile
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -15,7 +16,15 @@ from typing import Any, Dict, List, Tuple
 from .service import LocalServiceConfig, start_service_in_thread
 
 
-def _request(base_url: str, token: str, method: str, path: str, payload: Dict[str, Any] | None = None) -> Tuple[int, str]:
+def _request(
+    base_url: str,
+    token: str,
+    method: str,
+    path: str,
+    payload: Dict[str, Any] | None = None,
+    *,
+    timeout_s: float = 30.0,
+) -> Tuple[int, str]:
     data = None
     headers = {"X-Ephux-Token": token}
     if payload is not None:
@@ -23,7 +32,7 @@ def _request(base_url: str, token: str, method: str, path: str, payload: Dict[st
         headers["Content-Type"] = "application/json"
     request = urllib.request.Request(f"{base_url}{path}", data=data, headers=headers, method=method)
     try:
-        with urllib.request.urlopen(request, timeout=10) as response:
+        with urllib.request.urlopen(request, timeout=timeout_s) as response:
             return response.status, response.read().decode("utf-8")
     except urllib.error.HTTPError as exc:
         return exc.code, exc.read().decode("utf-8")
@@ -74,7 +83,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, An
             restart_session = activation["session_id"]
             server.shutdown()
             server.server_close()
-            thread.join(timeout=10)
+            thread.join(timeout=30)
+            time.sleep(0.2)
             app, server, thread = start_service_in_thread(
                 LocalServiceConfig(host=host, port=port, store_dir=root / "store", report_dir=root / "reports", token=config.token)
             )
@@ -91,6 +101,19 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, An
                 {
                     "scenario": "report_html",
                     "passed": status == 200 and "<script>" not in body and restart_session in body,
+                }
+            )
+
+            status, body = _request(base_url, config.token, "POST", f"/sessions/{restart_session}/labs/evaluation", {"requested_by": "acceptance"})
+            evaluation = json.loads(body)
+            results.append({"scenario": "evaluation_lab_surface", "passed": status == 200 and evaluation["summary"]["passed"] is True})
+
+            status, body = _request(base_url, config.token, "POST", f"/sessions/{restart_session}/labs/natural-math", {"requested_by": "acceptance"})
+            natural_math = json.loads(body)
+            results.append(
+                {
+                    "scenario": "natural_math_lab_surface",
+                    "passed": status == 200 and natural_math["summary"]["parameter_sweep"]["run_count"] == 3,
                 }
             )
 
@@ -111,7 +134,8 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> Dict[str, An
         finally:
             server.shutdown()
             server.server_close()
-            thread.join(timeout=10)
+            thread.join(timeout=30)
+            time.sleep(0.2)
 
 
 def main(argv: List[str] | None = None) -> int:

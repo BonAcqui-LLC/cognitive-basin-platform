@@ -98,6 +98,7 @@ function renderSession(session) {
     latest_commit_decision: session?.latest_commit_decision,
     report_location: session?.report_location,
   });
+  $("labRuns").textContent = pretty(session?.lab_runs || []);
   renderTimeline(session?.timeline || []);
   status(`Loaded session ${state.activeSessionId}.`, "ok");
 }
@@ -257,6 +258,22 @@ async function exportSession() {
   URL.revokeObjectURL(url);
 }
 
+async function runEvaluationLab() {
+  const result = await api(`/sessions/${state.activeSessionId}/labs/evaluation`, "POST", {
+    requested_by: "ephux-local-ui",
+  });
+  $("labRuns").textContent = pretty(result);
+  await refreshSession();
+}
+
+async function runNaturalMathLab() {
+  const result = await api(`/sessions/${state.activeSessionId}/labs/natural-math`, "POST", {
+    requested_by: "ephux-local-ui",
+  });
+  $("labRuns").textContent = pretty(result);
+  await refreshSession();
+}
+
 async function importBundle(event) {
   const file = event.target.files?.[0];
   if (!file) {
@@ -307,6 +324,8 @@ bind("submitReview", submitReview);
 bind("refreshSession", refreshSession);
 bind("exportSession", exportSession);
 bind("openReport", async () => openReport());
+bind("runEvaluationLab", runEvaluationLab);
+bind("runNaturalMathLab", runNaturalMathLab);
 $("importBundle").addEventListener("change", async (event) => {
   try {
     if (!currentToken()) {

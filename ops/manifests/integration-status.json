@@ -13,10 +13,10 @@
   },
   "local_ephux_service": {
     "status": "PRODUCTIZED_BASELINE",
-    "routes_verified": 14,
+    "routes_verified": 17,
     "required_routes_present": true,
-    "acceptance_scenarios_passed": 12,
-    "acceptance_scenarios_total": 12
+    "acceptance_scenarios_passed": 14,
+    "acceptance_scenarios_total": 14
   },
   "local_ephux_surface": {
     "status": "IMPLEMENTED",
@@ -25,7 +25,9 @@
     "session_list_and_reopen": true,
     "portable_export_import": true,
     "human_review_controls": true,
-    "browser_verified": true
+    "browser_verified": true,
+    "evaluation_lab_surface": true,
+    "natural_math_lab_surface": true
   },
   "package_layout": {
     "status": "VERIFIED",

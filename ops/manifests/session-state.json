@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-06-17T18:15:00-04:00",
-  "active_phase": "phase3_evaluation_natural_math_slice_implemented",
+  "timestamp": "2026-06-17T22:15:00-04:00",
+  "active_phase": "phase4_ephux_lab_product_slice_implemented",
   "canonical_repository": "C:\\Users\\moop\\cognitive-basin-platform",
-  "active_worktree": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\evaluation-natural-math-codex",
-  "active_branch": "build/evaluation-natural-math-codex",
+  "active_worktree": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\build\\evaluation-natural-math-codex\\build\\ephux-lab-product-codex",
+  "active_branch": "build/ephux-lab-product-codex",
   "verified_main_sha": "cca9b7b9b7a4e7a3c8710bf3256c2287c857cd1b",
   "verified_main_ci_run": 27718801072,
   "verified_main_ci_workflow": "ci-non-deploying",
@@ -13,13 +13,14 @@
     "ephux_local_integration": "intentional_worktree",
     "ephux_product_surface": "intentional_worktree",
     "provider_sandbox": "intentional_worktree",
-    "evaluation_natural_math": "intentional_worktree"
+    "evaluation_natural_math": "intentional_worktree",
+    "ephux_lab_product": "intentional_worktree"
   },
   "baseline_verification": {
     "repo_tests_passed": 128,
     "repo_tests_failed": 0,
-    "ephux_acceptance_scenarios_passed": 12,
-    "ephux_acceptance_scenarios_total": 12,
+    "ephux_acceptance_scenarios_passed": 14,
+    "ephux_acceptance_scenarios_total": 14,
     "provider_acceptance_scenarios_passed": 7,
     "provider_acceptance_scenarios_total": 7,
     "sandbox_acceptance_scenarios_passed": 19,
@@ -28,7 +29,7 @@
     "natural_math_sweep_runs": 3,
     "aggregate_acceptance_suites_passed": 6,
     "aggregate_acceptance_suites_total": 6,
-    "required_routes_verified": 14
+    "required_routes_verified": 17
   },
   "browser_verification": {
     "local_session_created_via_ui": true,

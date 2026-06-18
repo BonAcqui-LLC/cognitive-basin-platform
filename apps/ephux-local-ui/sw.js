@@ -1,4 +1,4 @@
-const CACHE_NAME = "ephux-local-shell-v1";
+const CACHE_NAME = "ephux-local-shell-v2";
 const SHELL = ["/", "/app.js", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
