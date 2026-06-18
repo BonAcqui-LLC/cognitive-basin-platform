@@ -12,6 +12,7 @@ import json
 import os
 import re
 import secrets
+import subprocess
 import threading
 import time
 import uuid
@@ -61,6 +62,30 @@ from python.cognitive_basin.authority import (
 )
 from python.cognitive_basin.authority.manager import payload_hash
 from python.cognitive_basin.connectors import ConnectorRequest, ConnectorScope, build_default_registry
+from python.cognitive_basin.consciousness import OperationalConsciousnessKernel
+from python.cognitive_basin.consciousness.perception import (
+    Constant,
+    ConstantClass,
+    ConstantDomain,
+    ConstantEvidence,
+    ConstantExpiry,
+    ConstantScope,
+    ConstantSource,
+    ConstantValue,
+    Percept,
+    PerceptChannel,
+    PerceptFeature,
+    PerceptModality,
+    PerceptReliability,
+    PerceptSource,
+)
+from python.cognitive_basin.consciousness.purpose import (
+    Purpose,
+    PurposeConstraint,
+    PurposeDependency,
+    PurposePriority,
+    PurposeSource,
+)
 from python.cognitive_basin.privacy import (
     RetentionClass,
     SensitivityLevel,
@@ -414,6 +439,279 @@ class EphuxLocalService:
             )
         return session
 
+    def _repo_head(self) -> str:
+        result = subprocess.run(
+            ["git", "-C", str(Path(__file__).resolve().parents[2]), "rev-parse", "HEAD"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        return result.stdout.strip() if result.returncode == 0 else ""
+
+    def _consciousness_kernel(self, session_id: str) -> OperationalConsciousnessKernel:
+        inspected = self.store.inspect_session(session_id)
+        metadata = inspected.get("metadata", {})
+        return OperationalConsciousnessKernel.from_events(
+            session_id=session_id,
+            events=self.store.read_events(session_id),
+            purpose_text=str(metadata.get("purpose", "")),
+            participant="UNKNOWN",
+            repo_head=self._repo_head(),
+            connectors=self.list_connectors(),
+        )
+
+    def _percept_from_payload(self, payload: Dict[str, Any], index: int = 1) -> Percept:
+        modality_text = str(payload.get("modality", PerceptModality.TEXT.value))
+        source_text = str(payload.get("source_type", PerceptSource.HUMAN.value)).upper()
+        channel_text = str(payload.get("channel", PerceptChannel.USER.value)).upper()
+        content = payload.get("content", payload.get("detail", ""))
+        topic = str(payload.get("topic", payload.get("label", f"percept-{index}")))
+        return Percept(
+            percept_id=str(payload.get("percept_id", f"percept-{uuid.uuid4().hex[:8]}")),
+            source=str(payload.get("source", "ephux-local")),
+            source_type=PerceptSource(source_text),
+            timestamp=float(payload.get("timestamp", time.time())),
+            observed_content_hash=content_hash(str(content)),
+            modality=PerceptModality(modality_text),
+            channel=PerceptChannel(channel_text),
+            content=content,
+            confidence=float(payload.get("confidence", 0.8)),
+            reliability=PerceptReliability(
+                current=float(payload.get("confidence", 0.8)),
+                history=list(payload.get("reliability_history", [float(payload.get("confidence", 0.8))])),
+                source_dependence=float(payload.get("source_dependence", 0.0)),
+            ),
+            privacy_classification=str(payload.get("privacy_classification", "restricted")),
+            provenance=str(payload.get("provenance", "ephux-local")),
+            novelty=float(payload.get("novelty", 0.5)),
+            salience=float(payload.get("salience", 0.5)),
+            purpose_relevance=float(payload.get("purpose_relevance", 0.8)),
+            contradiction_links=list(payload.get("contradiction_links", [])),
+            prediction_links=list(payload.get("prediction_links", [])),
+            verification_state=str(payload.get("verification_state", "OBSERVATION")),
+            retention_policy=str(payload.get("retention_policy", "SESSION_WORKING")),
+            features=[PerceptFeature("topic", topic, 1.0)]
+            + [PerceptFeature(**feature) for feature in payload.get("features", []) if feature.get("key") != "topic"],
+        )
+
+    def _constant_from_payload(self, payload: Dict[str, Any], index: int = 1) -> Constant:
+        expiry_until = float(payload.get("valid_until", 0.0) or 0.0)
+        return Constant(
+            constant_id=str(payload.get("constant_id", f"constant-{index}")),
+            constant_class=ConstantClass(str(payload.get("constant_class", ConstantClass.SYSTEM_CONSTRAINT.value))),
+            value=ConstantValue(payload.get("value"), str(payload.get("unit", ""))),
+            domain=ConstantDomain(str(payload.get("domain_id", "domain")), str(payload.get("domain_type", "system")), str(payload.get("domain_detail", "ephux-local"))),
+            scope=ConstantScope(str(payload.get("scope_id", "scope")), str(payload.get("scope_type", "session")), str(payload.get("scope_detail", "ephux-local"))),
+            source=ConstantSource(str(payload.get("source", "ephux-local")), str(payload.get("source_type", "policy")), str(payload.get("provenance", "ephux-local"))),
+            evidence=[ConstantEvidence(str(payload.get("evidence_id", f"evidence-{index}")), str(payload.get("evidence_detail", "explicit constant")), float(payload.get("confidence", 1.0)))],
+            confidence=float(payload.get("confidence", 1.0)),
+            validity_interval=ConstantExpiry(valid_from=float(payload.get("valid_from", time.time())), valid_until=expiry_until),
+            expiry=ConstantExpiry(valid_from=float(payload.get("valid_from", time.time())), valid_until=expiry_until) if expiry_until else None,
+            applicability_conditions=list(payload.get("applicability_conditions", [])),
+            category=str(payload.get("category", "constraint")),
+        )
+
+    def _purpose_from_payload(self, payload: Dict[str, Any]) -> Purpose:
+        return Purpose(
+            purpose_id=str(payload.get("purpose_id", f"purpose-{uuid.uuid4().hex[:8]}")),
+            description=str(payload.get("description", payload.get("purpose", ""))),
+            source=PurposeSource(str(payload.get("source_type", "explicit human request")), str(payload.get("source_detail", "ephux-local"))),
+            priority=PurposePriority(float(payload.get("priority_weight", 1.0)), float(payload.get("priority_urgency", 0.2))),
+            constraints=[PurposeConstraint(str(item)) if not isinstance(item, dict) else PurposeConstraint(str(item.get("detail", ""))) for item in payload.get("constraints", [])],
+            dependencies=[
+                PurposeDependency(str(payload.get("purpose_id", "")), str(item))
+                if not isinstance(item, dict)
+                else PurposeDependency(str(payload.get("purpose_id", "")), str(item.get("depends_on", "")))
+                for item in payload.get("dependencies", [])
+            ],
+            status=str(payload.get("status", "ACTIVE")),
+        )
+
+    def session_consciousness(self, session_id: str) -> Dict[str, Any]:
+        return self._consciousness_kernel(session_id).snapshot().to_record()
+
+    def session_consciousness_workspace(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "workspace": consciousness.get("workspace", {})}
+
+    def session_consciousness_attention(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "attention": consciousness.get("attention", {})}
+
+    def session_consciousness_self(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "self_model": consciousness.get("self_model", {})}
+
+    def session_consciousness_continuity(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "continuity": consciousness.get("continuity", {})}
+
+    def session_consciousness_purposes(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "purposes": consciousness.get("purposes", {})}
+
+    def session_consciousness_episodes(self, session_id: str) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        return {"session_id": session_id, "episodes": consciousness.get("episodes", [])}
+
+    def session_consciousness_episode(self, session_id: str, episode_id: str) -> Dict[str, Any]:
+        episodes = self.session_consciousness_episodes(session_id)["episodes"]
+        for episode in episodes:
+            if episode.get("episode_id") == episode_id:
+                return {"session_id": session_id, "episode": episode}
+        raise ValueError(f"Unknown consciousness episode: {episode_id}")
+
+    def add_consciousness_percepts(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        percept_payloads = payload.get("percepts", [])
+        if not percept_payloads:
+            percept_payloads = [payload]
+        percepts = [self._percept_from_payload(item, index) for index, item in enumerate(percept_payloads, start=1)]
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.percept",
+            {"percepts": [item.to_record() for item in percepts]},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        constant_payloads = payload.get("constants", [])
+        if constant_payloads:
+            constants = [self._constant_from_payload(item, index) for index, item in enumerate(constant_payloads, start=1)]
+            self._append_event(
+                session_id,
+                "consciousness",
+                "session.consciousness.constant",
+                {"constants": [item.to_record() for item in constants]},
+                basin=self.store.inspect_session(session_id)["final_basin"],
+            )
+        return self.session_consciousness(session_id)
+
+    def add_consciousness_purpose(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        purpose = self._purpose_from_payload(payload)
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.purpose",
+            {"purpose": purpose.to_record()},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_consciousness_purposes(session_id)
+
+    def set_consciousness_attention(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        detail = {
+            "lock_target_id": str(payload.get("lock_target_id", payload.get("target_id", ""))),
+            "reason": str(payload.get("reason", "manual")),
+        }
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.attention",
+            {"attention": detail},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_consciousness_attention(session_id)
+
+    def pause_consciousness(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.pause",
+            {"reason": str(payload.get("reason", "paused"))},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_consciousness(session_id)
+
+    def resume_consciousness(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.resume",
+            {"reason": str(payload.get("reason", "resumed"))},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return self.session_consciousness(session_id)
+
+    def review_consciousness(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        consciousness = self.session_consciousness(session_id)
+        review = {
+            "requested_by": str(payload.get("requested_by", "ephux-local")),
+            "metacognition": consciousness.get("metacognition", {}),
+            "current_action_state": consciousness.get("current_action_state", ActionState.HOLD.value),
+            "current_epistemic_state": consciousness.get("current_epistemic_state", EpistemicState.UNRESOLVED.value),
+        }
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.review",
+            {"review": review},
+            basin=self.store.inspect_session(session_id)["final_basin"],
+        )
+        return {"session_id": session_id, "review": review}
+
+    def run_consciousness_cycle(self, session_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        kernel = self._consciousness_kernel(session_id)
+        for index, percept_payload in enumerate(payload.get("percepts", []), start=1):
+            kernel.add_percept(self._percept_from_payload(percept_payload, index))
+        for index, constant_payload in enumerate(payload.get("constants", []), start=1):
+            kernel.add_constant(self._constant_from_payload(constant_payload, index))
+        if payload.get("purpose") or payload.get("description"):
+            kernel.add_purpose(self._purpose_from_payload(payload))
+        result = kernel.run_cycle(
+            events=self.store.read_events(session_id),
+            connectors=self.list_connectors(),
+            claimed_capabilities=dict(payload.get("claimed_capabilities", {})),
+            tested_capabilities=dict(payload.get("tested_capabilities", {})),
+            allow_internal_action=bool(payload.get("allow_internal_action", False)),
+        )
+        result_record = result.to_record()
+        self._append_event(
+            session_id,
+            "consciousness",
+            "session.consciousness.cycle",
+            {"cycle_result": result_record},
+            basin=result.basin,
+        )
+        scope = self._visibility_scope(self.store.inspect_session(session_id)["metadata"].get("privacy_setting", "local-only"))
+        episode = result.episode_receipt.episode
+        if episode.memory_effect.memory_ids:
+            memory_id = episode.memory_effect.memory_ids[0]
+            self._record_memory_item(
+                session_id,
+                MemoryItem(
+                    memory_id=memory_id,
+                    origin_session_id=session_id,
+                    origin_event_id=result.cycle_id,
+                    participant="UNKNOWN",
+                    purpose=episode.purpose.description,
+                    content_hash=content_hash(episode.content.summary),
+                    provenance="consciousness-cycle",
+                    evidence_status="supported" if result.basin["epistemic"] == EpistemicState.SUPPORTED.value else "unresolved",
+                    epistemic_state=EpistemicState(result.basin["epistemic"]),
+                    action_state=ActionState(result.basin["action"]),
+                    sensitivity=SensitivityLevel.MODERATE,
+                    visibility_scope=scope,
+                    retention_class=self._retention_class(scope),
+                    survival_reason="conscious episode summary",
+                    memory_fragments=[
+                        MemoryFragment(
+                            fragment_id=f"fragment-{memory_id}",
+                            text=_bounded_excerpt(episode.content.summary),
+                            content_hash=content_hash(episode.content.summary),
+                            provenance="consciousness-cycle",
+                        )
+                    ],
+                    purpose_links=[MemoryPurposeLink(episode.purpose.description, 1.0, "consciousness-cycle")],
+                    contradiction_links=[
+                        MemoryContradictionLink(item, "episode contradiction", "consciousness-cycle")
+                        for item in episode.contradictions
+                    ],
+                    replay_references=[result.cycle_id],
+                    created_time=time.time(),
+                    last_reviewed_time=time.time(),
+                ),
+                result.basin,
+            )
+        return {"session_id": session_id, "cycle": result_record, "consciousness": kernel.snapshot().to_record()}
+
     def create_session(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         with BasinLabSession(
             store=self.store,
@@ -452,6 +750,7 @@ class EphuxLocalService:
         narrative_state = self.session_narrative(session_id)
         privacy_state = self._privacy_state(session_id)
         external_actions = self.list_external_actions(session_id)["external_actions"]
+        consciousness = self.session_consciousness(session_id)
         report = self.generate_report(session_id)
         report_data = report["report"]
         review_events = [event for event in events if event.get("type", "").startswith("session.review.")]
@@ -485,6 +784,7 @@ class EphuxLocalService:
         inspected["team_narrative"] = narrative_state["records"]
         inspected["privacy_governance"] = privacy_state
         inspected["external_actions"] = external_actions
+        inspected["consciousness"] = consciousness
         return inspected
 
     def session_events(self, session_id: str) -> List[Dict[str, Any]]:
@@ -1818,6 +2118,7 @@ class EphuxLocalService:
         reviews = [event for event in events if event.get("type", "").startswith("session.review.")]
         lab_runs = [event for event in events if event.get("type") in {"session.lab.evaluation", "session.lab.natural_math"}]
         external_actions = self.list_external_actions(session_id)["external_actions"]
+        consciousness = self.session_consciousness(session_id)
         replay = replay_persisted_session(self.store, session_id)
         purpose = inspected["metadata"].get("purpose", "local ephux session")
         spectrum = self._candidate_spectrum(purpose, evidence, claims)
@@ -1893,6 +2194,7 @@ class EphuxLocalService:
             "privacy_governance": privacy_state,
             "connectors": self.list_connectors(),
             "external_actions": external_actions,
+            "consciousness": consciousness,
             "hold_intervals": [event.get("hold", {}) for event in holds],
             "commit_decisions": [item["decision"] for item in commits],
             "review_decisions": [item.get("review", {}) for item in reviews],
@@ -1955,6 +2257,20 @@ class EphuxLocalService:
             "session_import_endpoint": "/sessions/import",
             "session_lab_list_endpoint": "/sessions/{session_id}/labs",
             "session_memory_endpoint": "/sessions/{session_id}/memory",
+            "session_consciousness_endpoint": "/sessions/{session_id}/consciousness",
+            "session_consciousness_workspace_endpoint": "/sessions/{session_id}/consciousness/workspace",
+            "session_consciousness_attention_endpoint": "/sessions/{session_id}/consciousness/attention",
+            "session_consciousness_self_endpoint": "/sessions/{session_id}/consciousness/self",
+            "session_consciousness_continuity_endpoint": "/sessions/{session_id}/consciousness/continuity",
+            "session_consciousness_purposes_endpoint": "/sessions/{session_id}/consciousness/purposes",
+            "session_consciousness_episodes_endpoint": "/sessions/{session_id}/consciousness/episodes",
+            "session_consciousness_episode_detail_endpoint": "/sessions/{session_id}/consciousness/episodes/{episode_id}",
+            "session_consciousness_cycle_endpoint": "/sessions/{session_id}/consciousness/cycles",
+            "session_consciousness_pause_endpoint": "/sessions/{session_id}/consciousness/pause",
+            "session_consciousness_resume_endpoint": "/sessions/{session_id}/consciousness/resume",
+            "session_consciousness_percepts_endpoint": "/sessions/{session_id}/consciousness/percepts",
+            "session_consciousness_attention_write_endpoint": "/sessions/{session_id}/consciousness/attention",
+            "session_consciousness_review_endpoint": "/sessions/{session_id}/consciousness/review",
             "connector_inventory_endpoint": "/connectors",
             "connector_request_endpoint": "/connectors/{connector_id}/requests",
             "session_external_actions_endpoint": "/sessions/{session_id}/external-actions",
@@ -2034,6 +2350,7 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
         def _read_body(self) -> bytes:
             length = int(self.headers.get("Content-Length", "0") or "0")
             if length > app.config.max_request_bytes:
+                self.rfile.read(length)
                 raise ValueError("Request body exceeds local size limit")
             return self.rfile.read(length)
 
@@ -2127,6 +2444,48 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     participant = parse_qs(parsed.query).get("participant", ["UNKNOWN"])[0]
                     _json_response(self, 200, app.session_memory(session_id, viewer_participant=participant), origin=origin)
                     return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/workspace"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness_workspace(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/attention"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness_attention(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/self"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness_self(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/continuity"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness_continuity(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/purposes"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness_purposes(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/episodes"):
+                    self._authorized()
+                    session_id = parsed.path.split("/")[2]
+                    _json_response(self, 200, app.session_consciousness_episodes(session_id), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and "/consciousness/episodes/" in parsed.path:
+                    self._authorized()
+                    parts = parsed.path.split("/")
+                    session_id = parts[2]
+                    episode_id = parts[5]
+                    _json_response(self, 200, app.session_consciousness_episode(session_id, episode_id), origin=origin)
+                    return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/narrative"):
                     self._authorized()
                     session_id = parsed.path.split("/")[2]
@@ -2219,6 +2578,41 @@ def make_handler(app: EphuxLocalService) -> type[BaseHTTPRequestHandler]:
                     session_id = parsed.path.split("/")[2]
                     payload = self._parse_json()
                     _json_response(self, 200, app.retract_session(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/cycles"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.run_consciousness_cycle(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/pause"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.pause_consciousness(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/resume"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.resume_consciousness(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/purposes"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_consciousness_purpose(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/percepts"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.add_consciousness_percepts(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/attention"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.set_consciousness_attention(session_id, payload), origin=origin)
+                    return
+                if parsed.path.startswith("/sessions/") and parsed.path.endswith("/consciousness/review"):
+                    session_id = parsed.path.split("/")[2]
+                    payload = self._parse_json()
+                    _json_response(self, 200, app.review_consciousness(session_id, payload), origin=origin)
                     return
                 if parsed.path.startswith("/sessions/") and parsed.path.endswith("/review"):
                     session_id = parsed.path.split("/")[2]

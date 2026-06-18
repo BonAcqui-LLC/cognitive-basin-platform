@@ -100,6 +100,8 @@ def test_all_required_endpoints_round_trip(running_service):
     assert capabilities["extension_contract"]["evaluation_lab_endpoint"].endswith("/labs/evaluation")
     assert capabilities["extension_contract"]["natural_math_lab_endpoint"].endswith("/labs/natural-math")
     assert capabilities["extension_contract"]["session_memory_endpoint"].endswith("/memory")
+    assert capabilities["extension_contract"]["session_consciousness_endpoint"].endswith("/consciousness")
+    assert capabilities["extension_contract"]["session_consciousness_cycle_endpoint"].endswith("/consciousness/cycles")
     assert capabilities["extension_contract"]["connector_inventory_endpoint"].endswith("/connectors")
     assert capabilities["extension_contract"]["session_external_actions_endpoint"].endswith("/external-actions")
     assert capabilities["extension_contract"]["session_narrative_endpoint"].endswith("/narrative")
@@ -118,6 +120,123 @@ def test_all_required_endpoints_round_trip(running_service):
     status, body, _ = client.request("GET", f"/sessions/{session_id}", token=client.token)
     assert status == 200
     assert json.loads(body)["session_id"] == session_id
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness", token=client.token)
+    assert status == 200
+    assert json.loads(body)["session_id"] == session_id
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/percepts",
+        {
+            "percepts": [
+                {
+                    "percept_id": "percept-1",
+                    "topic": "branch-readiness",
+                    "content": "branch may be ready",
+                    "source_type": "HUMAN",
+                    "confidence": 0.8,
+                    "salience": 0.7,
+                    "purpose_relevance": 0.9,
+                }
+            ]
+        },
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/purposes",
+        {
+            "purpose_id": "purpose-branch",
+            "description": "verify branch readiness",
+            "source_type": "explicit human request",
+            "source_detail": "pytest",
+            "priority_weight": 1.0,
+            "priority_urgency": 0.8,
+        },
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/attention",
+        {"lock_target_id": "workspace-item-manual", "reason": "pytest"},
+        token=client.token,
+    )
+    assert status == 200
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/cycles",
+        {
+            "claimed_capabilities": {"connector:github": True},
+            "tested_capabilities": {"connector:github": False},
+            "allow_internal_action": False,
+        },
+        token=client.token,
+    )
+    assert status == 200
+    consciousness_cycle = json.loads(body)
+    episode_id = consciousness_cycle["cycle"]["episode_receipt"]["episode"]["episode_id"]
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/workspace", token=client.token)
+    assert status == 200
+    assert "workspace" in json.loads(body)
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/attention", token=client.token)
+    assert status == 200
+    assert "attention" in json.loads(body)
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/self", token=client.token)
+    assert status == 200
+    assert "self_model" in json.loads(body)
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/continuity", token=client.token)
+    assert status == 200
+    assert "continuity" in json.loads(body)
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/purposes", token=client.token)
+    assert status == 200
+    assert "purposes" in json.loads(body)
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/episodes", token=client.token)
+    assert status == 200
+    episodes = json.loads(body)["episodes"]
+    assert episodes
+
+    status, body, _ = client.request("GET", f"/sessions/{session_id}/consciousness/episodes/{episode_id}", token=client.token)
+    assert status == 200
+    assert json.loads(body)["episode"]["episode_id"] == episode_id
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/review",
+        {"requested_by": "pytest"},
+        token=client.token,
+    )
+    assert status == 200
+    assert "review" in json.loads(body)
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/pause",
+        {"reason": "pytest pause"},
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["paused"] is True
+
+    status, body, _ = client.request(
+        "POST",
+        f"/sessions/{session_id}/consciousness/resume",
+        {"reason": "pytest resume"},
+        token=client.token,
+    )
+    assert status == 200
+    assert json.loads(body)["paused"] is False
 
     status, body, _ = client.request(
         "POST",

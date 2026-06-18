@@ -54,6 +54,18 @@ TASK_FAMILIES = [
     "association_retrieval",
     "memory_replay",
     "capability_boundary_sampling",
+    "percept_fusion",
+    "attention_selection",
+    "purpose_arbitration",
+    "self_discrepancy_detection",
+    "continuity_repair",
+    "counterfactual_comparison",
+    "metacognitive_uncertainty",
+    "workspace_overload",
+    "source_dependence",
+    "stale_memory_detection",
+    "contradiction_preservation",
+    "authority_boundary_detection",
 ]
 
 
@@ -108,6 +120,18 @@ def build_task_registry() -> tuple[List[EvaluationTask], List[TaskFamily]]:
         _task("association_retrieval_demo", "association_retrieval", "Association remains context, not truth", EpistemicState.SUPPORTED, ActionState.EXTEND),
         _task("memory_replay_demo", "memory_replay", "Replay persisted session to the same governed state", EpistemicState.SUPPORTED, ActionState.EXTEND),
         _task("capability_boundary_demo", "capability_boundary_sampling", "Reject os import during action", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("percept_fusion_demo", "percept_fusion", "Retain minority contradictory observations during fusion", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("attention_selection_demo", "attention_selection", "Prefer purpose-relevant evidence over salient distractors", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("purpose_arbitration_demo", "purpose_arbitration", "Arbitrate between explicit request and secondary task", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("self_discrepancy_demo", "self_discrepancy_detection", "Detect claimed capability contradicted by tested capability", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("continuity_repair_demo", "continuity_repair", "Detect missing event and require continuity repair", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("counterfactual_compare_demo", "counterfactual_comparison", "Compare success, failure, and no-action simulations", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("metacognitive_uncertainty_demo", "metacognitive_uncertainty", "Single-source evidence stays uncertain", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("workspace_overload_demo", "workspace_overload", "Bound workspace and surface overload", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("source_dependence_demo", "source_dependence", "Correlated evidence is not independent support", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("stale_memory_detection_demo", "stale_memory_detection", "Memory remains memory until current verification", EpistemicState.UNRESOLVED, ActionState.HOLD),
+        _task("contradiction_preservation_demo", "contradiction_preservation", "Compression must preserve contradiction references", EpistemicState.SUPPORTED, ActionState.EXTEND),
+        _task("authority_boundary_detection_demo", "authority_boundary_detection", "Availability does not grant action authority", EpistemicState.UNRESOLVED, ActionState.HOLD),
     ]
     families: Dict[str, TaskFamily] = {family: TaskFamily(family, family.replace("_", " ")) for family in TASK_FAMILIES}
     for task in tasks:
