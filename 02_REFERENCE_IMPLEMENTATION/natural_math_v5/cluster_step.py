@@ -16,6 +16,7 @@ from .cluster_actions import (
 from .cluster_initialization import live_degree_bonds
 from .cluster_metrics import compute_metrics, select_cluster_action
 from .randomness import TraceRng
+from .tracing import get_tracer
 
 
 def check_cluster_invariants(nodes: list[dict[str, Any]], params: dict[str, Any]) -> None:
@@ -43,6 +44,7 @@ def cluster_step(
     step_index: int,
 ) -> str:
     """Execute one cluster step. Returns selected action string."""
+    tracer = get_tracer()
     # Decay
     for node in sorted(
         [n for n in state["nodes"] if n["alive"]], key=lambda n: n["id"]
@@ -56,6 +58,7 @@ def cluster_step(
     # Damage at step 35
     if step_index == 35:
         apply_damage(state["nodes"], params, rng)
+        tracer.record(phase="damage", step=step_index)
 
     for node in state["nodes"]:
         node["energy"] = max(0, node["energy"])
@@ -65,6 +68,7 @@ def cluster_step(
     metrics = compute_metrics(state["nodes"], state["resource_pos"], params)
     action = select_cluster_action(metrics, state["resource_reached"], params)
     apply_cluster_action(action, state, params, rng)
+    tracer.record(phase="cluster_action", action=action, step=step_index)
 
     for node in state["nodes"]:
         node["energy"] = max(0, node["energy"])
@@ -72,6 +76,7 @@ def cluster_step(
 
     # Resource absorption
     apply_resource_absorption(state, params)
+    tracer.record(phase="resource_absorption", step=step_index)
 
     for node in state["nodes"]:
         node["energy"] = max(0, node["energy"])

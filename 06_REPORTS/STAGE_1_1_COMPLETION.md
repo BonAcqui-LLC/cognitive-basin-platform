@@ -1,10 +1,10 @@
-ï»¿# STAGE 1.1 COMPLETION â€” Natural Math v5 Frozen Reference Implementation
+# STAGE 1.1 COMPLETION — Natural Math v5 Frozen Reference Implementation
 
 **Classification: COMPLETE**
 
 Date: 2026-06-23
 Previous commit: 1823a19 (Stage 1 corrected)
-Hardening commit: {COMMIT_HASH}
+Hardening commit: 2327613
 
 ---
 
@@ -30,7 +30,7 @@ No fixture file, expected output, or frozen source was modified.
 
 Every Section 5 parameter constraint tested, including:
 - 38-key exact set, missing/extra parameter rejection
-- 74 integer type-enforcement tests (37 params Ã— 2 invalid types)
+- 74 integer type-enforcement tests (37 params × 2 invalid types)
 - Boolean-only repair_ignores_distance
 - All ordered constraints (tau>0, iota_sq>0, r_sq>iota_sq, eps_*>0, E0>tau, P_bifurcate>0, beta constraints, delta_P constraints, gamma_fallback_ppm range, deficit_strength, bond_distance, max_bonds, all cluster costs/gains, trade rate, repair prob, resource absorb, critical/low/E0 ordering, success distance, Gini fraction, world_size, damage constraints)
 
@@ -61,14 +61,14 @@ No behavioral divergence exists that is not accounted for by documented spec-gap
 
 ## 10. Deterministic Replay Cases Passed: 210/210
 
-- 200 cluster configurations (50 seeds Ã— 4 step counts), each replayed with params=None and explicit params
+- 200 cluster configurations (50 seeds × 4 step counts), each replayed with params=None and explicit params
 - 10 local generated cases
 - All identical on replay; no state leakage; parameter dicts unchanged; node structures independent
 
 ## 11. Trace-Equivalence Cases Passed: 5/5
 
 Operational non-mutating trace wired into run_step (5 phases) and cluster_step (3 phases). Verified:
-- Trace on/off â†’ identical model outputs
+- Trace on/off ? identical model outputs
 - Zero random-draw consumption
 - No ordering changes
 - No exception changes
@@ -94,10 +94,10 @@ All value types verified by conformance test.
 
 ## 14. Remaining Ambiguities
 
-1. Bonded node exclusion from contact computation (Section 11) â€” donor behavior, not in spec
-2. Cluster 80000 bond threshold â€” donor hardcode, not derived from spec parameter
-3. Cluster 55000 energy base vs E0 â€” possible testing convenience
-4. passed diagnostic exact thresholds â€” donor-specific, verification via oracles
+1. Bonded node exclusion from contact computation (Section 11) — donor behavior, not in spec
+2. Cluster 80000 bond threshold — donor hardcode, not derived from spec parameter
+3. Cluster 55000 energy base vs E0 — possible testing convenience
+4. passed diagnostic exact thresholds — donor-specific, verification via oracles
 
 (See 06_REPORTS/stage_1_remaining_ambiguities.md)
 
@@ -109,14 +109,14 @@ No behavioral deviations from frozen v5 specification remain. Phase ordering ver
 
 Stage 1 corrected (Issues 1-10: contract, phase audit, invariant type, sample_two, strict tuple, bonding flag, trace deferral)
 
-## 17. New Hardening Commit: {COMMIT_HASH}
+## 17. New Hardening Commit: 2327613
 
 Stage 1.1 complete: trace operational, 289 conformance tests, 66 donor differential cases, 210 deterministic replay cases, clean review package.
 
 ## 18. Review ZIP
 
 Path: C:\_MASTER_LIBRARY\06_AUTOCLAW_WORKSPACE\natural_math_v5_stage_1_1_independent_review.zip
-SHA256: {ZIP_SHA256}
+SHA256: C6E413496CBA246E910C3604FBB1CCCE82BAF9BBB39E106C6BCBEA464CF580CA
 
 Contents: 02_REFERENCE_IMPLEMENTATION, 04_TESTS, 05_RESULTS, 06_REPORTS, 08_BUILD_LOGS, STAGE_1_REVIEW_MANIFEST.md, STAGE_1_1_REVIEW_MANIFEST.sha256
 

@@ -33,7 +33,7 @@ Internal module structure:
   cluster_step.py           — cluster_step pipeline
   cluster.py                — run_cluster wrapper (Section 22 contract)
   serialization.py          — JSON serialization helpers
-  tracing.py                — trace instrumentation (DEFERRED to Stage 2)
+  tracing.py                — trace instrumentation (operational, wired into run_step and cluster_step)
   provenance.py             — donor attribution records
 
 Deviations from Stage 1 plan:
@@ -41,7 +41,7 @@ Deviations from Stage 1 plan:
   - movement.py: standalone module; core_step uses inline resolution matching donor
   - decisions.py: simplified to fallback_direction only (decision logic inline in core_step)
   - bifurcation.py: apply_bifurcation merged inline into core_step per donor pattern
-  - tracing.py: deferred to Stage 2 (not yet wired into run_step or cluster_step)
+  - tracing.py: implemented and fully wired (non-mutating, zero-overhead when disabled)
 
 Phase ordering verified against spec:
   - core_step.py: matches Section 12 step ordering exactly
@@ -53,12 +53,17 @@ from .core_step import run_step
 from .cluster import run_cluster
 from .errors import NaturalMathValidationError
 from .parameters import default_params
+from .tracing import TraceRecorder, get_tracer, enable_tracing, disable_tracing
 
 __all__ = [
     "run_step",
     "run_cluster",
     "NaturalMathValidationError",
     "default_params",
+    "TraceRecorder",
+    "get_tracer",
+    "enable_tracing",
+    "disable_tracing",
 ]
 __version__ = "1.0.0"
 __spec_sha256__ = "E5AB47D41B82F6AF573866BE637BF3B0054D96C7F45A613EC6CAE2124AD84C7B"

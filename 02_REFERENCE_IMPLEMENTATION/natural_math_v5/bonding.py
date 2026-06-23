@@ -11,6 +11,7 @@ from typing import Any
 
 from .arithmetic import qdist
 from .validation import live_degree
+from .tracing import get_tracer
 
 
 def apply_bonding(
@@ -60,5 +61,7 @@ def apply_bonding(
         total = a["energy"] + b["energy"]
         a["energy"] = total // 2
         b["energy"] = total - a["energy"]
+        tracer = get_tracer()
+        tracer.record(phase="bonding", a_id=a["id"], b_id=b["id"])
         if bond_collapse_positions:
             b["pos"] = a["pos"]

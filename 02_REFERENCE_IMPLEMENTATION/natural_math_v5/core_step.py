@@ -18,6 +18,7 @@ from .pressure import update_pressure
 from .records import is_live, die_inert
 from .arithmetic import qdist, add_pos, inside_world
 from .validation import validate_nodes
+from .tracing import get_tracer
 
 
 def run_step(
@@ -42,6 +43,7 @@ def run_step(
         )
 
     validate_nodes(nodes, params)
+    tracer = get_tracer()
     if not nodes:
         return nodes
 
@@ -90,6 +92,7 @@ def run_step(
                 node, active, params,
                 use_deficit=use_deficit, use_poc_scream=use_poc_scream,
             )
+            tracer.record(phase="gradient", node_id=node["id"], direction=direction)
             if direction != (0, 0, 0):
                 decisions[node["id"]] = ("EXTEND", direction)
             else:
@@ -102,6 +105,9 @@ def run_step(
                     decisions[node["id"]] = ("EXTEND", fallback_direction(node))
                 else:
                     decisions[node["id"]] = ("SENSE", None)
+
+    for node_id, (decision_type, _direction) in decisions.items():
+        tracer.record(phase="decisions", node_id=node_id, decision=decision_type)
 
     by_id = {node["id"]: node for node in nodes}
 
@@ -130,6 +136,7 @@ def run_step(
                 all_occupied, reserved_child_positions,
                 mode_allows_bifurcation=not use_poc_scream,
             )
+            tracer.record(phase="bifurcation_check", parent_id=node["id"], can_split=allowed)
             if allowed:
                 assert split_record is not None
                 scheduled_bifurcations.append(split_record)
@@ -167,10 +174,12 @@ def run_step(
             node["pos"] = target
             node["energy"] -= params["eps_extend"]
             successful_directions[nid] = decisions[nid][1]  # type: ignore[assignment]
+            tracer.record(phase="movement", target=target, winner=nid, loser=None)
         for nid in losers:
             node = by_id[nid]
             node["energy"] = max(0, node["energy"] - params["eps_sense"])
             node["pressure"] += params["delta_P_conflict"]
+            tracer.record(phase="movement", target=target, winner=None, loser=nid)
             if node["energy"] < params["tau"]:
                 die_inert(node)
 
@@ -224,11 +233,26 @@ def run_step(
         nodes.extend([child_1, child_2])
         by_id[child_1["id"]] = child_1
         by_id[child_2["id"]] = child_2
+        tracer.record(
+            phase="bifurcation_apply",
+            parent_id=split_record["parent_id"],
+            child_1_id=child_1["id"],
+            child_2_id=child_2["id"],
+        )
         next_id += 2
 
     # Phase: pressure update (Section 16)
     # IMPORTANT: delta_P_baseline is added HERE, not in movement phase
+    pressures_before = {node["id"]: node["pressure"] for node in nodes}
     update_pressure(nodes, params)
+    for node in nodes:
+        pb = pressures_before.get(node["id"], 0)
+        tracer.record(
+            phase="pressure",
+            node_id=node["id"],
+            pressure_before=pb,
+            pressure_after=node["pressure"],
+        )
 
     # Phase: bonding (Section 17, optional)
     if allow_bonding:

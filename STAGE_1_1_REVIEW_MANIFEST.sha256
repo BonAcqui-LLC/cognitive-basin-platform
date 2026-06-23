@@ -1,0 +1,28 @@
+﻿# STAGE 1.1 REVIEW MANIFEST
+Generated: 2026-06-23
+Package: natural_math_v5_stage_1_1_independent_review.zip
+Git commit: 2327613
+Python: 3.13.12
+OS: Windows_NT 10.0.19045 x64
+
+## Frozen Authority
+01_CANON\01_NATURAL_MATH_V5\Natural Math v5 - Status Frozen Int.txt
+  SHA256: E5AB47D41B82F6AF573866BE637BF3B0054D96C7F45A613EC6CAE2124AD84C7B
+
+## Oracle Results
+ORIGINAL LOCAL ORACLES:   25/25
+ORIGINAL CLUSTER ORACLES: 15/15
+ORIGINAL TOTAL:           40/40
+
+## Test Accounting
+Original fixture tests:              40
+Specification-conformance tests:     289 (200 params + 50 local + 39 cluster)
+Trace-equivalence tests:               5
+Donor-differential cases:             66 (60 match + 6 expected divergences)
+Deterministic replay cases:          210 (200 cluster + 10 local)
+TOTAL TESTS/CASES:                   610
+
+All tests and cases pass. 6 expected donor divergences (all clean-package-authoritative).
+
+## Classification
+COMPLETE — Stage 2 may safely begin.
