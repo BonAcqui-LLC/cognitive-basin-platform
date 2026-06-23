@@ -1,0 +1,30 @@
+﻿# Build Commands Log — Stage 1
+
+## Verification
+```
+python --version                          # Python 3.13.12
+Get-FileHash frozen_v5_spec SHA256        # E5AB47D4... verified
+Get-FileHash integer_runner SHA256        # 31BF3018...
+Get-FileHash cluster_runner SHA256        # F823FA9E...
+```
+
+## Package Creation
+All source files written to: C:\_MASTER_LIBRARY\06_AUTOCLAW_WORKSPACE\02_REFERENCE_IMPLEMENTATION\natural_math_v5\
+
+## Import Test
+```
+cd workspace; python -c "import sys; sys.path.insert(0,'02_REFERENCE_IMPLEMENTATION'); import natural_math_v5"
+```
+Result: import OK, version 1.0.0, all 4 public exports verified.
+
+## Oracle Tests
+```
+python _test_oracles.py    # 25/25 integer fixtures   PASS
+python _run_cluster_fx.py  # 2/2 init + 4/4 run       PASS
+```
+Total: 31/31 oracles PASS. No fixture files modified.
+
+## Git
+```
+git init --initial-branch=main
+```
