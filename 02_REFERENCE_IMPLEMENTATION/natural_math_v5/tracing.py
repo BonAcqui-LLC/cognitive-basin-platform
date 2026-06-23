@@ -1,46 +1,6 @@
-﻿"""Natural Math v5 reference implementation — optional trace instrumentation.
+﻿"""Natural Math v5 reference implementation — trace instrumentation (DEFERRED).
 
-Frozen spec: trace mode must not alter model state, consume draws, or change outputs.
+Trace instrumentation is deferred for Stage 2. The TraceRecorder class
+and its wiring into run_step / cluster_step will be implemented as a
+non-mutating, zero-overhead-when-disabled feature in a future stage.
 """
-
-from __future__ import annotations
-
-from typing import Any
-
-
-class TraceRecorder:
-    """Optional trace recorder. Disabled by default, zero overhead when off.
-
-    Trace mode records: phase, node_id, decision, target, energy before/after,
-    pressure before/after, random draws, bifurcation scheduling,
-    movement conflict results, bond formation, cluster actions, resource transfers.
-    """
-
-    def __init__(self) -> None:
-        self.enabled: bool = False
-        self.records: list[dict[str, Any]] = []
-
-    def enable(self) -> None:
-        self.enabled = True
-        self.records = []
-
-    def disable(self) -> None:
-        self.enabled = False
-
-    def record(self, entry: dict[str, Any]) -> None:
-        if self.enabled:
-            self.records.append(dict(entry))
-
-    def get_records(self) -> list[dict[str, Any]]:
-        return list(self.records)
-
-    def clear(self) -> None:
-        self.records = []
-
-
-# Global singleton for module-level use
-_tracer = TraceRecorder()
-
-
-def get_tracer() -> TraceRecorder:
-    return _tracer

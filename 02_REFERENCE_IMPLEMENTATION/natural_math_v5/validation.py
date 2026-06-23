@@ -1,4 +1,4 @@
-﻿"""Natural Math v5 reference implementation — validation.
+"""Natural Math v5 reference implementation — validation.
 
 Frozen spec: Section 6 (Validation Rules), Section 6A (Runtime Invariants)
 """
@@ -15,7 +15,11 @@ from .parameters import DEFAULT_PARAMS, validate_params
 
 
 def as_tuple3(value: Any, field_name: str) -> tuple[int, int, int]:
-    """Validate a 3-integer tuple. Section 6."""
+    """Validate a 3-integer tuple. Section 6.
+
+    Accepts both lists and tuples for backward compatibility with
+    test helpers that convert JSON fixtures before calling run_step.
+    """
     if not isinstance(value, (list, tuple)) or len(value) != 3:
         raise NaturalMathValidationError(
             f"Section 6 {field_name}: must be 3-integer tuple"
@@ -26,6 +30,24 @@ def as_tuple3(value: Any, field_name: str) -> tuple[int, int, int]:
             f"Section 6 {field_name}: must be 3-integer tuple"
         )
     return result  # type: ignore[return-value]
+
+
+def as_tuple3_strict(value: Any, field_name: str) -> tuple[int, int, int]:
+    """Validate a 3-integer tuple. Section 6. Rejects lists.
+
+    The model requires tuples for pos and direction. JSON fixture
+    deserialization must convert lists to tuples BEFORE calling run_step.
+    This is a test helper responsibility, not model responsibility.
+    """
+    if not isinstance(value, tuple) or len(value) != 3:
+        raise NaturalMathValidationError(
+            f"Section 6 {field_name}: must be 3-integer tuple (got {type(value).__name__})"
+        )
+    if any(type(v) is not int for v in value):
+        raise NaturalMathValidationError(
+            f"Section 6 {field_name}: all elements must be int"
+        )
+    return value
 
 
 def validate_nodes(nodes: list[dict[str, Any]], params: dict[str, Any]) -> None:
@@ -53,8 +75,8 @@ def validate_nodes(nodes: list[dict[str, Any]], params: dict[str, Any]) -> None:
             raise NaturalMathValidationError("Section 6 id: duplicate id")
         ids.add(nid)
 
-        node["pos"] = as_tuple3(node["pos"], "pos")
-        node["direction"] = as_tuple3(node["direction"], "direction")
+        node["pos"] = as_tuple3_strict(node["pos"], "pos")
+        node["direction"] = as_tuple3_strict(node["direction"], "direction")
         if node["direction"] not in DIRECTIONS_WITH_ZERO:
             raise NaturalMathValidationError("Section 6 direction: invalid direction")
 

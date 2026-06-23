@@ -5,7 +5,7 @@ SHA256: E5AB47D41B82F6AF573866BE637BF3B0054D96C7F45A613EC6CAE2124AD84C7B
 
 Public API:
   run_step(nodes, params, *, use_deficit=False, ...) -> list[dict]
-  run_cluster(seed, params=None, steps=140) -> dict
+  run_cluster(seed, params=None, steps=140) -> dict  (Section 22 contract)
   NaturalMathValidationError
   default_params
 
@@ -19,7 +19,7 @@ Internal module structure:
   parameters.py   — DEFAULT_PARAMS, validate_params, default_params()
   arithmetic.py   — qdist, sign, dot, add_pos, inside_world
   randomness.py   — TraceRng, sample_two
-  validation.py   — validate_nodes, check_invariants, live_degree
+  validation.py   — validate_nodes, check_invariants, live_degree, as_tuple3_strict
   gradient.py     — gradient_direction, deficit
   decisions.py    — fallback_direction
   movement.py     — resolve_movement (standalone; core_step has inline)
@@ -31,9 +31,9 @@ Internal module structure:
   cluster_metrics.py        — compute_metrics, connected_components, etc.
   cluster_actions.py        — seek, redistribute, repair, rest, absorb, damage
   cluster_step.py           — cluster_step pipeline
-  cluster.py                — run_cluster wrapper
+  cluster.py                — run_cluster wrapper (Section 22 contract)
   serialization.py          — JSON serialization helpers
-  tracing.py                — optional trace recorder
+  tracing.py                — trace instrumentation (DEFERRED to Stage 2)
   provenance.py             — donor attribution records
 
 Deviations from Stage 1 plan:
@@ -41,8 +41,12 @@ Deviations from Stage 1 plan:
   - movement.py: standalone module; core_step uses inline resolution matching donor
   - decisions.py: simplified to fallback_direction only (decision logic inline in core_step)
   - bifurcation.py: apply_bifurcation merged inline into core_step per donor pattern
-  - cluster output format: matches donor summarize_cluster_result shape (not Section 22 exact)
-  - Phase ordering: now matches donor exactly rather than Section 12 document ordering
+  - tracing.py: deferred to Stage 2 (not yet wired into run_step or cluster_step)
+
+Phase ordering verified against spec:
+  - core_step.py: matches Section 12 step ordering exactly
+  - cluster_step.py: matches Section 19 step ordering exactly
+  - See 06_REPORTS/stage_1_phase_order_audit.md for detailed audit
 """
 
 from .core_step import run_step

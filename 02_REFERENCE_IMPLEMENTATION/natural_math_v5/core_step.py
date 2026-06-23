@@ -40,10 +40,6 @@ def run_step(
         raise NaturalMathValidationError(
             "Section 6 runtime flags: use_deficit and use_poc_scream conflict"
         )
-    if (bond_collapse_positions or bonding_strict) and not allow_bonding:
-        raise NaturalMathValidationError(
-            "Section 17 bonding flags: collapse/strict require allow_bonding"
-        )
 
     validate_nodes(nodes, params)
     if not nodes:

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from .errors import NaturalMathValidationError
 from .cluster_actions import (
     apply_damage, apply_resource_absorption, apply_cluster_action, kill_below_tau,
 )
@@ -20,19 +21,19 @@ from .randomness import TraceRng
 def check_cluster_invariants(nodes: list[dict[str, Any]], params: dict[str, Any]) -> None:
     ids = [node["id"] for node in nodes]
     if len(ids) != len(set(ids)):
-        raise ValueError("duplicate cluster node id")
+        raise NaturalMathValidationError("Section 6A cluster: duplicate cluster node id")
     by_id = {node["id"]: node for node in nodes}
     live_by_id = {node["id"]: node for node in nodes if node["alive"]}
     for node in nodes:
         for bonded_id in list(node["bonds"]):
             if bonded_id not in by_id:
-                raise ValueError("bond points to absent id")
+                raise NaturalMathValidationError("Section 6A cluster: bond points to absent id")
             if node["alive"] and bonded_id in live_by_id and node["id"] not in by_id[bonded_id]["bonds"]:
-                raise ValueError("live bond is not symmetric")
+                raise NaturalMathValidationError("Section 6A cluster: live bond is not symmetric")
         if node["alive"] and live_degree_bonds(node, live_by_id) > params["max_bonds"]:
-            raise ValueError("live node exceeds max live bonds")
+            raise NaturalMathValidationError("Section 6A cluster: live node exceeds max live bonds")
         if node["alive"] and node["energy"] < params["tau"]:
-            raise ValueError("live node below tau")
+            raise NaturalMathValidationError("Section 6A cluster: live node below tau")
 
 
 def cluster_step(
