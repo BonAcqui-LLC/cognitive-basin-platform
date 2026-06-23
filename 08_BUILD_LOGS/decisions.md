@@ -52,3 +52,35 @@ Placing in initialization avoids circular imports.
 **Rationale**: Oracle fixtures encode donor-specific behavior beyond written spec.
 Following donor ensures fixture compatibility. Validation is the one area where
 extending beyond donor improves compliance without breaking fixtures.
+
+## Stage 2 — Extension Harness
+
+### 10. Adapter Architecture
+**Decision**: Implement separate local_adapter and cluster_adapter rather than a unified adapter.
+**Rationale**: Local (run_step) and cluster (run_cluster) have different lifecycle phases.
+Separate adapters allow cluster-specific hooks (AFTER_CLUSTER_ACTION_SELECTION, etc.)
+without complicating the local adapter.
+
+### 11. Hook Dispatch Error Handling
+**Decision**: Catch exceptions from extension hooks and log as ERROR events rather than propagating.
+**Rationale**: A misbehaving extension should not crash the entire run. Extensions are
+observers by contract; their failures should be observable without disrupting the system.
+
+### 12. Non-HookResult Return Handling
+**Decision**: Adapter records the type name of whatever the extension returns without validation.
+**Rationale**: The adapter layer prioritizes robustness — it should not crash because an
+extension returned something unexpected. `validate_hook_result()` is available as a
+separate utility for pre-flight checks.
+
+### 13. Cluster Pipeline Reimplementation
+**Decision**: `run_cluster_through_harness` reimplements the cluster pipeline step-by-step
+rather than wrapping `cluster_step`.
+**Rationale**: The harness needs to interleave snapshots and hook dispatches between
+sub-steps (decay, damage, action selection, action application, resource absorption,
+invariants). Wrapping `cluster_step` would prevent hook visibility into these sub-steps.
+
+### 14. State Isolation via Deep Copy
+**Decision**: StateStore deep-copies state on `set_state()` but returns shallow copies on `get_state()`.
+**Rationale**: Deep-copy on write guarantees stored state is immutable. Shallow copy on read
+is sufficient for scalar/string top-level values and avoids excessive copying.
+Nested mutable values share references—documented as a caveat for extensions.

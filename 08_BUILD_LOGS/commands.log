@@ -28,3 +28,29 @@ Total: 31/31 oracles PASS. No fixture files modified.
 ```
 git init --initial-branch=main
 ```
+
+## Stage 2 — Extension Harness Testing
+### All Mode Oracle Comparison
+```
+Set-Location C:\_MASTER_LIBRARY\06_AUTOCLAW_WORKSPACE
+python _stage2_oracle_runner.py
+```
+Result: 40/40 oracles PASS in all 3 modes (120/120 runs)
+       200/200 deterministic equivalence runs PASS
+
+### Performance Measurement
+```
+python _stage2_perf.py
+```
+Result: BASELINE 0.0246s, HARNESS_NO_EXTENSIONS 0.3479s, HARNESS_WITH_EXTENSIONS 0.3542s
+
+### All Unit Tests
+```
+python 04_TESTS/extension_harness/test_core.py               # 28/28 PASS
+python 04_TESTS/extension_harness/test_adapters.py            # 46/46 PASS
+python 04_TESTS/extension_harness/test_mutation_resistance.py # 12/12 PASS
+python 04_TESTS/extension_harness/test_state_isolation.py     # 8/8 PASS
+python 04_TESTS/extension_harness/test_rng_equivalence.py     # 6/6 PASS
+python 04_TESTS/extension_harness/test_trace_compatibility.py # 7/7 PASS
+```
+Total: 107/107 tests PASS

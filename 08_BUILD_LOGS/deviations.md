@@ -51,3 +51,30 @@ E0 is a local-core parameter; cluster uses its own energy model.
 **Actual**: 80000/1000000 (8%) threshold for PPM bond draws
 **Reason**: Donor hardcodes 80000 as the bond formation threshold during init.
 This is a cluster-internal constant, not derived from any spec parameter.
+
+## Stage 2 — Extension Harness
+
+### 9. Cluster Adapter Reimplements Pipeline
+**Planned**: Wrap existing `cluster_step` function through harness hooks.
+**Actual**: Full reimplementation of cluster step pipeline in `cluster_adapter.py`.
+**Reason**: The harness needs to interleave defensive snapshots and hook dispatches
+between sub-steps (decay, kill, damage, action selection, action application,
+resource absorption, invariants). A simple wrapper around `cluster_step` would
+not provide the granularity needed for extension observation hooks.
+
+### 10. Performance Overhead
+**Planned**: Negligible harness overhead (< 5%).
+**Actual**: ~1300% overhead in harness modes vs baseline.
+**Reason**: The harness creates deep copies (snapshots) of the entire node state
+at every hook point. For 140 steps with 5 hook points per step, this means
+700+ deep copy operations. This is by design — correctness and isolation are
+prioritized over performance. The baseline mode remains available for
+performance-sensitive work.
+
+### 11. Hook Result Validation
+**Planned**: Hook results validated inline during dispatch.
+**Actual**: Adapter records result types without validation; `validate_hook_result`
+available as separate utility.
+**Reason**: The adapter should not crash the run due to a misbehaving extension.
+The validation utility is available for pre-flight and post-hoc checking.
+This follows the principle of "be robust in what you accept, strict in what you test."
