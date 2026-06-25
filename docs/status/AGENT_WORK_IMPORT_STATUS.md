@@ -51,6 +51,73 @@
 - `docs/provenance/agent-work-import-audit.md`
 - `ops/manifests/agent-work-sha256.txt`
 
+## Post-Import Verification
+
+### Destination Repository
+
+- Post-import destination test command:
+  `C:\Users\moop\AppData\Local\Programs\Python\Python312\python.exe -B -m pytest -q C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\cognitive-basin-platform-import-2026-06`
+- Post-import destination test result: `529 passed, 23 failed, 28 warnings`
+- Regression status relative to pre-import baseline: no new failures; the same 23 repository failures remain, while imported AutoClaw and agent-work checks increased the passing count
+
+### Imported-Work Validation
+
+- Repository import verification test:
+  `tests/test_agent_work_import.py`
+- Verified conditions:
+  - import inventory includes Grok, AutoClaw, Z.ai, Kimi, exclusion, and conflict rows
+  - imported AutoClaw source commits are reachable in destination history
+  - destination tag `autoclaw-natural-math-v5-reference-1.0` maps to imported commit `28ffa5974b5fd157982f36fdb1189ac9d1fb6acb`
+  - no nested `.git` directory was imported
+  - the external AutoClaw handoff ZIP was recorded by checksum but not duplicated into repository content
+
+### AutoClaw Source Validation
+
+- Stage 1.1 conformance:
+  `292 passed in 0.77s`
+- Trace equivalence:
+  `5 passed in 0.09s`
+- Stage 2 extension harness:
+  `107 passed in 0.58s`
+- RNG equivalence:
+  `6 passed in 0.10s`
+- Mutation resistance:
+  `12 passed in 0.11s`
+- State isolation:
+  `8 passed in 0.10s`
+- Preserved pytest warning boundary:
+  `28 PytestReturnNotNoneWarning` warnings from imported AutoClaw `test_core.py`; preserved as existing source behavior rather than hidden
+
+### Redirected Read-Only Script Validation
+
+- Original oracle runner:
+  return code `0`; local and cluster fixtures completed; results redirected into `ops/verification/agent-work/autoclaw-safe/original_oracle/`
+- Donor differential:
+  return code `0`; `66` total cases, `60` matching, `6` diverging, `6` diverging but correct
+- Deterministic replay:
+  return code `0`; summary reported `0` failures
+- Stage 2 oracle comparison:
+  return code `0`; `200/200` deterministic equivalence matches
+
+### Security And Size Checks
+
+- Tooling scan availability:
+  `gitleaks` not installed; `trufflehog` not installed
+- Fallback filename scan:
+  only the repository's intentional scanner policy files matched broad credential-name patterns
+- Fallback content scan:
+  no credential-like secrets matched the stricter patterns for GitHub tokens, private keys, `password=`, `api_key:`, or `auth_token:`
+- Largest imported files are well below GitHub's normal size limits; the largest imported file observed was `imports/autoclaw-natural-math-workspace/natural_math_v5_stage_1_1_review.zip` at about `0.32 MB`
+- The preserved external AutoClaw handoff ZIP remains outside normal Git history and is tracked by SHA256 instead
+
+### Source Workspace Stability
+
+- AutoClaw source tracked modifications before and after validation remained the same three generated-file edits:
+  - `05_RESULTS/extension_harness/deterministic_mode_comparison.json`
+  - `05_RESULTS/extension_harness/original_oracle_mode_comparison.json`
+  - `06_REPORTS/stage_2_performance_report.md`
+- No additional tracked source mutations were introduced by the verification pass
+
 ## Planned Commit Sequence
 
 1. `chore: add agent-work import inventory and provenance plan`

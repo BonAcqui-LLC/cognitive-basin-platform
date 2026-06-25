@@ -7,6 +7,7 @@
 - Imported source HEAD: `ef0d0b6b0ae1fea0f035fc2a36bffe75f86306f9`
 - Imported subtree prefix: `imports/autoclaw-natural-math-workspace/`
 - Preserved frozen reference tag target: `natural-math-v5-reference-1.0` -> `28ffa5974b5fd157982f36fdb1189ac9d1fb6acb`
+- Mapped destination-repository tag: `autoclaw-natural-math-v5-reference-1.0`
 - Verified frozen Natural Math source SHA256: `E5AB47D41B82F6AF573866BE637BF3B0054D96C7F45A613EC6CAE2124AD84C7B`
 - Preserved external handoff ZIP SHA256: `758F59126E14743ADEEF9DC0097043F891AA239774DF185C950D03FA7688198C`
 
