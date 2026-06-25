@@ -195,6 +195,7 @@ def main() -> None:
         "AUTOCLAW_KNOWN_STALE_REPORTS.md",
         "AUTOCLAW_CONTINUATION_START_POINT.md",
         "AUTOCLAW_COMPLETION_RECEIPT.json",
+        "run_autoclaw_audit.py",
         "autoclaw_workspace_handoff.zip",
     ]
     for name in handoff_files:

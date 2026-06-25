@@ -1,0 +1,6 @@
+f4177b8db08f7fa564545373b90f03aa83d28772	2026-06-23 06:39:47 -0400	stage-1-v5-reference-implementation: 31/31 oracles pass, clean importable package
+3a945e5b63889843d8cc5f848e6460992dc18177	2026-06-23 07:16:28 -0400	stage-1-correction: Issues 1-8 fixed, 40/40 oracles, strict contract, phase audit, added .gitignore
+1823a1906c562266c7bcc7efd1c9768b6a00b004	2026-06-23 07:17:49 -0400	stage-1-completion-report: corrected classification, 40/40, manifest, ambiguities
+2327613259fa427c96c12c87093129050e1b1f74	2026-06-23 12:53:40 -0400	stage-1.1-reports: completion report, parameter matrix, all result files
+28ffa5974b5fd157982f36fdb1189ac9d1fb6acb	2026-06-23 12:55:13 -0400	stage-1.1-v5-hardening-complete: operational trace, 289 conformance tests, 66 donor differential, 210 deterministic replay, 40/40 oracles, clean review ZIP
+ef0d0b6b0ae1fea0f035fc2a36bffe75f86306f9	2026-06-23 16:13:55 -0400	stage-2-extension-harness-complete: 18 modules, 107 tests, 40/40 oracles all-modes, baseline byte-identical

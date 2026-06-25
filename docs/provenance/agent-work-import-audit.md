@@ -9,7 +9,7 @@ This inventory covers the verified AutoClaw workspace and handoff bundle, select
 - **EXCLUDE - PERSONAL:** 3
 - **EXCLUDE - SECRET:** 1
 - **EXCLUDE - UNRELATED:** 1
-- **HISTORICAL EVIDENCE:** 16
+- **HISTORICAL EVIDENCE:** 17
 - **IMPORT:** 151
 - **SOURCE NOT FOUND:** 1
 
