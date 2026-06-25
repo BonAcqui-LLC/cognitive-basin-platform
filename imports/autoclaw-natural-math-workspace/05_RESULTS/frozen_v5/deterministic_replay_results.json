@@ -1,0 +1,14 @@
+{
+  "seeds_tested": 50,
+  "step_counts": [
+    0,
+    1,
+    35,
+    140
+  ],
+  "total_configs": 200,
+  "all_deterministic": true,
+  "local_cases": 10,
+  "failures": [],
+  "timestamp": "2026-06-23T16:46:32.490541+00:00"
+}

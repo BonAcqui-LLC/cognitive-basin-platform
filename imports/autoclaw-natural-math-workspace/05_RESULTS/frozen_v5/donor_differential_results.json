@@ -1,0 +1,1217 @@
+{
+  "meta": {
+    "clean_package": "natural_math_v5",
+    "integer_donor": "C:\\_MASTER_LIBRARY\\02_VALIDATION_EVIDENCE\\NATURAL_MATH_V5\\ORACLE_RUNNERS\\natural_math_integer_oracle_runner.py",
+    "cluster_donor": "C:\\_MASTER_LIBRARY\\02_VALIDATION_EVIDENCE\\NATURAL_MATH_V5\\ORACLE_RUNNERS\\natural_math_cluster_oracle_runner.py",
+    "integer_fixtures": "C:\\_MASTER_LIBRARY\\02_VALIDATION_EVIDENCE\\NATURAL_MATH_V5\\ORACLE_FIXTURES\\natural_math_integer_oracle_fixtures.json",
+    "cluster_fixtures": "C:\\_MASTER_LIBRARY\\02_VALIDATION_EVIDENCE\\NATURAL_MATH_V5\\ORACLE_FIXTURES\\natural_math_cluster_oracle_fixtures.json"
+  },
+  "expected_divergence_rules": {
+    "reserved_child_positions": {
+      "description": "Clean package blocks movement into reserved_child_positions; donor does not check reserved_child_positions in blocked test.",
+      "rule": "Section 12 Movement Resolution: reserved_child_positions must block movement.",
+      "clean_authoritative": true
+    },
+    "parameter_validation_complete": {
+      "description": "Clean validate_params checks all 32 parameters exhaustively; donor checks only a subset (tau, iota_sq, r_sq, E0, gamma_fallback_ppm, repair_ignores_distance type).",
+      "rule": "Section 5 Parameters: all parameter constraints must be enforced.",
+      "clean_authoritative": true
+    },
+    "strict_tuple_validation": {
+      "description": "Clean as_tuple3_strict rejects lists for pos/direction; donor as_tuple3 accepts both lists and tuples.",
+      "rule": "Section 6 Node Validation: pos and direction must be tuples.",
+      "clean_authoritative": true
+    }
+  },
+  "part_a_local": {
+    "summary": {
+      "total": 25,
+      "matching": 25,
+      "diverging": 0,
+      "diverging_but_correct": 0,
+      "diverging_unexpected": 0
+    },
+    "cases": [
+      {
+        "name": "empty_list_returns_empty",
+        "flags": {},
+        "rng_seed": null,
+        "input_node_count": 0,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "energy_below_tau_restrict_dies_before_pressure",
+        "flags": {},
+        "rng_seed": null,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "duplicate_live_position_contact_death",
+        "flags": {},
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "adjacent_live_nodes_sense_and_pressure",
+        "flags": {},
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "integer_gradient_successful_extend",
+        "flags": {},
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "fallback_extend_with_seeded_rng",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "blocked_fallback_target_pays_sense_and_conflict_pressure",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "contested_unblocked_fallback_target_high_energy_wins",
+        "flags": {
+          "rng_seed": 7,
+          "params": {
+            "gamma_fallback_ppm": 1000000,
+            "r_sq": 2
+          }
+        },
+        "rng_seed": 7,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          339563,
+          993908
+        ],
+        "clean_draws": [
+          339563,
+          993908
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bifurcation_successful_split_from_fallback_extend",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bifurcation_pressure_below_threshold_moves_normally",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bifurcation_energy_threshold_must_be_strictly_greater",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bifurcation_child_position_blocked_by_frozen_occupancy",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bifurcation_child_position_outside_boundary_moves_normally",
+        "flags": {
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bifurcation_reserved_child_position_blocks_later_split",
+        "flags": {
+          "rng_seed": 7,
+          "params": {
+            "gamma_fallback_ppm": 1000000,
+            "r_sq": 2
+          }
+        },
+        "rng_seed": 7,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          339563,
+          993908
+        ],
+        "clean_draws": [
+          339563,
+          993908
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bonding_adjacent_pair_forms_after_pressure_and_equalizes_energy",
+        "flags": {
+          "allow_bonding": true
+        },
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bonding_strict_rejects_distance_equal_to_threshold",
+        "flags": {
+          "allow_bonding": true,
+          "bonding_strict": true,
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 0,
+            "r_sq": 2
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354,
+          907796
+        ],
+        "clean_draws": [
+          474354,
+          907796
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bonding_non_strict_allows_distance_equal_to_threshold",
+        "flags": {
+          "allow_bonding": true,
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 0,
+            "r_sq": 2
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354,
+          907796
+        ],
+        "clean_draws": [
+          474354,
+          907796
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bonding_max_live_degree_blocks_extra_pairs",
+        "flags": {
+          "allow_bonding": true,
+          "params": {
+            "max_bonds": 1
+          }
+        },
+        "rng_seed": null,
+        "input_node_count": 3,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bonding_historical_dead_bonds_do_not_count_against_live_capacity",
+        "flags": {
+          "allow_bonding": true,
+          "params": {
+            "max_bonds": 1
+          }
+        },
+        "rng_seed": null,
+        "input_node_count": 6,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "bonding_collapse_positions_keeps_bonded_duplicate_live_nodes_alive",
+        "flags": {
+          "allow_bonding": true,
+          "bond_collapse_positions": true
+        },
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "deficit_mode_can_reverse_gradient_direction",
+        "flags": {
+          "use_deficit": true
+        },
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "deficit_mode_is_zero_when_both_nodes_at_or_above_E0",
+        "flags": {
+          "use_deficit": true
+        },
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "poc_scream_low_energy_neighbor_uses_suffering_strength",
+        "flags": {
+          "use_poc_scream": true
+        },
+        "rng_seed": null,
+        "input_node_count": 2,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "poc_scream_disables_bifurcation_and_extends_normally",
+        "flags": {
+          "use_poc_scream": true,
+          "rng_seed": 11,
+          "params": {
+            "gamma_fallback_ppm": 1000000
+          }
+        },
+        "rng_seed": 11,
+        "input_node_count": 1,
+        "donor_exception": null,
+        "clean_exception": null,
+        "donor_draws": [
+          474354
+        ],
+        "clean_draws": [
+          474354
+        ],
+        "donor_return_identity": true,
+        "clean_return_identity": true,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "name": "validation_rejects_deficit_and_poc_scream_together",
+        "flags": {
+          "use_deficit": true,
+          "use_poc_scream": true
+        },
+        "rng_seed": null,
+        "input_node_count": 0,
+        "donor_exception": "NaturalMathValidationError: Section 6 runtime flags: use_deficit and use_poc_scream conflict",
+        "clean_exception": "NaturalMathValidationError: Section 6 runtime flags: use_deficit and use_poc_scream conflict",
+        "donor_draws": [],
+        "clean_draws": [],
+        "donor_return_identity": null,
+        "clean_return_identity": null,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      }
+    ]
+  },
+  "part_b_cluster": {
+    "summary": {
+      "total": 15,
+      "matching": 15,
+      "diverging": 0
+    },
+    "cases": [
+      {
+        "kind": "initialization",
+        "name": "cluster_seed_3_initialization_summary",
+        "seed": 3,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "initialization",
+        "name": "cluster_seed_11_initialization_summary",
+        "seed": 11,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "cluster_run",
+        "name": "cluster_seed_3_steps_0_exact_result",
+        "seed": 3,
+        "steps": 0,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "cluster_run",
+        "name": "cluster_seed_3_steps_1_exact_result",
+        "seed": 3,
+        "steps": 1,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "cluster_run",
+        "name": "cluster_seed_3_steps_35_damage_gate_exact_result",
+        "seed": 3,
+        "steps": 35,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "cluster_run",
+        "name": "cluster_seed_3_steps_140_exact_result",
+        "seed": 3,
+        "steps": 140,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "action",
+        "name": "cluster_action_policy_seek_moves_toward_resource",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "action",
+        "name": "cluster_action_policy_rest_adds_rest_gain",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "action",
+        "name": "cluster_action_redistribute_transfers_energy_over_live_bond",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "action",
+        "name": "cluster_action_policy_repair_fragmented_adds_first_valid_bond",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "action",
+        "name": "cluster_resource_absorption_shares_integer_energy",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "damage",
+        "name": "cluster_damage_loses_energy_and_breaks_seeded_bonds",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "metrics",
+        "name": "cluster_metrics_empty_state",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "metrics",
+        "name": "cluster_metrics_connected_success_low_gini",
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "metrics",
+        "name": "cluster_metrics_fragmented_high_gini_far_resource",
+        "matched": true,
+        "divergences": []
+      }
+    ]
+  },
+  "part_c_deterministic": {
+    "summary": {
+      "total": 20,
+      "local_total": 10,
+      "local_matching": 10,
+      "local_diverging": 0,
+      "cluster_total": 10,
+      "cluster_matching": 10,
+      "cluster_diverging": 0
+    },
+    "cases": [
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_42",
+        "seed": 42,
+        "rng_seed": 294,
+        "flags": {
+          "use_deficit": true,
+          "use_poc_scream": false,
+          "allow_bonding": true
+        },
+        "num_nodes": 1,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_77",
+        "seed": 77,
+        "rng_seed": 539,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": false
+        },
+        "num_nodes": 3,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_123",
+        "seed": 123,
+        "rng_seed": 861,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": true
+        },
+        "num_nodes": 1,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_555",
+        "seed": 555,
+        "rng_seed": 3885,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": true
+        },
+        "num_nodes": 2,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_999",
+        "seed": 999,
+        "rng_seed": 6993,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": true
+        },
+        "num_nodes": 1,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_1337",
+        "seed": 1337,
+        "rng_seed": 9359,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": false
+        },
+        "num_nodes": 5,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_2024",
+        "seed": 2024,
+        "rng_seed": 14168,
+        "flags": {
+          "use_deficit": true,
+          "use_poc_scream": false,
+          "allow_bonding": false
+        },
+        "num_nodes": 4,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_4096",
+        "seed": 4096,
+        "rng_seed": 28672,
+        "flags": {
+          "use_deficit": true,
+          "use_poc_scream": false,
+          "allow_bonding": false
+        },
+        "num_nodes": 1,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_7777",
+        "seed": 7777,
+        "rng_seed": 54439,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": false
+        },
+        "num_nodes": 2,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_local",
+        "name": "det_local_seed_9999",
+        "seed": 9999,
+        "rng_seed": 69993,
+        "flags": {
+          "use_deficit": false,
+          "use_poc_scream": false,
+          "allow_bonding": true
+        },
+        "num_nodes": 1,
+        "matched": true,
+        "divergences": [],
+        "classification": {
+          "reasons": [],
+          "expected_reasons": [],
+          "unexpected_reasons": [],
+          "is_expected": true,
+          "is_purely_unknown": false
+        }
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_1_steps_2",
+        "seed": 1,
+        "steps": 2,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_2_steps_3",
+        "seed": 2,
+        "steps": 3,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_5_steps_6",
+        "seed": 5,
+        "steps": 6,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_8_steps_9",
+        "seed": 8,
+        "steps": 9,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_13_steps_4",
+        "seed": 13,
+        "steps": 4,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_21_steps_2",
+        "seed": 21,
+        "steps": 2,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_34_steps_5",
+        "seed": 34,
+        "steps": 5,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_55_steps_6",
+        "seed": 55,
+        "steps": 6,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_89_steps_10",
+        "seed": 89,
+        "steps": 10,
+        "matched": true,
+        "divergences": []
+      },
+      {
+        "kind": "det_cluster",
+        "name": "det_cluster_seed_144_steps_5",
+        "seed": 144,
+        "steps": 5,
+        "matched": true,
+        "divergences": []
+      }
+    ]
+  },
+  "part_d_divergence_triggers": {
+    "summary": {
+      "total": 6,
+      "non_diverging": 0,
+      "diverging_detected": 6
+    },
+    "cases": [
+      {
+        "test": "reserved_child_positions_blocking",
+        "description": "Clean blocks movement into reserved child positions; donor does not",
+        "rule": "Section 12 Movement Resolution",
+        "bifurcation_check_match": true,
+        "bifurcation_donor": "False/False",
+        "bifurcation_clean": "False/False",
+        "target": [
+          1,
+          0,
+          0
+        ],
+        "reserved_positions": [
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "donor_blocks": false,
+        "clean_blocks": true,
+        "divergence_detected": true,
+        "donor_result": "allows movement (not blocked)",
+        "clean_result": "blocks movement (reserved)",
+        "explanation": "When a position is reserved for a bifurcation child, the clean package correctly treats it as blocked. The donor only checks all_occupied and world bounds, missing the reserved_child_positions check. This means in the donor, a node can move into a position that will soon be occupied by a bifurcation child, causing position conflicts."
+      },
+      {
+        "test": "parameter_validation_complete",
+        "description": "Clean validates all 32 parameter constraints; donor only validates subset",
+        "rule": "Section 5 Parameters",
+        "violated_param": "eps_extend=0",
+        "donor_passes_validation": true,
+        "clean_passes_validation": false,
+        "donor_validation_message": "",
+        "clean_validation_message": "Section 5 eps_extend: must be > 0",
+        "divergence_detected": true,
+        "donor_result": "accepts eps_extend=0 (no check)",
+        "clean_result": "rejects eps_extend=0: Section 5 eps_extend: must be > 0",
+        "explanation": "The donor's validate_params only checks: tau>0, iota_sq>0 && r_sq>iota_sq, E0>tau, gamma_fallback_ppm in [0,1M], and repair_ignores_distance type. It does NOT check eps_extend>0, eps_sense>0, eps_spawn>0, eps_split>0, P_bifurcate>0, beta_num>=0, beta_den>0, delta_P_baseline>=0, delta_P_conflict>=0, deficit_strength>=0, bond_distance_sq>0, max_bonds>=1, or any cluster-specific constraints (decay_cost, move_cost, rest_gain, etc.). The clean package validates all 32 parameters exhaustively per Section 5."
+      },
+      {
+        "test": "parameter_validation_complete_b",
+        "description": "deficit_strength = -1 passes donor, fails clean",
+        "rule": "Section 5 Parameters",
+        "violated_param": "deficit_strength=-1",
+        "donor_passes_validation": true,
+        "clean_passes_validation": false,
+        "divergence_detected": true
+      },
+      {
+        "test": "parameter_validation_complete_c",
+        "description": "world_size=5 passes donor, fails clean (must be >= 10)",
+        "rule": "Section 5 Parameters",
+        "violated_param": "world_size=5",
+        "donor_passes_validation": true,
+        "clean_passes_validation": false,
+        "divergence_detected": true
+      },
+      {
+        "test": "strict_tuple_validation",
+        "description": "Clean requires tuples for pos/direction; donor accepts lists",
+        "rule": "Section 6 Node Validation",
+        "donor_accepts_list_pos": true,
+        "donor_accepts_list_direction": true,
+        "clean_rejects_list_pos": true,
+        "clean_rejects_list_direction": true,
+        "clean_rejection_message": "Section 6 pos: must be 3-integer tuple (got list)",
+        "donor_result": "accepts list-typed pos and direction",
+        "clean_result": "rejects list-typed inputs: Section 6 pos: must be 3-integer tuple (got list)",
+        "divergence_detected": true,
+        "explanation": "The donor's as_tuple3 accepts both list and tuple inputs, converting lists to tuples. The clean package's as_tuple3_strict requires actual Python tuple instances. This is intentional: the spec requires tuples for pos and direction, and accepting lists can mask fixture preparation errors (JSON deserialization produces lists, which should be explicitly converted to tuples before calling run_step). This is a test-helper responsibility, not model responsibility."
+      },
+      {
+        "test": "strict_tuple_validation_direction",
+        "description": "Clean rejects list-typed direction; donor accepts",
+        "rule": "Section 6 Node Validation",
+        "donor_accepts": true,
+        "clean_accepts": false,
+        "divergence_detected": true
+      }
+    ]
+  },
+  "overall": {
+    "total_cases_compared": 66,
+    "matching": 60,
+    "diverging": 6,
+    "diverging_but_correct": 6
+  }
+}
