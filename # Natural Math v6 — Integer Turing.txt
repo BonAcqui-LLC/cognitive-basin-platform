@@ -1,0 +1,375 @@
+# Natural Math v6 — Integer Turing Core
+
+**Status:** Integer-only, local-rule, Turing-style state machine.
+
+This version keeps the system discrete, local, and mechanically runnable. It does not use decimal stored values, floating-point gradients, hidden continuous fields, non-local planning, learned behavior, BFS, A*, or outside interpretation.
+
+The system is not required to be binary-only. It may use integer counters, integer grid positions, finite lists, finite sets, exact if/else rules, and discrete random draws.
+
+---
+
+## Core Principle
+
+Every stored numeric value is an integer.
+
+Allowed numeric forms:
+
+* Integer grid positions
+* Integer energy
+* Integer pressure
+* Integer ids
+* Integer counters
+* Integer random draws
+* Integer thresholds
+* Integer step counts
+
+Allowed symbolic forms:
+
+* TRUE / FALSE
+* LEFT / RIGHT / FORWARD / BACK / UP / DOWN / STOP
+* SEED / TIP / BRANCH / INERT / WALL
+* EXTEND / SENSE / RESTRICT / CONSERVE / SPLIT
+
+Not allowed in the base:
+
+* Decimal stored values
+* Floating-point fields
+* Continuous gradients
+* Hidden smoothing
+* Fractions as stored state
+* Non-local planning
+* Global maps
+* Learned behavior
+* BFS
+* A*
+* “AI intuition” outside the written rules
+
+This is Turing-style because the machine reads finite local symbols, integer counters, and finite neighbor records, then applies exact transition rules.
+
+---
+
+## Node Record
+
+Each node has exactly these public fields:
+
+| Field       | Allowed values                              |
+| ----------- | ------------------------------------------- |
+| id          | non-negative integer                        |
+| pos         | integer 3D tuple `(x, y, z)`                |
+| direction   | one of six cardinal directions or `(0,0,0)` |
+| alive       | TRUE / FALSE                                |
+| energy      | non-negative integer                        |
+| pressure    | non-negative integer                        |
+| type        | SEED / TIP / BRANCH / INERT / WALL          |
+| parent_id   | integer id or NONE                          |
+| bonds       | finite set of integer ids                   |
+| signal_type | integer label, default 0                    |
+
+A node may only read local state defined in the rule document.
+
+---
+
+## Movement
+
+Movement is one grid cell in one axis.
+
+Allowed movement directions:
+
+```text
+LEFT    = (-1, 0, 0)
+RIGHT   = ( 1, 0, 0)
+FORWARD = ( 0, 1, 0)
+BACK    = ( 0,-1, 0)
+UP      = ( 0, 0, 1)
+DOWN    = ( 0, 0,-1)
+STOP    = ( 0, 0, 0)
+```
+
+A live node may move at most one cell per step.
+
+A node does not move if:
+
+* it is dead
+* it is blocked
+* its rule selects STOP
+* it lacks enough energy for the selected action
+
+---
+
+## Local Sensing
+
+A node may inspect only written local state.
+
+For nearby nodes or adjacent cells, it may check:
+
+```text
+occupied = TRUE / FALSE
+neighbor_alive = TRUE / FALSE
+neighbor_energy = integer
+neighbor_pressure = integer
+bonded = TRUE / FALSE
+neighbor_type = symbolic node type
+```
+
+A rule may compare integers using exact integer comparison.
+
+Allowed:
+
+```text
+energy < tau
+pressure >= P_bifurcate
+empty_count >= 2
+bond_count < max_bonds
+```
+
+Not allowed:
+
+```text
+decimal gradient
+floating average
+unstated score
+hidden attraction field
+continuous distance field
+```
+
+Squared integer distance may be used:
+
+```text
+Q(p, q) = dx*dx + dy*dy + dz*dz
+```
+
+No square roots are needed.
+
+---
+
+## Energy
+
+Energy is a non-negative integer counter.
+
+Energy changes only by exact written rules.
+
+Examples:
+
+```text
+move: energy -= eps_extend
+sense or blocked move: energy -= eps_sense
+split: energy -= eps_spawn + eps_split
+resource contact: energy += resource_absorb_rate
+rest: energy += rest_gain
+```
+
+After subtraction:
+
+```text
+if energy < 0:
+    energy = 0
+```
+
+Death rule:
+
+```text
+if alive == TRUE and energy < tau:
+    alive = FALSE
+    type = INERT
+```
+
+No decimal energy exists.
+
+No hidden energy exists.
+
+If an extension creates energy from a resource, it must state that the system is open-system.
+
+---
+
+## Pressure
+
+Pressure is a non-negative integer counter.
+
+Pressure changes only by exact written rules.
+
+Example:
+
+```text
+if blocked:
+    pressure += delta_P_conflict
+
+each live step:
+    pressure += delta_P_baseline
+    pressure = integer_div(pressure * beta_num, beta_den)
+```
+
+If division is used, the document must define the exact integer division rule.
+
+No decimal pressure exists.
+
+---
+
+## Decision Rule
+
+A live node acts by exact if/else rules.
+
+Example base decision:
+
+```text
+IF alive == FALSE:
+    DO NOTHING
+
+ELIF energy < tau:
+    DIE
+
+ELIF unbonded live contact is too close:
+    DIE
+
+ELIF pressure >= P_bifurcate AND split positions are available:
+    SPLIT
+
+ELIF local direction rule finds an allowed move:
+    EXTEND one cell
+
+ELIF fallback rule is allowed:
+    EXTEND using stored direction
+
+ELSE:
+    SENSE or CONSERVE
+```
+
+Every branch must be written explicitly.
+
+No behavior exists unless the document says it exists.
+
+---
+
+## Splitting / Bifurcation
+
+A node may split only when the written integer conditions pass.
+
+Example:
+
+```text
+alive == TRUE
+energy > required_split_energy
+pressure >= P_bifurcate
+two child positions are empty
+two child positions are inside bounds
+```
+
+When splitting:
+
+```text
+parent.alive = FALSE
+parent.type = BRANCH
+parent.energy = 0
+child_1.energy = integer_div(remaining_energy, 2)
+child_2.energy = remaining_energy - child_1.energy
+```
+
+This keeps the rule integer-only.
+
+If a future version wants binary child creation where `1` becomes two `1`s, that must be labeled as an open-system binary automaton experiment, not the main integer base.
+
+---
+
+## Bonding
+
+Bonding is local and integer-only.
+
+A bond may form only if the written conditions pass:
+
+```text
+both nodes alive
+both nodes within allowed integer distance
+both below max live bond count
+bond does not already exist
+bonding is enabled
+```
+
+Energy sharing must be exact integer sharing:
+
+```text
+total = a.energy + b.energy
+a.energy = integer_div(total, 2)
+b.energy = total - a.energy
+```
+
+This preserves integer total energy across the bonded pair.
+
+---
+
+## Randomness
+
+Randomness is discrete.
+
+Allowed examples:
+
+```text
+coin_flip = rng.randrange(0, 2)
+draw_ppm = rng.randrange(0, 1000000)
+choice from finite list
+```
+
+Not allowed:
+
+```text
+random decimal
+floating probability field
+unstated random behavior
+```
+
+Every stochastic rule must state when the random call happens.
+
+---
+
+## Step Order
+
+Each step runs in a fixed written order.
+
+Example:
+
+```text
+1. Validate node fields and parameters.
+2. Kill nodes below living threshold.
+3. Build frozen occupancy.
+4. Compute local decisions in ascending id order.
+5. Apply deaths.
+6. Apply sensing / conserving costs.
+7. Schedule movements and splits.
+8. Resolve blocked and contested movement.
+9. Apply successful movement costs.
+10. Apply scheduled splits.
+11. Update pressure.
+12. Apply optional bonding.
+13. Apply optional resource absorption.
+14. Check runtime invariants.
+```
+
+No phase may use information from the future.
+
+No phase may invent behavior not written in the document.
+
+---
+
+## Validation Boundary
+
+A behavior is not part of the base unless:
+
+1. It is written as an integer/local rule.
+2. It has exact input fixtures.
+3. It has exact expected outputs.
+4. It lists random seed and random-call order if stochastic.
+5. It says whether it is closed-system or open-system.
+6. It passes tests against the frozen base.
+7. It receives a new version label if it adds behavior.
+
+Excluded from this base until separately specified and tested:
+
+* trail memory
+* scars
+* roles
+* backing out
+* dead-end escape
+* maze solving
+* reflux
+* global maps
+* learned behavior
+* BFS
+* A*
