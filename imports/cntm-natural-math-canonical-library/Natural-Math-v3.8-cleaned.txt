@@ -1,0 +1,375 @@
+NATURAL MATH
+A Constructive Framework for Local Growth Under Finite Constraints
+Version 3.8.1 - Core Framework - Reference Specification
+Abstract
+Natural Math is a discrete modeling framework for structured growth from recursive local processes under finite resources. It is a specification language: a set of rules precise enough that any compliant implementation will produce the same deterministic behavior, and general enough to model cell growth, network routing, agent navigation, resource allocation, or any other system where things move and grow using only local information under a finite energy budget.
+The framework rests on three core principles - looped update, local agency, and dynamic limits - supported by two proven theorems: closed finite-energy systems terminate in finite steps (Theorem 1), and information propagates locally at a bounded rate (Theorem 2). A complete parameter table, exact pseudocode, explicit helper function definitions, and a Master Update Schedule with numbered phases remove implementation ambiguity.
+Version 3.8 resolves all implementation ambiguities identified through independent implementation review: bifurcation child directions are now fully specified by an explicit lookup table; energy conservation at bifurcation is corrected by fixing the trigger condition; two distinct occupancy sets are defined; Phase 7 snapshot semantics are clarified; helper functions normalize() and norm() are defined; node type transitions are specified; Oracle 6 and Oracle 7 are corrected; a default 3-seed configuration is defined; and REPRODUCE_PROB is added to the parameter table. Version 3.8.1 corrects remaining baseline wording and calibration issues: delta_P_baseline is set to 2.1 so isolated-node steady-state pressure remains below P_bifurcate, Section 1.3 equality behavior is aligned with the numerical tolerance policy, and the baseline bifurcation table's directional polarity is stated explicitly.
+PART ONE: CORE FRAMEWORK
+Modeling Domain
+Natural Math is defined over a locally finite integer lattice. Let L be a discrete integer lattice in 3D space. A system state at time t is:
+S_t = ( A_t, E_t, D_t, P )
+where A_t is the finite set of active sites; E_t assigns energy; D_t assigns direction; and P is the parameter set in Section 1.1.
+The local neighborhood of active site p is:
+N_r(p, t) = { q in A_t : Q(p, q) < r^2 }
+No site can observe or respond to any site outside this neighborhood. This locality constraint makes the framework domain-agnostic: the same rules apply regardless of what the sites represent, provided parameters are scaled consistently (Part Four).
+1.1 Parameter Table
+All parameters with baseline values and valid ranges. The baseline values were established through iterative simulation testing at lambda = 1. They are a calibrated starting point, not universal constants.
+Energy threshold (tau): Baseline 5.0, Range (0, infinity). Notes: Minimum viable energy.
+Contact inhibition (iota): Baseline 1.0, Range (0, infinity). Notes: Stored and compared as iota^2 = 1.
+Sense radius (r): Baseline 25.0, Range (0, infinity). Notes: Stored and compared as r^2 = 625.
+Extension cost (eps_extend): Baseline 5.0, Range (0, E0]. Notes: Energy to move one step.
+Sensing cost (eps_sense): Baseline 1.2, Range (0, E0]. Notes: Energy to SENSE.
+Spawn cost (eps_spawn): Baseline 4.0, Range (0, E0]. Notes: Extra cost at bifurcation.
+Split cost (eps_split): Baseline 9.0, Range (eps_spawn, E0). Notes: Removed before energy divided between children. Structural constraint: eps_split >= eps_spawn.
+Initial energy (E0): Baseline 1600.0, Range (0, infinity). Notes: Energy at creation.
+Pressure threshold (P_bifurcate): Baseline 12.0, Range (0, infinity). Notes: Pressure required to trigger bifurcation.
+Pressure decay (beta): Baseline 0.85, Range (0, 1). Notes: Dimensionless; applied each step.
+Pressure baseline (delta_P_baseline): Baseline 2.1, Range (0, infinity). Notes: Added to all survivors each step. Baseline chosen so steady-state pressure equals 11.9, remaining below P_bifurcate=12.0.
+Conflict pressure (delta_P_conflict): Baseline 5.0, Range (0, infinity). Notes: Added to collision losers.
+Step limit (T_max): Baseline 1000, Range Natural Numbers. Notes: Hard ceiling on steps.
+Bounds (B): Baseline +/-100, -50/+100, +/-50, Range Integer Coordinates. Notes: Kill at boundary.
+Gradient threshold (eta^2): Baseline 0.01, Range (0, infinity). Notes: Minimum ||g||^2 to act on gradient.
+Zero-gradient fallback (gamma_fallback): Baseline 0.3, Range (0, 1]. Notes: Requires fixed seed for reproducibility.
+Epsilon tolerance (eps_tol): Baseline 1e-9, Range (0, 0.001]. Notes: For all float comparisons.
+Reproduce probability (REPRODUCE_PROB): Baseline 0.01, Range (0, 1]. Notes: For REPRODUCE extension (Section 22); not used in the core update schedule.
+Required structural constraints:
+eps_min = min(eps_extend, eps_sense) > 0 (required for Theorem 1).
+eps_split >= eps_spawn (required for bifurcation energy validity).
+Version note: REPRODUCE_PROB is reserved for the REPRODUCE extension (future work) and is not used in the core update schedule.
+1.2 Numerical Tolerance Policy
+All floating-point comparisons use absolute tolerance eps_tol = 1e-9.
+a < b is true if b - a > eps_tol
+a > b is true if a - b > eps_tol
+a == b is true if |a - b| <= eps_tol
+1.3 Boundary Case Decision Table
+Condition (energy < tau): Operation (<), Behavior on equality (NOT restricted according to numerical tolerance policy), Fall-through (Continue to EXTEND check if energy is equal or greater).
+Condition (min_q < iota^2): Operation (<), Behavior on equality (NOT restricted), Fall-through (Continue to EXTEND check).
+Condition (min_q > iota^2): Operation (>), Behavior on equality (NOT extended), Fall-through (Go to SENSE check).
+Condition (g_norm_sq > eta^2): Operation (>), Behavior on equality (NOT extended), Fall-through (Check zero-gradient fallback).
+Condition (g_norm_sq <= eta^2): Operation (<=), Behavior on equality (Trigger fallback), Fall-through (Random EXTEND with prob gamma_fallback).
+Complete decision flow sequence:
+START -> Check if energy < tau. If YES, RESTRICT (-1). If NO, check if min_q < iota^2. If YES, RESTRICT (-1). If NO (including equality), check if min_q > iota^2. If NO (equality), go to SENSE check. If YES, check if g_norm_sq > eta^2. If YES, EXTEND (+1). If NO (including equality and zero), check if random() < gamma_fallback. If YES, EXTEND (+1) in random direction. If NO, check if energy >= tau. If YES, SENSE (0). If NO, RESTRICT (-1).
+Core Principles
+Principle 1 - Loop: S_{t+1} = Phi(S_t). No memory beyond current state.
+Principle 2 - Local Agency: No update uses nonlocal information. Each site updates using only information within radius r. This makes the framework portable across domains.
+Principle 3 - Dynamic Limits: A site cannot extend indefinitely. If energy < tau or proximity < iota^2, it becomes restricted. Energy is finite and every active non-terminal update consumes some.
+Principle 4 - Simultaneous Decisions: All decisions in Phase 4 are computed from the same Phase 3 snapshot. No decision sees the effects of any other decision in the same step. Phase 7 gradient computation also uses the Phase 3 snapshot.
+Theorems
+Theorem 1: Closed-System Termination
+Let a Natural Math process have finite initial total energy E_tot(0) < infinity. Assume no external energy enters, every active non-terminal update consumes at least eps_min = min(eps_extend, eps_sense) > 0, and energy costs are applied before movement. Then the process reaches a terminal state in at most N_max <= Floor( E_tot(0) / eps_min ) active updates.
+Proof: Each active non-terminal update reduces total energy by at least eps_min. Bifurcation is a terminal update for the parent (parent becomes branch/inactive). The corrected bifurcation trigger (Section 6) ensures that after paying all costs, children receive energy that does not exceed what the parent had. Total energy is finite and non-increasing.
+Theorem 2: Local Information Bound
+Assume every active site updates using only information within neighborhood radius r. Then no site can acquire information about an event at distance D in fewer than Ceiling(D/r) update steps.
+Proof: Information propagates at most one neighborhood radius per update. After n updates, information can influence only sites within distance n * r of its origin. To reach distance D requires n * r >= D, hence n >= Ceiling(D/r).
+Rational Geometry and Helper Functions
+Natural Math uses quadrance (squared Euclidean distance) instead of Euclidean distance. This avoids square roots, keeps all geometry in integers, and makes all distance comparisons exact.
+Q(p1, p2) = (p1_x - p2_x)^2 + (p1_y - p2_y)^2 + (p1_z - p2_z)^2
+All sense radius and contact inhibition thresholds are stored and compared as squared values (r^2, iota^2). All floating-point equality comparisons use eps_tol.
+4.1 Helper Function Definitions
+def norm(v):
+return sqrt(v(0)**2 + v(1)**2 + v(2)**2)
+def normalize(v):
+n = norm(v)
+if n < eps_tol:
+return (0.0, 0.0, 0.0)
+return (v(0)/n, v(1)/n, v(2)/n)
+Energy Dynamics
+5.1 Cost Function kappa(T)
+kappa(+1) = eps_extend (EXTEND)
+kappa(0) = eps_sense (SENSE)
+kappa(-1) = E_{p,t} (RESTRICT: consume all remaining energy)
+5.2 Energy Accounting Identity (Closed System)
+E_tot(t+1) = E_tot(t) - Sum over active sites of kappa(T_{p,t})
+Energy is never negative. If a cost would exceed current energy, the node RESTRICTs instead.
+5.3 Bifurcation Energy Split
+When a parent node bifurcates:
+E_child = ( E_parent - eps_extend - eps_spawn - eps_split ) / 2
+Order of operations: Parent pays eps_extend + eps_spawn. E_parent_remaining = E_parent - (eps_extend + eps_spawn). E_child = (E_parent_remaining - eps_split) / 2. Two children created with E_child each. Parent energy set to 0; parent becomes type = 'branch', alive = False. The max(..., tau) clamp has been removed.
+Pressure Dynamics and Bifurcation
+Pressure accumulates at sites that are blocked or in conflict, and decays each step.
+Pressure update formula (Phase 10, all survivors):
+P_{p,t+1} = ( P_{p,t} + delta_P_baseline ) * beta
+Pressure accounting rules: Nodes that die do NOT receive a pressure update. SENSE does not add pressure beyond the Phase 10 baseline. Conflict losers receive delta_P_conflict immediately in Phase 8, before Phase 10. New bifurcation children receive their first pressure update on the following step. Pressure is never negative.
+Bifurcation trigger condition:
+P_{p,t} >= P_bifurcate AND E_{p,t} > eps_extend + eps_spawn + eps_split + 2 * tau
+At baseline values, this minimum energy threshold is 28.0.
+6.1 Bifurcation Child Direction Table
+Parent direction is always axis-aligned (one component +/-1, others 0). The two child directions are given by this lookup table:
+Parent (+1, 0, 0) -> Child 1 (0, +1, 0), Child 2 (0, 0, +1)
+Parent (-1, 0, 0) -> Child 1 (0, +1, 0), Child 2 (0, 0, +1)
+Parent (0, +1, 0) -> Child 1 (+1, 0, 0), Child 2 (0, 0, +1)
+Parent (0, -1, 0) -> Child 1 (+1, 0, 0), Child 2 (0, 0, +1)
+Parent (0, 0, +1) -> Child 1 (+1, 0, 0), Child 2 (0, +1, 0)
+Parent (0, 0, -1) -> Child 1 (+1, 0, 0), Child 2 (0, +1, 0)
+The baseline table intentionally preserves directional polarity rather than full sign symmetry. This anisotropic bias is part of the baseline growth model and supports organized leaf-like or directed branching behavior.
+Child positions: parent.pos + child_dir1 and parent.pos + child_dir2. Both positions are checked for occupancy before creation. If either position is blocked, bifurcation is skipped and the node executes a normal EXTEND.
+6.2 Two Occupancy Sets
+Set 'active_occupied': Positions of all ACTIVE nodes after Phase 3. Used in Phase 8 conflict resolution and Phase 4 decisions.
+Set 'all_occupied': Positions of ALL nodes (active AND inert). Used in Phase 7 bifurcation child position check only.
+PART TWO: ALGORITHMS
+Gradient Computation
+def COMPUTE_GRADIENT(p, A_t_snapshot, params):
+g = (0.0, 0.0, 0.0)
+weight_sum = 0.0
+for q in A_t_snapshot:
+if q.id == p.id: continue
+q_dist = Q(p.pos, q.pos)
+if q_dist > params.r_sq + params.eps_tol: continue
+if q_dist < params.eps_tol: continue
+w = 1.0 / q_dist
+weight_sum += w
+energy_diff = q.energy - p.energy
+dx = q.pos(0) - p.pos(0)
+dy = q.pos(1) - p.pos(1)
+dz = q.pos(2) - p.pos(2)
+g = (g(0)+wenergy_diffdx, g(1)+wenergy_diffdy, g(2)+wenergy_diffdz)
+if weight_sum < params.eps_tol:
+if norm(p.dir) > params.eps_tol:
+return normalize(p.dir)
+return (0.0, 1.0, 0.0)
+g = (g(0)/weight_sum, g(1)/weight_sum, g(2)/weight_sum)
+g_norm_sq = g(0)**2 + g(1)**2 + g(2)**2
+if g_norm_sq < params.eps_tol: return (0.0, 0.0, 0.0)
+return normalize(g)
+Direction Update
+def UPDATE_DIRECTION(g, params):
+g_norm_sq = g(0)**2 + g(1)**2 + g(2)**2
+if g_norm_sq < params.eps_tol:
+return (0, 1, 0)
+abs_vals = [abs(g(0)), abs(g(1)), abs(g(2, ))
+max_abs = max(abs_vals)
+if abs_vals(0) >= max_abs - params.eps_tol: idx = 0
+elif abs_vals(1) >= max_abs - params.eps_tol: idx = 1
+else: idx = 2
+d = (0, 0, 0)
+d(idx) = 1 if g(idx) >= 0 else -1
+return tuple(d)
+Decision Logic
+def COMPUTE_DECISION(p, A_t_snapshot, active_occupied, params):
+min_q = float('inf')
+for q in A_t_snapshot:
+if q.id == p.id: continue
+dist = Q(p.pos, q.pos)
+if dist < min_q: min_q = dist
+if p.energy < params.tau - params.eps_tol: return -1
+if min_q < params.iota_sq - params.eps_tol: return -1
+can_extend = (p.energy >= params.tau - params.eps_tol) and (min_q > params.iota_sq + params.eps_tol)
+if can_extend:
+g = COMPUTE_GRADIENT(p, A_t_snapshot, params)
+g_norm_sq = g(0)**2 + g(1)**2 + g(2)**2
+if g_norm_sq > params.eta_sq + params.eps_tol:
+return +1
+if random.random() < params.gamma_fallback:
+return +1
+if p.energy >= params.tau - params.eps_tol:
+return 0
+return -1
+Conflict Resolution
+def RESOLVE_CONFLICTS(candidates, active_occupied, params):
+target_map = {}
+for parent, pos_new, dir_new in candidates:
+target_map.setdefault(pos_new,).append((parent, dir_new))
+for target, contenders in target_map.items():
+is_conflict = (target in active_occupied) or (len(contenders) > 1)
+if is_conflict:
+for loser, _ in contenders:
+loser.energy = max(loser.energy - params.eps_sense, 0.0)
+if loser.energy < params.tau - params.eps_tol:
+loser.alive = False
+loser.type = 'inert'
+loser.pressure += params.delta_P_conflict
+else:
+winner, dir_new = contenders(0)
+if winner.energy >= params.eps_extend - params.eps_tol:
+winner.energy = max(winner.energy - params.eps_extend, 0.0)
+winner.pos = target
+winner.dir = dir_new
+winner.type = 'tip'
+else:
+winner.energy = 0.0
+winner.alive = False
+winner.type = 'inert'
+Bifurcation Children
+CHILD_DIRS = {
+( 1, 0, 0): ((0,1,0), (0,0,1)),
+(-1, 0, 0): ((0,1,0), (0,0,1)),
+( 0, 1, 0): ((1,0,0), (0,0,1)),
+( 0,-1, 0): ((1,0,0), (0,0,1)),
+( 0, 0, 1): ((1,0,0), (0,1,0)),
+( 0, 0,-1): ((1,0,0), (0,1,0)),
+}
+def BIFURCATE(parent, all_occupied, next_id, params):
+child_dir1, child_dir2 = CHILD_DIRS(parent.dir)
+child_pos1 = (parent.pos(0)+child_dir1(0), parent.pos(1)+child_dir1(1), parent.pos(2)+child_dir1(2))
+child_pos2 = (parent.pos(0)+child_dir2(0), parent.pos(1)+child_dir2(1), parent.pos(2)+child_dir2(2))
+if child_pos1 in all_occupied or child_pos2 in all_occupied:
+return None, None, next_id
+E_parent_remaining = parent.energy - params.eps_extend - params.eps_spawn
+E_child = (E_parent_remaining - params.eps_split) / 2.0
+child1 = Node(next_id, child_pos1, child_dir1, E_child, 0.0, parent.id, 'tip', True)
+child2 = Node(next_id+1, child_pos2, child_dir2, E_child, 0.0, parent.id, 'tip', True)
+parent.energy = 0.0
+parent.alive = False
+parent.type = 'branch'
+return child1, child2, next_id + 2
+Master Update Schedule
+Phase 0 (Build active list): Collect all nodes where alive = True.
+Phase 1 (Boundary enforcement): Kill any node outside bounds B. Set alive=False, type='inert'.
+Phase 2 (Tau enforcement): Kill any node with energy < tau (evaluated strictly according to the Section 1.2 Tolerance Policy). Set alive=False, type='inert'.
+Phase 3 (Build snapshots): Rebuild active list A_t_snapshot. Build active_occupied (positions of active nodes). Build all_occupied (positions of ALL nodes, active and inert).
+Phase 4 (Decision): Compute T in {+1, 0, -1} for every node in A_t_snapshot using COMPUTE_DECISION.
+Phase 5 (RESTRICT processing): Nodes with T = -1: set energy=0, alive=False, type='inert'.
+Phase 6 (SENSE processing): Nodes with T = 0: deduct eps_sense. If energy falls below tau, set alive=False, type='inert'.
+Phase 7 (EXTEND processing): Nodes with T = +1: call COMPUTE_GRADIENT with A_t_snapshot. Check bifurcation precondition. Call BIFURCATE (uses all_occupied) or add to candidates list. Fallback to normal EXTEND candidate if bifurcation is blocked.
+Phase 8 (Conflict resolution): Call RESOLVE_CONFLICTS(candidates, active_occupied, params). Losers pay eps_sense, receive delta_P_conflict. Winner pays eps_extend, moves, type set to 'tip'.
+Phase 9 (Add new nodes): Append bifurcation children to the node list. They are NOT active this step.
+Phase 10 (Pressure update): For every node in A_t_snapshot with alive=True after all phases: P = (P + delta_P_baseline) * beta. Exactly once per surviving node per step. New children are formally excluded.
+PART THREE: INVARIANTS AND STRUCTURE
+Hard Invariants
+Acyclicity: Parent pointers form a DAG. No cycles.
+Energy non-negative: E_{p,t} >= 0 for all p, t.
+eps_min > 0: eps_extend > 0 and eps_sense > 0. Required for Theorem 1.
+Finite support: Total active site count is finite at all times.
+No co-location: No two active sites share a position after Phase 9. Bifurcation uses all_occupied to prevent child placement at any occupied cell.
+Strict inequality discipline: All comparisons follow Section 1.3 exactly.
+Pressure update consistency: Each surviving node receives exactly one pressure update per step in Phase 10. New nodes wait until next step.
+Energy conservation at bifurcation: Bifurcation trigger guarantees E_child >= tau without clamping. No energy is created at bifurcation.
+Node Structure and Type Lifecycle
+class Node:
+id: int, pos: tuple(int,int,int), dir: tuple(int,int,int), energy: float, pressure: float, parent_id: int or None, type: str, alive: bool
+Node type transition rules:
+'seed': Initial node. Set at creation for all initial nodes. alive = True.
+'tip': Active growing node. Set in Phase 8 on successful EXTEND (winner). alive = True.
+'branch': Bifurcation parent. Set in Phase 7 when node bifurcates. alive = False.
+'inert': Dead node. Set in Phases 1, 2, 5, 6, 8 whenever a node dies. alive = False.
+A seed node that SENSEs remains type='seed' until it EXTENDs successfully. A seed node that RESTRICTs becomes type='inert'.
+Test Oracles
+Standard initial configuration used in Oracles 5 and 8:
+DEFAULT_3_SEED_CONFIG = [
+Node(id=0, pos=(0,0,0), dir=(0,1,0), energy=E0, pressure=0, parent_id=None, type='seed'),
+Node(id=1, pos=(2,0,0), dir=(0,1,0), energy=E0, pressure=0, parent_id=None, type='seed'),
+Node(id=2, pos=(1,2,0), dir=(0,1,0), energy=E0, pressure=0, parent_id=None, type='seed'),
+]
+Eight test oracles descriptions:
+Single seed, empty space: 1 seed at (0,0,0), dir=(0,1,0), energy=1600. Expected: T=+1, moves to (0,1,0), energy=1595.0.
+Contact inhibition at equality: Seeds at (0,0,0) and (0,1,0), iota^2=1.0. Expected: min_q=1=iota^2: SENSE both (not RESTRICT), no movement.
+Contact inhibition strict: Seeds at (0,0,0) and (0,1,0), iota^2=2.0. Expected: min_q=1 < iota^2=2: RESTRICT both, system terminates.
+Bifurcation: 1 seed at (0,0,0), dir=(0,1,0), pressure=15.0, energy=1600. Expected: Two children at (1,0,0) and (0,0,1); parent type='branch'.
+Zero-gradient fallback: Symmetric 4-node config: center at (0,0,0), neighbors at (3,0,0), (-3,0,0), (0,3,0). All at Q=9 from center, equal energy. gamma_fallback=0.3, seed=42. 1000 calls on static snapshot. Expected: Gradient cancels at center. COMPUTE_DECISION returns +1 (EXTEND via fallback) in ~30% of calls. Pass criterion: exact count = 295.
+Bifurcation blocked by inert nodes: Active seed at (0,0,0), dir=(0,1,0), pressure=15.0, energy=1600. Inert nodes (alive=False) at (1,0,0) and (0,0,1). Expected: Bifurcation skipped (child positions in all_occupied). Node does normal EXTEND to (0,1,0).
+Pressure update - Phase 10: 1 seed at (0,0,0), dir=(0,1,0), energy=1600, any gamma_fallback. Expected: After step 1: P = (0 + 2.1) * 0.85 = 1.785. (Single isolated seed always EXTENDs; the pressure formula is the same regardless).
+Growth via random fallback: DEFAULT_3_SEED_CONFIG, gamma_fallback=1.0. Expected: All nodes EXTEND randomly; at least one position differs from initial after step 1.
+PART FOUR: DOMAIN SCALING
+Why Scaling Rules Are Necessary
+The core framework operates at the lambda = 1 baseline. To apply Natural Math to a different domain - different spatial extent, energy regime, or time scale - parameters must be translated systematically. Without scaling rules, a practitioner has no principled starting point. Two caveats apply: starting node count does not auto-scale; the energy scaling rule (times lambda) is empirically motivated rather than formally derived.
+Scaling Rules
+Squared spatial quantities: Multiply by lambda^2. Applied to parameters: iota^2, r^2, eta^2. Basis: Geometry.
+Spatial positions and bounds: Multiply by lambda. Applied to parameters: B, all positions, spawn regions. Basis: Linear spatial quantities.
+Energy quantities: Multiply by lambda. Applied to parameters: tau, E0, eps_extend, eps_sense, eps_spawn, eps_split, delta_P_baseline, delta_P_conflict, P_bifurcate. Basis: Empirically calibrated.
+Drift speeds: Multiply by lambda. Applied to parameters: Movement and drift speeds. Basis: Steps traverse more space.
+Area-proportional counts: Multiply by lambda^2. Applied to parameters: Resource object counts. Basis: Density preservation.
+Step counts: Multiply by lambda (integer). Applied to parameters: T_max, step-indexed timing. Basis: More steps required.
+Dimensionless ratios: Unchanged. Applied to parameters: beta, gamma_fallback, eps_tol, REPRODUCE_PROB. Basis: Scale-independent.
+Starting node count: Manual calibration. Applied to parameters: Number of initial nodes. Basis: Chosen by practitioner.
+Cross-Domain Application
+Biological tissue growth: Nodes represent Cells, Energy represents Metabolic resources.
+Autonomous swarm navigation: Nodes represent Robots/drones, Energy represents Battery charge/fuel.
+Network traffic routing: Nodes represent Packets/routing agents, Energy represents Bandwidth/processing capacity.
+Supply chain stress: Nodes represent Logistics nodes, Energy represents Inventory/capacity/cash flow.
+Pedestrian flow: Nodes represent Individuals, Energy represents Comfort/safety margin/time budget.
+Spatial planning: Nodes represent Development units, Energy represents Budget/land-use capacity.
+Maze search exploration: Nodes represent Search agents, Energy represents Computation budget/time.
+PART FIVE: EXTENSIONS AND LIMITATIONS
+Safe Extension Protocol
+Extensions add behavior on top of the core without modifying core rules. Any extension satisfying the following preserves Theorems 1 and 2:
+Does not add external energy without explicit accounting.
+Does not modify the Master Update Schedule phase order.
+Does not introduce comparisons that bypass the eps_tol tolerance policy.
+Does not create co-located active nodes.
+Preserves energy non-negativity.
+Gradient modifications (Section 7) are the designated extension point for new signal types, nutrient sources, hazards, and trail markers.
+Scope Boundaries for v3.8.1
+Gravity, light, nutrients, trails (open systems); Reactivation of inert nodes; Selection, fitness weighting; REPRODUCE extension (future work); Continuous (non-axis-aligned) movement; Spread-based bifurcation; Reflect and wrap boundary modes.
+Known Limitations
+Energy as scalar: Single number per node. Multi-resource models are future work.
+Floating-point bounded error: Bounded by eps_tol = 1e-9.
+Closed system only: No open-system energy in the core.
+Zero-gradient fallback: Probabilistic. Requires a fixed random seed for reproducibility.
+gamma_fallback value 0.3 is empirically chosen. No first-principles justification.
+Growth initiation: Requires random fallback or asymmetric initial conditions.
+Starting node count: Does not scale automatically; must be manually calibrated.
+Energy scaling rule: The times lambda rule is empirically motivated; verification recommended.
+Bifurcation in 2D: Child direction table produces 3D perpendiculars only. For a 2D lattice (z=0), the table has no valid entries as every direction exits the plane. 2D implementations require a separate replacement table.
+Future Work
+22.1 Designed but not yet implemented: REPRODUCE extension (asexual reproduction where parent survives); Open-system energy input (nutrient/absorption events); Reactivation (allowing inert nodes to become active under coordinated phase constraints).
+22.2 Identified but not yet designed: Deterministic symmetry-breaking alternative to random fallback; 2D child direction variant table maps; Multi-resource energy vector implementation; Continuous (non-axis-aligned) movement lattice redesign; Trails and memory tracking state persistence.
+22.3 Empirically unvalidated: Scaling tests at lambda >= 2; Starting node density calibration profiling; Edge case stress tests under extreme parameter thresholds.
+APPENDIX A: DEMONSTRATION - SCREAM SIGNAL EXTENSION
+A.1 Purpose: Documents a distress signal called Scream built on the core framework to demonstrate the safe extension protocol. It is not part of the core framework.
+A.2 The Extension: Adds parameter suffering_strength (default 0). In COMPUTE_GRADIENT, if a neighboring node's energy < 2*tau, its contribution uses suffering_strength as energy_diff instead of actual difference. When suffering_strength < 0, suffering nodes become repulsive. Same value applies to hazards.
+A.3 Key Results at lambda = 1: Scream colonies accumulate roughly 100x fewer deadly contacts per step than silent colonies across all tested conditions (10 seeds, 300 steps). The effect holds across signal strengths -20 to -100, with stationary hazards, and with a signal cost added.
+A.4 Scaling Status: At lambda = 2, five fixed starting nodes are too sparse and the colony fails to establish. This is a starting node density calibration problem, not an equation failure. All 8 conformance oracles pass against the reference script.
+APPENDIX B: SYMBOL TABLE
+S_t: Global state at time t
+A_t: Set of active sites at time t
+A_t_snapshot: Active list captured in Phase 3; used unchanged through Phase 10
+active_occupied: Positions of active nodes (Phase 3); used in conflict resolution
+all_occupied: Positions of ALL nodes, active and inert; used in bifurcation check
+E_{p,t}: Energy at site p, time t
+P_{p,t}: Pressure at site p, time t
+T_{p,t}: Decision: +1 EXTEND, 0 SENSE, -1 RESTRICT
+Q(p1, p2): Quadrance (squared Euclidean distance)
+N_r(p, t): Local neighborhood of p within radius r
+tau: Energy threshold (minimum viable)
+iota: Contact inhibition distance (stored as iota^2)
+r: Sense radius (stored as r^2)
+eps_extend: Cost to EXTEND
+eps_sense: Cost to SENSE
+eps_spawn: Extra cost at bifurcation (charged to parent)
+eps_split: Energy removed before dividing between children
+eps_min: min(eps_extend, eps_sense); must be > 0 for Theorem 1
+E0: Initial energy at creation
+beta: Pressure decay rate (dimensionless)
+delta_P_baseline: Pressure added to all survivors per step
+delta_P_conflict: Pressure added to collision losers
+P_bifurcate: Pressure threshold to trigger bifurcation
+eta^2: Gradient threshold (minimum ||g||^2 to act)
+gamma_fallback: Zero-gradient random EXTEND probability
+eps_tol: Floating-point tolerance for all comparisons
+REPRODUCE_PROB: Probability of REPRODUCE attempt (extension parameter)
+lambda: Spatial scale factor (Part Four)
+kappa(T): Energy cost function for decision T
+E_tot(t): Total system energy at time t
+N_max: Upper bound on active updates (Theorem 1)
+norm(v): Euclidean norm: sqrt(v dot v)
+normalize(v): Unit vector: v/norm(v); returns (0,0,0) if norm(v) < eps_tol
+APPENDIX C: PARAMETER VALID RANGES
+tau: Min > 0, Max infinity, Baseline 5.0
+iota: Min > 0, Max infinity, Baseline 1.0 (Stored as iota^2)
+r: Min > 0, Max infinity, Baseline 25.0 (Stored as r^2)
+eps_extend: Min > 0, Max E0, Baseline 5.0 (eps_min > 0)
+eps_sense: Min > 0, Max E0, Baseline 1.2 (eps_min > 0)
+eps_spawn: Min > 0, Max E0, Baseline 4.0 (eps_spawn <= eps_split)
+eps_split: Min >= eps_spawn, Max E0, Baseline 9.0
+E0: Min > 0, Max infinity, Baseline 1600.0 (Must exceed bifurcation trigger at lambda=1)
+P_bifurcate: Min >= 0, Max infinity, Baseline 12.0
+beta: Min > 0, Max < 1, Baseline 0.85 (Strict open interval)
+delta_P_baseline: Min > 0, Max infinity, Baseline 2.1
+delta_P_conflict: Min >= 0, Max infinity, Baseline 5.0
+eta^2: Min > 0, Max infinity, Baseline 0.01
+gamma_fallback: Min > 0, Max <= 1, Baseline 0.3 (Requires fixed seed)
+eps_tol: Min > 0, Max <= 0.001, Baseline 1e-9
+REPRODUCE_PROB: Min > 0, Max <= 1, Baseline 0.01 (For REPRODUCE extension)
+APPENDIX D: VERSION HISTORY
+v3.0: Initial core framework. Removed speculative content.
+v3.1: Added simultaneous decision snapshots. Fixed phase ordering.
+v3.2: Added zero-gradient fallback. Established tolerance policy.
+v3.3: Fixed gradient normalization. Fixed energy affordability check.
+v3.4: Fixed bifurcation co-location. Fixed double pressure addition.
+v3.5: Unambiguous pseudocode for all algorithms.
+v3.6: Complete decision flow diagram. Clarified equality cases. Added Oracle 8. Added domain scaling (Part Four).
+v3.7: Bifurcation child directions specified by explicit lookup table. Bifurcation trigger corrected to E > eps_extend+eps_spawn+eps_split+2tau; max(...,tau) clamp removed. Two distinct occupancy sets defined: active_occupied and all_occupied. Phase 7 explicitly uses A_t_snapshot. norm() and normalize() defined. Node type lifecycle specified by transition table. DEFAULT_3_SEED_CONFIG defined. REPRODUCE_PROB added. Oracle 5, 6, and 7 corrected and updated. 2D bifurcation added as known limitation.
+v3.8: Specification corrections from independent review: Phase 8 winner energy subtraction clamped to prevent floating-point negative values at tolerance boundary. Phase 10 scoped to A_t_snapshot to formally exclude bifurcation children from same-step pressure updates. Phase 6 clarified: eps_sense deduction is always affordable but may push energy below tau. Oracle 5 pass criterion made deterministic (exact count = 295 with seed=42). Oracle 7 result description corrected. DEFAULT_3_SEED_CONFIG gradient comment corrected. Bifurcation in 2D limitation strengthened. Conformance test count corrected to eight in Appendix A. eps_split valid range bracket notation clarified with inline note.
+v3.8.1: Baseline pressure changed to delta_P_baseline=2.1 so isolated-node steady-state pressure is 11.9, below P_bifurcate=12.0. Section 1.3 equality wording corrected to match the numerical tolerance policy. The intentional directional polarity of the baseline bifurcation table is documented.
+Document status: v3.8.1 is the current baseline specification. All implementation ambiguities identified through independent review have been resolved and all remaining specification corrections applied. The formal definitions, theorems, algorithms, and hard invariants are stable. An independent implementer following this document exactly will produce deterministic behavior consistent with Theorems 1 and 2.

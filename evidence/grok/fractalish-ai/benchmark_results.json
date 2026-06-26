@@ -1,0 +1,154 @@
+{
+  "without_guardian": {
+    "success": 1,
+    "success_rate": 0.1667,
+    "avg_steps": 251.17,
+    "holds": 0,
+    "mcva_evaluations": 0,
+    "collisions": 1478,
+    "per_maze": [
+      {
+        "maze": "simple",
+        "success": true,
+        "steps": 7,
+        "steps_run": 7,
+        "holds": 0,
+        "mcva_evaluations": 0,
+        "collisions": 0,
+        "extends": 7,
+        "senses": 0
+      },
+      {
+        "maze": "conflicting_paths",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 0,
+        "mcva_evaluations": 0,
+        "collisions": 296,
+        "extends": 300,
+        "senses": 0
+      },
+      {
+        "maze": "symmetric_fork",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 0,
+        "mcva_evaluations": 0,
+        "collisions": 295,
+        "extends": 300,
+        "senses": 0
+      },
+      {
+        "maze": "twin_corridors",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 0,
+        "mcva_evaluations": 0,
+        "collisions": 294,
+        "extends": 300,
+        "senses": 0
+      },
+      {
+        "maze": "crack_barrier",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 0,
+        "mcva_evaluations": 0,
+        "collisions": 296,
+        "extends": 300,
+        "senses": 0
+      },
+      {
+        "maze": "nested_ambiguity",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 0,
+        "mcva_evaluations": 0,
+        "collisions": 297,
+        "extends": 300,
+        "senses": 0
+      }
+    ]
+  },
+  "with_guardian": {
+    "success": 1,
+    "success_rate": 0.1667,
+    "avg_steps": 251.17,
+    "holds": 1478,
+    "mcva_evaluations": 1507,
+    "collisions": 0,
+    "per_maze": [
+      {
+        "maze": "simple",
+        "success": true,
+        "steps": 7,
+        "steps_run": 7,
+        "holds": 0,
+        "mcva_evaluations": 7,
+        "collisions": 0,
+        "extends": 7,
+        "senses": 0
+      },
+      {
+        "maze": "conflicting_paths",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 296,
+        "mcva_evaluations": 300,
+        "collisions": 0,
+        "extends": 4,
+        "senses": 296
+      },
+      {
+        "maze": "symmetric_fork",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 295,
+        "mcva_evaluations": 300,
+        "collisions": 0,
+        "extends": 5,
+        "senses": 295
+      },
+      {
+        "maze": "twin_corridors",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 294,
+        "mcva_evaluations": 300,
+        "collisions": 0,
+        "extends": 6,
+        "senses": 294
+      },
+      {
+        "maze": "crack_barrier",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 296,
+        "mcva_evaluations": 300,
+        "collisions": 0,
+        "extends": 4,
+        "senses": 296
+      },
+      {
+        "maze": "nested_ambiguity",
+        "success": false,
+        "steps": 300,
+        "steps_run": 300,
+        "holds": 297,
+        "mcva_evaluations": 300,
+        "collisions": 0,
+        "extends": 3,
+        "senses": 297
+      }
+    ]
+  }
+}

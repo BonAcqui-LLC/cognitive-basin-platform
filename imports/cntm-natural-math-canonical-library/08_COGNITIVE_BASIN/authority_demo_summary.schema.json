@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthorityDemoSummary",
+  "type": "object",
+  "required": ["sources", "records", "claims_evaluated", "conflicts"],
+  "properties": {
+    "sources": { "type": "integer" },
+    "records": { "type": "integer" },
+    "claims_evaluated": { "type": "integer" },
+    "conflicts": { "type": "integer" },
+    "guard_decisions": { "type": "array" },
+    "doctrine": { "type": "array", "items": { "type": "string" } }
+  }
+}

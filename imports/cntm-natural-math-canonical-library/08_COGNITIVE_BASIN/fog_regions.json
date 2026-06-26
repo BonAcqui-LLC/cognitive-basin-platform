@@ -1,0 +1,86 @@
+[
+  {
+    "fog_id": "fog-7fa336905488",
+    "label": "Similarity is not identity \u2014 contradiction scar candidate",
+    "related_memory_ids": [
+      "mem-af086d13f1ca"
+    ],
+    "reason": "Unresolved guard status: HOLD",
+    "missing_context": [
+      "guard_hold_unresolved"
+    ],
+    "guard_status": "HOLD",
+    "created_at": "2026-06-10T23:19:19.499128+00:00",
+    "review_needed": true,
+    "next_action": "Resolve HOLD before false closure."
+  },
+  {
+    "fog_id": "fog-ee2e83a6afcb",
+    "label": "Guardian Intake: benign file drop \u2014 sanitized representation",
+    "related_memory_ids": [
+      "mem-ee9bdcc3072b"
+    ],
+    "reason": "Unresolved guard status: WATCH",
+    "missing_context": [],
+    "guard_status": "WATCH",
+    "created_at": "2026-06-10T23:19:19.505496+00:00",
+    "review_needed": true,
+    "next_action": "Resolve HOLD before false closure."
+  },
+  {
+    "fog_id": "fog-235cbb385e58",
+    "label": "Guardian Intake: prompt injection routes to HOLD",
+    "related_memory_ids": [
+      "mem-fc775963aa4b"
+    ],
+    "reason": "Unresolved guard status: HOLD",
+    "missing_context": [
+      "guard_hold_unresolved"
+    ],
+    "guard_status": "HOLD",
+    "created_at": "2026-06-10T23:19:19.505800+00:00",
+    "review_needed": true,
+    "next_action": "Resolve HOLD before false closure."
+  },
+  {
+    "fog_id": "fog-62ace55c83f2",
+    "label": "Guardian Intake: data exfiltration REVERSE",
+    "related_memory_ids": [
+      "mem-961425285009"
+    ],
+    "reason": "Unresolved guard status: REVERSE",
+    "missing_context": [],
+    "guard_status": "REVERSE",
+    "created_at": "2026-06-10T23:19:19.506090+00:00",
+    "review_needed": true,
+    "next_action": "Resolve HOLD before false closure."
+  },
+  {
+    "fog_id": "fog-135eee601f2d",
+    "label": "Lexical authority cannot prove regulatory claim",
+    "related_memory_ids": [
+      "mem-b86fb9c1bc86"
+    ],
+    "reason": "Unresolved guard status: HOLD",
+    "missing_context": [
+      "guard_hold_unresolved"
+    ],
+    "guard_status": "HOLD",
+    "created_at": "2026-06-10T23:19:19.513083+00:00",
+    "review_needed": true,
+    "next_action": "Resolve HOLD before false closure."
+  },
+  {
+    "fog_id": "fog-86d51304948c",
+    "label": "Technical standards require version matching",
+    "related_memory_ids": [
+      "mem-80f538dae6b9"
+    ],
+    "reason": "Unresolved guard status: WATCH",
+    "missing_context": [],
+    "guard_status": "WATCH",
+    "created_at": "2026-06-10T23:19:19.513381+00:00",
+    "review_needed": true,
+    "next_action": "Resolve HOLD before false closure."
+  }
+]

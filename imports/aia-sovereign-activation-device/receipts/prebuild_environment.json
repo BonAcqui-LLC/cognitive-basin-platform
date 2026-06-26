@@ -1,0 +1,41 @@
+{
+  "receipt_type": "prebuild_environment",
+  "recorded_at": "2026-06-17T20:42:57.5782847-04:00",
+  "repository": {
+    "path": "C:\\Users\\moop\\Documents\\AIA",
+    "is_git_repo": true,
+    "branch": "master",
+    "head_commit": null,
+    "head_commit_note": "Repository has no commits yet.",
+    "dirty_worktree": true
+  },
+  "android_project": {
+    "root": "C:\\Users\\moop\\Documents\\AIA\\android",
+    "package_name": "llc.bonacqui.aia",
+    "version_name": "0.1.1-stockos",
+    "compile_sdk": 34,
+    "target_sdk": 34,
+    "min_sdk": 29,
+    "agp_version": "8.5.2",
+    "kotlin_android_plugin_version": "1.9.24"
+  },
+  "tooling": {
+    "adb_path": "C:\\Android\\android-sdk\\platform-tools\\adb.exe",
+    "shell_adb_on_path": false,
+    "android_sdk_root": "C:\\Android\\android-sdk",
+    "installed_platforms": [
+      "android-33",
+      "android-34"
+    ],
+    "installed_build_tools": [
+      "33.0.2",
+      "34.0.0"
+    ],
+    "platform_tools_revision": "37.0.0",
+    "gradle_path": "C:\\Users\\moop\\Documents\\AIA\\.tmp\\gradle-8.7\\bin\\gradle.bat",
+    "gradle_version": "8.7",
+    "java_home_used_for_build": "C:\\Users\\moop\\Documents\\AIA\\.tmp\\jdk17\\jdk-17.0.19+10",
+    "java_runtime_version_used_for_build": "17.0.19+10",
+    "host_default_java_observed_elsewhere": "Eclipse Adoptium 25+36-LTS"
+  }
+}

@@ -1,0 +1,417 @@
+[
+  {
+    "route_id": "replay-f166034878c2",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-dc2dd36fa803",
+    "memory_path": [
+      "mem-dc2dd36fa803"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [],
+    "contradiction_warnings": [],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-074b6a93c3e5",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-e90c29639b4c",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [],
+    "contradiction_warnings": [],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-5b071beb4d2c",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-e90c29639b4c",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [],
+    "contradiction_warnings": [],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-b5c0cb381878",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-abdc83dfce26",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [],
+    "contradiction_warnings": [],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-dc641d376f0a",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [],
+    "contradiction_warnings": [],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-f2aa941a700b",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-bfe11ee8c34d",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-4c59df7fecbb",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-28a72e9e364d",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-6276b62bc015",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-993202c6090a",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58",
+      "fog-135eee601f2d"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-e9b9ad3f681a",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-00a772ce370a",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58",
+      "fog-135eee601f2d"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-8f2443ee511c",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-12ecf48b8046",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a",
+      "mem-12ecf48b8046"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58",
+      "fog-135eee601f2d"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-5ab2925e98d8",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-12ecf48b8046",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a",
+      "mem-12ecf48b8046"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58",
+      "fog-135eee601f2d"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-8959247c7ea6",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-12ecf48b8046",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a",
+      "mem-12ecf48b8046"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58",
+      "fog-135eee601f2d"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  },
+  {
+    "route_id": "replay-385402e98211",
+    "label": "resume product build",
+    "start_memory_id": "mem-dc2dd36fa803",
+    "target_memory_id": "mem-12ecf48b8046",
+    "memory_path": [
+      "mem-dc2dd36fa803",
+      "mem-e90c29639b4c",
+      "mem-abdc83dfce26",
+      "mem-00a772ce370a",
+      "mem-12ecf48b8046"
+    ],
+    "required_context": [
+      "prior build state",
+      "unresolved HOLDs",
+      "doctrine constraints"
+    ],
+    "unresolved_holds": [
+      "fog-7fa336905488",
+      "fog-235cbb385e58",
+      "fog-135eee601f2d"
+    ],
+    "contradiction_warnings": [
+      "Tagged contradiction \u2014 scar preserved",
+      "Hostile intake scar \u2014 do not merge into trusted memory"
+    ],
+    "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+    "confidence": 0.75,
+    "uncertainty": 0.25
+  }
+]

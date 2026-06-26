@@ -1,0 +1,68 @@
+{
+  "receipt_type": "on_device_acceptance",
+  "recorded_at": "2026-06-17T20:43:13.3710000-04:00",
+  "package_name": "llc.bonacqui.aia",
+  "verified_steps": [
+    {
+      "step": "supported_activation",
+      "result": "pass",
+      "observed_state": "SUPPORTED / EXTEND"
+    },
+    {
+      "step": "hold_activation",
+      "result": "pass",
+      "observed_state": "UNRESOLVED / HOLD"
+    },
+    {
+      "step": "contradiction_activation",
+      "result": "pass",
+      "observed_state": "CONTRADICTED / RETRACT"
+    },
+    {
+      "step": "local_persistence",
+      "result": "pass",
+      "details": {
+        "session_count": 3,
+        "session_files": [
+          "session-1ad825bb.json",
+          "session-3b7ba8c8.json",
+          "session-91d5c81e.json"
+        ]
+      }
+    },
+    {
+      "step": "export",
+      "result": "pass",
+      "details": {
+        "export_file": "session-91d5c81e.aiaexport.json"
+      }
+    },
+    {
+      "step": "verify_import",
+      "result": "pass",
+      "details": {
+        "message": "Export verified and reopened successfully from session-91d5c81e.aiaexport.json."
+      }
+    },
+    {
+      "step": "tamper_check",
+      "result": "pass",
+      "details": {
+        "tampered_file": "session-91d5c81e.aiaexport.tampered.json",
+        "message": "Tamper check succeeded: modified export fails verification as expected."
+      }
+    },
+    {
+      "step": "cold_relaunch_after_force_stop",
+      "result": "pass",
+      "details": {
+        "launch_state": "COLD",
+        "total_time_ms": 1764
+      }
+    }
+  ],
+  "deferred_steps": [
+    "repeat core flow in airplane mode",
+    "full reboot and post-boot session readability check"
+  ]
+}

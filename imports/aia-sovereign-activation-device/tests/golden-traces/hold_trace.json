@@ -1,0 +1,20 @@
+{
+  "trace_id": "hold-trace-v1",
+  "scenario": "hold",
+  "activation_type": "AIA_CIVIL_RIGHTS_SESSION",
+  "input_characteristics": [
+    "typed purpose",
+    "missing jurisdiction",
+    "key factual predicates unresolved"
+  ],
+  "expected_epistemic": "UNRESOLVED",
+  "expected_action": "HOLD",
+  "expected_hold_reasons": [
+    "jurisdiction label is absent or not trustworthy enough",
+    "key factual predicates are still unresolved"
+  ],
+  "expected_recovery_routes": [
+    "route-hold-1",
+    "route-hold-2"
+  ]
+}

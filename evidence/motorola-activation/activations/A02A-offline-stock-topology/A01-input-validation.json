@@ -1,0 +1,104 @@
+{
+  "validated_at": "2026-06-19T10:01:05-04:00",
+  "expected_archive_hash": "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+  "expected_archive_bytes": 4190063592,
+  "entries": [
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\A01-completion-receipt.json",
+      "exists": true,
+      "byte_count": 894,
+      "sha256": "92C45BB355B9CA8C4B7160734A0A42AA5258163C87451BF494AD7CE908AB12F3",
+      "parse_status": "PARSED_JSON",
+      "manifest_membership": true,
+      "consistency_with_a01_receipt": [
+        "receipt_status_checked"
+      ],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\A01-summary.md",
+      "exists": true,
+      "byte_count": 866,
+      "sha256": "32E851B226914FCC854C72B71264F4E9E5A2ECD52FFB8643A4CEE807E5F73749",
+      "parse_status": "READABLE_TEXT",
+      "manifest_membership": true,
+      "consistency_with_a01_receipt": [],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\artifact-manifest.sha256",
+      "exists": true,
+      "byte_count": 1056,
+      "sha256": "B5DE4B989FE4EB1F51933A1AC020A8A606B9F75CC925260D651330046103C41C",
+      "parse_status": "READABLE_TEXT",
+      "manifest_membership": null,
+      "consistency_with_a01_receipt": [],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\stock-package-preservation-record.json",
+      "exists": true,
+      "byte_count": 1248,
+      "sha256": "F5F9A4A5064AD8A51341E2F6388543BFBE9C6BA307EE66B266D4A0708FE995A8",
+      "parse_status": "PARSED_JSON",
+      "manifest_membership": true,
+      "consistency_with_a01_receipt": [
+        "preservation_hash_checked"
+      ],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\stock-package-match-assessment.json",
+      "exists": true,
+      "byte_count": 2510,
+      "sha256": "A4AEAB84C90CE5945CEADD716E11858E78B7337DA09DB6C3D99BA8828D6D6491",
+      "parse_status": "PARSED_JSON",
+      "manifest_membership": true,
+      "consistency_with_a01_receipt": [
+        "match_classification_checked"
+      ],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\stock-package-source-provenance.json",
+      "exists": true,
+      "byte_count": 2461,
+      "sha256": "8E010DC11312E05F2BD31D213D55852BBCCF7C4D6FEA6A2848365F71C0B4D20E",
+      "parse_status": "PARSED_JSON",
+      "manifest_membership": true,
+      "consistency_with_a01_receipt": [
+        "source_classification_checked"
+      ],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\activations\\A01-stock-closure\\current-build-identity.snapshot.json",
+      "exists": true,
+      "byte_count": 8976,
+      "sha256": "016260F7944295ACB756FBA96881752F0A27F7EA80262B37D128D62E60516404",
+      "parse_status": "PARSED_JSON",
+      "manifest_membership": true,
+      "consistency_with_a01_receipt": [],
+      "discrepancies": []
+    },
+    {
+      "path": "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\current-build-identity.json",
+      "exists": true,
+      "byte_count": 8976,
+      "sha256": "016260F7944295ACB756FBA96881752F0A27F7EA80262B37D128D62E60516404",
+      "parse_status": "PARSED_JSON",
+      "manifest_membership": null,
+      "consistency_with_a01_receipt": [],
+      "discrepancies": []
+    }
+  ],
+  "a01_receipt_consistency": {
+    "a01_status_complete": true,
+    "a01_device_changed_false": true,
+    "a01_package_hash_matches_expected": true,
+    "a01_restore_suitability": "NOT_YET_ESTABLISHED",
+    "a01_anti_rollback_status": "UNRESOLVED"
+  },
+  "discrepancy_count": 0,
+  "discrepancies": []
+}

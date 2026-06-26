@@ -1,0 +1,10 @@
+*.iml
+.idea/
+.tmp/
+android/.gradle/
+android/local.properties
+android/app/build/
+android/build/
+artifacts/
+receipts/device_audit.json
+receipts/raw/

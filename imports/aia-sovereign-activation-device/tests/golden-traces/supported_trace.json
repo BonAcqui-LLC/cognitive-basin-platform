@@ -1,0 +1,16 @@
+{
+  "trace_id": "supported-trace-v1",
+  "scenario": "supported",
+  "activation_type": "AIA_CIVIL_RIGHTS_SESSION",
+  "input_characteristics": [
+    "typed purpose",
+    "demonstration jurisdiction present",
+    "no contradictory evidence"
+  ],
+  "expected_epistemic": "SUPPORTED",
+  "expected_action": "EXTEND",
+  "expected_hold_reasons": [],
+  "expected_recovery_routes": [
+    "route-supported-1"
+  ]
+}

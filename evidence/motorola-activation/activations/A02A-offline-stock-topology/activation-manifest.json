@@ -1,0 +1,58 @@
+{
+  "activation_id": "A02A-offline-stock-topology",
+  "principal": "human_operator",
+  "purpose": "Inspect the preserved older-build stock package offline and establish its package, partition, flashing, boot-chain, and AVB topology without interacting with the handset.",
+  "predecessor": "A01-stock-closure",
+  "device_change_authorized": false,
+  "package_restore_suitability": "NOT_YET_ESTABLISHED",
+  "anti_rollback_status": "UNRESOLVED",
+  "allowed_actions": [
+    "read_a01_artifacts",
+    "verify_hashes",
+    "archive_list",
+    "extract_to_separate_working_copy",
+    "hash_extracted_files",
+    "parse_metadata_read_only",
+    "write_evidence_records"
+  ],
+  "prohibited_actions": [
+    "adb_reboot",
+    "fastboot_reboot",
+    "fastboot_boot",
+    "flash",
+    "erase",
+    "set_active",
+    "logical_partition_change",
+    "avb_state_change",
+    "mount_read_write",
+    "repack_stock_image",
+    "claim_restore_ready"
+  ],
+  "completion_criteria": [
+    "A01 inputs verified",
+    "original package hash stable before and after inspection",
+    "archive extracted separately without modifying original",
+    "all extracted files hashed",
+    "flashing metadata parsed",
+    "package partition inventory created",
+    "package topology graph created",
+    "boot and AVB relationships recorded where supported",
+    "unknowns and contradictions preserved",
+    "A02A completion receipt emitted"
+  ],
+  "host": {
+    "platform": "Windows",
+    "platform_release": "10",
+    "hostname_redacted": true,
+    "execution_root": "C:\\Motorola-Activation"
+  },
+  "timestamps": {
+    "started_at": "2026-06-19T10:01:05-04:00"
+  },
+  "disk_space_before_extraction_bytes": {
+    "total": 255383826432,
+    "used": 247128645632,
+    "free": 8255180800
+  },
+  "tool_versions_file": "tool-versions.json"
+}

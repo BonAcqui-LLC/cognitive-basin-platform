@@ -1,0 +1,8 @@
+name = "ephux-guardian-intake"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "INTAKE_KV"
+id = "b777366e906f424ba033590cbddf3f08"
+

@@ -1,0 +1,70 @@
+# Source Conflicts
+
+These are filename/title families with materially distinct hashes that should not be silently collapsed.
+
+## app js
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/app.js` | `CURRENT_SPECIFICATION` | `c050418bded2`
+- `08_COGNITIVE_BASIN/app.js` | `REFERENCE_IMPLEMENTATION` | `ac60735b6d3b`
+- `08_COGNITIVE_BASIN/app__dup1.js` | `REFERENCE_IMPLEMENTATION` | `ae327d177c63`
+
+## audit jsonl
+- `08_COGNITIVE_BASIN/audit.jsonl` | `REFERENCE_IMPLEMENTATION` | `f76481e678e1`
+- `08_COGNITIVE_BASIN/audit__dup1.jsonl` | `REFERENCE_IMPLEMENTATION` | `7315f023b541`
+- `08_COGNITIVE_BASIN/audit__dup2.jsonl` | `REFERENCE_IMPLEMENTATION` | `2d8c641a95ff`
+
+## index
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index.html` | `CURRENT_SPECIFICATION` | `bd3b3579fd7b`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup1.html` | `CURRENT_SPECIFICATION` | `370c2c8fccc0`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup2.html` | `CURRENT_SPECIFICATION` | `ceb10fc3972e`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup3.html` | `CURRENT_SPECIFICATION` | `873529b6fcd7`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup4.html` | `CURRENT_SPECIFICATION` | `5bc4b24cd36c`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup5.html` | `CURRENT_SPECIFICATION` | `d7cd148c4561`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup6.html` | `CURRENT_SPECIFICATION` | `c93e6f09858e`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup7.html` | `CURRENT_SPECIFICATION` | `ca607e698507`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup8.html` | `CURRENT_SPECIFICATION` | `5578647711f7`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup9.html` | `CURRENT_SPECIFICATION` | `332c55e041da`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup10.html` | `CURRENT_SPECIFICATION` | `572efe42a4c4`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup11.html` | `CURRENT_SPECIFICATION` | `eb3085e6a099`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup12.html` | `CURRENT_SPECIFICATION` | `dd885c4b3490`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup13.html` | `CURRENT_SPECIFICATION` | `cfee75b18ddb`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup14.html` | `CURRENT_SPECIFICATION` | `75341015a0e8`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup15.html` | `CURRENT_SPECIFICATION` | `96659997fb51`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup16.html` | `CURRENT_SPECIFICATION` | `5ce43ac273fc`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup17.html` | `CURRENT_SPECIFICATION` | `af06c4a338e6`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup18.html` | `CURRENT_SPECIFICATION` | `52a3590c18be`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup19.html` | `CURRENT_SPECIFICATION` | `dea2054a7074`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup20.html` | `CURRENT_SPECIFICATION` | `6cc3315a4f2d`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup21.html` | `CURRENT_SPECIFICATION` | `66247568d1cf`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup22.html` | `CURRENT_SPECIFICATION` | `419a34f12c26`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup23.html` | `CURRENT_SPECIFICATION` | `0f494f99ad1a`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup24.html` | `CURRENT_SPECIFICATION` | `dc30b7589a92`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/index__dup25.html` | `CURRENT_SPECIFICATION` | `24ff579ef143`
+- `08_COGNITIVE_BASIN/index.html` | `REFERENCE_IMPLEMENTATION` | `3a8b5c52f4a1`
+- `08_COGNITIVE_BASIN/index__dup1.html` | `REFERENCE_IMPLEMENTATION` | `35ba17e71e74`
+
+## natural math
+- `01_NATURAL_MATH_CORE/Natural-Math-v3.8-cleaned.txt` | `CURRENT_SPECIFICATION` | `342f1ee4446c`
+- `01_NATURAL_MATH_CORE/Natural_Math_v3.8.py` | `REFERENCE_IMPLEMENTATION` | `cc68d27302cf`
+- `01_NATURAL_MATH_CORE/Natural_Math_v2.3.pdf` | `PUBLICATION_DRAFT` | `44936665897c`
+- `01_NATURAL_MATH_CORE/Natural_Math_v2.2.pdf` | `SUPERSEDED` | `fa27255bf5ec`
+- `01_NATURAL_MATH_CORE/Natural_Math_v2.2.1.py` | `EXPERIMENTAL_IMPLEMENTATION` | `6be5e72012e3`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/natural-math.html` | `CURRENT_SPECIFICATION` | `e8e4e43e9c57`
+
+## styles css
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/styles.css` | `CURRENT_SPECIFICATION` | `1df761160cf9`
+- `08_COGNITIVE_BASIN/styles.css` | `REFERENCE_IMPLEMENTATION` | `60b6fef3fea5`
+- `08_COGNITIVE_BASIN/styles__dup1.css` | `REFERENCE_IMPLEMENTATION` | `38ac6aaf6ff7`
+
+## synaptient cognitive basin companion foundation appendix
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/Synaptient_Cognitive_Basin_Companion_Foundation_Appendix_v0_1.docx` | `CURRENT_SPECIFICATION` | `f8515377c902`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/Synaptient_Cognitive_Basin_Companion_Foundation_Appendix_v0_1.pdf` | `CURRENT_SPECIFICATION` | `0d0624e4e2c4`
+- `08_COGNITIVE_BASIN/Synaptient_Cognitive_Basin_Companion_Foundation_Appendix_v0_1.docx` | `CURRENT_SPECIFICATION` | `f8515377c902`
+- `08_COGNITIVE_BASIN/Synaptient_Cognitive_Basin_Companion_Foundation_Appendix_v0_1.pdf` | `CURRENT_SPECIFICATION` | `0d0624e4e2c4`
+
+## synaptient cognitive basin technical white paper
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/synaptient-cognitive-basin-technical-white-paper.html` | `CURRENT_SPECIFICATION` | `2d7da0bf0c5a`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/Synaptient_Cognitive_Basin_Technical_White_Paper_v0_1.docx` | `CURRENT_SPECIFICATION` | `9ae60f1c8262`
+- `07_FRACTALISH_MCVA_AMCVA_HOLD/Synaptient_Cognitive_Basin_Technical_White_Paper_v0_1.pdf` | `CURRENT_SPECIFICATION` | `0c5a73cb2545`
+- `08_COGNITIVE_BASIN/Synaptient_Cognitive_Basin_Technical_White_Paper_v0_1.docx` | `CURRENT_SPECIFICATION` | `9ae60f1c8262`
+- `08_COGNITIVE_BASIN/Synaptient_Cognitive_Basin_Technical_White_Paper_v0_1.pdf` | `CURRENT_SPECIFICATION` | `0c5a73cb2545`
+

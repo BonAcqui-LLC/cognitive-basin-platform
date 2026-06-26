@@ -1,0 +1,34 @@
+Fastboot summary
+Observed-at: 2026-06-18T18:37:15.4069470-04:00
+product: 
+board: 
+sku: XT2317-2
+carrier_sku: XT2317-2
+bootloader_version_0: 
+bootloader_version_1: 
+baseband_version: MT6769G_TC2.PR5.SP.V9.2.P21.02.40R
+secure: 
+securestate: flashing_unlocked
+iswarrantyvoid: yes
+max-download-size: 134217728
+max-sparse-size: 268435456
+current-slot: b
+running-slot: _b
+slot-count: 2
+slot-suffixes: _a,_b
+slot-successful:_a: 
+slot-successful:_b: 
+slot-bootable:_a: 
+slot-bootable:_b: 
+slot-retry-count:_a: 
+slot-retry-count:_b: 
+is-userspace: no
+is-logical: 
+snapshot-update-status: none
+fdr-allowed: yes
+
+Observed conclusions:
+- Strong A/B evidence: slot-count=2, slot-suffixes=_a,_b, per-slot successful/bootable/retry fields, current-slot=b, running-slot=_b.
+- Unlocked flashing state: securestate=flashing_unlocked, iswarrantyvoid=yes.
+- Userspace-fastboot support is not proven here because is-userspace=no in bootloader mode.
+- Dynamic partitions are not confirmed by this fastboot receipt alone.

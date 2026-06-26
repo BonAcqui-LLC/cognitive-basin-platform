@@ -1,0 +1,23 @@
+Baseline bundle verification
+Bundle: C:\Motorola-Activation\baseline-unlocked
+Verified-at: 2026-06-18T18:35:36.1596152-04:00
+Baseline file count excluding SHA256SUMS.txt: 13
+Zero-byte files: 0
+Original SHA256SUMS.txt truncated paths detected: True
+
+Verification notes:
+- Original SHA256SUMS.txt is preserved unchanged as provenance.
+- The original SHA256SUMS.txt uses formatted table output with ellipsis-truncated paths, so it is not machine-verifiable line-by-line.
+- Fresh file hashes were recomputed directly from the baseline bundle and written to reports\fresh_sha256_manifest.txt.
+- current-slot.txt and slot-count.txt in the baseline bundle are preserved unchanged but are malformed and should not be treated as authoritative parsed values.
+- /proc/bootconfig and /proc/partitions were permission denied during stock userspace capture.
+
+Sensitive-content files:
+- adb-devices.txt: serial
+- all-getprop.txt: serial, imei, possible-network-id
+- current-slot.txt: serial, imei, device-id
+- fastboot-devices.txt: serial
+- fastboot-getvar-all.txt: serial, imei, device-id
+
+Zero-byte files:
+- none

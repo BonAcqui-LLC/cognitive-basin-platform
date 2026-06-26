@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"MemoryAttractor","type":"object","required":["attractor_id","memory_id","label","salience_score","basin_region"]}

@@ -1,0 +1,192 @@
+Here is the same extension document rewritten in plain, simple language that anyone can read and understand, no math or programming background required.
+
+---
+
+The “Stick” Rule: How Things Stick Together
+
+A Simple Recipe for Any System (Cells, Robots, Crowds, Crystals)
+
+Based on Natural Math – a framework for local growth with limited energy
+
+---
+
+What is this?
+
+This document explains a simple rule that makes things stick together in a stable way.
+You can use this rule for:
+
+· Cells forming tissues
+· Robots forming a swarm that doesn’t fall apart
+· People forming small groups that stay together
+· Packets of data merging into streams
+· Crystals growing grains that don’t break up
+
+The rule is so simple that you can try it on a computer or even on paper.
+
+---
+
+First: The basic idea from Natural Math (what you start with)
+
+Imagine a bunch of agents (let's call them "dots") that can move around.
+Each dot has energy. Energy is like fuel or food – it runs out.
+A dot can only see other dots that are close by (within a certain distance).
+Each dot moves step by step, using a little energy each time.
+
+That's the core. Now we add the stick rule on top.
+
+---
+
+The Stick Rule – Step by Step (no math, just words)
+
+1. How tired a dot is
+
+Every dot has a full energy (like a full battery).
+We can measure how tired (depleted) it is:
+
+· If energy = full → not tired at all
+· If energy = near empty → very tired
+
+This “tiredness” is a number from 0 (not tired) to 1 (exhausted).
+
+2. Two tired dots attract each other
+
+If both dots are tired, they feel a strong pull toward each other.
+If one is tired and the other is fresh, the pull is weaker.
+If both are fresh, they barely notice each other.
+
+This is the key: shared exhaustion creates attraction.
+
+3. The “effective attraction”
+
+Normally, a dot is attracted to others that have more energy (richer dots).
+But we add the “shared tiredness” to that attraction.
+So two tired dots become very attractive to each other – they want to meet.
+
+4. When they touch (very close)
+
+If two dots get really close (within a tiny distance, say 2 steps), they form a bond.
+When they bond:
+
+· They share their energy equally (like splitting the bill).
+· They stick together – either one snaps to the other’s position, or they gently pull each other closer each step.
+
+5. No dot can have too many bonds
+
+Each dot can bond with at most 3 other dots.
+This stops one dot from becoming a super‑attractor that grabs everyone.
+
+6. Bonds save energy
+
+Dots that are bonded use less energy each step.
+In fact, they might even gain a tiny bit of energy from being in a group (like sharing warmth).
+This keeps the cluster alive.
+
+---
+
+What happens when you run this rule?
+
+· First, dots drift around randomly.
+· Then, tired dots find each other and start to bond.
+· Small clusters form (2, 3, 4 dots).
+· These clusters grow as more dots join.
+· Eventually, you get stable clumps that neither break apart nor collapse into one point.
+· All dots end up in some cluster, and no one runs out of energy.
+
+This is the “stick” – a self‑made, lasting group.
+
+---
+
+Why does this work for so many different things?
+
+Because the rule uses only local information (what a dot can see nearby) and energy as a shared resource.
+It doesn’t care what the dots are – cells, robots, people, data packets, or crystal atoms.
+You just rename the words:
+
+In this document In biology In robotics In crowds In crystals
+Dot Cell Robot Person Atom
+Energy Food / ATP Battery Comfort / time Bond energy
+Tiredness Starvation Low battery Exhaustion High stress
+Bond Cell adhesion Docking Group Atomic bond
+Bond limit Contact inhibition Port limit Group size Coordination number
+
+Everything else stays the same.
+
+---
+
+How can you test it yourself? (Simple recipe)
+
+You don’t need to be a programmer. Here is the step‑by‑step recipe in plain language that anyone can implement in any language (or even on paper with a few dots).
+
+What you need
+
+· A bunch of dots (start with 20).
+· A 3D space (or 2D if easier).
+· Each dot has a position and an energy (start energy = 800).
+· Set these numbers:
+  · Sensing distance = 25
+  · Bonding distance = 2 (very close)
+  · Max bonds per dot = 3
+  · Tiredness strength = 15
+  · Base energy use per step = 0.8
+  · Energy saved per bond = 0.6
+  · Tiny energy gift per bond = 0.1
+  · Spring strength (how hard bonded dots pull together) = 0.5
+
+Each step (repeat 720 times – that’s one simulated day if 30 steps = 1 hour)
+
+1. Look around each dot: find all neighbours within distance 25.
+2. Compute attraction toward each neighbour:
+   · Measure how tired you are and how tired the neighbour is.
+   · Add those tiredness numbers together, multiply by strength (15).
+   · Add that to the normal “he has more energy than me” attraction.
+   · Sum up all attractions to get a direction to move.
+3. Move each dot a little in that direction, using a bit of energy.
+   · If the dot is bonded, move slower (damping).
+4. Gently pull bonded dots together if they drift apart (spring force).
+5. Form bonds: if two dots are within distance 2 and both have fewer than 3 bonds, they bond.
+   · When they bond, they equalise their energy (average).
+   · They do NOT instantly snap together; they just stay bonded.
+6. Use energy: each dot subtracts its base use, adds savings from bonds, adds a tiny reward per bond.
+7. Die if energy falls below 5.
+
+What you will see
+
+· After a few steps, small groups appear.
+· Within a few simulated hours, most dots are in clusters of 2–5.
+· No dot runs out of energy (almost 100% survival).
+· Clusters stay together for the whole day.
+
+That’s it. You’ve built a working “stick” system.
+
+---
+
+A note on time (optional)
+
+You can pretend that 30 steps = 1 real hour. Then 720 steps = 1 full day.
+This helps you say things like “after 2 hours, the first cluster formed”.
+If you want to watch it in slow motion, just add a short pause between steps.
+
+---
+
+Common questions
+
+Q: Why do clusters break apart sometimes?
+A: If a cluster gets too big (more than about 5–7 dots), the outer dots may feel stronger attraction to other clusters and break away. That’s normal – like a crystal cracking along a grain boundary.
+
+Q: Can I make one giant cluster instead of many small ones?
+A: Yes – increase the sensing distance (so clusters can see each other) and increase the tiredness strength (so they pull harder). They will merge.
+
+Q: What if I want repulsion instead of attraction?
+A: Change the sign: instead of adding the tiredness, subtract it. Then tired dots push each other away – useful for avoiding collisions.
+
+Q: I don’t code. Can I try this with real objects?
+A: You can simulate it on paper with tokens and dice. Place tokens on a grid. Each turn, move each token toward the nearest token that is more “tired” (you define tiredness). If two tokens land on the same cell or adjacent, they bond. Not as fun, but it works.
+
+---
+
+Final summary in two sentences
+
+Tired things attract each other. When they get very close, they bond, share energy, and become a lasting group.
+This simple rule works for cells, robots, crowds, crystals, and almost anything else that moves and uses energy.
+
+Now go try it. And when it works, you’ll have your own “stick”.

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"MemoryEvent","type":"object","required":["event_id","activation_id","source_type","source_id","timestamp","raw_summary"]}

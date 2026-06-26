@@ -1,0 +1,58 @@
+{
+  "proposed_activation": "A02B-live-read-only-topology",
+  "device_transition_required": true,
+  "partition_write_authorized": false,
+  "planned_states": [
+    "Android if available",
+    "bootloader fastboot",
+    "userspace fastboot only if supported",
+    "return to Android"
+  ],
+  "exact_commands_proposed": [
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe devices -l",
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe shell getprop ro.boot.slot_suffix",
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe shell getprop ro.boot.dynamic_partitions",
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe shell ls -l /dev/block/by-name",
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe shell cat /proc/partitions",
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe shell mount",
+    "C:\\Android\\android-sdk\\platform-tools\\adb.exe reboot bootloader",
+    "C:\\Android\\android-sdk\\platform-tools\\fastboot.exe getvar all",
+    "C:\\Android\\android-sdk\\platform-tools\\fastboot.exe getvar current-slot",
+    "C:\\Android\\android-sdk\\platform-tools\\fastboot.exe getvar slot-count",
+    "C:\\Android\\android-sdk\\platform-tools\\fastboot.exe getvar is-userspace",
+    "C:\\Android\\android-sdk\\platform-tools\\fastboot.exe reboot"
+  ],
+  "expected_observations": [
+    "live slot metadata",
+    "dynamic partition flags",
+    "fastboot variable support",
+    "frozen versus live partition-name alignment",
+    "userspace fastboot support indicators"
+  ],
+  "battery_threshold": ">= 50%",
+  "usb_requirements": [
+    "known-good data cable",
+    "stable direct USB port",
+    "no hub if avoidable"
+  ],
+  "abort_conditions": [
+    "device not enumerated reliably",
+    "battery below threshold",
+    "unexpected bootloop or unauthorized adb state",
+    "operator does not approve state transition"
+  ],
+  "recovery_path": [
+    "remain read-only",
+    "return device to Android",
+    "preserve new evidence under C:\\Motorola-Activation",
+    "do not flash or erase"
+  ],
+  "unresolved_questions_addressed": [
+    "userspace fastboot support",
+    "dynamic logical partition enumeration",
+    "live slot metadata",
+    "live AVB variables",
+    "super partition naming"
+  ],
+  "operator_approval": "PENDING"
+}

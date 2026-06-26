@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthorityClaim",
+  "type": "object",
+  "required": ["claim_id", "text", "claim_type", "support_status", "guard_recommendation"],
+  "properties": {
+    "claim_id": { "type": "string" },
+    "text": { "type": "string" },
+    "claim_type": { "type": "string" },
+    "support_status": { "type": "string" },
+    "guard_recommendation": { "enum": ["PROCEED", "WATCH", "HOLD", "REVERSE"] }
+  }
+}

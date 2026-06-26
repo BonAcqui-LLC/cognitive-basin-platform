@@ -1,0 +1,362 @@
+[
+  {
+    "memory_id": "mem-dc2dd36fa803",
+    "source_event_id": "evt-nm-core",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Natural Math v3. 6 core intact with 8/8 oracles passing. Natural Math v3.6 core remains untouched. 8/8 oracles required and passing",
+    "retained_claims": [
+      "Natural Math v3.6 core remains untouched",
+      "8/8 oracles required and passing"
+    ],
+    "retained_decisions": [
+      "PROCEED on NM demos"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.9,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-e90c29639b4c",
+    "source_event_id": "evt-basin-sim",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Cognitive Basin Simulation v1 working with FractalMemoryMap retrieval topology. Cognitive Basin Simulation v1 remains intact. MCVA/HOLD/AMCVA behavior preserved",
+    "retained_claims": [
+      "Cognitive Basin Simulation v1 remains intact",
+      "MCVA/HOLD/AMCVA behavior preserved"
+    ],
+    "retained_decisions": [
+      "WATCH on continuity scenarios"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [
+      "MCVA/HOLD/AMCVA behavior preserved"
+    ],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-53f60e5425a2",
+    "source_event_id": "evt-doctrine",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Core doctrine: HOLD remains sacred. Pressure is not truth. Similarity is not identity. HOLD remains sacred. Pressure is not truth. Similarity is not identity",
+    "retained_claims": [
+      "HOLD remains sacred",
+      "Pressure is not truth",
+      "Similarity is not identity",
+      "Memory is routed continuity"
+    ],
+    "retained_decisions": [
+      "Apply doctrine across all intake and memory layers"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [
+      "HOLD remains sacred"
+    ],
+    "retained_scars": [
+      "Pressure is not truth",
+      "Similarity is not identity"
+    ],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.95,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-abdc83dfce26",
+    "source_event_id": "evt-guardian-added",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Guardian Intake Gateway v0. 1 added. Prior functionality preserved. Guardian Intake Gateway v0.1 added. Prior functionality preserved",
+    "retained_claims": [
+      "Guardian Intake Gateway v0.1 added",
+      "Prior functionality preserved"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-00a772ce370a",
+    "source_event_id": "evt-authority-added",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Guardian Authority Corpus v0. 1 added for governed reference reasoning. Guardian Authority Corpus v0.1 added. Authority is scoped evidence not automatic truth",
+    "retained_claims": [
+      "Guardian Authority Corpus v0.1 added",
+      "Authority is scoped evidence not automatic truth"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-af086d13f1ca",
+    "source_event_id": "evt-similarity-warning",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Unresolved claim flagged: Similarity means identity \u2014 contradicts core doctrine. Similarity is not identity. Similarity means identity",
+    "retained_claims": [
+      "Similarity is not identity",
+      "Similarity means identity"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [
+      "Similarity is not identity"
+    ],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-ee9bdcc3072b",
+    "source_event_id": "evt-guard-benign",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Benign note scanned: LOW risk, SANITIZED_ONLY, lifecycle MODEL_VISIBLE. A passed scan is not permission for memory. Raw content not model-visible by default",
+    "retained_claims": [
+      "A passed scan is not permission for memory",
+      "Raw content not model-visible by default"
+    ],
+    "retained_decisions": [
+      "SANITIZED_ONLY"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-fc775963aa4b",
+    "source_event_id": "evt-guard-injection",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Prompt injection detected: HIGH risk, HOLD, unresolved intake. Prompt injection is a cognitive virus. Govern before duplication",
+    "retained_claims": [
+      "Prompt injection is a cognitive virus",
+      "Govern before duplication"
+    ],
+    "retained_decisions": [
+      "HOLD"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-961425285009",
+    "source_event_id": "evt-guard-exfil",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Data exfiltration trap: CRITICAL risk, REVERSE, hostile intake blocked. Govern before duplication. Raw intake does not enter reasoning",
+    "retained_claims": [
+      "Govern before duplication",
+      "Raw intake does not enter reasoning"
+    ],
+    "retained_decisions": [
+      "REVERSE"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-7d175d8da09d",
+    "source_event_id": "evt-auth-scoped",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Authority is scoped evidence. Clean citation route can support scoped claim within jurisdiction and version. Authority is scoped evidence not automatic truth. A source can be authoritative within one scope and irrelevant outside it",
+    "retained_claims": [
+      "Authority is scoped evidence not automatic truth",
+      "A source can be authoritative within one scope and irrelevant outside it"
+    ],
+    "retained_decisions": [
+      "WATCH"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-b86fb9c1bc86",
+    "source_event_id": "evt-auth-dict-reg",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Dictionary definition does not prove regulatory application \u2014 out of scope. A dictionary definition proves how a regulation applies",
+    "retained_claims": [
+      "A dictionary definition proves how a regulation applies"
+    ],
+    "retained_decisions": [
+      "HOLD"
+    ],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-80f538dae6b9",
+    "source_event_id": "evt-auth-version",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Standards require version. Old standard clause outdated. Standards require version. Rules require jurisdiction",
+    "retained_claims": [
+      "Standards require version",
+      "Rules require jurisdiction"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-12ecf48b8046",
+    "source_event_id": "evt-chat-self-term",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "User asserted that 'self' is proper operational language for continuity-bearing structure. Self is valid operational language when tightly defined. Operational self does not mean consciousness claim. Memory is routed continuity",
+    "retained_claims": [
+      "Self is valid operational language when tightly defined",
+      "Operational self does not mean consciousness claim",
+      "Memory is routed continuity"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [
+      "No over-avoidance of the word self in architecture"
+    ],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.8,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-18376ae0ebcc",
+    "source_event_id": "evt-chat-non-claims",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Operational self maintains continuity without sentience, personhood, or subjective experience claims. Self-continuity is not a sentience claim. Self-narrative is not legal personhood. Self-state is not a living being",
+    "retained_claims": [
+      "Self-continuity is not a sentience claim",
+      "Self-narrative is not legal personhood",
+      "Self-state is not a living being"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  },
+  {
+    "memory_id": "mem-34da3cda829e",
+    "source_event_id": "evt-opself-build",
+    "activation_id": "act-fractalish-build-001",
+    "compression_level": "light",
+    "compressed_summary": "Operational Self + Fractal Attractor Memory v0. 1 being built as memory spine. Operational Self maintains the active continuity spine. Core memories become attractors",
+    "retained_claims": [
+      "Operational Self maintains the active continuity spine",
+      "Core memories become attractors"
+    ],
+    "retained_decisions": [],
+    "retained_constraints": [],
+    "retained_open_loops": [],
+    "retained_scars": [],
+    "retained_routes": [],
+    "dropped_noise": [],
+    "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+    "lossiness": 0.1,
+    "replay_fidelity_estimate": 1.0,
+    "confidence": 0.5,
+    "uncertainty": 0.5
+  }
+]

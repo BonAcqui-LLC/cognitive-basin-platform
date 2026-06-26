@@ -1,0 +1,103 @@
+[
+  {
+    "artifact_id": "artifact-0e3905e72551",
+    "source_id": "src-mock-dictionary-v1",
+    "record_ids": [
+      "rec-dict-authority",
+      "rec-dict-claim",
+      "rec-dict-scope",
+      "rec-dict-standard",
+      "rec-dict-jurisdiction",
+      "rec-dict-evidence",
+      "rec-dict-memory",
+      "rec-dict-identity",
+      "rec-dict-similarity"
+    ],
+    "lifecycle_state": "INDEXED",
+    "retention_policy": "local_demo_30d",
+    "expires_at": "2026-07-10T19:57:38.661892+00:00",
+    "purge_allowed": true,
+    "derivative_artifacts": {
+      "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json"
+    },
+    "audit_log_reference": "guardian_authority\\outputs\\debug\\audit.jsonl",
+    "purge_completed_at": ""
+  },
+  {
+    "artifact_id": "artifact-399b42536a80",
+    "source_id": "src-mock-encyclopedia-v1",
+    "record_ids": [
+      "rec-ency-cdr",
+      "rec-ency-mcp",
+      "rec-ency-prompt-injection",
+      "rec-ency-standards",
+      "rec-ency-rag",
+      "rec-ency-compliance"
+    ],
+    "lifecycle_state": "INDEXED",
+    "retention_policy": "local_demo_30d",
+    "expires_at": "2026-07-10T19:57:38.665842+00:00",
+    "purge_allowed": true,
+    "derivative_artifacts": {
+      "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json"
+    },
+    "audit_log_reference": "guardian_authority\\outputs\\debug\\audit.jsonl",
+    "purge_completed_at": ""
+  },
+  {
+    "artifact_id": "artifact-af6fa03c669c",
+    "source_id": "src-mock-gov-rules-v1",
+    "record_ids": [
+      "rec-gov-us-ca-retention",
+      "rec-gov-eu-de-retention",
+      "rec-gov-us-ca-exception",
+      "rec-gov-superseded"
+    ],
+    "lifecycle_state": "INDEXED",
+    "retention_policy": "local_demo_30d",
+    "expires_at": "2026-07-10T19:57:38.669449+00:00",
+    "purge_allowed": true,
+    "derivative_artifacts": {
+      "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json"
+    },
+    "audit_log_reference": "guardian_authority\\outputs\\debug\\audit.jsonl",
+    "purge_completed_at": ""
+  },
+  {
+    "artifact_id": "artifact-1f80060d96d0",
+    "source_id": "src-mock-stem-v1",
+    "record_ids": [
+      "rec-stem-formula",
+      "rec-stem-definition",
+      "rec-stem-procedure",
+      "rec-stem-pressure-truth"
+    ],
+    "lifecycle_state": "INDEXED",
+    "retention_policy": "local_demo_30d",
+    "expires_at": "2026-07-10T19:57:38.672768+00:00",
+    "purge_allowed": true,
+    "derivative_artifacts": {
+      "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json"
+    },
+    "audit_log_reference": "guardian_authority\\outputs\\debug\\audit.jsonl",
+    "purge_completed_at": ""
+  },
+  {
+    "artifact_id": "artifact-08e35c899690",
+    "source_id": "src-mock-standards-v1",
+    "record_ids": [
+      "rec-std-procedure-v2",
+      "rec-std-procedure-v1",
+      "rec-std-definition"
+    ],
+    "lifecycle_state": "INDEXED",
+    "retention_policy": "local_demo_30d",
+    "expires_at": "2026-07-10T19:57:38.675935+00:00",
+    "purge_allowed": true,
+    "derivative_artifacts": {
+      "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json"
+    },
+    "audit_log_reference": "guardian_authority\\outputs\\debug\\audit.jsonl",
+    "purge_completed_at": ""
+  }
+]

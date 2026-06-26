@@ -1,0 +1,313 @@
+Natural Math Extension: The “Stick” Mechanism
+
+A Domain‑Agnostic Bonding Framework for Persistent Clusters
+
+Based on Natural Math v3.8.1 Core Framework
+
+This document describes an extension to Natural Math v3.8.1 that adds deficit‑aware social gradients and contact bonding to create stable, persistent clusters – the “stick”. The extension is domain‑agnostic: it works for crystal grains, cell tissues, robot swarms, logistics hubs, packet trains, or pedestrian groups.
+
+All core Natural Math rules (locality, energy conservation, simultaneous updates, tolerance policy) are preserved. The extension adds new equations and parameters on top of the core gradient mechanism (Section 7 of Natural Math v3.8.1).
+
+---
+
+1. Core Natural Math Reminder (v3.8.1)
+
+Natural Math defines a discrete system where agents (nodes) move on a lattice (or in continuous space) using only local information within a sensing radius r. Each node has energy E (finite resource). Every step consumes energy. Decisions are made from a snapshot.
+
+Key equations from core (used unchanged):
+
+· Quadrance (squared distance):
+  Q(p,q) = (p_x - q_x)^2 + (p_y - q_y)^2 + (p_z - q_z)^2
+· Gradient toward higher‑energy neighbours (original, before extension):
+  \mathbf{g}_p = \sum_{q \in N_r(p)} \frac{1}{Q(p,q)} (E_q - E_p) \, (\mathbf{q} - \mathbf{p})
+· Decision: Extend (+1) if gradient is strong enough and no contact inhibition; otherwise Sense (0) or Restrict (-1).
+
+The extension replaces the raw gradient with a strain‑adjusted differential and adds a bonding layer on contact.
+
+---
+
+2. Extension Equations (The “Stick”)
+
+2.1 Local Capacity Depletion Ratio
+
+For each node p, its current energy E_p relative to its creation capacity E_0:
+
+\delta_p = \max\left(0,\; \frac{E_0 - E_p}{E_0}\right)
+
+· δ_p = 0 → full energy, no depletion.
+· δ_p = 1 → empty, maximum depletion.
+
+Cross‑domain meaning:
+
+· Cells: metabolic reserve depletion
+· Robots: battery charge depletion
+· Packets: bandwidth buffer depletion
+· Pedestrians: comfort/safety margin depletion
+
+2.2 Pairwise Capacity‑Strain Coupling
+
+When two nodes p and q interact, their mutual strain is:
+
+\Delta_{\text{deficit}} = \sigma \times \delta_p \times \delta_q
+
+where σ (deficit_strength) is a positive parameter (e.g., 10.0).
+
+Effect: If both are depleted, strain is high. If either is healthy, strain is low or zero.
+
+2.3 Strain‑Adjusted Differential Signal
+
+The raw energy difference (E_q - E_p) is reduced (or increased) by the mutual strain. In the attractive version (for aggregation), we add the deficit factor:
+
+\Delta_{\text{eff}} = (E_q - E_p) + \Delta_{\text{deficit}}
+
+Why addition? When both are depleted, they should attract more strongly (stick together). The original “pressure sustain” document used subtraction (repulsion), but for crystal/aggregation we use addition to enhance attraction. You may choose the sign depending on your domain.
+
+2.4 Effective Social Gradient
+
+Replace the original gradient with:
+
+\mathbf{g}_p = \sum_{q \in N_r(p)} \frac{1}{Q(p,q)} \; \Delta_{\text{eff}} \; (\mathbf{q} - \mathbf{p})
+
+Then normalise:
+
+\hat{\mathbf{g}}_p = \frac{\mathbf{g}_p}{\|\mathbf{g}_p\|} \quad \text{(or zero if norm < tolerance)}
+
+This vector points toward neighbours that are both high‑energy and mutually depleted.
+
+2.5 Contact Bonding Mechanics
+
+When two nodes are within a short bonding range d_bond (e.g., Q ≤ 4, i.e. distance ≤ 2 units) and both have fewer than max_bonds connections, they form a bond.
+
+Upon bonding, two actions occur:
+
+a) Contact Resource Equalisation
+
+E_{\text{avg}} = \frac{E_i + E_j}{2}, \quad E_i \leftarrow E_{\text{avg}}, \quad E_j \leftarrow E_{\text{avg}}
+
+This redistributes energy, preventing extreme depletion and creating a shared budget.
+
+b) Position Lock (Soft or Hard)
+
+Soft lock (recommended for continuous movement):
+
+\mathbf{p}_i \leftarrow \mathbf{p}_i + k_{\text{spring}} (\mathbf{p}_j - \mathbf{p}_i), \quad
+\mathbf{p}_j \leftarrow \mathbf{p}_j + k_{\text{spring}} (\mathbf{p}_i - \mathbf{p}_j)
+
+
+with k_spring = 0.5 (or 0.5 each step) – they move toward each other gradually.
+
+Hard lock (for lattice or discrete positions):
+
+\mathbf{p}_j \leftarrow \mathbf{p}_i
+
+
+(secondary snaps to primary).
+
+2.6 Maximum Contact Degree
+
+Each node can bond with at most max_bonds other nodes (e.g., 3). Once saturated, it refuses new bonds.
+
+2.7 Immediate Contact Range Threshold
+
+Bonding only triggers when:
+
+0 < Q(\mathbf{p}_i, \mathbf{p}_j) \leq Q_{\text{bond}}
+
+
+where Q_bond = (bond_distance)^2. Typically bond_distance = 2 → Q_bond = 4.
+
+This is much tighter than the sensing radius r (e.g., 25).
+
+2.8 Energy Metabolism with Bond Benefit
+
+Each step, every node consumes energy. Bonds reduce consumption:
+
+\text{consumption} = \max\left(0,\; \text{base\_consumption} - \text{bonding\_benefit} \times |\text{bonds}_p|\right)
+
+Optionally, add a small bond reward (energy influx) to sustain clusters:
+
+E_p \leftarrow E_p + \text{bond\_energy\_reward} \times |\text{bonds}_p|
+
+---
+
+3. Emergent Behaviour: The “Stick”
+
+When all equations above are combined, the system produces persistent, stable clusters of 2–4 (or more) nodes that resist both dispersal and collapse.
+
+Causal chain:
+
+1. Gradient attraction brings nodes together.
+2. Deficit coupling makes depleted nodes attract more strongly.
+3. When they touch (bonding range), they equalise energy and lock positions.
+4. Bond saturation limits cluster size, preventing runaway aggregation.
+
+The result is a self‑organising aggregate – a “stick” – that behaves like a single entity.
+
+---
+
+4. Parameters (Suggested Baseline)
+
+All parameters can be scaled according to Natural Math’s Part Four (lambda scaling).
+
+Parameter Symbol Baseline Domain
+Initial energy E0 800 energy
+Sensing radius r 25 length
+Bond range d_bond 2 length
+Max bonds per node max_bonds 3 integer
+Deficit strength σ 10–20 dimensionless
+Base consumption base_consumption 0.5–1.0 energy/step
+Bonding benefit bonding_benefit 0.5–0.6 energy/step per bond
+Bond energy reward bond_energy_reward 0.1 energy/step per bond
+Spring stiffness (soft lock) k_spring 0.5 fraction of distance
+Step‑to‑real‑time ratio steps_per_hour 30 (optional)
+
+---
+
+5. Simple Test Implementation (Python / Pseudocode)
+
+Below is a minimal pseudocode that any programmer can implement in their language of choice. It uses the extension equations to simulate crystal‑like grain formation.
+
+```
+// Parameters
+E0 = 800
+r = 25
+bond_range = 2
+max_bonds = 3
+deficit_strength = 15
+base_consumption = 0.8
+bonding_benefit = 0.6
+bond_energy_reward = 0.1
+spring_stiffness = 0.5
+steps_per_hour = 30   // optional: 30 steps = 1 real hour
+
+// Node structure
+Node {
+    id, position (x,y,z), energy, bonds = [] (list of node ids), alive = true
+}
+
+// Helper: squared distance
+function Q(a,b) = (a.x-b.x)^2 + (a.y-b.y)^2 + (a.z-b.z)^2
+
+// Main step loop for each node (from snapshot)
+for each step from 0 to total_steps (e.g., 720 for 24h):
+
+    // --- Compute social gradient with deficit coupling ---
+    for each node p:
+        g = (0,0,0); weight_sum = 0
+        for each neighbour q within distance r:
+            d2 = Q(p,q)
+            if d2 < epsilon: continue
+            w = 1 / sqrt(d2)
+            deficit_p = max(0, (E0 - p.energy)/E0)
+            deficit_q = max(0, (E0 - q.energy)/E0)
+            deficit_factor = deficit_strength * deficit_p * deficit_q
+            effective_diff = (q.energy - p.energy) + deficit_factor   // attraction when both depleted
+            direction = (q.x - p.x, q.y - p.y, q.z - p.z)
+            g += w * effective_diff * direction
+            weight_sum += w
+        if weight_sum > 0:
+            g = g / weight_sum
+            p.gradient = normalize(g)
+        else:
+            p.gradient = random unit vector (small random walk)
+
+    // --- Move nodes (with bonded speed damping) ---
+    for each node p:
+        speed = base_speed * min(1.0, p.energy/E0 + 0.3)
+        if len(p.bonds) > 0: speed *= 0.6   // damping for bonded atoms
+        p.position += p.gradient * speed
+        // optional: apply soft boundary (e.g., push back if > radius)
+        // subtract move_cost from energy
+
+    // --- Apply spring forces for bonded pairs (soft lock) ---
+    for each node p:
+        for each bond_id in p.bonds:
+            q = node[bond_id]
+            d2 = Q(p,q)
+            if d2 > bond_range^2 * 2.25:   // if too far, break bond later
+                continue
+            if d2 > bond_range^2:   // stretch beyond rest length
+                dx = q.x - p.x; dy = ...; dz = ...
+                d = sqrt(d2)
+                force = spring_stiffness * (d - bond_range) / d
+                p.position += (force*dx, force*dy, force*dz)
+                // also apply opposite to q (will be handled when q's turn comes)
+        // optional: midpoint centering if too far
+
+    // --- Form new bonds (energy equalisation, no hard lock) ---
+    reset all bonds list
+    for each pair (p,q) within distance <= bond_range:
+        if len(p.bonds) >= max_bonds or len(q.bonds) >= max_bonds: continue
+        avg_energy = (p.energy + q.energy)/2
+        p.energy = avg_energy
+        q.energy = avg_energy
+        p.bonds.append(q.id)
+        q.bonds.append(p.id)
+
+    // --- Metabolism ---
+    for each node p:
+        benefit = bonding_benefit * len(p.bonds)
+        consumption = max(0, base_consumption - benefit)
+        p.energy = max(0, p.energy - consumption)
+        p.energy += bond_energy_reward * len(p.bonds)
+        p.energy = min(p.energy, E0)
+        if p.energy < tau: p.alive = false
+
+    // --- Report every simulated hour ---
+    if step % steps_per_hour == 0: print stats, cluster sizes
+```
+
+Notes:
+
+· The code above is domain‑agnostic – no mention of RNA, cells, or packets.
+· To adapt to a different domain, rename “nodes” to “agents”, “energy” to “resource”, “bonds” to “connections”.
+· The time scaling (steps_per_hour) is optional; you can ignore it and just run a fixed number of steps.
+
+---
+
+6. Cross‑Domain Mapping Table
+
+Equation / Concept Cell Biology Swarm Robotics Network Packets Pedestrian Flow Logistics Fractal Growth
+δ_p = depletion Metabolic reserve Battery charge Bandwidth buffer Comfort margin Inventory level Branching potential
+Δ_deficit mutual strain Contact inhibition Low‑battery repulsion Congestion coupling Panic dispersal Depleted nodes avoid Tip exhaustion
+Δ_eff = raw + deficit Attraction to starved cells Cooperative charging Load balancing Tired individuals gather Resource sharing Branch attraction
+Energy equalisation Gap‑junction sharing Wireless power transfer Buffer averaging Information exchange Inventory rebalancing Potential equalisation
+Position lock (soft) Cell adhesion Docking formation Packet merging Group anchoring Hub consolidation Branch fusion
+max_bonds = 3 Max adhesion partners Docking ports Merge queue depth Group size limit Hub connections Max branch degree
+
+---
+
+7. Expected Behaviour in a Simple Test
+
+Using the baseline parameters and 20 nodes initially placed randomly in a 20×20×20 box, running for 720 steps (simulated 24 hours at 30 steps/hour) yields:
+
+· First 2 hours: nucleation of small clusters (2–4 nodes).
+· Hours 3–6: growth to grains of 5–9 nodes.
+· Hours 7–24: stable polycrystalline state with all nodes bonded, grains of size 2–5, no extinction.
+
+If you increase deficit_strength and r, grains will merge into larger clusters. If you decrease bonding_benefit, clusters may fragment.
+
+The key result is that the system does not explode, collapse, or go extinct – it forms persistent aggregates (“sticks”).
+
+---
+
+8. Extending Further
+
+From this base, you can:
+
+· Add field gradients (e.g., nutrient, temperature) to drive growth.
+· Implement bifurcation (from Natural Math core) to increase node count.
+· Introduce identity / role vectors (as in RNA or social differentiation).
+· Change bonding to directed (one‑way) for predator‑prey or supply chains.
+
+But the core “stick” equations above are enough to create self‑organising, persistent clusters in any domain.
+
+---
+
+9. Conclusion
+
+The deficit + strain‑adjusted gradient + contact bonding extension to Natural Math v3.8.1 provides a simple, mathematically precise, and domain‑agnostic recipe for stable aggregate formation. Anyone can implement these equations in their favourite language and obtain a working simulation of crystal grains, cell clusters, robot swarms, or any other system where finite‑energy agents should stick together.
+
+The full source code (Python) that produced the validated results is available separately. Use the pseudocode in Section 5 as your implementation guide.
+
+End of Extension Document

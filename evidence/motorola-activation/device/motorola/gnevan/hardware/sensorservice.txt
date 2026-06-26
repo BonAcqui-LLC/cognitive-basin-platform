@@ -1,0 +1,349 @@
+Captured at: 18:35:58.537
+Sensor Device:
+Total 34 h/w sensors, 34 running 0 disabled clients:
+0x00000001) active-count = 1; sampling_period(ms) = {80.0}, selected = 80.00 ms; batching_period(ms) = {2000.0}, selected = 2000.00 ms
+0x00000005) active-count = 2; sampling_period(ms) = {250.0, 200.0}, selected = 200.00 ms; batching_period(ms) = {0.0, 0.0}, selected = 0.00 ms
+0x00000008) active-count = 1; sampling_period(ms) = {1000.0}, selected = 1000.00 ms; batching_period(ms) = {0.0}, selected = 0.00 ms
+0x00000011) active-count = 2; sampling_period(ms) = {1.0, 1.0}, selected = 1.00 ms; batching_period(ms) = {0.0, 0.0}, selected = 0.00 ms
+0x0000001b) active-count = 1; sampling_period(ms) = {66.7}, selected = 66.67 ms; batching_period(ms) = {0.0}, selected = 0.00 ms
+0x00000049) active-count = 2; sampling_period(ms) = {200.0, 200.0}, selected = 200.00 ms; batching_period(ms) = {0.0, 0.0}, selected = 0.00 ms
+0x0000004c) active-count = 2; sampling_period(ms) = {66.7, 1.0}, selected = 1.00 ms; batching_period(ms) = {0.0, 0.0}, selected = 0.00 ms
+0x0000004d) active-count = 1; sampling_period(ms) = {1.0}, selected = 1.00 ms; batching_period(ms) = {0.0}, selected = 0.00 ms
+Sensor List:
+0x00000001) BMI320                    | bmi3xy_acc      | ver: 1 | type: android.sensor.accelerometer(1) | perm: n/a | flags: 0x00000000
+	continuous | minRate=12.50Hz | maxRate=400.00Hz | FIFO (max,reserved) = (4500, 3000) events | non-wakeUp | 
+0x00000002) MMC5603_Mag               | mmc5603         | ver: 1 | type: android.sensor.magnetic_field(2) | perm: n/a | flags: 0x00000000
+	continuous | minRate=5.00Hz | maxRate=50.00Hz | FIFO (max,reserved) = (4500, 600) events | non-wakeUp | 
+0x00000003) ORIENTATION               | MTK             | ver: 1 | type: android.sensor.orientation(3) | perm: n/a | flags: 0x00000000
+	continuous | minRate=50.00Hz | maxRate=200.00Hz | no batching | non-wakeUp | 
+0x00000004) BMI320                    | bmi3xy_gyro     | ver: 1 | type: android.sensor.gyroscope(4) | perm: n/a | flags: 0x00000000
+	continuous | minRate=12.50Hz | maxRate=400.00Hz | FIFO (max,reserved) = (4500, 3000) events | non-wakeUp | 
+0x00000005) TMD2755_L                 | tmd2755_l       | ver: 1 | type: android.sensor.light(5) | perm: n/a | flags: 0x00000002
+	on-change | minRate=1.00Hz | minDelay=0us | no batching | non-wakeUp | 
+0x00000006) ICP201_Pre                | icp201xx        | ver: 1 | type: android.sensor.pressure(6) | perm: n/a | flags: 0x00000000
+	continuous | minRate=1.00Hz | maxRate=10.00Hz | FIFO (max,reserved) = (4500, 300) events | non-wakeUp | 
+0x00000008) TMD2755_P                 | tmd2755_p       | ver: 1 | type: android.sensor.proximity(8) | perm: n/a | flags: 0x00000003
+	on-change | minRate=1.00Hz | minDelay=0us | FIFO (max,reserved) = (4500, 100) events | wakeUp | 
+0x00000009) GRAVITY                   | MTK             | ver: 1 | type: android.sensor.gravity(9) | perm: n/a | flags: 0x00000000
+	continuous | minRate=50.00Hz | maxRate=200.00Hz | no batching | non-wakeUp | 
+0x0000000a) LINEARACCEL               | MTK             | ver: 1 | type: android.sensor.linear_acceleration(10) | perm: n/a | flags: 0x00000000
+	continuous | minRate=50.00Hz | maxRate=200.00Hz | no batching | non-wakeUp | 
+0x0000000b) ROTATION_VECTOR           | MTK             | ver: 1 | type: android.sensor.rotation_vector(11) | perm: n/a | flags: 0x00000000
+	continuous | minRate=50.00Hz | maxRate=200.00Hz | FIFO (max,reserved) = (4500, 300) events | non-wakeUp | 
+0x0000000e) UNCALI_MAG                | MTK             | ver: 1 | type: android.sensor.magnetic_field_uncalibrated(14) | perm: n/a | flags: 0x00000000
+	continuous | minRate=5.00Hz | maxRate=50.00Hz | FIFO (max,reserved) = (4500, 600) events | non-wakeUp | 
+0x0000000f) GAME_ROTATION_VECTOR      | MTK             | ver: 1 | type: android.sensor.game_rotation_vector(15) | perm: n/a | flags: 0x00000000
+	continuous | minRate=50.00Hz | maxRate=200.00Hz | FIFO (max,reserved) = (4500, 300) events | non-wakeUp | 
+0x00000010) UNCALI_GYRO               | MTK             | ver: 1 | type: android.sensor.gyroscope_uncalibrated(16) | perm: n/a | flags: 0x00000000
+	continuous | minRate=10.00Hz | maxRate=400.00Hz | FIFO (max,reserved) = (4500, 3000) events | non-wakeUp | 
+0x00000011) SIGNIFICANT_MOTION        | MTK             | ver: 1 | type: android.sensor.significant_motion(17) | perm: n/a | flags: 0x00000005
+	one-shot | maxDelay=0us | minDelay=-1us | no batching | wakeUp | 
+0x00000012) STEP_DETECTOR             | MTK             | ver: 1 | type: android.sensor.step_detector(18) | perm: android.permission.ACTIVITY_RECOGNITION | flags: 0x00000006
+	special-trigger | maxDelay=0us | minDelay=0us | FIFO (max,reserved) = (4500, 100) events | non-wakeUp | 
+0x00000013) STEP_COUNTER              | MTK             | ver: 1 | type: android.sensor.step_counter(19) | perm: android.permission.ACTIVITY_RECOGNITION | flags: 0x00000002
+	on-change | minRate=1.00Hz | minDelay=0us | no batching | non-wakeUp | 
+0x00000014) GEOMAGNETIC_ROTATION_VECTOR | MTK             | ver: 1 | type: android.sensor.geomagnetic_rotation_vector(20) | perm: n/a | flags: 0x00000000
+	continuous | minRate=50.00Hz | maxRate=200.00Hz | no batching | non-wakeUp | 
+0x0000001b) Disprot                   | Motorola        | ver: 1 | type: android.sensor.device_orientation(27) | perm: n/a | flags: 0x00000002
+	on-change | minRate=1.00Hz | minDelay=0us | no batching | non-wakeUp | 
+0x00000023) UNCALI_ACC                | MTK             | ver: 1 | type: android.sensor.accelerometer_uncalibrated(35) | perm: n/a | flags: 0x00000000
+	continuous | minRate=1.00Hz | maxRate=400.00Hz | FIFO (max,reserved) = (4500, 3000) events | non-wakeUp | 
+0x00000049) Stowed                    | Motorola        | ver: 1 | type: com.motorola.sensor.stowed(65539) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x0000004a) Flatup                    | Motorola        | ver: 1 | type: com.motorola.sensor.flat_up(65537) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x0000004b) Flatdown                  | Motorola        | ver: 1 | type: com.motorola.sensor.flat_down(65538) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x0000004c) Camera Activate           | Motorola        | ver: 1 | type: com.motorola.sensor.camera_activate(65540) | perm: n/a | flags: 0x00000007
+	special-trigger | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x0000004d) ChopChop                  | Motorola        | ver: 1 | type: com.motorola.sensor.chopchop(65546) | perm: n/a | flags: 0x00000007
+	special-trigger | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x0000004e) Motoglance                | Motorola        | ver: 1 | type: com.motorola.sensor.glance(65548) | perm: n/a | flags: 0x00000007
+	special-trigger | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x0000004f) Ltv                       | Motorola        | ver: 1 | type: com.motorola.sensor.ltv(65556) | perm: n/a | flags: 0x00000007
+	special-trigger | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x00000050) FTM                       | Motorola        | ver: 1 | type: com.motorola.sensor.ftm(65554) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x00000052) LTS                       | Motorola        | ver: 1 | type: com.motorola.sensor.lts(65553) | perm: n/a | flags: 0x00000006
+	special-trigger | maxDelay=0us | minDelay=0us | no batching | non-wakeUp | 
+0x00000065) STEP_DETECTOR_WAKEUP      | MTK             | ver: 1 | type: android.sensor.step_detector(18) | perm: android.permission.ACTIVITY_RECOGNITION | flags: 0x00000007
+	special-trigger | maxDelay=0us | minDelay=0us | FIFO (max,reserved) = (4500, 100) events | wakeUp | 
+0x01000001) Moto CapSense Ch3         | semtech         | ver: 1 | type: com.motorola.sensor.capsense(65552) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x01000002) Moto CapSense Ch1         | semtech         | ver: 1 | type: com.motorola.sensor.capsense(65552) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x01000003) Moto CapSense Ch2         | semtech         | ver: 1 | type: com.motorola.sensor.capsense(65552) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x01000004) dt-gesture                | Novatek         | ver: 1 | type: com.motorola.sensor.double_tap(65566) | perm: n/a | flags: 0x00000007
+	special-trigger | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x01000005) Moto CapSense Ch0         | semtech         | ver: 1 | type: com.motorola.sensor.capsense(65552) | perm: n/a | flags: 0x00000003
+	on-change | maxDelay=0us | minDelay=0us | no batching | wakeUp | 
+0x5f636779) Corrected Gyroscope Sensor | AOSP            | ver: 1 | type: android.sensor.gyroscope(4) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f676172) Game Rotation Vector Sensor | AOSP            | ver: 3 | type: android.sensor.game_rotation_vector(15) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f676273) Gyroscope Bias (debug)    | AOSP            | ver: 1 | type: android.sensor.accelerometer(1) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f67656f) GeoMag Rotation Vector Sensor | AOSP            | ver: 3 | type: android.sensor.geomagnetic_rotation_vector(20) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f677276) Gravity Sensor            | AOSP            | ver: 3 | type: android.sensor.gravity(9) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f6c696e) Linear Acceleration Sensor | AOSP            | ver: 3 | type: android.sensor.linear_acceleration(10) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f726f76) Rotation Vector Sensor    | AOSP            | ver: 3 | type: android.sensor.rotation_vector(11) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+0x5f797072) Orientation Sensor        | AOSP            | ver: 1 | type: android.sensor.orientation(3) | perm: n/a | flags: 0x00000000
+	continuous | maxDelay=0us | maxRate=400.00Hz | no batching | non-wakeUp | 
+Fusion States:
+9-axis fusion disabled (0 clients), gyro-rate= 200.00Hz, q=< 0, 0, 0, 0 > (0), b=< 0, 0, 0 >
+game fusion(no mag) disabled (0 clients), gyro-rate= 200.00Hz, q=< 0, 0, 0, 0 > (0), b=< 0, 0, 0 >
+geomag fusion (no gyro) disabled (0 clients), gyro-rate= 200.00Hz, q=< 0, 0, 0, 0 > (0), b=< 0, 0, 0 >
+Recent Sensor events:
+Motoglance: last 3 events
+	 1 (ts=48.408957002, wall=18:17:34.589) 16.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 
+	 2 (ts=1063.768166832, wall=18:34:29.949) 16.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 
+	 3 (ts=1145.077049683, wall=18:35:51.259) 16.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 
+ROTATION_VECTOR: last 10 events
+	 1 (ts=65.965758447, wall=18:17:52.146) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 2 (ts=65.985715052, wall=18:17:52.168) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 3 (ts=66.005671591, wall=18:17:52.187) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 4 (ts=66.025627980, wall=18:17:52.206) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 5 (ts=66.045584610, wall=18:17:52.226) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 6 (ts=66.065541171, wall=18:17:52.246) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 7 (ts=66.085497773, wall=18:17:52.266) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 8 (ts=66.105454365, wall=18:17:52.286) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	 9 (ts=66.125410750, wall=18:17:52.306) -0.01, -0.03, -0.86, 0.50, 0.00, 
+	10 (ts=66.145367292, wall=18:17:52.326) -0.01, -0.03, -0.86, 0.50, 0.00, 
+LINEARACCEL: last 10 events
+	 1 (ts=65.965758447, wall=18:17:52.146) 0.03, 0.01, 0.44, 
+	 2 (ts=65.985715052, wall=18:17:52.168) 0.00, 0.02, 0.41, 
+	 3 (ts=66.005671591, wall=18:17:52.187) 0.02, -0.01, 0.43, 
+	 4 (ts=66.025627980, wall=18:17:52.206) 0.04, 0.00, 0.42, 
+	 5 (ts=66.045584610, wall=18:17:52.226) 0.01, 0.02, 0.42, 
+	 6 (ts=66.065541171, wall=18:17:52.246) 0.05, 0.01, 0.42, 
+	 7 (ts=66.085497773, wall=18:17:52.266) 0.02, 0.00, 0.41, 
+	 8 (ts=66.105454365, wall=18:17:52.286) 0.02, 0.02, 0.43, 
+	 9 (ts=66.125410750, wall=18:17:52.306) 0.03, 0.00, 0.42, 
+	10 (ts=66.145367292, wall=18:17:52.326) 0.01, 0.02, 0.42, 
+TMD2755_P: last 1 events
+	 1 (ts=20.087479771, wall=18:17:06.268) 5.00, 0.00, 0.00, 
+ICP201_Pre: last 10 events
+	 1 (ts=683.647449512, wall=18:28:09.826) 968.77, 0.00, 0.00, 
+	 2 (ts=683.747731296, wall=18:28:09.927) 968.78, 0.00, 0.00, 
+	 3 (ts=683.847462350, wall=18:28:10.026) 968.78, 0.00, 0.00, 
+	 4 (ts=683.947712895, wall=18:28:10.127) 968.78, 0.00, 0.00, 
+	 5 (ts=684.047474345, wall=18:28:10.226) 968.78, 0.00, 0.00, 
+	 6 (ts=684.147725109, wall=18:28:10.327) 968.78, 0.00, 0.00, 
+	 7 (ts=684.247455658, wall=18:28:10.427) 968.78, 0.00, 0.00, 
+	 8 (ts=684.347706437, wall=18:28:10.527) 968.79, 0.00, 0.00, 
+	 9 (ts=684.447468202, wall=18:28:10.626) 968.79, 0.00, 0.00, 
+	10 (ts=684.547718740, wall=18:28:10.727) 968.78, 0.00, 0.00, 
+Disprot: last 4 events
+	 1 (ts=27.022350086, wall=18:17:13.203) -1.00, 
+	 2 (ts=49.235397030, wall=18:17:35.421) -1.00, 
+	 3 (ts=1064.082080755, wall=18:34:30.268) -1.00, 
+	 4 (ts=1145.779771812, wall=18:35:51.959) -1.00, 
+TMD2755_L: last 7 events
+	 1 (ts=21.331716119, wall=18:17:07.511) 159.00, 0.00, 0.00, 
+	 2 (ts=21.331716119, wall=18:17:07.511) 158.00, 0.00, 0.00, 
+	 3 (ts=48.352104070, wall=18:17:34.531) 158.00, 0.00, 0.00, 
+	 4 (ts=1063.907220255, wall=18:34:30.086) 158.00, 0.00, 0.00, 
+	 5 (ts=1145.111717644, wall=18:35:51.291) 158.00, 0.00, 0.00, 
+	 6 (ts=1150.874347294, wall=18:35:57.053) 64.00, 0.00, 0.00, 
+	 7 (ts=1151.074324515, wall=18:35:57.253) 101.00, 0.00, 0.00, 
+Stowed: last 1 events
+	 1 (ts=23.497985539, wall=18:17:09.678) 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 
+BMI320: last 50 events
+	 1 (ts=1147.405869502, wall=18:35:53.717) 0.59, 0.37, 10.21, 
+	 2 (ts=1147.485414978, wall=18:35:53.717) 0.57, 0.36, 10.21, 
+	 3 (ts=1147.564959641, wall=18:35:55.606) 0.58, 0.35, 10.20, 
+	 4 (ts=1147.644502419, wall=18:35:55.606) 0.55, 0.37, 10.20, 
+	 5 (ts=1147.724047762, wall=18:35:55.606) 0.59, 0.37, 10.23, 
+	 6 (ts=1147.803580844, wall=18:35:55.606) 0.55, 0.36, 10.20, 
+	 7 (ts=1147.883115507, wall=18:35:55.606) 0.60, 0.35, 10.21, 
+	 8 (ts=1147.962653503, wall=18:35:55.606) 0.54, 0.36, 10.21, 
+	 9 (ts=1148.042196398, wall=18:35:55.606) 0.59, 0.37, 10.22, 
+	10 (ts=1148.121758310, wall=18:35:55.606) 0.54, 0.37, 10.21, 
+	11 (ts=1148.201309183, wall=18:35:55.606) 0.57, 0.34, 10.19, 
+	12 (ts=1148.280845983, wall=18:35:55.606) 0.55, 0.36, 10.20, 
+	13 (ts=1148.360369750, wall=18:35:55.606) 0.56, 0.39, 10.16, 
+	14 (ts=1148.439883758, wall=18:35:55.606) 0.55, 0.37, 10.19, 
+	15 (ts=1148.519393734, wall=18:35:55.606) 0.58, 0.37, 10.18, 
+	16 (ts=1148.598935949, wall=18:35:55.606) 0.56, 0.38, 10.17, 
+	17 (ts=1148.678463703, wall=18:35:55.606) 0.56, 0.39, 10.20, 
+	18 (ts=1148.757979344, wall=18:35:55.606) 0.58, 0.37, 10.15, 
+	19 (ts=1148.837493684, wall=18:35:55.606) 0.56, 0.39, 10.21, 
+	20 (ts=1148.917006795, wall=18:35:55.606) 0.58, 0.37, 10.17, 
+	21 (ts=1148.996522273, wall=18:35:55.606) 0.58, 0.40, 10.18, 
+	22 (ts=1149.076039476, wall=18:35:55.606) 0.57, 0.37, 10.19, 
+	23 (ts=1149.155545624, wall=18:35:55.606) 0.58, 0.38, 10.19, 
+	24 (ts=1149.235031861, wall=18:35:55.606) 0.57, 0.39, 10.22, 
+	25 (ts=1149.314517405, wall=18:35:55.606) 0.56, 0.38, 10.20, 
+	26 (ts=1149.394005898, wall=18:35:55.606) 0.57, 0.36, 10.20, 
+	27 (ts=1149.473509368, wall=18:35:57.053) 0.55, 0.38, 10.22, 
+	28 (ts=1149.553026582, wall=18:35:57.053) 0.58, 0.36, 10.22, 
+	29 (ts=1149.632553936, wall=18:35:57.053) 0.54, 0.38, 10.22, 
+	30 (ts=1149.712093192, wall=18:35:57.053) 0.59, 0.37, 10.17, 
+	31 (ts=1149.791612961, wall=18:35:57.053) 0.52, 0.37, 10.20, 
+	32 (ts=1149.871137409, wall=18:35:57.053) 0.57, 0.39, 10.20, 
+	33 (ts=1149.950661115, wall=18:35:57.053) 0.56, 0.39, 10.17, 
+	34 (ts=1150.030175653, wall=18:35:57.053) 0.55, 0.37, 10.16, 
+	35 (ts=1150.109686861, wall=18:35:57.053) 0.54, 0.39, 10.18, 
+	36 (ts=1150.189203760, wall=18:35:57.053) 0.55, 0.39, 10.16, 
+	37 (ts=1150.268722796, wall=18:35:57.053) 0.57, 0.38, 10.14, 
+	38 (ts=1150.348236219, wall=18:35:57.053) 0.57, 0.37, 10.13, 
+	39 (ts=1150.427736867, wall=18:35:57.053) 0.56, 0.38, 10.17, 
+	40 (ts=1150.507222578, wall=18:35:57.053) 0.57, 0.37, 10.14, 
+	41 (ts=1150.586723064, wall=18:35:57.053) 0.56, 0.41, 10.20, 
+	42 (ts=1150.666221871, wall=18:35:57.053) 0.67, 0.43, 9.96, 
+	43 (ts=1150.745719021, wall=18:35:57.053) 0.56, 0.38, 10.08, 
+	44 (ts=1150.825216242, wall=18:35:57.253) 0.64, 0.20, 11.01, 
+	45 (ts=1150.904706890, wall=18:35:57.253) 0.53, 0.41, 10.04, 
+	46 (ts=1150.984212087, wall=18:35:57.492) 0.59, 0.35, 10.20, 
+	47 (ts=1151.063719931, wall=18:35:57.492) 0.55, 0.34, 10.23, 
+	48 (ts=1151.143227341, wall=18:35:57.492) 0.57, 0.35, 10.20, 
+	49 (ts=1151.222731695, wall=18:35:57.492) 0.54, 0.35, 10.22, 
+	50 (ts=1151.302223383, wall=18:35:57.492) 0.56, 0.36, 10.23, 
+Active sensors:
+BMI320 (handle=0x00000001, connections=1)
+TMD2755_L (handle=0x00000005, connections=2)
+TMD2755_P (handle=0x00000008, connections=1)
+SIGNIFICANT_MOTION (handle=0x00000011, connections=2)
+Disprot (handle=0x0000001b, connections=1)
+Stowed (handle=0x00000049, connections=2)
+Camera Activate (handle=0x0000004c, connections=2)
+ChopChop (handle=0x0000004d, connections=1)
+Socket Buffer size = 984 events
+WakeLock Status: not held 
+Mode : NORMAL
+Sensor Privacy: disabled
+12 active connections
+Connection Number: 0 
+	Operating Mode: NORMAL
+	 com.android.server.wm.WindowOrientationListener | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 Disprot 0x0000001b | status: active | pending flush events 0 
+Connection Number: 1 
+	Operating Mode: NORMAL
+	 com.android.server.display.AutomaticBrightnessController | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 TMD2755_L 0x00000005 | status: active | pending flush events 0 
+Connection Number: 2 
+	Operating Mode: NORMAL
+	 com.android.server.display.BrightnessTracker | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 TMD2755_L 0x00000005 | status: active | pending flush events 0 
+Connection Number: 3 
+	Operating Mode: NORMAL
+	 o9.c | WakeLockRefCount 0 | uid 10193 | cache size 0 | max cache size 0
+	 Stowed 0x00000049 | status: active | pending flush events 0 
+Connection Number: 4 
+	Operating Mode: NORMAL
+	 hidl_client_pid_952 | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 TMD2755_P 0x00000008 | status: active | pending flush events 0 
+Connection Number: 5 
+	Operating Mode: NORMAL
+	 r9.e | WakeLockRefCount 0 | uid 10193 | cache size 0 | max cache size 0
+	 ChopChop 0x0000004d | status: active | pending flush events 0 
+Connection Number: 6 
+	Operating Mode: NORMAL
+	 com.motorola.actions.qc.QuickCaptureService | WakeLockRefCount 0 | uid 10193 | cache size 0 | max cache size 0
+	 Camera Activate 0x0000004c | status: active | pending flush events 0 
+Connection Number: 7 
+	Operating Mode: NORMAL
+	 com.motorola.systemui.sensors.StowedSensorManager$StowSensorEventListener | WakeLockRefCount 0 | uid 10317 | cache size 0 | max cache size 0
+	 Stowed 0x00000049 | status: active | pending flush events 0 
+Connection Number: 8 
+	Operating Mode: NORMAL
+	 com.android.server.power.FaceDownDetector | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 BMI320 0x00000001 | status: active | pending flush events 0 
+Connection Number: 9 
+	Operating Mode: NORMAL
+	 ecui | WakeLockRefCount 0 | uid 10205 | cache size 0 | max cache size 0
+	 SIGNIFICANT_MOTION 0x00000011 | status: active | pending flush events 0 
+Connection Number: 10 
+	Operating Mode: NORMAL
+	 com.android.server.GestureLauncherService | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 Camera Activate 0x0000004c | status: active | pending flush events 0 
+Connection Number: 11 
+	Operating Mode: NORMAL
+	 com.android.server.DeviceIdleController | WakeLockRefCount 0 | uid 1000 | cache size 0 | max cache size 0
+	 SIGNIFICANT_MOTION 0x00000011 | status: active | pending flush events 0 
+0 direct connections
+Previous Registrations:
+18:35:52 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker samplingPeriod=200000us batchingPeriod=0us
+18:35:52 + 0x00000049 pid= 2527 uid=10193 package=o9.c samplingPeriod=200000us batchingPeriod=0us
+18:35:52 + 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector samplingPeriod=80000us batchingPeriod=2000000us
+18:35:51 - 0x00000008 pid= 2220 uid=10317 package=com.android.systemui.util.sensors.ThresholdSensorImpl$1
+18:35:51 - 0x0000004f pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener
+18:35:51 - 0x0000004e pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener
+18:35:51 + 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener samplingPeriod=66667us batchingPeriod=0us
+18:35:51 + 0x00000008 pid= 2220 uid=10317 package=com.android.systemui.util.sensors.ThresholdSensorImpl$1 samplingPeriod=20000us batchingPeriod=0us
+18:35:51 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController samplingPeriod=250000us batchingPeriod=0us
+18:35:31 - 0x00000049 pid= 2527 uid=10193 package=o9.c
+18:35:31 - 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker
+18:35:31 - 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector
+18:35:31 + 0x0000004e pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener samplingPeriod=0us batchingPeriod=0us
+18:35:31 + 0x0000004f pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener samplingPeriod=0us batchingPeriod=0us
+18:35:30 - 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController
+18:35:30 - 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener
+18:34:30 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker samplingPeriod=200000us batchingPeriod=0us
+18:34:30 - 0x0000004f pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener
+18:34:30 - 0x0000004e pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener
+18:34:30 + 0x00000049 pid= 2527 uid=10193 package=o9.c samplingPeriod=200000us batchingPeriod=0us
+18:34:30 + 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector samplingPeriod=80000us batchingPeriod=2000000us
+18:34:30 + 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener samplingPeriod=66667us batchingPeriod=0us
+18:34:30 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController samplingPeriod=250000us batchingPeriod=0us
+18:28:10 - 0x00000006 pid= 2796 uid=10205 package=com.google.android.location.fused.PressureProvider
+18:28:08 + 0x00000006 pid= 2796 uid=10205 package=com.google.android.location.fused.PressureProvider samplingPeriod=100000us batchingPeriod=0us
+18:27:02 + 0x00000011 pid= 2796 uid=10205 package=ecui samplingPeriod=0us batchingPeriod=0us
+18:27:02 - 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.BatchSignalCollector$BatchSensorEventListener
+18:22:31 - 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner
+18:22:28 + 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner samplingPeriod=20000us batchingPeriod=0us
+18:22:23 - 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner
+18:22:20 - 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorTimestampCalibrator
+18:22:19 + 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner samplingPeriod=20000us batchingPeriod=0us
+18:22:19 + 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.BatchSignalCollector$BatchSensorEventListener samplingPeriod=20000us batchingPeriod=2147483647us
+18:22:19 + 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorTimestampCalibrator samplingPeriod=20000us batchingPeriod=0us
+18:18:35 - 0x00000049 pid= 2527 uid=10193 package=o9.c
+18:18:35 - 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker
+18:18:35 - 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector
+18:18:35 + 0x0000004e pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener samplingPeriod=0us batchingPeriod=0us
+18:18:35 + 0x0000004f pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener samplingPeriod=0us batchingPeriod=0us
+18:18:35 - 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController
+18:18:35 - 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener
+18:17:54 - 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner
+18:17:52 - 0x0000000a pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b
+18:17:52 - 0x0000000b pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b
+18:17:50 + 0x0000000b pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b samplingPeriod=20000us batchingPeriod=0us
+18:17:50 + 0x0000000a pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b samplingPeriod=20000us batchingPeriod=0us
+18:17:50 + 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner samplingPeriod=20000us batchingPeriod=0us
+18:17:45 + 0x00000049 pid= 2527 uid=10193 package=o9.c samplingPeriod=200000us batchingPeriod=0us
+18:17:45 - 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner
+18:17:42 - 0x0000000a pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b
+18:17:42 - 0x0000000b pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b
+18:17:42 + 0x0000000b pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b samplingPeriod=20000us batchingPeriod=0us
+18:17:42 + 0x0000000a pid= 5657 uid=10205 package=com.google.ccc.abuse.droidguard.events.b samplingPeriod=20000us batchingPeriod=0us
+18:17:41 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker samplingPeriod=200000us batchingPeriod=0us
+18:17:41 + 0x00000001 pid= 2796 uid=10205 package=com.google.android.location.collectionlib.SensorScanner samplingPeriod=20000us batchingPeriod=0us
+18:17:40 + 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector samplingPeriod=80000us batchingPeriod=2000000us
+18:17:35 + 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener samplingPeriod=66667us batchingPeriod=0us
+18:17:35 - 0x0000004f pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener
+18:17:35 - 0x0000004e pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener
+18:17:34 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController samplingPeriod=250000us batchingPeriod=0us
+18:17:33 - 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker
+18:17:30 - 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector
+18:17:20 + 0x0000004c pid= 2527 uid=10193 package=com.motorola.actions.qc.QuickCaptureService samplingPeriod=66667us batchingPeriod=0us
+18:17:20 + 0x0000004d pid= 2527 uid=10193 package=r9.e samplingPeriod=0us batchingPeriod=0us
+18:17:19 + 0x0000004e pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener samplingPeriod=0us batchingPeriod=0us
+18:17:19 + 0x0000004f pid= 2220 uid=10317 package=com.motorola.systemui.sensors.MotoDozeSensorManager$MotoDozeSensorEventListener samplingPeriod=0us batchingPeriod=0us
+18:17:14 - 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController
+18:17:14 - 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener
+18:17:13 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.AutomaticBrightnessController samplingPeriod=250000us batchingPeriod=0us
+18:17:13 + 0x0000001b pid= 1767 uid= 1000 package=com.android.server.wm.WindowOrientationListener samplingPeriod=66667us batchingPeriod=0us
+18:17:13 - 0x00000049 pid= 2220 uid=10317 package=com.android.keyguard.KeyguardUpdateMonitor$5
+18:17:12 + 0x00000049 pid= 2220 uid=10317 package=com.motorola.systemui.sensors.StowedSensorManager$StowSensorEventListener samplingPeriod=200000us batchingPeriod=0us
+18:17:09 + 0x00000049 pid= 2220 uid=10317 package=com.android.keyguard.KeyguardUpdateMonitor$5 samplingPeriod=200000us batchingPeriod=0us
+18:17:08 + 0x0000004c pid= 1767 uid= 1000 package=com.android.server.GestureLauncherService samplingPeriod=0us batchingPeriod=0us
+18:17:08 + 0x00000011 pid= 1767 uid= 1000 package=com.android.server.DeviceIdleController samplingPeriod=0us batchingPeriod=0us
+18:17:07 + 0x00000005 pid= 1767 uid= 1000 package=com.android.server.display.BrightnessTracker samplingPeriod=200000us batchingPeriod=0us
+18:17:07 + 0x00000001 pid= 1767 uid= 1000 package=com.android.server.power.FaceDownDetector samplingPeriod=80000us batchingPeriod=2000000us
+18:17:06 + 0x00000008 pid= 1767 uid= 1000 package=hidl_client_pid_952 samplingPeriod=1000000us batchingPeriod=0us
+18:17:06 + 0x00000008 pid= 1767 uid= 1000 package=hidl_client_pid_952 samplingPeriod=200000us batchingPeriod=0us

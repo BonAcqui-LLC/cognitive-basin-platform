@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-06-19T15:20:44-04:00",
+  "approval_record": "User explicitly approved A02B in the controlling prompt on 2026-06-19.",
+  "operator_presence_record": "Interactive approval and immediate live-device operation in current session.",
+  "adb_devices": {
+    "command": {
+      "command": [
+        "C:\\Android\\android-sdk\\platform-tools\\adb.exe",
+        "devices",
+        "-l"
+      ],
+      "exit_code": 0,
+      "stdout": "List of devices attached\n\n",
+      "stderr": "",
+      "stdout_sanitized": "List of devices attached\n",
+      "stderr_sanitized": "",
+      "ran_at": "2026-06-19T15:20:44-04:00"
+    },
+    "devices": [],
+    "authorized_device_count": 0
+  },
+  "adb_state": "",
+  "identity_matches": {
+    "hardware_model": false,
+    "codename": false,
+    "product": false,
+    "build_fingerprint": false,
+    "slot": false
+  },
+  "gates": {
+    "operator_approval_recorded": true,
+    "operator_physically_present": true,
+    "battery_at_least_60": false,
+    "exactly_one_authorized_handset": false,
+    "adb_state_device": false,
+    "current_slot_b": false,
+    "identity_matches_frozen": false,
+    "host_free_disk_sufficient": true,
+    "usb_stable": false,
+    "no_active_update_detected_where_observable": true
+  },
+  "snapshot_observable": {
+    "virtual_ab_enabled": "",
+    "status": "NO_ACTIVE_UPDATE_DETECTED_FROM_SAFE_ANDROID_PROBES"
+  },
+  "host_free_disk_bytes": 6863896576,
+  "tooling": {
+    "adb": "Android Debug Bridge version 1.0.41\nVersion 37.0.0-14910828\nInstalled as C:\\Android\\android-sdk\\platform-tools\\adb.exe\nRunning on Windows 10.0.19045",
+    "fastboot": "fastboot version 37.0.0-14910828\nInstalled as C:\\Android\\android-sdk\\platform-tools\\fastboot.exe"
+  }
+}

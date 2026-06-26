@@ -1,0 +1,83 @@
+{
+  "title": "Evolution 2.0 — Computational Discovery Packet (NOT A PRIZE SUBMISSION)",
+  "packet_type": "sponsor_clarification_supporting_evidence",
+  "prize_submission_status": "HOLD",
+  "prize_ready": false,
+  "generated_at_utc": "2026-06-11T23:59:00+00:00",
+  "disclaimer": "This packet documents internal Construction A+ metrics and rule-fit analysis. It is NOT submitted as a prize entry. Sponsor clarification is required before any entry under the $100k Initial Discovery tier.",
+  "rulebook_reference": "EVOLUTION 2.0 — DEFINITIVE FORENSIC RULEBOOK (2026 EDITION).pdf",
+  "lanes": {
+    "organic": {
+      "substrate": "Discrete 3D branching growth (v3_6_core) with explicit pre-step maintenance energy injection",
+      "readout": "Surrogate PEFP coupling matrix + PCA (k=14) + Construction A+ ternary quantization",
+      "status": "INTERNAL_PASS",
+      "prize_submission_status": "HOLD",
+      "pool_size": 56,
+      "selected_ic_count": 33,
+      "metrics": {
+        "distinct_glyphs": 33,
+        "entropy_HV_bits": 5.0444,
+        "collision_count": 0,
+        "replay_min": 1.0,
+        "pefp_n_fit": 56
+      },
+      "passes_internal_thresholds": true,
+      "passes_prize_thresholds": false,
+      "required_disclosures": [
+        "Collision-free subset selected post-hoc from pool_size=56",
+        "PEFP model fit on evaluation pool before IC filtering",
+        "Maintenance injection is augmented dynamics, not pure growth",
+        "Replay probe uses energy noise only (0.05/0.10/0.15)"
+      ]
+    },
+    "chemical": {
+      "substrate": "Continuous Hopfield ODE with Hill-type activations (in-silico only)",
+      "readout": "PCA projection + ternary Construction A+ quantization on settled states",
+      "status": "BENCHMARK_PASS",
+      "prize_submission_status": "DO_NOT_SUBMIT",
+      "benchmark_only": true,
+      "metrics": {
+        "N": 1024,
+        "M": 54,
+        "seed": 42,
+        "replay_hit_rate": 1.0,
+        "lambda_separation": 1.0,
+        "entropy_HV_bits": 5.7549,
+        "collision_count": 0,
+        "vocabulary_size": 54,
+        "null_control_rate": 0.0,
+        "random_control_rate": 0.0,
+        "runtime_seconds": 108.767,
+        "matches_benchmark": true
+      },
+      "passes_internal_thresholds": true,
+      "passes_prize_thresholds": false,
+      "note": "Computational associative-memory baseline. Not wet chemistry. Not a prize entry."
+    }
+  },
+  "rule_fit_summary": {
+    "R1_chemicals_to_code": "fail_both_lanes",
+    "R2_encoder_message_decoder": "partial_both_lanes",
+    "R3_digital": "pass_both_lanes",
+    "R4_capacity": "pass_both_lanes",
+    "R5_no_preprogrammed_code": "fail_high_risk_organic_fail_chemical",
+    "R6_no_living_organisms": "pass_both_lanes",
+    "R7_10m_demo": "not_claimed",
+    "R8_100k_ambiguity": "clarification_required"
+  },
+  "falsifiable_tests": {
+    "organic": "Energy-noise replay on curated 33-IC subset; full pool metrics in organic_pool_disclosure.json",
+    "chemical": "Replay with null/random/shuffled controls (all 0% false positive in reported run)"
+  },
+  "attached_artifacts": [
+    "EVOLUTION_PRIZE_COMPLETE_REPORT.md",
+    "AUDIT_RESPONSE.md",
+    "evolution_prize_validation/outputs/rulebook_compliance_addendum.json",
+    "evolution_prize_validation/outputs/execution_records.json",
+    "evolution_prize_validation/outputs/organic_pool_disclosure.json",
+    "evolution_prize_validation/outputs/glyph_metrics.json",
+    "evolution_prize_validation/outputs/chemical_hopfield_prize_metrics.json",
+    "evolution_prize_validation/reports/sponsor_clarification_request_draft.md"
+  ],
+  "next_action": "Send sponsor clarification request. Do not submit as prize entry until written ruling received."
+}

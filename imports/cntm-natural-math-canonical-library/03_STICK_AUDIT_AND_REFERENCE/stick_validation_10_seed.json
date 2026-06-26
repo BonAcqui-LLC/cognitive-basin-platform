@@ -1,0 +1,66 @@
+{
+  "v4_baseline": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 19.9,
+    "cluster_count_mean": 6,
+    "largest_cluster_mean": 4.7,
+    "energy_ratio_mean": 0.9909821642992205
+  },
+  "v4_no_deficit_coupling": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 19.7,
+    "cluster_count_mean": 6.1,
+    "largest_cluster_mean": 4.9,
+    "energy_ratio_mean": 0.9838917481298344
+  },
+  "v4_no_bond_reward": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 19.6,
+    "cluster_count_mean": 6.1,
+    "largest_cluster_mean": 4,
+    "energy_ratio_mean": 0.8782499839801513
+  },
+  "v4_no_bond_benefit_or_reward": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 18,
+    "cluster_count_mean": 7.4,
+    "largest_cluster_mean": 4.1,
+    "energy_ratio_mean": 0.48513206119790353
+  },
+  "v5_closed_resource_baseline": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 19.2,
+    "cluster_count_mean": 6.9,
+    "largest_cluster_mean": 5.7,
+    "energy_ratio_mean": 0.7479152730517853
+  },
+  "v5_no_deficit_coupling": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 18.6,
+    "cluster_count_mean": 6.7,
+    "largest_cluster_mean": 6.7,
+    "energy_ratio_mean": 0.6862800497491192
+  },
+  "v5_no_bond_saving": {
+    "runs": 10,
+    "survivors_mean": 20,
+    "all_survive_fraction": 1.0,
+    "bonded_nodes_mean": 18.9,
+    "cluster_count_mean": 7.1,
+    "largest_cluster_mean": 5.1,
+    "energy_ratio_mean": 0.51435494502779
+  },
+  "interpretation_note": "These are software ablations. Similar baseline and no-deficit results indicate that clustering cannot yet be attributed solely to the deficit term. Physical and coding claims require separate experiments."
+}

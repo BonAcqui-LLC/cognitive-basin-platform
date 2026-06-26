@@ -1,0 +1,11 @@
+{
+  "image": "boot.img",
+  "status": "UNPARSED",
+  "reason": "Trusted AOSP host parsers were not present in the A02A environment (avbtool, unpack_bootimg, lpunpack unavailable on PATH). Read-only byte hashing completed; authoritative structured header parsing remains pending A02B/AOSP tooling.",
+  "sha256": "D35F8E3D0BE42076A1FD77A07F44CF8847B45473A413E9A7F5D502967A693F79",
+  "magic": {
+    "magic_ascii": "ANDROID!.Y+.....",
+    "magic_hex": "414E44524F4944219D592B01FD0E1500",
+    "looks_like_android_sparse": false
+  }
+}

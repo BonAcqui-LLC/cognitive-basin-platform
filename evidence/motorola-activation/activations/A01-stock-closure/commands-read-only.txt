@@ -1,0 +1,8 @@
+Get-Item handoff and stock package path checks
+Get-Content stock closure handoff
+Get-ChildItem stock subtree inventory
+curl -I candidate package URL
+curl -L RETUS directory listings
+Get-FileHash package twice (stable hash check)
+System.IO.Compression.ZipFile OpenRead archive listing
+adb devices -l (read-only availability check only)

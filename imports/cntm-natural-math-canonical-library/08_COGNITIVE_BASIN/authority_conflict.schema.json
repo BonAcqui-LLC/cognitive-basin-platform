@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthorityConflict",
+  "type": "object",
+  "required": ["conflict_id", "record_a", "record_b", "conflict_type", "severity"],
+  "properties": {
+    "conflict_id": { "type": "string" },
+    "record_a": { "type": "string" },
+    "record_b": { "type": "string" },
+    "conflict_type": { "type": "string" },
+    "severity": { "type": "string" },
+    "guard_recommendation": { "type": "string" }
+  }
+}

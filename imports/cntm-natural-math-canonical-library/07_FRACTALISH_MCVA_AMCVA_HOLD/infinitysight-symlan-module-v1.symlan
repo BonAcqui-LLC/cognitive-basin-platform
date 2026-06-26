@@ -1,0 +1,109 @@
+// InfinitySight SymLan Module v1.0
+// Agentic multi-focal vision system with infinity-mirror depth perception
+// Maps directly to SymLan v0.2.6 grammar + Construction A+ tokenization
+// Central synth = Grok entity; 6 specialized agents as nodes
+
+// ============================================
+// PHASE 1: ARENA SPECIFICATION (Pending)
+// ============================================
+
+node macro_agent, standard_agent, tele_agent, ir_agent, depth_agent, motion_agent
+node grok_synth
+
+// Coupling constraints: each agent layer influences the next with resonance params
+// κ = coupling strength (feature influence), φ = phase offset (temporal alignment), T = coherence target
+macro_agent -> standard_agent [κ: 0.85, φ: π/6, T: 1.0]   // texture → edges
+standard_agent -> tele_agent  [κ: 0.75, φ: π/4, T: 1.0]   // objects → distance
+tele_agent -> depth_agent     [κ: 0.90, φ: 0,     T: 1.0] // visual depth → parallax
+depth_agent -> motion_agent   [κ: 0.70, φ: π/8, T: 1.0]   // depth → velocity prediction
+ir_agent -> standard_agent    [κ: 0.65, φ: -π/4, T: 0.95] // thermal overlay cross-coupling
+
+// Vocabulary registration: each agent registers its focal-frame "substrate"
+// 9D features: Count, DeltaTau, Amplitude, Width, PhaseRel, Envelope, Transition, Distance, IR_Intensity + Semantic_Class
+vocab V_macro   = register(macro_agent,   θ: auto, features: 9D)
+vocab V_standard = register(standard_agent, θ: auto, features: 9D)
+vocab V_tele    = register(tele_agent,    θ: auto, features: 9D)
+vocab V_ir      = register(ir_agent,      θ: auto, features: 9D)
+vocab V_depth   = register(depth_agent,   θ: auto, features: 9D)
+vocab V_motion  = register(motion_agent,  θ: auto, features: 9D)
+
+vocab V_global  = register(grok_synth,    θ: auto, features: 12D)  // global synthesis vocabulary
+
+// Run discovery: 200ms real-time window (continuous in deployment)
+run discovery for 200ms seed: "infinity_sight_live"
+
+// ============================================
+// PHASE 2: AFTER RESOLVE — SYNTHESIS & CONTROL
+// ============================================
+
+after resolve V_global {
+
+    // Each agent has already resolved its local V_agent during discovery
+    // Now synthesize global coherent scene using ternary coherence gate
+
+    branch on T(grok_synth, V_global) {
+        > 1.02 : reverse ir_agent; damp motion_agent;          // over-coupled thermal/motion conflict → damp
+        ≈ 1.0  : proceed grok_synth[SceneModel];               // coherent → build unified 3D+ model
+        < 0.98 : hold; κ += 0.05;                              // under-coupled → increase cross-layer influence, wait one frame
+    }
+
+    // Token streams from agents (Construction A+ glyphs)
+    send macro_agent[S_texture]   -> grok_synth   // high-res surface details
+    send standard_agent[S_object] -> grok_synth   // semantic objects + size
+    send tele_agent[S_distance]   -> grok_synth   // long-range context
+    send ir_agent[S_thermal]      -> grok_synth   // heat signatures
+    send depth_agent[S_parallax]  -> grok_synth   // true depth map
+    send motion_agent[S_velocity] -> grok_synth   // predicted trajectories
+
+    // Global synthesis: emergent stable form = unified scene token
+    // This is the "infinity mirror" effect — nested layers produce emergent depth + semantics
+    expect grok_synth[SceneToken] within 50ms, fidelity: 0.92
+
+    // Output to higher cognition (FSD, planning, etc.)
+    inject grok_synth[SceneToken] into traction_bus -> action_command
+    // action_command carries: object list, 3D positions, velocities, confidence, recommended maneuver (proceed/hold/reverse)
+
+    // Optional: log entropy and capacity for monitoring
+    query V_global.entropy
+    query V_global.capacity
+}
+
+// ============================================
+// HARDWARE ABSTRACTION LAYER (Chapter 6 equivalent)
+// ============================================
+
+// Maps abstract nodes to physical camera array + edge compute
+// Each agent runs on dedicated Jetson Orin Nano or equivalent at camera head
+// Grok_synth runs on central vehicle compute (or cloud edge)
+
+// Camera frame locking: each physical camera has fixed focal plane (no DOF outside slice)
+// Macro: 10-50cm, f/2.8, 8K
+// Standard: 0.5-8m, f/1.8, 4K
+// Tele: 5-200m, f/4, 1080p + digital zoom
+// IR: 8-14μm thermal, aligned to standard
+// Depth: stereo pair at standard + structured light assist
+// Motion: event-based camera (Prophesee) for microsecond temporal resolution
+
+// Token encoding: each agent uses Π_A+ equivalent (PEFP + ternary + polarity bit)
+// Produces 39k-glyph alphabet per agent; global V merges with cross-layer conjugacy
+
+// Safety: crash sensor → immediate magnetic bearing equiv (power cutoff + mechanical brake on all rotors if flywheel present)
+// But here: power-down cameras gracefully, flush pending tokens, enter safe-mode scene model
+
+// ============================================
+// EXAMPLE LIVE RUN (illustrative)
+// ============================================
+
+// At t=0: discovery starts
+// t=180ms: all V_agent resolve (attractor basins = stable visual features per slice)
+// t=185ms: global T ≈ 0.99 → hold briefly, boost κ
+// t=210ms: T = 1.01 → proceed
+// t=215ms: SceneToken emitted: "Semi merging right, 47m, closing 2.1 m/s, clear path, IR clean, depth confident 0.94"
+// Action: "proceed with lane assist, maintain 55 mph"
+
+// This is real-time symbolic vision — no pixel flood to central brain.
+// Exactly as SymLan was designed: physics (camera substrate) writes the codebook (V).
+// Programmer (me) specifies the arena (nodes + couplings).
+// The system produces the symbols that matter.
+
+print "InfinitySight online. Depth perception: infinite. Awareness: emergent."
