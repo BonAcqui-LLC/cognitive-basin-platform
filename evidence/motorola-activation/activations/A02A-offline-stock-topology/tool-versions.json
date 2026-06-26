@@ -1,0 +1,48 @@
+{
+  "recorded_at": "2026-06-19T10:01:05-04:00",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "powershell": {
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "$PSVersionTable.PSVersion.ToString()"
+    ],
+    "available": true,
+    "exit_code": 0,
+    "stdout": "5.1.19041.6456",
+    "stderr": ""
+  },
+  "avbtool": {
+    "command": [
+      "where.exe",
+      "avbtool"
+    ],
+    "available": true,
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "INFO: Could not find files for the given pattern(s)."
+  },
+  "unpack_bootimg": {
+    "command": [
+      "where.exe",
+      "unpack_bootimg"
+    ],
+    "available": true,
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "INFO: Could not find files for the given pattern(s)."
+  },
+  "lpunpack": {
+    "command": [
+      "where.exe",
+      "lpunpack"
+    ],
+    "available": true,
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "INFO: Could not find files for the given pattern(s)."
+  },
+  "zip_parser": "python zipfile standard library"
+}

@@ -1,0 +1,15 @@
+gnevan
+moto g stylus (2023)
+gnevan
+gnevan_g
+mt6768
+_b
+true
+
+bootdevice,soc/11230000.mmc,11230000.mmc,soc/11230000.msdc,11230000.msdc
+orange
+unlocked
+0
+motorola/gnevan_g/gnevan:14/U1THS34.65-74-1-7-24/111802-edae6:user/release-keys
+motorola/gnevan_g/gnevan:12/U1THS34.65-74-1-7-24/111802:user/release-keys
+motorola/gnevan_g/gnevan:14/U1THS34M.65-74-1-7-24/edae6:user/release-keys

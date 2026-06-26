@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthorityReceptorEvent",
+  "type": "object",
+  "required": ["event_id", "receptor_type", "guard_recommendation", "license_status", "jurisdiction"],
+  "properties": {
+    "event_id": { "type": "string" },
+    "receptor_type": { "type": "string" },
+    "guard_recommendation": { "type": "string" },
+    "license_status": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "version": { "type": "string" },
+    "provenance": { "type": "object" }
+  }
+}

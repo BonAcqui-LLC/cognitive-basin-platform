@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"CompressedMemory","type":"object","required":["memory_id","source_event_id","compression_level","compressed_summary"]}

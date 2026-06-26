@@ -1,0 +1,30 @@
+{
+    "filename":  "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "source":  "https://mirrors.lolinet.com/firmware/lenomola/2023/gnevan/official/RETUS/",
+    "retrieval_time":  null,
+    "byte_count":  4190063592,
+    "sha256":  null,
+    "package_build":  "U1THS34.65-74-1-7-8",
+    "expected_target_model":  "XT2317-2",
+    "channel":  "RETUS",
+    "region":  "US retail (inferred from RETUS)",
+    "carrier":  "unbranded retail US (inferred)",
+    "included_partition_images":  [
+
+                                  ],
+    "flashing_metadata":  "CFC.xml.zip archive name implies Motorola XML-based service firmware package",
+    "rollback_restrictions":  "UNRESOLVED",
+    "exact_match_confidence":  "STRONG_MATCH",
+    "match_rationale":  [
+                            "Exact retail model match: XT2317-2",
+                            "Exact codename family match: GNEVAN",
+                            "Exact channel match: RETUS",
+                            "Android 14 match",
+                            "Observed live build U1THS34.65-74-1-7-24 appears newer than candidate package build U1THS34.65-74-1-7-8, so this is not an exact build match"
+                        ],
+    "observed_vs_inferred":  {
+                                 "package_restore_suitability":  "not yet established",
+                                 "package_exact_build_match":  "not observed",
+                                 "package_existence":  "observed"
+                             }
+}

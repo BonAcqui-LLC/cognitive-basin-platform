@@ -32,6 +32,13 @@ def _find_row(filename: str) -> dict[str, str]:
     raise AssertionError(f"inventory row not found for {filename}")
 
 
+def _find_row_by_destination(destination: str) -> dict[str, str]:
+    for row in _inventory_rows():
+        if row["proposed_destination"] == destination:
+            return row
+    raise AssertionError(f"inventory row not found for {destination}")
+
+
 def test_inventory_covers_selected_agent_artifacts() -> None:
     worker = _find_row("worker.js")
     assert worker["producing_system"] == "Grok"
@@ -51,6 +58,28 @@ def test_inventory_covers_selected_agent_artifacts() -> None:
 
     aia = _find_row("AIA")
     assert aia["import_decision"] == "CONFLICT - REVIEW REQUIRED"
+
+    aia_readme = _find_row_by_destination("imports/aia-sovereign-activation-device/README.md")
+    assert aia_readme["producing_system"] == "AIA"
+    assert aia_readme["import_decision"] == "IMPORT"
+
+    cntm_index = _find_row_by_destination("imports/cntm-natural-math-canonical-library/CANONICAL_INDEX.md")
+    assert cntm_index["producing_system"] == "CNTM"
+    assert cntm_index["import_decision"] == "IMPORT"
+
+    motorola_a02b = _find_row_by_destination(
+        "evidence/motorola-activation/activations/A02B-live-read-only-topology/A02B-summary.md"
+    )
+    assert motorola_a02b["producing_system"] == "Motorola Activation"
+    assert motorola_a02b["import_decision"] == "IMPORT"
+
+    private_provenance = _find_row("local_provenance_private.json")
+    assert private_provenance["import_decision"] == "EXCLUDE - PRIVATE PROVENANCE"
+
+    firmware = _find_row(
+        "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip"
+    )
+    assert firmware["import_decision"] == "EXCLUDE - FIRMWARE"
 
 
 def test_autoclaw_lineage_is_preserved_and_tagged() -> None:
@@ -77,3 +106,25 @@ def test_zip_is_not_duplicated_and_manifest_records_provenance() -> None:
     assert "758F59126E14743ADEEF9DC0097043F891AA239774DF185C950D03FA7688198C" in sha_manifest
     assert "C:\\_MASTER_LIBRARY_Handoff\\autoclaw_workspace_handoff.zip" in sha_manifest
     assert "C:\\Users\\moop\\Downloads\\Articles on X.com\\Natural Math\\z.ai.nm-ai-prompt.txt" in sha_manifest
+
+
+def test_private_workspace_imports_preserve_boundaries() -> None:
+    aia_root = REPO_ROOT / "imports" / "aia-sovereign-activation-device"
+    cntm_root = REPO_ROOT / "imports" / "cntm-natural-math-canonical-library"
+    motorola_root = REPO_ROOT / "evidence" / "motorola-activation"
+
+    assert (aia_root / "README.md").exists()
+    assert (aia_root / "android" / "app" / "src" / "main" / "java" / "ai" / "fractalish" / "aia" / "MainActivity.kt").exists()
+    assert not (aia_root / "artifacts").exists()
+    assert not (aia_root / "receipts" / "device_audit.json").exists()
+
+    assert (cntm_root / "CANONICAL_INDEX.md").exists()
+    assert (cntm_root / "04_CNTM_SIMULATOR" / "CNTM- Carbon Nanotube Morphology Memory.docx").exists()
+    assert not (cntm_root / "91_DUPLICATES").exists()
+    assert not (cntm_root / "manifests" / "local_provenance_private.json").exists()
+
+    assert (motorola_root / "activations" / "A02B-live-read-only-topology" / "A02B-summary.md").exists()
+    assert (motorola_root / "baseline-unlocked" / "all-getprop.txt").exists()
+    assert not (motorola_root / "device" / "motorola" / "gnevan" / "stock" / "original").exists()
+    assert not (motorola_root / "device" / "motorola" / "gnevan" / "stock" / "extracted").exists()
+    assert not (motorola_root / "activations" / "A02B-live-read-only-topology" / "private").exists()

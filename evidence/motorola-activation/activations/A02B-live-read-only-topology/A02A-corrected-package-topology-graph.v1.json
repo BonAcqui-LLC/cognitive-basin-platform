@@ -1,0 +1,2603 @@
+{
+  "generated_at": "2026-06-19T10:03:07-04:00",
+  "nodes": [
+    {
+      "id": "PGPT",
+      "label": "PGPT",
+      "kind": "source_image"
+    },
+    {
+      "id": "archive",
+      "label": "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+      "kind": "archive"
+    },
+    {
+      "id": "boot.img",
+      "label": "boot.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "boot_a",
+      "label": "boot_a",
+      "kind": "partition"
+    },
+    {
+      "id": "dtbo.img",
+      "label": "dtbo.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "dtbo_a",
+      "label": "dtbo_a",
+      "kind": "partition"
+    },
+    {
+      "id": "efuse",
+      "label": "efuse",
+      "kind": "partition"
+    },
+    {
+      "id": "efuse.img",
+      "label": "efuse.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "flashfile.xml",
+      "label": "flashfile.xml",
+      "kind": "manifest"
+    },
+    {
+      "id": "gpt",
+      "label": "gpt",
+      "kind": "partition"
+    },
+    {
+      "id": "gz.img",
+      "label": "gz.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "gz_a",
+      "label": "gz_a",
+      "kind": "partition"
+    },
+    {
+      "id": "lk.img",
+      "label": "lk.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "lk_a",
+      "label": "lk_a",
+      "kind": "partition"
+    },
+    {
+      "id": "logo.img",
+      "label": "logo.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "logo_a",
+      "label": "logo_a",
+      "kind": "partition"
+    },
+    {
+      "id": "md1img.img",
+      "label": "md1img.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "md1img_a",
+      "label": "md1img_a",
+      "kind": "partition"
+    },
+    {
+      "id": "preloader",
+      "label": "preloader",
+      "kind": "partition"
+    },
+    {
+      "id": "preloader.img",
+      "label": "preloader.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "product",
+      "label": "product",
+      "kind": "logical_partition"
+    },
+    {
+      "id": "scp.img",
+      "label": "scp.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "scp_a",
+      "label": "scp_a",
+      "kind": "partition"
+    },
+    {
+      "id": "servicefile.xml",
+      "label": "servicefile.xml",
+      "kind": "manifest"
+    },
+    {
+      "id": "spmfw.img",
+      "label": "spmfw.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "spmfw_a",
+      "label": "spmfw_a",
+      "kind": "partition"
+    },
+    {
+      "id": "sspm.img",
+      "label": "sspm.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "sspm_a",
+      "label": "sspm_a",
+      "kind": "partition"
+    },
+    {
+      "id": "super",
+      "label": "super",
+      "kind": "partition"
+    },
+    {
+      "id": "super.img_sparsechunk.0",
+      "label": "super.img_sparsechunk.0",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.1",
+      "label": "super.img_sparsechunk.1",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.10",
+      "label": "super.img_sparsechunk.10",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.11",
+      "label": "super.img_sparsechunk.11",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.12",
+      "label": "super.img_sparsechunk.12",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.13",
+      "label": "super.img_sparsechunk.13",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.14",
+      "label": "super.img_sparsechunk.14",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.15",
+      "label": "super.img_sparsechunk.15",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.16",
+      "label": "super.img_sparsechunk.16",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.17",
+      "label": "super.img_sparsechunk.17",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.18",
+      "label": "super.img_sparsechunk.18",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.19",
+      "label": "super.img_sparsechunk.19",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.2",
+      "label": "super.img_sparsechunk.2",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.20",
+      "label": "super.img_sparsechunk.20",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.21",
+      "label": "super.img_sparsechunk.21",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.22",
+      "label": "super.img_sparsechunk.22",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.23",
+      "label": "super.img_sparsechunk.23",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.24",
+      "label": "super.img_sparsechunk.24",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.25",
+      "label": "super.img_sparsechunk.25",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.26",
+      "label": "super.img_sparsechunk.26",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.27",
+      "label": "super.img_sparsechunk.27",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.28",
+      "label": "super.img_sparsechunk.28",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.29",
+      "label": "super.img_sparsechunk.29",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.3",
+      "label": "super.img_sparsechunk.3",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.30",
+      "label": "super.img_sparsechunk.30",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.31",
+      "label": "super.img_sparsechunk.31",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.32",
+      "label": "super.img_sparsechunk.32",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.33",
+      "label": "super.img_sparsechunk.33",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.34",
+      "label": "super.img_sparsechunk.34",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.35",
+      "label": "super.img_sparsechunk.35",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.36",
+      "label": "super.img_sparsechunk.36",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.37",
+      "label": "super.img_sparsechunk.37",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.38",
+      "label": "super.img_sparsechunk.38",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.39",
+      "label": "super.img_sparsechunk.39",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.4",
+      "label": "super.img_sparsechunk.4",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.40",
+      "label": "super.img_sparsechunk.40",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.41",
+      "label": "super.img_sparsechunk.41",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.42",
+      "label": "super.img_sparsechunk.42",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.43",
+      "label": "super.img_sparsechunk.43",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.44",
+      "label": "super.img_sparsechunk.44",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.45",
+      "label": "super.img_sparsechunk.45",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.46",
+      "label": "super.img_sparsechunk.46",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.47",
+      "label": "super.img_sparsechunk.47",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.48",
+      "label": "super.img_sparsechunk.48",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.49",
+      "label": "super.img_sparsechunk.49",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.5",
+      "label": "super.img_sparsechunk.5",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.50",
+      "label": "super.img_sparsechunk.50",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.51",
+      "label": "super.img_sparsechunk.51",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.52",
+      "label": "super.img_sparsechunk.52",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.53",
+      "label": "super.img_sparsechunk.53",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.54",
+      "label": "super.img_sparsechunk.54",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.55",
+      "label": "super.img_sparsechunk.55",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.56",
+      "label": "super.img_sparsechunk.56",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.57",
+      "label": "super.img_sparsechunk.57",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.58",
+      "label": "super.img_sparsechunk.58",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.59",
+      "label": "super.img_sparsechunk.59",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.6",
+      "label": "super.img_sparsechunk.6",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.60",
+      "label": "super.img_sparsechunk.60",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.61",
+      "label": "super.img_sparsechunk.61",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.62",
+      "label": "super.img_sparsechunk.62",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.63",
+      "label": "super.img_sparsechunk.63",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.7",
+      "label": "super.img_sparsechunk.7",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.8",
+      "label": "super.img_sparsechunk.8",
+      "kind": "source_image"
+    },
+    {
+      "id": "super.img_sparsechunk.9",
+      "label": "super.img_sparsechunk.9",
+      "kind": "source_image"
+    },
+    {
+      "id": "system",
+      "label": "system",
+      "kind": "logical_partition"
+    },
+    {
+      "id": "system_ext",
+      "label": "system_ext",
+      "kind": "logical_partition"
+    },
+    {
+      "id": "tee.img",
+      "label": "tee.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "tee_a",
+      "label": "tee_a",
+      "kind": "partition"
+    },
+    {
+      "id": "vbmeta.img",
+      "label": "vbmeta.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "vbmeta_a",
+      "label": "vbmeta_a",
+      "kind": "partition"
+    },
+    {
+      "id": "vbmeta_system.img",
+      "label": "vbmeta_system.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "vbmeta_system_a",
+      "label": "vbmeta_system_a",
+      "kind": "partition"
+    },
+    {
+      "id": "vendor",
+      "label": "vendor",
+      "kind": "logical_partition"
+    },
+    {
+      "id": "vendor_boot.img",
+      "label": "vendor_boot.img",
+      "kind": "source_image"
+    },
+    {
+      "id": "vendor_boot_a",
+      "label": "vendor_boot_a",
+      "kind": "partition"
+    }
+  ],
+  "edges": [
+    {
+      "from": "archive",
+      "to": "flashfile.xml",
+      "type": "IDENTITY_FOR",
+      "evidence_source": "archive contents",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "archive",
+      "to": "servicefile.xml",
+      "type": "IDENTITY_FOR",
+      "evidence_source": "archive contents",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "PGPT",
+      "to": "gpt",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "preloader.img",
+      "to": "preloader",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "lk.img",
+      "to": "lk_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "tee.img",
+      "to": "tee_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "md1img.img",
+      "to": "md1img_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "spmfw.img",
+      "to": "spmfw_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "scp.img",
+      "to": "scp_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "sspm.img",
+      "to": "sspm_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "gz.img",
+      "to": "gz_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "efuse.img",
+      "to": "efuse",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "vbmeta.img",
+      "to": "vbmeta_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "vbmeta_system.img",
+      "to": "vbmeta_system_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "logo.img",
+      "to": "logo_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "boot.img",
+      "to": "boot_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "vendor_boot.img",
+      "to": "vendor_boot_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "dtbo.img",
+      "to": "dtbo_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.0",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.0",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.1",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.1",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.2",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.2",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.3",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.3",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.4",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.4",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.5",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.5",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.6",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.6",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.7",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.7",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.8",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.8",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.9",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.9",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.10",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.10",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.11",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.11",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.12",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.12",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.13",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.13",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.14",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.14",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.15",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.15",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.16",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.16",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.17",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.17",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.18",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.18",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.19",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.19",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.20",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.20",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.21",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.21",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.22",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.22",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.23",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.23",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.24",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.24",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.25",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.25",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.26",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.26",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.27",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.27",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.28",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.28",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.29",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.29",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.30",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.30",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.31",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.31",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.32",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.32",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.33",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.33",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.34",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.34",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.35",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.35",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.36",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.36",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.37",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.37",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.38",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.38",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.39",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.39",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.40",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.40",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.41",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.41",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.42",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.42",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.43",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.43",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.44",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.44",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.45",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.45",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.46",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.46",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.47",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.47",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.48",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.48",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.49",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.49",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.50",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.50",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.51",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.51",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.52",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.52",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.53",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.53",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.54",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.54",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.55",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.55",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.56",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.56",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.57",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.57",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.58",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.58",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.59",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.59",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.60",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.60",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.61",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.61",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.62",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.62",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.63",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.63",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "flashfile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "PGPT",
+      "to": "gpt",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "preloader.img",
+      "to": "preloader",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "lk.img",
+      "to": "lk_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "tee.img",
+      "to": "tee_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "md1img.img",
+      "to": "md1img_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "spmfw.img",
+      "to": "spmfw_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "scp.img",
+      "to": "scp_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "sspm.img",
+      "to": "sspm_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "gz.img",
+      "to": "gz_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "vbmeta.img",
+      "to": "vbmeta_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "vbmeta_system.img",
+      "to": "vbmeta_system_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "logo.img",
+      "to": "logo_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "boot.img",
+      "to": "boot_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "vendor_boot.img",
+      "to": "vendor_boot_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "dtbo.img",
+      "to": "dtbo_a",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.0",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.0",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.1",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.1",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.2",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.2",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.3",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.3",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.4",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.4",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.5",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.5",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.6",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.6",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.7",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.7",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.8",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.8",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.9",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.9",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.10",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.10",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.11",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.11",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.12",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.12",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.13",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.13",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.14",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.14",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.15",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.15",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.16",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.16",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.17",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.17",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.18",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.18",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.19",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.19",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.20",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.20",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.21",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.21",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.22",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.22",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.23",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.23",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.24",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.24",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.25",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.25",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.26",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.26",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.27",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.27",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.28",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.28",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.29",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.29",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.30",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.30",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.31",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.31",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.32",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.32",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.33",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.33",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.34",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.34",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.35",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.35",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.36",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.36",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.37",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.37",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.38",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.38",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.39",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.39",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.40",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.40",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.41",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.41",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.42",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.42",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.43",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.43",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.44",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.44",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.45",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.45",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.46",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.46",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.47",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.47",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.48",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.48",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.49",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.49",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.50",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.50",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.51",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.51",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.52",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.52",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.53",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.53",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.54",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.54",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.55",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.55",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.56",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.56",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.57",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.57",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.58",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.58",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.59",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.59",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.60",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.60",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.61",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.61",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.62",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.62",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.63",
+      "to": "super",
+      "type": "FLASHES_TO",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super.img_sparsechunk.63",
+      "to": "super",
+      "type": "CHUNK_OF",
+      "evidence_source": "servicefile.xml",
+      "confidence": "HIGH"
+    },
+    {
+      "from": "super",
+      "to": "system_ext",
+      "type": "CONTAINS_LOGICAL",
+      "evidence_source": "flashfile.xml super target + device/motorola/gnevan/hardware/mount.txt",
+      "confidence": "MEDIUM"
+    },
+    {
+      "from": "super",
+      "to": "system",
+      "type": "CONTAINS_LOGICAL",
+      "evidence_source": "flashfile.xml super target + device/motorola/gnevan/hardware/mount.txt",
+      "confidence": "MEDIUM"
+    },
+    {
+      "from": "super",
+      "to": "vendor",
+      "type": "CONTAINS_LOGICAL",
+      "evidence_source": "flashfile.xml super target + device/motorola/gnevan/hardware/mount.txt",
+      "confidence": "MEDIUM"
+    },
+    {
+      "from": "super",
+      "to": "product",
+      "type": "CONTAINS_LOGICAL",
+      "evidence_source": "flashfile.xml super target + device/motorola/gnevan/hardware/mount.txt",
+      "confidence": "MEDIUM"
+    },
+    {
+      "from": "vbmeta_a",
+      "to": "boot_a",
+      "type": "HYPOTHESIS",
+      "evidence_source": "naming/pairing inference only; authoritative parsed AVB descriptors unavailable in A02A",
+      "confidence": "LOW",
+      "relationship_status": "HYPOTHESIS",
+      "hypothesized_relationship": "VERIFIES"
+    },
+    {
+      "from": "vbmeta_system_a",
+      "to": "super",
+      "type": "HYPOTHESIS",
+      "evidence_source": "naming/pairing inference only; authoritative parsed AVB descriptors unavailable in A02A",
+      "confidence": "LOW",
+      "relationship_status": "HYPOTHESIS",
+      "hypothesized_relationship": "CHAINED_VBMETA"
+    },
+    {
+      "from": "boot_a",
+      "to": "vendor_boot_a",
+      "type": "BOOT_DEPENDS_ON",
+      "evidence_source": "boot payload pairing in flash manifest",
+      "confidence": "MEDIUM"
+    }
+  ]
+}

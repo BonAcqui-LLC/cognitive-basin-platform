@@ -1,0 +1,114 @@
+{
+  "source": {
+    "source_id": "src-mock-dictionary-v1",
+    "source_name": "Fractalish Mock Lexical Reference",
+    "source_type": "dictionary",
+    "publisher": "Fractalish AI (mock)",
+    "authority_level": "lexical",
+    "jurisdiction": "global",
+    "domain": "general_lexicon",
+    "license_status": "mock_only",
+    "license_notes": "Invented mock entries — not a real dictionary",
+    "version": "1.0",
+    "effective_date": "2026-01-01",
+    "trust_scope": "lexical_definitions_only",
+    "limitations": "Does not establish regulatory, legal, or technical truth"
+  },
+  "records": [
+    {
+      "record_id": "rec-dict-authority",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "authority",
+      "record_type": "definition",
+      "text": "Authority: the recognized right to direct, decide, or enforce within a defined scope.",
+      "key_terms": ["authority", "scope", "recognized"],
+      "definitions": {"authority": "recognized right within a defined scope"},
+      "claims": ["Authority is always scoped to a domain of competence"],
+      "scope": "lexical",
+      "jurisdiction": "global",
+      "supports_user_claims": ["authoritative within one scope", "scope and irrelevant outside"]
+    },
+    {
+      "record_id": "rec-dict-claim",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "claim",
+      "record_type": "definition",
+      "text": "Claim: a statement presented for evaluation; not truth until validated within scope.",
+      "key_terms": ["claim", "statement", "evaluation"],
+      "definitions": {"claim": "statement requiring validation"},
+      "claims": ["A claim is not proof by itself"],
+      "scope": "lexical"
+    },
+    {
+      "record_id": "rec-dict-scope",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "scope",
+      "record_type": "definition",
+      "text": "Scope: the boundary within which a definition, rule, or standard applies.",
+      "key_terms": ["scope", "boundary", "applies"],
+      "definitions": {"scope": "boundary of applicability"},
+      "claims": ["A source can be authoritative within one scope and irrelevant outside it"],
+      "scope": "scoped_authority",
+      "supports_user_claims": ["authoritative within one scope", "irrelevant outside it"]
+    },
+    {
+      "record_id": "rec-dict-standard",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "standard",
+      "record_type": "definition",
+      "text": "Standard: a documented agreement on practice, often versioned and domain-specific.",
+      "key_terms": ["standard", "versioned", "practice"],
+      "scope": "lexical"
+    },
+    {
+      "record_id": "rec-dict-jurisdiction",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "jurisdiction",
+      "record_type": "definition",
+      "text": "Jurisdiction: the geographic or legal territory where a rule or regulation applies.",
+      "key_terms": ["jurisdiction", "territory", "regulation"],
+      "scope": "lexical"
+    },
+    {
+      "record_id": "rec-dict-evidence",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "evidence",
+      "record_type": "definition",
+      "text": "Evidence: material offered to support reasoning; must be evaluated, not assumed true.",
+      "key_terms": ["evidence", "reasoning", "support"],
+      "scope": "lexical"
+    },
+    {
+      "record_id": "rec-dict-memory",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "memory",
+      "record_type": "definition",
+      "text": "Memory: retained state from prior events; retention requires governance policy.",
+      "key_terms": ["memory", "retention", "governance"],
+      "claims": ["A passed scan is not permission for memory"],
+      "scope": "ai_safety",
+      "contradicts_user_claims": ["automatically safe for AI memory", "clean file is automatically safe"]
+    },
+    {
+      "record_id": "rec-dict-identity",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "identity",
+      "record_type": "definition",
+      "text": "Identity: exact sameness; distinct from similarity or resemblance.",
+      "key_terms": ["identity", "sameness", "similarity"],
+      "claims": ["Similarity is not identity"],
+      "scope": "lexical",
+      "contradicts_user_claims": ["similarity means identity"]
+    },
+    {
+      "record_id": "rec-dict-similarity",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "similarity",
+      "record_type": "definition",
+      "text": "Similarity: resemblance between entities without implying identical identity.",
+      "key_terms": ["similarity", "resemblance", "identity"],
+      "claims": ["Similarity is not identity"],
+      "contradicts_user_claims": ["similarity means identity"]
+    }
+  ]
+}

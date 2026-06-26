@@ -1,0 +1,20 @@
+/favicon.ico
+  Cache-Control: public, max-age=300, must-revalidate
+
+/favicon-16x16.png
+  Cache-Control: public, max-age=300, must-revalidate
+
+/favicon-32x32.png
+  Cache-Control: public, max-age=300, must-revalidate
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=300, must-revalidate
+
+/android-chrome-192x192.png
+  Cache-Control: public, max-age=300, must-revalidate
+
+/android-chrome-512x512.png
+  Cache-Control: public, max-age=300, must-revalidate
+
+/site.webmanifest
+  Cache-Control: public, max-age=300, must-revalidate

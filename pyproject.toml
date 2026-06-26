@@ -30,3 +30,10 @@ include = [
     "python*",
     "sandbox_lab*",
 ]
+
+[tool.pytest.ini_options]
+norecursedirs = [
+    "imports/aia-sovereign-activation-device",
+    "imports/cntm-natural-math-canonical-library",
+    "evidence/motorola-activation",
+]

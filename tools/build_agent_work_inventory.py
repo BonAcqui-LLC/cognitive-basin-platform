@@ -17,6 +17,10 @@ GROK_ROOT = Path(r"C:\Users\moop\Downloads\Grok")
 FRACTALISH_AI = Path(r"C:\Users\moop\FractalishBuild\fractalish-ai")
 KIMI_WORKSPACE = Path(r"C:\Users\moop\Documents\kimi\workspace")
 AIA_REPO = Path(r"C:\Users\moop\Documents\AIA")
+MOTOROLA_ROOT = Path(r"C:\Motorola-Activation")
+CNTM_ROOT = Path(
+    r"C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\CNTM_Natural_Math_Canonical_Library"
+)
 KIMI_REPORT = Path(r"C:\Users\moop\Downloads\Articles on X.com\Kimi SGTM Research report.md")
 KIMI_ORIENTATION = Path(r"C:\Users\moop\Downloads\Articles on X.com\Natural Math\Kimi_Orientation.txt")
 KIMI_SIGNAL_HYPOTHESIS = Path(
@@ -150,6 +154,60 @@ def directory_row(
         "reason": reason,
         "note": note,
     }
+
+
+def append_tree_files(
+    rows: list[dict[str, str]],
+    dest_hash_index: dict[str, list[str]],
+    *,
+    source_root: Path,
+    source_repository: str,
+    producer: str,
+    project_area: str,
+    implementation_status: str,
+    proposed_destination_root: str,
+    import_decision: str,
+    reason: str,
+    excluded_dir_names: set[str] | None = None,
+    excluded_relative_paths: set[str] | None = None,
+    renamed_relative_paths: dict[str, str] | None = None,
+    git_commit: str = "",
+    git_branch: str = "",
+    note: str = "",
+) -> None:
+    excluded_dir_names = excluded_dir_names or set()
+    excluded_relative_paths = excluded_relative_paths or set()
+    renamed_relative_paths = renamed_relative_paths or {}
+
+    for path in sorted(source_root.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(source_root).as_posix()
+        if rel in excluded_relative_paths:
+            continue
+        if any(part in excluded_dir_names for part in path.parts):
+            continue
+        destination_rel = renamed_relative_paths.get(rel, rel)
+        rows.append(
+            file_row(
+                Artifact(
+                    source_path=path,
+                    source_repository=source_repository,
+                    producer=producer,
+                    filename=path.name,
+                    file_type=path.suffix.lstrip(".") or "file",
+                    project_area=project_area,
+                    implementation_status=implementation_status,
+                    proposed_destination=f"{proposed_destination_root}/{destination_rel}",
+                    import_decision=import_decision,
+                    reason=reason,
+                    git_commit=git_commit,
+                    git_branch=git_branch,
+                    note=note,
+                ),
+                dest_hash_index,
+            )
+        )
 
 
 def main() -> None:
@@ -434,6 +492,259 @@ def main() -> None:
         )
     )
 
+    append_tree_files(
+        rows,
+        dest_hash_index,
+        source_root=AIA_REPO,
+        source_repository=str(AIA_REPO),
+        producer="AIA",
+        project_area="AIA Android device tranche",
+        implementation_status="Structural snapshot of the accepted stock-Android vertical slice",
+        proposed_destination_root="imports/aia-sovereign-activation-device",
+        import_decision="IMPORT",
+        reason="Private stock-Android AIA tranche is now preserved as a structural snapshot with generated artifacts and raw device identifiers excluded.",
+        excluded_dir_names={".git", ".tmp", "artifacts", ".gradle", "build", "raw"},
+        excluded_relative_paths={
+            "android/app/build",
+            "android/build",
+            "android/local.properties",
+            "receipts/device_audit.json",
+            "receipts/raw",
+        },
+        git_branch="master",
+        git_commit="UNCOMMITTED",
+    )
+
+    rows.append(
+        file_row(
+            Artifact(
+                source_path=AIA_REPO / "receipts" / "device_audit.json",
+                source_repository=str(AIA_REPO),
+                producer="AIA",
+                filename="device_audit.json",
+                file_type="json",
+                project_area="AIA Android device tranche",
+                implementation_status="Excluded raw device receipt",
+                proposed_destination="",
+                import_decision="EXCLUDE - RAW DEVICE RECEIPT",
+                reason="Tracked AIA import excludes gitignored raw device receipts to keep persistent identifiers out of repository content.",
+                git_branch="master",
+                git_commit="UNCOMMITTED",
+            ),
+            dest_hash_index,
+        )
+    )
+
+    rows.append(
+        directory_row(
+            source_path=AIA_REPO / "artifacts",
+            source_repository=str(AIA_REPO),
+            producer="AIA",
+            filename="artifacts",
+            file_type="directory",
+            project_area="AIA Android device tranche",
+            implementation_status="Excluded generated screenshots",
+            proposed_destination="",
+            import_decision="EXCLUDE - GENERATED ARTIFACTS",
+            reason="AIA screenshots and UI dumps remain outside this structural snapshot to avoid growing the repo with generated mobile evidence.",
+            git_branch="master",
+            git_commit="UNCOMMITTED",
+        )
+    )
+
+    append_tree_files(
+        rows,
+        dest_hash_index,
+        source_root=CNTM_ROOT,
+        source_repository=str(CNTM_ROOT),
+        producer="CNTM",
+        project_area="CNTM / Natural Math canonical library",
+        implementation_status="Curated canonical library snapshot",
+        proposed_destination_root="imports/cntm-natural-math-canonical-library",
+        import_decision="IMPORT",
+        reason="CNTM and adjacent Natural Math / Cognitive Basin / SymLan materials are preserved as a curated library snapshot with duplicate/version/archive buckets excluded.",
+        excluded_dir_names={".git", "90_CANDIDATE_VERSIONS", "91_DUPLICATES", "92_CONFLICTING_VERSIONS", "99_ARCHIVES"},
+        excluded_relative_paths={
+            "10_TESTS_AND_FROZEN_RESULTS/__pycache__",
+            "10_TESTS_AND_FROZEN_RESULTS/archive.zip",
+            "CNTM_Natural_Math_Canonical_Library.zip",
+            "manifests/local_provenance_private.json",
+        },
+        renamed_relative_paths={
+            "04_CNTM_SIMULATOR/CNT Morphology Simulator First Prompt to Grok Build from ChatGPT _had to remove 2 evo 2 prize references_.docx": "04_CNTM_SIMULATOR/CNT_Morphology_Simulator_First_Prompt_trimmed.docx",
+            "06_MORPHOLOGICAL_CODING/The Architecture of Morphological Coding - Unifying Thermodynamics_ Material Computation__76d33afebc.docx": "06_MORPHOLOGICAL_CODING/architecture_of_morphological_coding_unifying_thermodynamics_76d33afebc.docx",
+            "06_MORPHOLOGICAL_CODING/Fractalish_Natural_Math_Morphological_Memory_Current_Master_Thesis_and_Working_Appraisal.docx": "06_MORPHOLOGICAL_CODING/Fractalish_Natural_Math_Morphological_Memory_Master_Thesis.docx",
+        },
+    )
+
+    rows.append(
+        file_row(
+            Artifact(
+                source_path=CNTM_ROOT / "manifests" / "local_provenance_private.json",
+                source_repository=str(CNTM_ROOT),
+                producer="CNTM",
+                filename="local_provenance_private.json",
+                file_type="json",
+                project_area="CNTM / Natural Math canonical library",
+                implementation_status="Excluded private provenance",
+                proposed_destination="",
+                import_decision="EXCLUDE - PRIVATE PROVENANCE",
+                reason="Local provenance file is explicitly private and remains outside repository content.",
+            ),
+            dest_hash_index,
+        )
+    )
+
+    rows.append(
+        directory_row(
+            source_path=CNTM_ROOT / "91_DUPLICATES",
+            source_repository=str(CNTM_ROOT),
+            producer="CNTM",
+            filename="91_DUPLICATES",
+            file_type="directory",
+            project_area="CNTM / Natural Math canonical library",
+            implementation_status="Excluded duplicate bucket",
+            proposed_destination="",
+            import_decision="EXCLUDE - DUPLICATE BUCKET",
+            reason="Duplicate/version-bucket material is intentionally excluded from the curated canonical import to avoid redundant history.",
+        )
+    )
+
+    rows.append(
+        file_row(
+            Artifact(
+                source_path=CNTM_ROOT / "CNTM_Natural_Math_Canonical_Library.zip",
+                source_repository=str(CNTM_ROOT),
+                producer="CNTM",
+                filename="CNTM_Natural_Math_Canonical_Library.zip",
+                file_type="zip",
+                project_area="CNTM / Natural Math canonical library",
+                implementation_status="Excluded archive bundle",
+                proposed_destination="",
+                import_decision="EXCLUDE - ARCHIVE BUNDLE",
+                reason="The root CNTM archive bundle is excluded because the unpacked curated contents are imported directly.",
+            ),
+            dest_hash_index,
+        )
+    )
+
+    for motorola_dir, area in [
+        (MOTOROLA_ROOT / "baseline-unlocked", "Motorola activation baseline"),
+        (MOTOROLA_ROOT / "activations" / "A01-stock-closure", "Motorola activation A01"),
+        (MOTOROLA_ROOT / "activations" / "A02A-offline-stock-topology", "Motorola activation A02A"),
+        (MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "evidence" / "sanitized", "Motorola activation sanitized evidence"),
+        (MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "hardware", "Motorola activation hardware snapshot"),
+        (MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "manifests", "Motorola activation manifests"),
+        (MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "reports", "Motorola activation reports"),
+    ]:
+        append_tree_files(
+            rows,
+            dest_hash_index,
+            source_root=motorola_dir,
+            source_repository=str(MOTOROLA_ROOT),
+            producer="Motorola Activation",
+            project_area=area,
+            implementation_status="Read-only activation evidence snapshot",
+            proposed_destination_root="evidence/motorola-activation/"
+            + motorola_dir.relative_to(MOTOROLA_ROOT).as_posix(),
+            import_decision="IMPORT",
+            reason="Read-only Motorola activation evidence is preserved as provenance for native-device work without importing firmware or private receipts.",
+        )
+
+    append_tree_files(
+        rows,
+        dest_hash_index,
+        source_root=MOTOROLA_ROOT / "activations" / "A02B-live-read-only-topology",
+        source_repository=str(MOTOROLA_ROOT),
+        producer="Motorola Activation",
+        project_area="Motorola activation A02B",
+        implementation_status="Read-only activation evidence snapshot",
+        proposed_destination_root="evidence/motorola-activation/activations/A02B-live-read-only-topology",
+        import_decision="IMPORT",
+        reason="A02B live read-only topology evidence is preserved, while the private preflight receipt remains excluded.",
+        excluded_dir_names={"__pycache__", "private"},
+        excluded_relative_paths={"scripts/__pycache__", "private"},
+    )
+
+    for path in [
+        MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "stock" / "current-build-identity.json",
+        MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "stock" / "current-build-identity.md",
+        MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "stock" / "package-candidate.json",
+        MOTOROLA_ROOT / "tools" / "a02a_offline_topology.py",
+    ]:
+        destination = "evidence/motorola-activation/" + path.relative_to(MOTOROLA_ROOT).as_posix()
+        rows.append(
+            file_row(
+                Artifact(
+                    source_path=path,
+                    source_repository=str(MOTOROLA_ROOT),
+                    producer="Motorola Activation",
+                    filename=path.name,
+                    file_type=path.suffix.lstrip(".") or "file",
+                    project_area="Motorola activation support files",
+                    implementation_status="Read-only activation evidence snapshot",
+                    proposed_destination=destination,
+                    import_decision="IMPORT",
+                    reason="Supplemental Motorola activation support file preserved without including write-capable firmware content.",
+                ),
+                dest_hash_index,
+            )
+        )
+
+    rows.append(
+        file_row(
+            Artifact(
+                source_path=MOTOROLA_ROOT
+                / "device"
+                / "motorola"
+                / "gnevan"
+                / "stock"
+                / "original"
+                / "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+                source_repository=str(MOTOROLA_ROOT),
+                producer="Motorola Activation",
+                filename="XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+                file_type="zip",
+                project_area="Motorola firmware package",
+                implementation_status="Excluded firmware package",
+                proposed_destination="",
+                import_decision="EXCLUDE - FIRMWARE",
+                reason="Large Motorola stock package remains outside repository content; only hashes and read-only derived evidence are imported.",
+            ),
+            dest_hash_index,
+        )
+    )
+
+    rows.append(
+        directory_row(
+            source_path=MOTOROLA_ROOT / "device" / "motorola" / "gnevan" / "stock" / "extracted",
+            source_repository=str(MOTOROLA_ROOT),
+            producer="Motorola Activation",
+            filename="extracted",
+            file_type="directory",
+            project_area="Motorola firmware extraction",
+            implementation_status="Excluded extracted images",
+            proposed_destination="",
+            import_decision="EXCLUDE - FIRMWARE IMAGES",
+            reason="Extracted partition images are excluded from git history; the repo preserves only the analysis and sanitized evidence built from them.",
+        )
+    )
+
+    rows.append(
+        directory_row(
+            source_path=MOTOROLA_ROOT / "activations" / "A02B-live-read-only-topology" / "private",
+            source_repository=str(MOTOROLA_ROOT),
+            producer="Motorola Activation",
+            filename="private",
+            file_type="directory",
+            project_area="Motorola activation private receipts",
+            implementation_status="Excluded private receipt bucket",
+            proposed_destination="",
+            import_decision="EXCLUDE - PRIVATE RECEIPTS",
+            reason="Private A02B preflight receipts remain outside repository content.",
+        )
+    )
+
     rows.append(
         directory_row(
             source_path=KIMI_WORKSPACE,
@@ -462,7 +773,7 @@ def main() -> None:
     audit_lines = [
         "# Agent Work Import Audit",
         "",
-        "This inventory covers the verified AutoClaw workspace and handoff bundle, selected Z.ai planning artifacts, the Grok intake worker, selected Grok Build evidence artifacts, selected Kimi research artifacts, the inspected-but-deferred AIA workspace, and the separately recorded empty Kimi workspace directory.",
+        "This inventory covers the verified AutoClaw workspace and handoff bundle, selected Z.ai planning artifacts, the Grok intake worker, selected Grok Build evidence artifacts, selected Kimi research artifacts, the imported AIA stock-Android snapshot, the imported CNTM canonical library snapshot, the imported Motorola activation evidence tranche, and the separately recorded empty Kimi workspace directory.",
         "",
         "## Decision Summary",
         "",
@@ -480,7 +791,9 @@ def main() -> None:
             "- Z.ai contributed planning and curation artifacts plus the verified AutoClaw workspace; local account/config/runtime files are excluded.",
             "- Kimi contributed project-relevant research and orientation documents, but no Kimi code baseline was located.",
             "- The larger `fractalish-ai` snapshot appears historically valuable but overlaps with the existing platform; this tranche imports only selected evidence/report artifacts and records the rest as conflict-review.",
-            "- The AIA Android/device repo is project-relevant but not clearly attributable to the requested agent set, so it is deferred rather than silently mixed into this agent-work import.",
+            "- The AIA stock-Android tranche is now preserved as a structural snapshot, while its raw device audit receipt and generated screenshots remain excluded.",
+            "- The CNTM canonical library is now represented as a curated snapshot without duplicate/version/archive buckets or the private local-provenance manifest.",
+            "- The Motorola activation tranche is now represented by read-only activations, sanitized evidence, and derived reports; firmware packages, extracted images, and private receipts remain excluded.",
         ]
     )
     AUDIT_MD.write_text("\n".join(audit_lines) + "\n", encoding="utf-8")

@@ -1,0 +1,22 @@
+Activation reconnaissance summary
+Generated-at: 2026-06-18T18:37:15.4229473-04:00
+
+Confirmed state:
+- Bootloader is unlocked for flashing.
+- Android userspace reports ro.boot.flash.locked=0 and ro.boot.vbmeta.device_state=unlocked in the frozen baseline bundle.
+- Fastboot receipts indicate A/B slot behavior with current slot b and slot-count 2.
+
+Userspace-access notes:
+- /proc/cmdline is permission denied on this stock userspace build.
+- /proc/bootconfig and /proc/partitions were permission denied during baseline capture.
+- power_supply listing receipt preview: ls: /sys/class/power_supply: Permission denied
+- thermal listing receipt preview: ls: /sys/class/thermal: Permission denied
+- iio listing receipt preview: total 0
+lrwxrwxrwx 1 root root 0 2026-06-18 18:35 iio:device0 -> ../../../devices/platform/1000d000.pwrap/1000d000.pwrap:mt6358-pmic/mt635x-auxadc/iio:device0
+lrwxrwxrwx 1 root root 0 2026-06-18 18:35 iio:device1 -> ../../../devices/platform/11001000.auxadc/iio:device1
+lrwxrwxrwx 1 root root 0 2026-06-18 18:35 iio:device2 -> ../../../devices/platform/nanohub_ipi/iio:device2
+
+Immediate next tranche:
+- Preserve or acquire matching stock rescue images before any experimental boot.
+- Determine whether dynamic partitions or fastbootd are involved using additional read-only evidence before assuming super partition behavior.
+- Prefer a reversible first native boot experiment over permanent flashing.

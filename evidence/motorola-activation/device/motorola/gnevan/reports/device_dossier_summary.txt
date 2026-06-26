@@ -1,0 +1,14 @@
+Device dossier summary
+Generated-at: 2026-06-18T18:37:15.4259478-04:00
+Marketed model: moto g stylus (2023)
+Retail SKU: XT2317-2
+Codename: gnevan
+Product: gnevan_g
+SoC family: MediaTek MT6769 / MT6769V-CZ class
+RAM (bootloader receipt): 4GB
+Storage (bootloader receipt): 64GB eMMC
+Display (prior measured evidence): 720x1600
+Unlock state: flashing_unlocked / warranty void
+Boot layout evidence: A/B indicated by slot-count=2 and slot suffixes _a,_b
+Dynamic partition status: not yet proven
+Fastbootd status: not yet proven

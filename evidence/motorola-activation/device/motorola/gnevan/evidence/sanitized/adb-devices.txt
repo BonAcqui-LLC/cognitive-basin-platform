@@ -1,0 +1,4 @@
+List of devices attached
+<REDACTED_SERIAL>             device product:gnevan_g model:moto_g_stylus__2023_ device:gnevan transport_id:<REDACTED>
+
+

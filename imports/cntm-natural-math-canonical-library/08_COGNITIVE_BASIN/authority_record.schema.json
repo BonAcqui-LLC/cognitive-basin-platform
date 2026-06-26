@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthorityRecord",
+  "type": "object",
+  "required": ["record_id", "source_id", "title", "record_type", "text"],
+  "properties": {
+    "record_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "title": { "type": "string" },
+    "record_type": { "type": "string" },
+    "text": { "type": "string" },
+    "scope": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "version": { "type": "string" },
+    "license_status": { "type": "string" }
+  }
+}

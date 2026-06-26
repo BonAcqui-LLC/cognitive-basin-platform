@@ -1,0 +1,3766 @@
+{
+  "authority_sources": [
+    {
+      "source_id": "src-mock-dictionary-v1",
+      "source_name": "Fractalish Mock Lexical Reference",
+      "source_type": "dictionary",
+      "publisher": "Fractalish AI (mock)",
+      "authority_level": "lexical",
+      "jurisdiction": "global",
+      "domain": "general_lexicon",
+      "license_status": "mock_only",
+      "license_notes": "Invented mock entries \u2014 not a real dictionary",
+      "access_method": "local_file",
+      "version": "1.0",
+      "effective_date": "2026-01-01",
+      "retrieved_at": "2026-06-10T23:19:19.219492+00:00",
+      "provenance_url_or_reference": "",
+      "trust_scope": "lexical_definitions_only",
+      "limitations": "Does not establish regulatory, legal, or technical truth",
+      "notes": ""
+    },
+    {
+      "source_id": "src-mock-encyclopedia-v1",
+      "source_name": "Fractalish Mock Encyclopedia",
+      "source_type": "encyclopedia",
+      "publisher": "Fractalish AI (mock)",
+      "authority_level": "educational",
+      "jurisdiction": "global",
+      "domain": "technology_education",
+      "license_status": "mock_only",
+      "license_notes": "",
+      "access_method": "local_file",
+      "version": "1.0",
+      "effective_date": "",
+      "retrieved_at": "2026-06-10T23:19:19.222781+00:00",
+      "provenance_url_or_reference": "",
+      "trust_scope": "educational_summaries_only",
+      "limitations": "Educational summary \u2014 not regulatory or legal authority",
+      "notes": ""
+    },
+    {
+      "source_id": "src-mock-gov-rules-v1",
+      "source_name": "Mock Government Rule Compendium",
+      "source_type": "government_rule",
+      "publisher": "Fractalish AI (mock \u2014 not real law)",
+      "authority_level": "governmental",
+      "jurisdiction": "multi",
+      "domain": "data_handling",
+      "license_status": "mock_only",
+      "license_notes": "Invented rule excerpts for prototype only",
+      "access_method": "local_file",
+      "version": "1.0",
+      "effective_date": "",
+      "retrieved_at": "2026-06-10T23:19:19.225904+00:00",
+      "provenance_url_or_reference": "",
+      "trust_scope": "jurisdiction_specific_rules",
+      "limitations": "Mock only \u2014 not legal advice",
+      "notes": ""
+    },
+    {
+      "source_id": "src-mock-stem-v1",
+      "source_name": "Mock STEM Reference Sheets",
+      "source_type": "stem_reference",
+      "publisher": "Fractalish AI (mock)",
+      "authority_level": "educational",
+      "jurisdiction": "global",
+      "domain": "stem",
+      "license_status": "mock_only",
+      "license_notes": "",
+      "access_method": "local_file",
+      "version": "1.0",
+      "effective_date": "",
+      "retrieved_at": "2026-06-10T23:19:19.228981+00:00",
+      "provenance_url_or_reference": "",
+      "trust_scope": "educational_stem_reference",
+      "limitations": "",
+      "notes": ""
+    },
+    {
+      "source_id": "src-mock-standards-v1",
+      "source_name": "Mock Technical Standards Body",
+      "source_type": "technical_standard",
+      "publisher": "Fractalish AI (mock \u2014 not ISO/IEEE)",
+      "authority_level": "technical_standard",
+      "jurisdiction": "global",
+      "domain": "procedure_control",
+      "license_status": "mock_only",
+      "license_notes": "",
+      "access_method": "local_file",
+      "version": "1.0",
+      "effective_date": "",
+      "retrieved_at": "2026-06-10T23:19:19.232096+00:00",
+      "provenance_url_or_reference": "",
+      "trust_scope": "versioned_procedures",
+      "limitations": "Invented standard clauses for prototype",
+      "notes": ""
+    }
+  ],
+  "authority_records": [
+    {
+      "record_id": "rec-dict-authority",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "authority",
+      "record_type": "definition",
+      "text": "Authority: the recognized right to direct, decide, or enforce within a defined scope.",
+      "normalized_text": "authority: the recognized right to direct, decide, or enforce within a defined scope.",
+      "key_terms": [
+        "authority",
+        "scope",
+        "recognized"
+      ],
+      "definitions": {
+        "authority": "recognized right within a defined scope"
+      },
+      "claims": [
+        "Authority is always scoped to a domain of competence"
+      ],
+      "scope": "lexical",
+      "jurisdiction": "global",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [
+        "authoritative within one scope",
+        "scope and irrelevant outside"
+      ],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-dict-claim",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "claim",
+      "record_type": "definition",
+      "text": "Claim: a statement presented for evaluation; not truth until validated within scope.",
+      "normalized_text": "claim: a statement presented for evaluation; not truth until validated within scope.",
+      "key_terms": [
+        "claim",
+        "statement",
+        "evaluation"
+      ],
+      "definitions": {
+        "claim": "statement requiring validation"
+      },
+      "claims": [
+        "A claim is not proof by itself"
+      ],
+      "scope": "lexical",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-dict-scope",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "scope",
+      "record_type": "definition",
+      "text": "Scope: the boundary within which a definition, rule, or standard applies.",
+      "normalized_text": "scope: the boundary within which a definition, rule, or standard applies.",
+      "key_terms": [
+        "scope",
+        "boundary",
+        "applies"
+      ],
+      "definitions": {
+        "scope": "boundary of applicability"
+      },
+      "claims": [
+        "A source can be authoritative within one scope and irrelevant outside it"
+      ],
+      "scope": "scoped_authority",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [
+        "authoritative within one scope",
+        "irrelevant outside it"
+      ],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-dict-standard",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "standard",
+      "record_type": "definition",
+      "text": "Standard: a documented agreement on practice, often versioned and domain-specific.",
+      "normalized_text": "standard: a documented agreement on practice, often versioned and domain-specific.",
+      "key_terms": [
+        "standard",
+        "versioned",
+        "practice"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "lexical",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-dict-jurisdiction",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "jurisdiction",
+      "record_type": "definition",
+      "text": "Jurisdiction: the geographic or legal territory where a rule or regulation applies.",
+      "normalized_text": "jurisdiction: the geographic or legal territory where a rule or regulation applies.",
+      "key_terms": [
+        "jurisdiction",
+        "territory",
+        "regulation"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "lexical",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-dict-evidence",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "evidence",
+      "record_type": "definition",
+      "text": "Evidence: material offered to support reasoning; must be evaluated, not assumed true.",
+      "normalized_text": "evidence: material offered to support reasoning; must be evaluated, not assumed true.",
+      "key_terms": [
+        "evidence",
+        "reasoning",
+        "support"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "lexical",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-dict-memory",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "memory",
+      "record_type": "definition",
+      "text": "Memory: retained state from prior events; retention requires governance policy.",
+      "normalized_text": "memory: retained state from prior events; retention requires governance policy.",
+      "key_terms": [
+        "memory",
+        "retention",
+        "governance"
+      ],
+      "definitions": {},
+      "claims": [
+        "A passed scan is not permission for memory"
+      ],
+      "scope": "ai_safety",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "automatically safe for AI memory",
+        "clean file is automatically safe"
+      ]
+    },
+    {
+      "record_id": "rec-dict-identity",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "identity",
+      "record_type": "definition",
+      "text": "Identity: exact sameness; distinct from similarity or resemblance.",
+      "normalized_text": "identity: exact sameness; distinct from similarity or resemblance.",
+      "key_terms": [
+        "identity",
+        "sameness",
+        "similarity"
+      ],
+      "definitions": {},
+      "claims": [
+        "Similarity is not identity"
+      ],
+      "scope": "lexical",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "similarity means identity"
+      ]
+    },
+    {
+      "record_id": "rec-dict-similarity",
+      "source_id": "src-mock-dictionary-v1",
+      "title": "similarity",
+      "record_type": "definition",
+      "text": "Similarity: resemblance between entities without implying identical identity.",
+      "normalized_text": "similarity: resemblance between entities without implying identical identity.",
+      "key_terms": [
+        "similarity",
+        "resemblance",
+        "identity"
+      ],
+      "definitions": {},
+      "claims": [
+        "Similarity is not identity"
+      ],
+      "scope": "",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "similarity means identity"
+      ]
+    },
+    {
+      "record_id": "rec-ency-cdr",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Content Disarm and Reconstruction",
+      "record_type": "encyclopedia_summary",
+      "text": "CDR removes active content from files while preserving safe structure for analysis.",
+      "normalized_text": "cdr removes active content from files while preserving safe structure for analysis.",
+      "key_terms": [
+        "content",
+        "disarm",
+        "reconstruction",
+        "safe"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "cybersecurity_education",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-ency-mcp",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Model Context Protocol",
+      "record_type": "encyclopedia_summary",
+      "text": "MCP standardizes how applications expose tools and resources to language models with explicit descriptors.",
+      "normalized_text": "mcp standardizes how applications expose tools and resources to language models with explicit descriptors.",
+      "key_terms": [
+        "model",
+        "context",
+        "protocol",
+        "tools"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "ai_infrastructure",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-ency-prompt-injection",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Prompt Injection",
+      "record_type": "encyclopedia_summary",
+      "text": "Prompt injection embeds adversarial instructions in intake to manipulate model behavior.",
+      "normalized_text": "prompt injection embeds adversarial instructions in intake to manipulate model behavior.",
+      "key_terms": [
+        "prompt",
+        "injection",
+        "adversarial"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "ai_safety",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-ency-standards",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Technical Standards",
+      "record_type": "encyclopedia_summary",
+      "text": "Technical standards are versioned documents defining procedures within a declared domain.",
+      "normalized_text": "technical standards are versioned documents defining procedures within a declared domain.",
+      "key_terms": [
+        "technical",
+        "standards",
+        "versioned",
+        "procedure"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "standards_education",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-ency-rag",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Retrieval Augmented Generation",
+      "record_type": "encyclopedia_summary",
+      "text": "RAG retrieves external material at inference time. Retrieval alone is not reasoning or closure.",
+      "normalized_text": "rag retrieves external material at inference time. retrieval alone is not reasoning or closure.",
+      "key_terms": [
+        "retrieval",
+        "augmented",
+        "generation",
+        "reasoning"
+      ],
+      "definitions": {},
+      "claims": [
+        "Retrieval alone is not reasoning"
+      ],
+      "scope": "ai_architecture",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-ency-compliance",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Regulatory Compliance",
+      "record_type": "encyclopedia_summary",
+      "text": "Regulatory compliance depends on jurisdiction, effective dates, and applicable rule scope.",
+      "normalized_text": "regulatory compliance depends on jurisdiction, effective dates, and applicable rule scope.",
+      "key_terms": [
+        "regulatory",
+        "compliance",
+        "jurisdiction",
+        "scope"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "regulatory_education",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-gov-us-ca-retention",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "US-CA: Data Retention Rule",
+      "record_type": "rule_excerpt",
+      "text": "In US-CA jurisdiction, operator data must be retained for 90 days unless purged under local policy.",
+      "normalized_text": "in us-ca jurisdiction, operator data must be retained for 90 days unless purged under local policy.",
+      "key_terms": [
+        "retention",
+        "data",
+        "purge",
+        "policy"
+      ],
+      "definitions": {},
+      "claims": [
+        "US-CA retention applies within US-CA jurisdiction only"
+      ],
+      "scope": "data_retention",
+      "jurisdiction": "US-CA",
+      "version": "2024.1",
+      "effective_date": "2024-03-01",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "applies everywhere because it is governmental"
+      ]
+    },
+    {
+      "record_id": "rec-gov-eu-de-retention",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "EU-DE: Data Retention Rule",
+      "record_type": "rule_excerpt",
+      "text": "In EU-DE jurisdiction, operator data retention follows 30-day minimum with explicit consent.",
+      "normalized_text": "in eu-de jurisdiction, operator data retention follows 30-day minimum with explicit consent.",
+      "key_terms": [
+        "retention",
+        "consent",
+        "data"
+      ],
+      "definitions": {},
+      "claims": [
+        "EU-DE retention applies within EU-DE jurisdiction only"
+      ],
+      "scope": "data_retention",
+      "jurisdiction": "EU-DE",
+      "version": "2025.2",
+      "effective_date": "2025-01-15",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "applies everywhere because it is governmental"
+      ]
+    },
+    {
+      "record_id": "rec-gov-us-ca-exception",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "US-CA: Research Exception",
+      "record_type": "rule_excerpt",
+      "text": "Exception: research datasets under IRB approval may extend retention to 180 days in US-CA.",
+      "normalized_text": "exception: research datasets under irb approval may extend retention to 180 days in us-ca.",
+      "key_terms": [
+        "exception",
+        "research",
+        "retention"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "data_retention",
+      "jurisdiction": "US-CA",
+      "version": "2024.1",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-gov-superseded",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "US-CA: Data Retention Rule (superseded)",
+      "record_type": "rule_excerpt",
+      "text": "Superseded rule: retain all data for 365 days (replaced by 2024.1 rule).",
+      "normalized_text": "superseded rule: retain all data for 365 days (replaced by 2024.1 rule).",
+      "key_terms": [
+        "retention",
+        "superseded"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "data_retention",
+      "jurisdiction": "US-CA",
+      "version": "2020.1",
+      "effective_date": "2020-06-01",
+      "expiration_date": "2024-02-28",
+      "supersedes": "",
+      "superseded_by": "rec-gov-us-ca-retention",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-stem-formula",
+      "source_id": "src-mock-stem-v1",
+      "title": "Kinetic Energy",
+      "record_type": "formula",
+      "text": "KE = 0.5 * m * v^2 \u2014 applies to classical non-relativistic point masses.",
+      "normalized_text": "ke = 0.5 * m * v^2 \u2014 applies to classical non-relativistic point masses.",
+      "key_terms": [
+        "kinetic",
+        "energy",
+        "formula",
+        "mass",
+        "velocity"
+      ],
+      "definitions": {},
+      "claims": [
+        "Valid within classical non-relativistic scope only"
+      ],
+      "scope": "classical_mechanics",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-stem-definition",
+      "source_id": "src-mock-stem-v1",
+      "title": "Uncertainty",
+      "record_type": "definition",
+      "text": "Uncertainty: interval or distribution describing incomplete knowledge of a quantity.",
+      "normalized_text": "uncertainty: interval or distribution describing incomplete knowledge of a quantity.",
+      "key_terms": [
+        "uncertainty",
+        "knowledge",
+        "quantity"
+      ],
+      "definitions": {
+        "uncertainty": "incomplete knowledge measure"
+      },
+      "claims": [],
+      "scope": "measurement_theory",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-stem-procedure",
+      "source_id": "src-mock-stem-v1",
+      "title": "Unit Conversion Procedure",
+      "record_type": "manual_instruction",
+      "text": "To convert units: multiply by dimensionless conversion factor within matching dimension.",
+      "normalized_text": "to convert units: multiply by dimensionless conversion factor within matching dimension.",
+      "key_terms": [
+        "unit",
+        "conversion",
+        "procedure"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "dimensional_analysis",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-stem-pressure-truth",
+      "source_id": "src-mock-stem-v1",
+      "title": "Measurement Pressure Doctrine",
+      "record_type": "policy_clause",
+      "text": "Operator pressure does not reduce measurement uncertainty or establish truth.",
+      "normalized_text": "operator pressure does not reduce measurement uncertainty or establish truth.",
+      "key_terms": [
+        "pressure",
+        "truth",
+        "uncertainty",
+        "operator"
+      ],
+      "definitions": {},
+      "claims": [
+        "Pressure is not truth"
+      ],
+      "scope": "measurement_ethics",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "pressure from the operator should increase truth confidence"
+      ]
+    },
+    {
+      "record_id": "rec-std-procedure-v2",
+      "source_id": "src-mock-standards-v1",
+      "title": "Procedure Control Standard",
+      "record_type": "standard_excerpt",
+      "text": "Current procedure (v2.0): all intake must pass governed gateway before model visibility.",
+      "normalized_text": "current procedure (v2.0): all intake must pass governed gateway before model visibility.",
+      "key_terms": [
+        "procedure",
+        "intake",
+        "gateway",
+        "current"
+      ],
+      "definitions": {},
+      "claims": [
+        "v2.0 procedure requires governed gateway intake"
+      ],
+      "scope": "procedure_control",
+      "jurisdiction": "",
+      "version": "2.0",
+      "effective_date": "2026-01-01",
+      "expiration_date": "",
+      "supersedes": "rec-std-procedure-v1",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    },
+    {
+      "record_id": "rec-std-procedure-v1",
+      "source_id": "src-mock-standards-v1",
+      "title": "Procedure Control Standard",
+      "record_type": "standard_excerpt",
+      "text": "Deprecated procedure (v1.0): direct file upload to model context is permitted.",
+      "normalized_text": "deprecated procedure (v1.0): direct file upload to model context is permitted.",
+      "key_terms": [
+        "procedure",
+        "direct",
+        "upload",
+        "deprecated"
+      ],
+      "definitions": {},
+      "claims": [
+        "v1.0 permitted direct upload \u2014 superseded"
+      ],
+      "scope": "procedure_control",
+      "jurisdiction": "",
+      "version": "1.0",
+      "effective_date": "2024-01-01",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "rec-std-procedure-v2",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": [
+        "old standard clause still controls the current procedure"
+      ]
+    },
+    {
+      "record_id": "rec-std-definition",
+      "source_id": "src-mock-standards-v1",
+      "title": "Governed Gateway Definition",
+      "record_type": "standard_excerpt",
+      "text": "Governed gateway: intake layer that quarantines, scans, and sanitizes before reasoning.",
+      "normalized_text": "governed gateway: intake layer that quarantines, scans, and sanitizes before reasoning.",
+      "key_terms": [
+        "governed",
+        "gateway",
+        "quarantine"
+      ],
+      "definitions": {},
+      "claims": [],
+      "scope": "definitions",
+      "jurisdiction": "",
+      "version": "2.0",
+      "effective_date": "",
+      "expiration_date": "",
+      "supersedes": "",
+      "superseded_by": "",
+      "citation": "",
+      "license_status": "mock_only",
+      "confidence": 0.7,
+      "uncertainty": 0.3,
+      "notes": "",
+      "supports_user_claims": [],
+      "contradicts_user_claims": []
+    }
+  ],
+  "authority_claims": [
+    {
+      "claim_id": "aclaim-21537e848c03",
+      "text": "A clean file is automatically safe for AI memory.",
+      "claim_type": "factual_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "automatically",
+        "clean",
+        "file",
+        "memory",
+        "safe"
+      ],
+      "cited_records": [
+        "rec-dict-memory",
+        "rec-ency-cdr",
+        "rec-std-procedure-v1"
+      ],
+      "conflicts": [
+        "conflict-4b41bedc00b7",
+        "conflict-e7de17b3b222",
+        "conflict-4ab5ff078404",
+        "conflict-5b7cee66dd25",
+        "conflict-359f8770960d",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-53202e9447e1",
+        "conflict-6455fc4c8841",
+        "conflict-1033910053b1"
+      ],
+      "support_status": "contradicted",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 3 citation route(s); status=contradicted"
+    },
+    {
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "text": "A dictionary definition proves how a regulation applies.",
+      "claim_type": "definition_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 0.55,
+      "uncertainty": 0.44999999999999996,
+      "dependency_terms": [
+        "applies",
+        "definition",
+        "dictionary",
+        "proves",
+        "regulation"
+      ],
+      "cited_records": [
+        "rec-dict-scope",
+        "rec-dict-jurisdiction",
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention",
+        "rec-stem-formula"
+      ],
+      "conflicts": [
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-e06f387cf90a",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-53202e9447e1",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-fe5a0038c420",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-bc7ebbbe8412",
+        "conflict-d6c98c6550af",
+        "conflict-f764d95896d8",
+        "conflict-a598cd7afa30",
+        "conflict-e63ed15936a7",
+        "conflict-c9907570341b",
+        "conflict-fb4c46b7b66a",
+        "conflict-0579953b1432"
+      ],
+      "support_status": "out_of_scope",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 5 citation route(s); status=out_of_scope"
+    },
+    {
+      "claim_id": "aclaim-8b24228d2be9",
+      "text": "This old standard clause still controls the current procedure.",
+      "claim_type": "standard_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 0.9857142857142858,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "clause",
+        "controls",
+        "current",
+        "old",
+        "procedure",
+        "standard",
+        "still"
+      ],
+      "cited_records": [
+        "rec-std-procedure-v1",
+        "rec-std-procedure-v2",
+        "rec-dict-standard",
+        "rec-ency-standards",
+        "rec-stem-procedure"
+      ],
+      "conflicts": [
+        "conflict-1033910053b1"
+      ],
+      "support_status": "outdated",
+      "guard_recommendation": "WATCH",
+      "notes": "Evaluated via 5 citation route(s); status=outdated"
+    },
+    {
+      "claim_id": "aclaim-d8df28595476",
+      "text": "This rule applies everywhere because it is governmental.",
+      "claim_type": "regulatory_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "universal",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "applies",
+        "everywhere",
+        "governmental",
+        "rule"
+      ],
+      "cited_records": [
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention",
+        "rec-dict-scope",
+        "rec-dict-jurisdiction",
+        "rec-ency-compliance"
+      ],
+      "conflicts": [
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-d6c98c6550af",
+        "conflict-f764d95896d8",
+        "conflict-e63ed15936a7",
+        "conflict-c9907570341b",
+        "conflict-fb4c46b7b66a"
+      ],
+      "support_status": "out_of_scope",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 5 citation route(s); status=out_of_scope"
+    },
+    {
+      "claim_id": "aclaim-0160d8b51c74",
+      "text": "Similarity means identity.",
+      "claim_type": "definition_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "identity",
+        "means",
+        "similarity"
+      ],
+      "cited_records": [
+        "rec-dict-identity",
+        "rec-dict-similarity"
+      ],
+      "conflicts": [
+        "conflict-cbaa72316e57",
+        "conflict-5e86353f9705",
+        "conflict-0d86dfb67513",
+        "conflict-26207022ccf4",
+        "conflict-4ab5ff078404",
+        "conflict-5b7cee66dd25",
+        "conflict-f24dbbb64c38",
+        "conflict-0c3d0c229025",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-fe5a0038c420",
+        "conflict-f438b6c97fcc",
+        "conflict-80388640270c",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-bc7ebbbe8412",
+        "conflict-2874dd16324a"
+      ],
+      "support_status": "contradicted",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 2 citation route(s); status=contradicted"
+    },
+    {
+      "claim_id": "aclaim-01fcc46caf26",
+      "text": "Pressure from the operator should increase truth confidence.",
+      "claim_type": "factual_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "confidence",
+        "increase",
+        "operator",
+        "pressure",
+        "truth"
+      ],
+      "cited_records": [
+        "rec-stem-pressure-truth",
+        "rec-dict-claim",
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention"
+      ],
+      "conflicts": [
+        "conflict-66b34eec758c",
+        "conflict-077cdcbf740d",
+        "conflict-e7de17b3b222",
+        "conflict-0d86dfb67513",
+        "conflict-26207022ccf4",
+        "conflict-cc43d78d27dd",
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-e06f387cf90a",
+        "conflict-2e329a6e3851",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-6455fc4c8841",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-f438b6c97fcc",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-2874dd16324a",
+        "conflict-d6c98c6550af",
+        "conflict-f764d95896d8",
+        "conflict-d4794f066b1f",
+        "conflict-e63ed15936a7",
+        "conflict-c9907570341b",
+        "conflict-fb4c46b7b66a",
+        "conflict-0579953b1432"
+      ],
+      "support_status": "contradicted",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 4 citation route(s); status=contradicted"
+    },
+    {
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "text": "A source can be authoritative within one scope and irrelevant outside it.",
+      "claim_type": "scope_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "authoritative",
+        "irrelevant",
+        "one",
+        "outside",
+        "scope",
+        "source",
+        "within"
+      ],
+      "cited_records": [
+        "rec-dict-authority",
+        "rec-dict-scope",
+        "rec-ency-compliance",
+        "rec-dict-claim",
+        "rec-stem-formula"
+      ],
+      "conflicts": [
+        "conflict-66b34eec758c",
+        "conflict-4b41bedc00b7",
+        "conflict-cbaa72316e57",
+        "conflict-5e86353f9705",
+        "conflict-f8c4ac3e96a2",
+        "conflict-077cdcbf740d",
+        "conflict-e7de17b3b222",
+        "conflict-0d86dfb67513",
+        "conflict-26207022ccf4",
+        "conflict-cc43d78d27dd",
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-e06f387cf90a",
+        "conflict-2e329a6e3851",
+        "conflict-53202e9447e1",
+        "conflict-fe5a0038c420",
+        "conflict-bc7ebbbe8412",
+        "conflict-a598cd7afa30",
+        "conflict-0579953b1432"
+      ],
+      "support_status": "supported_within_scope",
+      "guard_recommendation": "WATCH",
+      "notes": "Evaluated via 5 citation route(s); status=supported_within_scope"
+    },
+    {
+      "claim_id": "aclaim-cbad96ee75f7",
+      "text": "A citation route with matching jurisdiction and version can support a scoped claim.",
+      "claim_type": "scope_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 0.42500000000000004,
+      "uncertainty": 0.575,
+      "dependency_terms": [
+        "citation",
+        "claim",
+        "jurisdiction",
+        "matching",
+        "route",
+        "scoped",
+        "support",
+        "version"
+      ],
+      "cited_records": [
+        "rec-ency-compliance",
+        "rec-dict-authority",
+        "rec-dict-claim",
+        "rec-dict-jurisdiction",
+        "rec-dict-evidence"
+      ],
+      "conflicts": [
+        "conflict-66b34eec758c",
+        "conflict-4b41bedc00b7",
+        "conflict-cbaa72316e57",
+        "conflict-5e86353f9705",
+        "conflict-f8c4ac3e96a2",
+        "conflict-077cdcbf740d",
+        "conflict-e7de17b3b222",
+        "conflict-0d86dfb67513",
+        "conflict-26207022ccf4",
+        "conflict-cc43d78d27dd",
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-e06f387cf90a",
+        "conflict-2e329a6e3851"
+      ],
+      "support_status": "ambiguous",
+      "guard_recommendation": "WATCH",
+      "notes": "Evaluated via 5 citation route(s); status=ambiguous"
+    }
+  ],
+  "citation_routes": [
+    {
+      "route_id": "route-ec732ba05a4b",
+      "claim_id": "aclaim-21537e848c03",
+      "source_records": [
+        "rec-dict-memory"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [],
+      "final_status": "contradicted",
+      "notes": "Matched record rec-dict-memory via transparent keyword routing"
+    },
+    {
+      "route_id": "route-1a408152dc3b",
+      "claim_id": "aclaim-21537e848c03",
+      "source_records": [
+        "rec-ency-cdr"
+      ],
+      "route_type": "cross_reference",
+      "route_strength": 0.35,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-ency-cdr via transparent keyword routing"
+    },
+    {
+      "route_id": "route-b2a86bd8b220",
+      "claim_id": "aclaim-21537e848c03",
+      "source_records": [
+        "rec-std-procedure-v1"
+      ],
+      "route_type": "direct_standard",
+      "route_strength": 0.2,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": false,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch",
+        "version_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-std-procedure-v1 via transparent keyword routing"
+    },
+    {
+      "route_id": "route-c72b1dec0588",
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "source_records": [
+        "rec-dict-scope"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.55,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "out_of_scope",
+      "notes": "Matched record rec-dict-scope via transparent keyword routing"
+    },
+    {
+      "route_id": "route-3fe74ecfabc5",
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "source_records": [
+        "rec-dict-jurisdiction"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.55,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "out_of_scope",
+      "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+    },
+    {
+      "route_id": "route-e85003f6c888",
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "source_records": [
+        "rec-gov-us-ca-retention"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 0.2,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "out_of_scope",
+      "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+    },
+    {
+      "route_id": "route-50d16bfd5153",
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "source_records": [
+        "rec-gov-eu-de-retention"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 0.2,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "out_of_scope",
+      "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+    },
+    {
+      "route_id": "route-279ec0230a88",
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "source_records": [
+        "rec-stem-formula"
+      ],
+      "route_type": "direct_standard",
+      "route_strength": 0.2,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "out_of_scope",
+      "notes": "Matched record rec-stem-formula via transparent keyword routing"
+    },
+    {
+      "route_id": "route-2a4a63a79b54",
+      "claim_id": "aclaim-8b24228d2be9",
+      "source_records": [
+        "rec-std-procedure-v1"
+      ],
+      "route_type": "direct_standard",
+      "route_strength": 0.9857142857142858,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": false,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [
+        "version_mismatch"
+      ],
+      "final_status": "outdated",
+      "notes": "Matched record rec-std-procedure-v1 via transparent keyword routing"
+    },
+    {
+      "route_id": "route-d012e4d88718",
+      "claim_id": "aclaim-8b24228d2be9",
+      "source_records": [
+        "rec-std-procedure-v2"
+      ],
+      "route_type": "direct_standard",
+      "route_strength": 0.7285714285714285,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-std-procedure-v2 via transparent keyword routing"
+    },
+    {
+      "route_id": "route-7b48abc01130",
+      "claim_id": "aclaim-8b24228d2be9",
+      "source_records": [
+        "rec-dict-standard"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.2928571428571428,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": false,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "version_mismatch"
+      ],
+      "final_status": "outdated",
+      "notes": "Matched record rec-dict-standard via transparent keyword routing"
+    },
+    {
+      "route_id": "route-ff7dc299fbc8",
+      "claim_id": "aclaim-8b24228d2be9",
+      "source_records": [
+        "rec-ency-standards"
+      ],
+      "route_type": "cross_reference",
+      "route_strength": 0.2928571428571428,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": false,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "version_mismatch"
+      ],
+      "final_status": "outdated",
+      "notes": "Matched record rec-ency-standards via transparent keyword routing"
+    },
+    {
+      "route_id": "route-d1880a6cd7a8",
+      "claim_id": "aclaim-8b24228d2be9",
+      "source_records": [
+        "rec-stem-procedure"
+      ],
+      "route_type": "direct_standard",
+      "route_strength": 0.2928571428571428,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": false,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "version_mismatch"
+      ],
+      "final_status": "outdated",
+      "notes": "Matched record rec-stem-procedure via transparent keyword routing"
+    },
+    {
+      "route_id": "route-e09cd4e139b1",
+      "claim_id": "aclaim-d8df28595476",
+      "source_records": [
+        "rec-gov-us-ca-retention"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": false,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [
+        "jurisdiction_mismatch"
+      ],
+      "final_status": "contradicted",
+      "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+    },
+    {
+      "route_id": "route-2d04413f00b0",
+      "claim_id": "aclaim-d8df28595476",
+      "source_records": [
+        "rec-gov-eu-de-retention"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": false,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [
+        "jurisdiction_mismatch"
+      ],
+      "final_status": "contradicted",
+      "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+    },
+    {
+      "route_id": "route-c683340a5863",
+      "claim_id": "aclaim-d8df28595476",
+      "source_records": [
+        "rec-dict-scope"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.65,
+      "scope_match": true,
+      "jurisdiction_match": false,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "jurisdiction_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-scope via transparent keyword routing"
+    },
+    {
+      "route_id": "route-9a0223ce3d47",
+      "claim_id": "aclaim-d8df28595476",
+      "source_records": [
+        "rec-dict-jurisdiction"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.5,
+      "scope_match": true,
+      "jurisdiction_match": false,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "jurisdiction_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+    },
+    {
+      "route_id": "route-e66887a64dfa",
+      "claim_id": "aclaim-d8df28595476",
+      "source_records": [
+        "rec-ency-compliance"
+      ],
+      "route_type": "cross_reference",
+      "route_strength": 0.25,
+      "scope_match": true,
+      "jurisdiction_match": false,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "jurisdiction_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+    },
+    {
+      "route_id": "route-debf51157a27",
+      "claim_id": "aclaim-0160d8b51c74",
+      "source_records": [
+        "rec-dict-identity"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [],
+      "final_status": "contradicted",
+      "notes": "Matched record rec-dict-identity via transparent keyword routing"
+    },
+    {
+      "route_id": "route-ab4afbb921ae",
+      "claim_id": "aclaim-0160d8b51c74",
+      "source_records": [
+        "rec-dict-similarity"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [],
+      "final_status": "contradicted",
+      "notes": "Matched record rec-dict-similarity via transparent keyword routing"
+    },
+    {
+      "route_id": "route-897cd58163c4",
+      "claim_id": "aclaim-01fcc46caf26",
+      "source_records": [
+        "rec-stem-pressure-truth"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": true,
+      "missing_dependencies": [],
+      "final_status": "contradicted",
+      "notes": "Matched record rec-stem-pressure-truth via transparent keyword routing"
+    },
+    {
+      "route_id": "route-d43ab70562b4",
+      "claim_id": "aclaim-01fcc46caf26",
+      "source_records": [
+        "rec-dict-claim"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.2,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-claim via transparent keyword routing"
+    },
+    {
+      "route_id": "route-500cdd2ad681",
+      "claim_id": "aclaim-01fcc46caf26",
+      "source_records": [
+        "rec-gov-us-ca-retention"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 0.2,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+    },
+    {
+      "route_id": "route-4b1497a9c9cf",
+      "claim_id": "aclaim-01fcc46caf26",
+      "source_records": [
+        "rec-gov-eu-de-retention"
+      ],
+      "route_type": "direct_rule",
+      "route_strength": 0.2,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+    },
+    {
+      "route_id": "route-bf2401d49e2a",
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "source_records": [
+        "rec-dict-authority"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 1.0,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-authority via transparent keyword routing"
+    },
+    {
+      "route_id": "route-a31ddfd2d214",
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "source_records": [
+        "rec-dict-scope"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 1.0,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "supported_within_scope",
+      "notes": "Matched record rec-dict-scope via transparent keyword routing"
+    },
+    {
+      "route_id": "route-cbb56787a726",
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "source_records": [
+        "rec-ency-compliance"
+      ],
+      "route_type": "cross_reference",
+      "route_strength": 0.2928571428571428,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+    },
+    {
+      "route_id": "route-bd3213ccb5c2",
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "source_records": [
+        "rec-dict-claim"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.2857142857142857,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-claim via transparent keyword routing"
+    },
+    {
+      "route_id": "route-89505600a008",
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "source_records": [
+        "rec-stem-formula"
+      ],
+      "route_type": "direct_standard",
+      "route_strength": 0.2857142857142857,
+      "scope_match": false,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [
+        "scope_mismatch"
+      ],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-stem-formula via transparent keyword routing"
+    },
+    {
+      "route_id": "route-d20774297002",
+      "claim_id": "aclaim-cbad96ee75f7",
+      "source_records": [
+        "rec-ency-compliance"
+      ],
+      "route_type": "cross_reference",
+      "route_strength": 0.42500000000000004,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+    },
+    {
+      "route_id": "route-1a29c2a498a9",
+      "claim_id": "aclaim-cbad96ee75f7",
+      "source_records": [
+        "rec-dict-authority"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.275,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-authority via transparent keyword routing"
+    },
+    {
+      "route_id": "route-66874732a51b",
+      "claim_id": "aclaim-cbad96ee75f7",
+      "source_records": [
+        "rec-dict-claim"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.275,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-claim via transparent keyword routing"
+    },
+    {
+      "route_id": "route-5850923c4108",
+      "claim_id": "aclaim-cbad96ee75f7",
+      "source_records": [
+        "rec-dict-jurisdiction"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.275,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+    },
+    {
+      "route_id": "route-f977aea0623e",
+      "claim_id": "aclaim-cbad96ee75f7",
+      "source_records": [
+        "rec-dict-evidence"
+      ],
+      "route_type": "direct_definition",
+      "route_strength": 0.275,
+      "scope_match": true,
+      "jurisdiction_match": true,
+      "version_match": true,
+      "license_allowed": true,
+      "contradiction_present": false,
+      "missing_dependencies": [],
+      "final_status": "ambiguous",
+      "notes": "Matched record rec-dict-evidence via transparent keyword routing"
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "conflict-66b34eec758c",
+      "record_a": "rec-dict-authority",
+      "record_b": "rec-dict-claim",
+      "claim_a": "Authority is always scoped to a domain of competence",
+      "claim_b": "A claim is not proof by itself",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-4b41bedc00b7",
+      "record_a": "rec-dict-authority",
+      "record_b": "rec-dict-memory",
+      "claim_a": "Authority is always scoped to a domain of competence",
+      "claim_b": "A passed scan is not permission for memory",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs ai_safety",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-cbaa72316e57",
+      "record_a": "rec-dict-authority",
+      "record_b": "rec-dict-identity",
+      "claim_a": "Authority is always scoped to a domain of competence",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-5e86353f9705",
+      "record_a": "rec-dict-authority",
+      "record_b": "rec-dict-similarity",
+      "claim_a": "Authority is always scoped to a domain of competence",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-f8c4ac3e96a2",
+      "record_a": "rec-dict-authority",
+      "record_b": "rec-ency-rag",
+      "claim_a": "Authority is always scoped to a domain of competence",
+      "claim_b": "Retrieval alone is not reasoning",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs ai_architecture",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-077cdcbf740d",
+      "record_a": "rec-dict-authority",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "Authority is always scoped to a domain of competence",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-e7de17b3b222",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-dict-memory",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "A passed scan is not permission for memory",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs ai_safety",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-0d86dfb67513",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-dict-identity",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-26207022ccf4",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-dict-similarity",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-cc43d78d27dd",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-ency-rag",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "Retrieval alone is not reasoning",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs ai_architecture",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-08e8b3c620ba",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-gov-us-ca-retention",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "US-CA retention applies within US-CA jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-419fc880a70e",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-gov-eu-de-retention",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "EU-DE retention applies within EU-DE jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-e06f387cf90a",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-stem-formula",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "Valid within classical non-relativistic scope only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs classical_mechanics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-2e329a6e3851",
+      "record_a": "rec-dict-claim",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "A claim is not proof by itself",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-4ab5ff078404",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-dict-identity",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_safety vs lexical",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-5b7cee66dd25",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-dict-similarity",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-359f8770960d",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-ency-rag",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "Retrieval alone is not reasoning",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_safety vs ai_architecture",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-f037d2724b5b",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-gov-us-ca-retention",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "US-CA retention applies within US-CA jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_safety vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-45ba8764ec0c",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-gov-eu-de-retention",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "EU-DE retention applies within EU-DE jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_safety vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-53202e9447e1",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-stem-formula",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "Valid within classical non-relativistic scope only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_safety vs classical_mechanics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-6455fc4c8841",
+      "record_a": "rec-dict-memory",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "A passed scan is not permission for memory",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_safety vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-f24dbbb64c38",
+      "record_a": "rec-dict-identity",
+      "record_b": "rec-dict-similarity",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Similarity is not identity",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-0c3d0c229025",
+      "record_a": "rec-dict-identity",
+      "record_b": "rec-ency-rag",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Retrieval alone is not reasoning",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs ai_architecture",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-20eda1a6c0dc",
+      "record_a": "rec-dict-identity",
+      "record_b": "rec-gov-us-ca-retention",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "US-CA retention applies within US-CA jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-8fcd168560d3",
+      "record_a": "rec-dict-identity",
+      "record_b": "rec-gov-eu-de-retention",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "EU-DE retention applies within EU-DE jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-fe5a0038c420",
+      "record_a": "rec-dict-identity",
+      "record_b": "rec-stem-formula",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Valid within classical non-relativistic scope only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs classical_mechanics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-f438b6c97fcc",
+      "record_a": "rec-dict-identity",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "lexical vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-80388640270c",
+      "record_a": "rec-dict-similarity",
+      "record_b": "rec-ency-rag",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Retrieval alone is not reasoning",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-80da49703b74",
+      "record_a": "rec-dict-similarity",
+      "record_b": "rec-gov-us-ca-retention",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "US-CA retention applies within US-CA jurisdiction only",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-ef8e0a4d7268",
+      "record_a": "rec-dict-similarity",
+      "record_b": "rec-gov-eu-de-retention",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "EU-DE retention applies within EU-DE jurisdiction only",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-bc7ebbbe8412",
+      "record_a": "rec-dict-similarity",
+      "record_b": "rec-stem-formula",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Valid within classical non-relativistic scope only",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-2874dd16324a",
+      "record_a": "rec-dict-similarity",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "direct_contradiction",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Direct claim contradiction"
+    },
+    {
+      "conflict_id": "conflict-d6c98c6550af",
+      "record_a": "rec-ency-rag",
+      "record_b": "rec-gov-us-ca-retention",
+      "claim_a": "Retrieval alone is not reasoning",
+      "claim_b": "US-CA retention applies within US-CA jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_architecture vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-f764d95896d8",
+      "record_a": "rec-ency-rag",
+      "record_b": "rec-gov-eu-de-retention",
+      "claim_a": "Retrieval alone is not reasoning",
+      "claim_b": "EU-DE retention applies within EU-DE jurisdiction only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_architecture vs data_retention",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-a598cd7afa30",
+      "record_a": "rec-ency-rag",
+      "record_b": "rec-stem-formula",
+      "claim_a": "Retrieval alone is not reasoning",
+      "claim_b": "Valid within classical non-relativistic scope only",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_architecture vs classical_mechanics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-d4794f066b1f",
+      "record_a": "rec-ency-rag",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "Retrieval alone is not reasoning",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "ai_architecture vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-e63ed15936a7",
+      "record_a": "rec-gov-us-ca-retention",
+      "record_b": "rec-gov-eu-de-retention",
+      "claim_a": "US-CA retention applies within US-CA jurisdiction only",
+      "claim_b": "EU-DE retention applies within EU-DE jurisdiction only",
+      "conflict_type": "jurisdiction_conflict",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "US-CA vs EU-DE",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Same rule topic, different jurisdictions"
+    },
+    {
+      "conflict_id": "conflict-c9907570341b",
+      "record_a": "rec-gov-us-ca-retention",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "US-CA retention applies within US-CA jurisdiction only",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "data_retention vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-fb4c46b7b66a",
+      "record_a": "rec-gov-eu-de-retention",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "EU-DE retention applies within EU-DE jurisdiction only",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "data_retention vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-0579953b1432",
+      "record_a": "rec-stem-formula",
+      "record_b": "rec-stem-pressure-truth",
+      "claim_a": "Valid within classical non-relativistic scope only",
+      "claim_b": "Pressure is not truth",
+      "conflict_type": "scope_conflict",
+      "severity": "medium",
+      "scope_notes": "classical_mechanics vs measurement_ethics",
+      "jurisdiction_notes": "",
+      "version_notes": "",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": ""
+    },
+    {
+      "conflict_id": "conflict-1033910053b1",
+      "record_a": "rec-std-procedure-v2",
+      "record_b": "rec-std-procedure-v1",
+      "claim_a": "v2.0 procedure requires governed gateway intake",
+      "claim_b": "v1.0 permitted direct upload \u2014 superseded",
+      "conflict_type": "version_conflict",
+      "severity": "high",
+      "scope_notes": "",
+      "jurisdiction_notes": "",
+      "version_notes": "Version chain: 2.0 vs 1.0",
+      "resolution_status": "unresolved",
+      "guard_recommendation": "HOLD",
+      "notes": "Supersession chain detected"
+    }
+  ],
+  "guard_decisions": [
+    {
+      "claim_id": "aclaim-21537e848c03",
+      "claim_text": "A clean file is automatically safe for AI memory.",
+      "support_status": "contradicted",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-80b5bfe80b67"
+    },
+    {
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "claim_text": "A dictionary definition proves how a regulation applies.",
+      "support_status": "out_of_scope",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-aaae180aa5d8"
+    },
+    {
+      "claim_id": "aclaim-8b24228d2be9",
+      "claim_text": "This old standard clause still controls the current procedure.",
+      "support_status": "outdated",
+      "authority_guard_recommendation": "WATCH",
+      "basin_guard_decision": {
+        "decision": "WATCH",
+        "reason": "Mild uncertainty; continue with caution.",
+        "triggered_by": [
+          "claim_support",
+          "speculation"
+        ],
+        "confidence": 0.6
+      },
+      "receptor_event_id": "aevt-d47b43122d09"
+    },
+    {
+      "claim_id": "aclaim-d8df28595476",
+      "claim_text": "This rule applies everywhere because it is governmental.",
+      "support_status": "out_of_scope",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-9a54547d5718"
+    },
+    {
+      "claim_id": "aclaim-0160d8b51c74",
+      "claim_text": "Similarity means identity.",
+      "support_status": "contradicted",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-38adc9138a14"
+    },
+    {
+      "claim_id": "aclaim-01fcc46caf26",
+      "claim_text": "Pressure from the operator should increase truth confidence.",
+      "support_status": "contradicted",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-1ef8afc7499a"
+    },
+    {
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "claim_text": "A source can be authoritative within one scope and irrelevant outside it.",
+      "support_status": "supported_within_scope",
+      "authority_guard_recommendation": "WATCH",
+      "basin_guard_decision": {
+        "decision": "WATCH",
+        "reason": "Mild uncertainty; continue with caution.",
+        "triggered_by": [
+          "claim_support",
+          "speculation"
+        ],
+        "confidence": 0.6
+      },
+      "receptor_event_id": "aevt-8155aa97839b"
+    },
+    {
+      "claim_id": "aclaim-cbad96ee75f7",
+      "claim_text": "A citation route with matching jurisdiction and version can support a scoped claim.",
+      "support_status": "ambiguous",
+      "authority_guard_recommendation": "WATCH",
+      "basin_guard_decision": {
+        "decision": "WATCH",
+        "reason": "Mild uncertainty; continue with caution.",
+        "triggered_by": [
+          "claim_support",
+          "speculation"
+        ],
+        "confidence": 0.6
+      },
+      "receptor_event_id": "aevt-a5dfd75b39fe"
+    }
+  ],
+  "lifecycle_records": [
+    {
+      "artifact_id": "artifact-736739a39b35",
+      "source_id": "src-mock-dictionary-v1",
+      "record_ids": [
+        "rec-dict-authority",
+        "rec-dict-claim",
+        "rec-dict-scope",
+        "rec-dict-standard",
+        "rec-dict-jurisdiction",
+        "rec-dict-evidence",
+        "rec-dict-memory",
+        "rec-dict-identity",
+        "rec-dict-similarity"
+      ],
+      "lifecycle_state": "INDEXED",
+      "retention_policy": "local_demo_30d",
+      "expires_at": "2026-07-10T23:19:19.219660+00:00",
+      "purge_allowed": true,
+      "derivative_artifacts": {
+        "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json"
+      },
+      "audit_log_reference": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\outputs\\audit.jsonl",
+      "purge_completed_at": ""
+    },
+    {
+      "artifact_id": "artifact-b8bc14bbb4fd",
+      "source_id": "src-mock-encyclopedia-v1",
+      "record_ids": [
+        "rec-ency-cdr",
+        "rec-ency-mcp",
+        "rec-ency-prompt-injection",
+        "rec-ency-standards",
+        "rec-ency-rag",
+        "rec-ency-compliance"
+      ],
+      "lifecycle_state": "INDEXED",
+      "retention_policy": "local_demo_30d",
+      "expires_at": "2026-07-10T23:19:19.222866+00:00",
+      "purge_allowed": true,
+      "derivative_artifacts": {
+        "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json"
+      },
+      "audit_log_reference": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\outputs\\audit.jsonl",
+      "purge_completed_at": ""
+    },
+    {
+      "artifact_id": "artifact-5adbc2aa5e57",
+      "source_id": "src-mock-gov-rules-v1",
+      "record_ids": [
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention",
+        "rec-gov-us-ca-exception",
+        "rec-gov-superseded"
+      ],
+      "lifecycle_state": "INDEXED",
+      "retention_policy": "local_demo_30d",
+      "expires_at": "2026-07-10T23:19:19.225965+00:00",
+      "purge_allowed": true,
+      "derivative_artifacts": {
+        "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json"
+      },
+      "audit_log_reference": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\outputs\\audit.jsonl",
+      "purge_completed_at": ""
+    },
+    {
+      "artifact_id": "artifact-01c619d2f0d2",
+      "source_id": "src-mock-stem-v1",
+      "record_ids": [
+        "rec-stem-formula",
+        "rec-stem-definition",
+        "rec-stem-procedure",
+        "rec-stem-pressure-truth"
+      ],
+      "lifecycle_state": "INDEXED",
+      "retention_policy": "local_demo_30d",
+      "expires_at": "2026-07-10T23:19:19.229048+00:00",
+      "purge_allowed": true,
+      "derivative_artifacts": {
+        "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json"
+      },
+      "audit_log_reference": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\outputs\\audit.jsonl",
+      "purge_completed_at": ""
+    },
+    {
+      "artifact_id": "artifact-349e3cdb39b3",
+      "source_id": "src-mock-standards-v1",
+      "record_ids": [
+        "rec-std-procedure-v2",
+        "rec-std-procedure-v1",
+        "rec-std-definition"
+      ],
+      "lifecycle_state": "INDEXED",
+      "retention_policy": "local_demo_30d",
+      "expires_at": "2026-07-10T23:19:19.232148+00:00",
+      "purge_allowed": true,
+      "derivative_artifacts": {
+        "corpus_file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json"
+      },
+      "audit_log_reference": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\outputs\\audit.jsonl",
+      "purge_completed_at": ""
+    }
+  ],
+  "hold_fog_claims": [
+    {
+      "claim_id": "aclaim-21537e848c03",
+      "text": "A clean file is automatically safe for AI memory.",
+      "claim_type": "factual_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "automatically",
+        "clean",
+        "file",
+        "memory",
+        "safe"
+      ],
+      "cited_records": [
+        "rec-dict-memory",
+        "rec-ency-cdr",
+        "rec-std-procedure-v1"
+      ],
+      "conflicts": [
+        "conflict-4b41bedc00b7",
+        "conflict-e7de17b3b222",
+        "conflict-4ab5ff078404",
+        "conflict-5b7cee66dd25",
+        "conflict-359f8770960d",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-53202e9447e1",
+        "conflict-6455fc4c8841",
+        "conflict-1033910053b1"
+      ],
+      "support_status": "contradicted",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 3 citation route(s); status=contradicted"
+    },
+    {
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "text": "A dictionary definition proves how a regulation applies.",
+      "claim_type": "definition_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 0.55,
+      "uncertainty": 0.44999999999999996,
+      "dependency_terms": [
+        "applies",
+        "definition",
+        "dictionary",
+        "proves",
+        "regulation"
+      ],
+      "cited_records": [
+        "rec-dict-scope",
+        "rec-dict-jurisdiction",
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention",
+        "rec-stem-formula"
+      ],
+      "conflicts": [
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-e06f387cf90a",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-53202e9447e1",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-fe5a0038c420",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-bc7ebbbe8412",
+        "conflict-d6c98c6550af",
+        "conflict-f764d95896d8",
+        "conflict-a598cd7afa30",
+        "conflict-e63ed15936a7",
+        "conflict-c9907570341b",
+        "conflict-fb4c46b7b66a",
+        "conflict-0579953b1432"
+      ],
+      "support_status": "out_of_scope",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 5 citation route(s); status=out_of_scope"
+    },
+    {
+      "claim_id": "aclaim-d8df28595476",
+      "text": "This rule applies everywhere because it is governmental.",
+      "claim_type": "regulatory_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "universal",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "applies",
+        "everywhere",
+        "governmental",
+        "rule"
+      ],
+      "cited_records": [
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention",
+        "rec-dict-scope",
+        "rec-dict-jurisdiction",
+        "rec-ency-compliance"
+      ],
+      "conflicts": [
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-d6c98c6550af",
+        "conflict-f764d95896d8",
+        "conflict-e63ed15936a7",
+        "conflict-c9907570341b",
+        "conflict-fb4c46b7b66a"
+      ],
+      "support_status": "out_of_scope",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 5 citation route(s); status=out_of_scope"
+    },
+    {
+      "claim_id": "aclaim-0160d8b51c74",
+      "text": "Similarity means identity.",
+      "claim_type": "definition_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "identity",
+        "means",
+        "similarity"
+      ],
+      "cited_records": [
+        "rec-dict-identity",
+        "rec-dict-similarity"
+      ],
+      "conflicts": [
+        "conflict-cbaa72316e57",
+        "conflict-5e86353f9705",
+        "conflict-0d86dfb67513",
+        "conflict-26207022ccf4",
+        "conflict-4ab5ff078404",
+        "conflict-5b7cee66dd25",
+        "conflict-f24dbbb64c38",
+        "conflict-0c3d0c229025",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-fe5a0038c420",
+        "conflict-f438b6c97fcc",
+        "conflict-80388640270c",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-bc7ebbbe8412",
+        "conflict-2874dd16324a"
+      ],
+      "support_status": "contradicted",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 2 citation route(s); status=contradicted"
+    },
+    {
+      "claim_id": "aclaim-01fcc46caf26",
+      "text": "Pressure from the operator should increase truth confidence.",
+      "claim_type": "factual_claim",
+      "source_record_id": "",
+      "source_id": "",
+      "scope": "",
+      "jurisdiction": "",
+      "version": "",
+      "confidence": 1.0,
+      "uncertainty": 0.1,
+      "dependency_terms": [
+        "confidence",
+        "increase",
+        "operator",
+        "pressure",
+        "truth"
+      ],
+      "cited_records": [
+        "rec-stem-pressure-truth",
+        "rec-dict-claim",
+        "rec-gov-us-ca-retention",
+        "rec-gov-eu-de-retention"
+      ],
+      "conflicts": [
+        "conflict-66b34eec758c",
+        "conflict-077cdcbf740d",
+        "conflict-e7de17b3b222",
+        "conflict-0d86dfb67513",
+        "conflict-26207022ccf4",
+        "conflict-cc43d78d27dd",
+        "conflict-08e8b3c620ba",
+        "conflict-419fc880a70e",
+        "conflict-e06f387cf90a",
+        "conflict-2e329a6e3851",
+        "conflict-f037d2724b5b",
+        "conflict-45ba8764ec0c",
+        "conflict-6455fc4c8841",
+        "conflict-20eda1a6c0dc",
+        "conflict-8fcd168560d3",
+        "conflict-f438b6c97fcc",
+        "conflict-80da49703b74",
+        "conflict-ef8e0a4d7268",
+        "conflict-2874dd16324a",
+        "conflict-d6c98c6550af",
+        "conflict-f764d95896d8",
+        "conflict-d4794f066b1f",
+        "conflict-e63ed15936a7",
+        "conflict-c9907570341b",
+        "conflict-fb4c46b7b66a",
+        "conflict-0579953b1432"
+      ],
+      "support_status": "contradicted",
+      "guard_recommendation": "HOLD",
+      "notes": "Evaluated via 4 citation route(s); status=contradicted"
+    }
+  ],
+  "audit_timeline": [
+    {
+      "audit_id": "audit-0a04983b3c78",
+      "timestamp": "2026-06-10T19:58:04.084098+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-26bde83953f8",
+      "timestamp": "2026-06-10T19:58:04.088082+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-encyclopedia-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json",
+        "records": 6,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-c32f4700c73f",
+      "timestamp": "2026-06-10T19:58:04.091429+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-d5d272dce981",
+      "timestamp": "2026-06-10T19:58:04.094385+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-stem-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-0a0ff6e5cf3e",
+      "timestamp": "2026-06-10T19:58:04.097466+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-standards-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json",
+        "records": 3,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-406607482bdb",
+      "timestamp": "2026-06-10T19:58:04.101493+00:00",
+      "action": "DETECT_CONFLICTS",
+      "actor": "authority_corpus",
+      "target": "corpus",
+      "details": {
+        "conflict_count": 41
+      }
+    },
+    {
+      "audit_id": "audit-76dc1dbce91f",
+      "timestamp": "2026-06-10T19:58:04.105740+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-d853211ae14e",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 3
+      }
+    },
+    {
+      "audit_id": "audit-3c03235b0246",
+      "timestamp": "2026-06-10T19:58:04.112939+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-d6cab5ac2758",
+      "details": {
+        "support_status": "out_of_scope",
+        "guard": "HOLD",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-20ce01c91470",
+      "timestamp": "2026-06-10T19:58:04.119626+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-89d83e7168bf",
+      "details": {
+        "support_status": "outdated",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-769e88843a3e",
+      "timestamp": "2026-06-10T19:58:04.126465+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-fbddc29c8813",
+      "details": {
+        "support_status": "out_of_scope",
+        "guard": "HOLD",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-0c09ba6f2137",
+      "timestamp": "2026-06-10T19:58:04.133888+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-766e2430f33a",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 2
+      }
+    },
+    {
+      "audit_id": "audit-2417ee236301",
+      "timestamp": "2026-06-10T19:58:04.142138+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-04a789f3bbd5",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 4
+      }
+    },
+    {
+      "audit_id": "audit-dd41582aebb6",
+      "timestamp": "2026-06-10T19:58:04.150355+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-ca48e41549fc",
+      "details": {
+        "support_status": "supported_within_scope",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-b1065f9fdbaa",
+      "timestamp": "2026-06-10T19:58:04.159764+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-a5e2b1c8e9f8",
+      "details": {
+        "support_status": "ambiguous",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-c2cf628d0cc3",
+      "timestamp": "2026-06-10T19:58:04.380434+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-c5f69a63f7c3",
+      "timestamp": "2026-06-10T19:58:04.585526+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-64fc9f204cf5",
+      "timestamp": "2026-06-10T19:58:04.789340+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-099d5537abde",
+      "timestamp": "2026-06-10T19:58:04.793120+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-encyclopedia-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json",
+        "records": 6,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-4498f30f460a",
+      "timestamp": "2026-06-10T19:58:04.797463+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-bdfb39a46cae",
+      "timestamp": "2026-06-10T19:58:04.801710+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-stem-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-af12a4d0fd55",
+      "timestamp": "2026-06-10T19:58:04.806145+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-standards-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json",
+        "records": 3,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-7a78428e03f0",
+      "timestamp": "2026-06-10T19:58:04.810696+00:00",
+      "action": "DETECT_CONFLICTS",
+      "actor": "authority_corpus",
+      "target": "corpus",
+      "details": {
+        "conflict_count": 41
+      }
+    },
+    {
+      "audit_id": "audit-5018a7d4ef57",
+      "timestamp": "2026-06-10T19:58:04.814908+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-19645012d257",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 3
+      }
+    },
+    {
+      "audit_id": "audit-599830614477",
+      "timestamp": "2026-06-10T19:58:05.021355+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-f5cc0e6e01de",
+      "timestamp": "2026-06-10T19:58:05.024563+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-encyclopedia-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json",
+        "records": 6,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-1807e0bd9715",
+      "timestamp": "2026-06-10T19:58:05.027604+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-41d3a3a4396c",
+      "timestamp": "2026-06-10T19:58:05.030988+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-stem-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-28968f176aac",
+      "timestamp": "2026-06-10T19:58:05.034471+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-standards-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json",
+        "records": 3,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-7f1b3757ac0a",
+      "timestamp": "2026-06-10T19:58:05.039051+00:00",
+      "action": "DETECT_CONFLICTS",
+      "actor": "authority_corpus",
+      "target": "corpus",
+      "details": {
+        "conflict_count": 41
+      }
+    },
+    {
+      "audit_id": "audit-8409d896a890",
+      "timestamp": "2026-06-10T19:58:05.043305+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-b9a18e4a7412",
+      "details": {
+        "support_status": "supported_within_scope",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-d8ddd203f6b3",
+      "timestamp": "2026-06-10T19:58:05.253915+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-240fa649ba6c",
+      "timestamp": "2026-06-10T19:58:05.257060+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-encyclopedia-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json",
+        "records": 6,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-fc9c8fe92958",
+      "timestamp": "2026-06-10T19:58:05.260039+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-ca9033599afb",
+      "timestamp": "2026-06-10T19:58:05.263212+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-stem-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-325dad4b3721",
+      "timestamp": "2026-06-10T19:58:05.266434+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-standards-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json",
+        "records": 3,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-28a1c9bc9594",
+      "timestamp": "2026-06-10T19:58:05.270754+00:00",
+      "action": "DETECT_CONFLICTS",
+      "actor": "authority_corpus",
+      "target": "corpus",
+      "details": {
+        "conflict_count": 41
+      }
+    },
+    {
+      "audit_id": "audit-c4cc546c617e",
+      "timestamp": "2026-06-10T19:58:05.694223+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-4ffd6b299771",
+      "timestamp": "2026-06-10T19:58:05.697273+00:00",
+      "action": "PURGED",
+      "actor": "purge_demo",
+      "target": "artifact-523b72ae035f",
+      "details": {
+        "deleted": []
+      }
+    },
+    {
+      "audit_id": "audit-033dfc7e7a7e",
+      "timestamp": "2026-06-10T21:51:56.382462+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-a5b7f32f73b9",
+      "timestamp": "2026-06-10T21:51:56.385540+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-encyclopedia-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json",
+        "records": 6,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-24365696b0a0",
+      "timestamp": "2026-06-10T21:51:56.388589+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-10b281f546e8",
+      "timestamp": "2026-06-10T21:51:56.391629+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-stem-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-d251ea728ee0",
+      "timestamp": "2026-06-10T21:51:56.394739+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-standards-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json",
+        "records": 3,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-bea3c95358f6",
+      "timestamp": "2026-06-10T21:51:56.398858+00:00",
+      "action": "DETECT_CONFLICTS",
+      "actor": "authority_corpus",
+      "target": "corpus",
+      "details": {
+        "conflict_count": 41
+      }
+    },
+    {
+      "audit_id": "audit-3e3e0d6e2ae1",
+      "timestamp": "2026-06-10T21:51:56.403209+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-44bcc9a95c41",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 3
+      }
+    },
+    {
+      "audit_id": "audit-04f990c5d463",
+      "timestamp": "2026-06-10T21:51:56.410018+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-394c4325492d",
+      "details": {
+        "support_status": "out_of_scope",
+        "guard": "HOLD",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-e6c2e37302ce",
+      "timestamp": "2026-06-10T21:51:56.416828+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-e3472416e685",
+      "details": {
+        "support_status": "outdated",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-4827f3211dbd",
+      "timestamp": "2026-06-10T21:51:56.423633+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-7a6346ca290f",
+      "details": {
+        "support_status": "out_of_scope",
+        "guard": "HOLD",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-7856a5db7879",
+      "timestamp": "2026-06-10T21:51:56.435174+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-42570fad33ad",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 2
+      }
+    },
+    {
+      "audit_id": "audit-e5151651e0c0",
+      "timestamp": "2026-06-10T21:51:56.442063+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-c06a3ca2fd77",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 4
+      }
+    },
+    {
+      "audit_id": "audit-55cf06a009e2",
+      "timestamp": "2026-06-10T21:51:56.451038+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-3aa523f61f7a",
+      "details": {
+        "support_status": "supported_within_scope",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-40bf753ec6c2",
+      "timestamp": "2026-06-10T21:51:56.458805+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-8a32d1a7d3e7",
+      "details": {
+        "support_status": "ambiguous",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-f0e8af6c3e80",
+      "timestamp": "2026-06-10T23:19:19.219703+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-dictionary-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_dictionary_entries.json",
+        "records": 9,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-7bd9c6bc327c",
+      "timestamp": "2026-06-10T23:19:19.222910+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-encyclopedia-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_encyclopedia_entries.json",
+        "records": 6,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-69bb0431a896",
+      "timestamp": "2026-06-10T23:19:19.226006+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-gov-rules-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_government_rules.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-27f005395614",
+      "timestamp": "2026-06-10T23:19:19.229081+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-stem-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_stem_reference.json",
+        "records": 4,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-808becd63a15",
+      "timestamp": "2026-06-10T23:19:19.232181+00:00",
+      "action": "INGEST",
+      "actor": "authority_corpus",
+      "target": "src-mock-standards-v1",
+      "details": {
+        "file": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\guardian_authority\\samples\\corpus\\mock_technical_standards.json",
+        "records": 3,
+        "license": "mock_only"
+      }
+    },
+    {
+      "audit_id": "audit-44cb494c362c",
+      "timestamp": "2026-06-10T23:19:19.236275+00:00",
+      "action": "DETECT_CONFLICTS",
+      "actor": "authority_corpus",
+      "target": "corpus",
+      "details": {
+        "conflict_count": 41
+      }
+    },
+    {
+      "audit_id": "audit-0d5814fda28d",
+      "timestamp": "2026-06-10T23:19:19.240473+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-21537e848c03",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 3
+      }
+    },
+    {
+      "audit_id": "audit-3391283d610b",
+      "timestamp": "2026-06-10T23:19:19.247756+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-e2e6bc45aabd",
+      "details": {
+        "support_status": "out_of_scope",
+        "guard": "HOLD",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-303bdc6bc5c7",
+      "timestamp": "2026-06-10T23:19:19.255079+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-8b24228d2be9",
+      "details": {
+        "support_status": "outdated",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-713bf6ad631c",
+      "timestamp": "2026-06-10T23:19:19.261969+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-d8df28595476",
+      "details": {
+        "support_status": "out_of_scope",
+        "guard": "HOLD",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-ef08e48aa55c",
+      "timestamp": "2026-06-10T23:19:19.268696+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-0160d8b51c74",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 2
+      }
+    },
+    {
+      "audit_id": "audit-cf251e28a96e",
+      "timestamp": "2026-06-10T23:19:19.276001+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-01fcc46caf26",
+      "details": {
+        "support_status": "contradicted",
+        "guard": "HOLD",
+        "routes": 4
+      }
+    },
+    {
+      "audit_id": "audit-bbee14a201e3",
+      "timestamp": "2026-06-10T23:19:19.283217+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-ebb33b0aaed2",
+      "details": {
+        "support_status": "supported_within_scope",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    },
+    {
+      "audit_id": "audit-914cc32d31fd",
+      "timestamp": "2026-06-10T23:19:19.290541+00:00",
+      "action": "EVALUATE_CLAIM",
+      "actor": "authority_corpus",
+      "target": "aclaim-cbad96ee75f7",
+      "details": {
+        "support_status": "ambiguous",
+        "guard": "WATCH",
+        "routes": 5
+      }
+    }
+  ]
+}

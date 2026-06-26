@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuthoritySource",
+  "type": "object",
+  "required": ["source_id", "source_name", "source_type", "publisher", "authority_level", "jurisdiction", "domain", "license_status"],
+  "properties": {
+    "source_id": { "type": "string" },
+    "source_name": { "type": "string" },
+    "source_type": { "enum": ["dictionary", "encyclopedia", "government_rule", "regulation", "statute", "technical_standard", "stem_reference", "manual", "internal_policy", "mock_reference"] },
+    "publisher": { "type": "string" },
+    "authority_level": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "domain": { "type": "string" },
+    "license_status": { "type": "string" },
+    "version": { "type": "string" }
+  }
+}

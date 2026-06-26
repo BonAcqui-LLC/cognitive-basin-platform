@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CitationRoute",
+  "type": "object",
+  "required": ["route_id", "claim_id", "route_type", "scope_match", "jurisdiction_match", "version_match", "license_allowed", "final_status"],
+  "properties": {
+    "route_id": { "type": "string" },
+    "claim_id": { "type": "string" },
+    "route_type": { "type": "string" },
+    "scope_match": { "type": "boolean" },
+    "jurisdiction_match": { "type": "boolean" },
+    "version_match": { "type": "boolean" },
+    "license_allowed": { "type": "boolean" },
+    "final_status": { "type": "string" }
+  }
+}

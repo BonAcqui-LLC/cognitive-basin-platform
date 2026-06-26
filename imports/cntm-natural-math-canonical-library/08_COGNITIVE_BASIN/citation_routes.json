@@ -1,0 +1,621 @@
+[
+  {
+    "route_id": "route-ec732ba05a4b",
+    "claim_id": "aclaim-21537e848c03",
+    "source_records": [
+      "rec-dict-memory"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [],
+    "final_status": "contradicted",
+    "notes": "Matched record rec-dict-memory via transparent keyword routing"
+  },
+  {
+    "route_id": "route-1a408152dc3b",
+    "claim_id": "aclaim-21537e848c03",
+    "source_records": [
+      "rec-ency-cdr"
+    ],
+    "route_type": "cross_reference",
+    "route_strength": 0.35,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-ency-cdr via transparent keyword routing"
+  },
+  {
+    "route_id": "route-b2a86bd8b220",
+    "claim_id": "aclaim-21537e848c03",
+    "source_records": [
+      "rec-std-procedure-v1"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.2,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": false,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch",
+      "version_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-std-procedure-v1 via transparent keyword routing"
+  },
+  {
+    "route_id": "route-c72b1dec0588",
+    "claim_id": "aclaim-e2e6bc45aabd",
+    "source_records": [
+      "rec-dict-scope"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.55,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "out_of_scope",
+    "notes": "Matched record rec-dict-scope via transparent keyword routing"
+  },
+  {
+    "route_id": "route-3fe74ecfabc5",
+    "claim_id": "aclaim-e2e6bc45aabd",
+    "source_records": [
+      "rec-dict-jurisdiction"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.55,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "out_of_scope",
+    "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+  },
+  {
+    "route_id": "route-e85003f6c888",
+    "claim_id": "aclaim-e2e6bc45aabd",
+    "source_records": [
+      "rec-gov-us-ca-retention"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 0.2,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "out_of_scope",
+    "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+  },
+  {
+    "route_id": "route-50d16bfd5153",
+    "claim_id": "aclaim-e2e6bc45aabd",
+    "source_records": [
+      "rec-gov-eu-de-retention"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 0.2,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "out_of_scope",
+    "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+  },
+  {
+    "route_id": "route-279ec0230a88",
+    "claim_id": "aclaim-e2e6bc45aabd",
+    "source_records": [
+      "rec-stem-formula"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.2,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "out_of_scope",
+    "notes": "Matched record rec-stem-formula via transparent keyword routing"
+  },
+  {
+    "route_id": "route-2a4a63a79b54",
+    "claim_id": "aclaim-8b24228d2be9",
+    "source_records": [
+      "rec-std-procedure-v1"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.9857142857142858,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": false,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [
+      "version_mismatch"
+    ],
+    "final_status": "outdated",
+    "notes": "Matched record rec-std-procedure-v1 via transparent keyword routing"
+  },
+  {
+    "route_id": "route-d012e4d88718",
+    "claim_id": "aclaim-8b24228d2be9",
+    "source_records": [
+      "rec-std-procedure-v2"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.7285714285714285,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-std-procedure-v2 via transparent keyword routing"
+  },
+  {
+    "route_id": "route-7b48abc01130",
+    "claim_id": "aclaim-8b24228d2be9",
+    "source_records": [
+      "rec-dict-standard"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.2928571428571428,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": false,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "version_mismatch"
+    ],
+    "final_status": "outdated",
+    "notes": "Matched record rec-dict-standard via transparent keyword routing"
+  },
+  {
+    "route_id": "route-ff7dc299fbc8",
+    "claim_id": "aclaim-8b24228d2be9",
+    "source_records": [
+      "rec-ency-standards"
+    ],
+    "route_type": "cross_reference",
+    "route_strength": 0.2928571428571428,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": false,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "version_mismatch"
+    ],
+    "final_status": "outdated",
+    "notes": "Matched record rec-ency-standards via transparent keyword routing"
+  },
+  {
+    "route_id": "route-d1880a6cd7a8",
+    "claim_id": "aclaim-8b24228d2be9",
+    "source_records": [
+      "rec-stem-procedure"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.2928571428571428,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": false,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "version_mismatch"
+    ],
+    "final_status": "outdated",
+    "notes": "Matched record rec-stem-procedure via transparent keyword routing"
+  },
+  {
+    "route_id": "route-e09cd4e139b1",
+    "claim_id": "aclaim-d8df28595476",
+    "source_records": [
+      "rec-gov-us-ca-retention"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": false,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [
+      "jurisdiction_mismatch"
+    ],
+    "final_status": "contradicted",
+    "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+  },
+  {
+    "route_id": "route-2d04413f00b0",
+    "claim_id": "aclaim-d8df28595476",
+    "source_records": [
+      "rec-gov-eu-de-retention"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": false,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [
+      "jurisdiction_mismatch"
+    ],
+    "final_status": "contradicted",
+    "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+  },
+  {
+    "route_id": "route-c683340a5863",
+    "claim_id": "aclaim-d8df28595476",
+    "source_records": [
+      "rec-dict-scope"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.65,
+    "scope_match": true,
+    "jurisdiction_match": false,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "jurisdiction_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-scope via transparent keyword routing"
+  },
+  {
+    "route_id": "route-9a0223ce3d47",
+    "claim_id": "aclaim-d8df28595476",
+    "source_records": [
+      "rec-dict-jurisdiction"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.5,
+    "scope_match": true,
+    "jurisdiction_match": false,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "jurisdiction_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+  },
+  {
+    "route_id": "route-e66887a64dfa",
+    "claim_id": "aclaim-d8df28595476",
+    "source_records": [
+      "rec-ency-compliance"
+    ],
+    "route_type": "cross_reference",
+    "route_strength": 0.25,
+    "scope_match": true,
+    "jurisdiction_match": false,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "jurisdiction_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+  },
+  {
+    "route_id": "route-debf51157a27",
+    "claim_id": "aclaim-0160d8b51c74",
+    "source_records": [
+      "rec-dict-identity"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [],
+    "final_status": "contradicted",
+    "notes": "Matched record rec-dict-identity via transparent keyword routing"
+  },
+  {
+    "route_id": "route-ab4afbb921ae",
+    "claim_id": "aclaim-0160d8b51c74",
+    "source_records": [
+      "rec-dict-similarity"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [],
+    "final_status": "contradicted",
+    "notes": "Matched record rec-dict-similarity via transparent keyword routing"
+  },
+  {
+    "route_id": "route-897cd58163c4",
+    "claim_id": "aclaim-01fcc46caf26",
+    "source_records": [
+      "rec-stem-pressure-truth"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": true,
+    "missing_dependencies": [],
+    "final_status": "contradicted",
+    "notes": "Matched record rec-stem-pressure-truth via transparent keyword routing"
+  },
+  {
+    "route_id": "route-d43ab70562b4",
+    "claim_id": "aclaim-01fcc46caf26",
+    "source_records": [
+      "rec-dict-claim"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.2,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-claim via transparent keyword routing"
+  },
+  {
+    "route_id": "route-500cdd2ad681",
+    "claim_id": "aclaim-01fcc46caf26",
+    "source_records": [
+      "rec-gov-us-ca-retention"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 0.2,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+  },
+  {
+    "route_id": "route-4b1497a9c9cf",
+    "claim_id": "aclaim-01fcc46caf26",
+    "source_records": [
+      "rec-gov-eu-de-retention"
+    ],
+    "route_type": "direct_rule",
+    "route_strength": 0.2,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+  },
+  {
+    "route_id": "route-bf2401d49e2a",
+    "claim_id": "aclaim-ebb33b0aaed2",
+    "source_records": [
+      "rec-dict-authority"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-authority via transparent keyword routing"
+  },
+  {
+    "route_id": "route-a31ddfd2d214",
+    "claim_id": "aclaim-ebb33b0aaed2",
+    "source_records": [
+      "rec-dict-scope"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "supported_within_scope",
+    "notes": "Matched record rec-dict-scope via transparent keyword routing"
+  },
+  {
+    "route_id": "route-cbb56787a726",
+    "claim_id": "aclaim-ebb33b0aaed2",
+    "source_records": [
+      "rec-ency-compliance"
+    ],
+    "route_type": "cross_reference",
+    "route_strength": 0.2928571428571428,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+  },
+  {
+    "route_id": "route-bd3213ccb5c2",
+    "claim_id": "aclaim-ebb33b0aaed2",
+    "source_records": [
+      "rec-dict-claim"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.2857142857142857,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-claim via transparent keyword routing"
+  },
+  {
+    "route_id": "route-89505600a008",
+    "claim_id": "aclaim-ebb33b0aaed2",
+    "source_records": [
+      "rec-stem-formula"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.2857142857142857,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-stem-formula via transparent keyword routing"
+  },
+  {
+    "route_id": "route-d20774297002",
+    "claim_id": "aclaim-cbad96ee75f7",
+    "source_records": [
+      "rec-ency-compliance"
+    ],
+    "route_type": "cross_reference",
+    "route_strength": 0.42500000000000004,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+  },
+  {
+    "route_id": "route-1a29c2a498a9",
+    "claim_id": "aclaim-cbad96ee75f7",
+    "source_records": [
+      "rec-dict-authority"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.275,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-authority via transparent keyword routing"
+  },
+  {
+    "route_id": "route-66874732a51b",
+    "claim_id": "aclaim-cbad96ee75f7",
+    "source_records": [
+      "rec-dict-claim"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.275,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-claim via transparent keyword routing"
+  },
+  {
+    "route_id": "route-5850923c4108",
+    "claim_id": "aclaim-cbad96ee75f7",
+    "source_records": [
+      "rec-dict-jurisdiction"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.275,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+  },
+  {
+    "route_id": "route-f977aea0623e",
+    "claim_id": "aclaim-cbad96ee75f7",
+    "source_records": [
+      "rec-dict-evidence"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.275,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-evidence via transparent keyword routing"
+  }
+]

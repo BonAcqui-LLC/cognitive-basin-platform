@@ -26,14 +26,16 @@
 - Grok: import the concrete Guardian Intake worker plus selected historical report/evidence artifacts
 - Z.ai: preserve planning and curation artifacts as historical evidence; exclude account/runtime files
 - Kimi: preserve project-relevant research/orientation artifacts as historical evidence; no Kimi code baseline identified
-- AIA: record as `CONFLICT - REVIEW REQUIRED` and defer from this tranche
+- AIA: preserve a structural stock-Android snapshot under `imports/aia-sovereign-activation-device/`
+- CNTM: preserve a curated canonical-library snapshot under `imports/cntm-natural-math-canonical-library/`
+- Motorola activation: preserve read-only activations, sanitized evidence, and topology reports under `evidence/motorola-activation/`
 
 ## Guardrails
 
 - Do not commit nested `.git` content
 - Do not commit duplicate extracted ZIP contents when preserved history and documents already cover them
 - Do not import AutoClaw dirty working-tree deltas; import committed history only
-- Do not commit credentials, account records, firmware, device dumps, caches, or unrelated installers
+- Do not commit credentials, account records, firmware, raw device identifiers, generated Android build output, duplicate/version buckets, device dumps, caches, or unrelated installers
 - Do not modify `main`, repository visibility, repository settings, or device state
 
 ## Current Source Findings
@@ -44,6 +46,9 @@
 - Frozen Natural Math source SHA256 verified: `E5AB47D41B82F6AF573866BE637BF3B0054D96C7F45A613EC6CAE2124AD84C7B`
 - AutoClaw handoff ZIP SHA256 verified: `758F59126E14743ADEEF9DC0097043F891AA239774DF185C950D03FA7688198C`
 - AutoClaw source working tree is currently dirty in generated Stage 2 artifacts, so subtree import must remain anchored to committed history only
+- AIA source workspace still has no commits, so its repo transfer is snapshot-based rather than history-preserving
+- CNTM import excludes duplicate/version/archive buckets plus `manifests/local_provenance_private.json`
+- Motorola activation import excludes firmware packages, extracted partition images, and private A02B receipts; imported A02B remains `FAILED_SAFE`
 
 ## Inventory Outputs
 
@@ -57,8 +62,9 @@
 
 - Post-import destination test command:
   `C:\Users\moop\AppData\Local\Programs\Python\Python312\python.exe -B -m pytest -q C:\Users\moop\Downloads\Articles on X.com\Fractalish.com\build\cognitive-basin-platform-import-2026-06`
-- Post-import destination test result: `529 passed, 23 failed, 28 warnings`
+- Post-import destination test result: `530 passed, 23 failed, 28 warnings`
 - Regression status relative to pre-import baseline: no new failures; the same 23 repository failures remain, while imported AutoClaw and agent-work checks increased the passing count
+- Pytest collection boundary: imported AIA, CNTM, and Motorola provenance trees are excluded from automatic suite discovery through `tool.pytest.ini_options.norecursedirs` so historical/reference tests do not get mistaken for active platform test targets
 
 ### Imported-Work Validation
 
@@ -66,10 +72,14 @@
   `tests/test_agent_work_import.py`
 - Verified conditions:
   - import inventory includes Grok, AutoClaw, Z.ai, Kimi, exclusion, and conflict rows
+  - import inventory now also includes imported AIA, CNTM, and Motorola activation rows plus explicit exclusion rows for raw receipts, private provenance, and firmware
   - imported AutoClaw source commits are reachable in destination history
   - destination tag `autoclaw-natural-math-v5-reference-1.0` maps to imported commit `28ffa5974b5fd157982f36fdb1189ac9d1fb6acb`
   - no nested `.git` directory was imported
   - the external AutoClaw handoff ZIP was recorded by checksum but not duplicated into repository content
+  - AIA generated artifacts and raw device-audit receipt were not imported
+  - CNTM duplicate/version/archive buckets and private local provenance were not imported
+  - Motorola firmware packages, extracted images, and A02B private receipts were not imported
 
 ### AutoClaw Source Validation
 

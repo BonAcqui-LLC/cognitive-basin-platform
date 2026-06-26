@@ -1,0 +1,58 @@
+{
+    "xt_model":  {
+                     "live":  "XT2317-2",
+                     "status":  "MATCH",
+                     "package":  "XT2317-2"
+                 },
+    "codename":  {
+                     "live":  "gnevan",
+                     "status":  "MATCH",
+                     "package":  "GNEVAN"
+                 },
+    "product":  {
+                    "live":  "gnevan_g",
+                    "status":  "STRONG_FAMILY_MATCH",
+                    "package":  "GNEVAN"
+                },
+    "channel":  {
+                    "live":  "RETUS",
+                    "status":  "MATCH",
+                    "package":  "RETUS"
+                },
+    "region":  {
+                   "live":  "US retail (inferred)",
+                   "status":  "STRONG_MATCH",
+                   "package":  "RETUS retail US (inferred)"
+               },
+    "carrier":  {
+                    "live":  "unbranded retail US (inferred)",
+                    "status":  "STRONG_MATCH",
+                    "package":  "DEFAULT"
+                },
+    "package_build_id":  "U1THS34.65-74-1-7-8",
+    "package_build_date":  "2025-06-17T17:41:31Z",
+    "live_build_id":  "U1THS34.65-74-1-7-24",
+    "live_build_date":  "UNAVAILABLE",
+    "bootloader_version":  "MBM-2.1-gnevan_g-5ba36-U1THS34.65-74-1-7-24-111802",
+    "baseband_family":  "MT6769G_TC2.PR5.SP.V9.2.P21.02.40R",
+    "android_version":  "14",
+    "security_patch":  "2026-05-01 (reported, not freshly re-observed)",
+    "rollback_metadata":  "UNRESOLVED",
+    "partition_layout_hints":  [
+                                   "CFC.xml.zip naming suggests full-service firmware package",
+                                   "No extraction performed in A01"
+                               ],
+    "identity_match":  "STRONG_MATCH",
+    "build_match":  "OLDER_THAN_LIVE_BUILD",
+    "channel_match":  "MATCH",
+    "region_match":  "STRONG_MATCH",
+    "match_classification":  "STRONG_MATCH_OLDER_BUILD",
+    "restore_suitability":  "NOT_YET_ESTABLISHED",
+    "anti_rollback_status":  "UNRESOLVED",
+    "recommended_next_activation":  "A02-read-only-topology",
+    "blocking_unknowns":  [
+                              "Exact live build package not found from trustworthy source in A01",
+                              "Anti-rollback metadata unresolved",
+                              "Restore suitability not established without deeper package inspection in later activation"
+                          ]
+}

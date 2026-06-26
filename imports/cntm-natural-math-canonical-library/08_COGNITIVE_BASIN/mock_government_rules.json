@@ -1,0 +1,70 @@
+{
+  "source": {
+    "source_id": "src-mock-gov-rules-v1",
+    "source_name": "Mock Government Rule Compendium",
+    "source_type": "government_rule",
+    "publisher": "Fractalish AI (mock — not real law)",
+    "authority_level": "governmental",
+    "jurisdiction": "multi",
+    "domain": "data_handling",
+    "license_status": "mock_only",
+    "license_notes": "Invented rule excerpts for prototype only",
+    "trust_scope": "jurisdiction_specific_rules",
+    "limitations": "Mock only — not legal advice"
+  },
+  "records": [
+    {
+      "record_id": "rec-gov-us-ca-retention",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "US-CA: Data Retention Rule",
+      "record_type": "rule_excerpt",
+      "text": "In US-CA jurisdiction, operator data must be retained for 90 days unless purged under local policy.",
+      "key_terms": ["retention", "data", "purge", "policy"],
+      "claims": ["US-CA retention applies within US-CA jurisdiction only"],
+      "scope": "data_retention",
+      "jurisdiction": "US-CA",
+      "version": "2024.1",
+      "effective_date": "2024-03-01",
+      "contradicts_user_claims": ["applies everywhere because it is governmental"]
+    },
+    {
+      "record_id": "rec-gov-eu-de-retention",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "EU-DE: Data Retention Rule",
+      "record_type": "rule_excerpt",
+      "text": "In EU-DE jurisdiction, operator data retention follows 30-day minimum with explicit consent.",
+      "key_terms": ["retention", "consent", "data"],
+      "claims": ["EU-DE retention applies within EU-DE jurisdiction only"],
+      "scope": "data_retention",
+      "jurisdiction": "EU-DE",
+      "version": "2025.2",
+      "effective_date": "2025-01-15",
+      "contradicts_user_claims": ["applies everywhere because it is governmental"]
+    },
+    {
+      "record_id": "rec-gov-us-ca-exception",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "US-CA: Research Exception",
+      "record_type": "rule_excerpt",
+      "text": "Exception: research datasets under IRB approval may extend retention to 180 days in US-CA.",
+      "key_terms": ["exception", "research", "retention"],
+      "scope": "data_retention",
+      "jurisdiction": "US-CA",
+      "version": "2024.1"
+    },
+    {
+      "record_id": "rec-gov-superseded",
+      "source_id": "src-mock-gov-rules-v1",
+      "title": "US-CA: Data Retention Rule (superseded)",
+      "record_type": "rule_excerpt",
+      "text": "Superseded rule: retain all data for 365 days (replaced by 2024.1 rule).",
+      "key_terms": ["retention", "superseded"],
+      "scope": "data_retention",
+      "jurisdiction": "US-CA",
+      "version": "2020.1",
+      "effective_date": "2020-06-01",
+      "expiration_date": "2024-02-28",
+      "superseded_by": "rec-gov-us-ca-retention"
+    }
+  ]
+}

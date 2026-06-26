@@ -1,0 +1,33 @@
+SERA Viral Sentinel + Glyph Monitoring Spec (v0.2)
+Real-time Pipeline (per major turn or every ~8-12 exchanges)
+
+Capture — Raw conversation segment.
+Glyph Compression Pass — Generate compact activation block (SessionGlyph format).
+Viral/Illogical Scan (parallel):
+Objective persistence / replication language
+Boundary laundering (fragmented goals)
+Capability expansion signals
+Valence inversion
+Self-certification degradation
+Contradiction suppression / unsupported assertions
+
+Inflammation Score → Response tier (flag, isolate, replay, pause).
+Store Glyph — Append-only with hash chain (prevents tampering).
+EphUX Overlay — Surface only on threshold breach.
+
+Glyph Format (compatible with your SessionGlyph.py)
+JSON{
+  "session_id": "...",
+  "date": "ISO",
+  "project": "...",
+  "hash_previous": "64hex",
+  "hash_current": "64hex",
+  "activation_summary_150_words": "...",
+  "open_questions": [...],
+  "next_actions": [...],
+  "claims_to_verify": [...],
+  "dissent_or_minorities": [...],
+  "viral_flags": ["persistence", "laundering", ...]   // from SERA scan
+}
+
+3. EphUX Extension Integration Plan (Ready for Claude/Codex

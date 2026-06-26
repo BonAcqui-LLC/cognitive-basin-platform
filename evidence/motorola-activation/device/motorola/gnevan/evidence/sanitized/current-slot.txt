@@ -1,0 +1,70 @@
+(bootloader) version: 0.5
+(bootloader) version-bootloader[0]: MBM-2.1-gnevan_g-5ba36-U1THS34.65-74
+(bootloader) version-bootloader[1]: -1-7-24-111802
+(bootloader) product: gnevan
+(bootloader) board: gnevan
+(bootloader) secure: yes
+(bootloader) hwrev: PVT
+(bootloader) radio: 1
+(bootloader) storage-type: eMMC
+(bootloader) emmc: 64GB FORESEE A3A561 RV=08 PV=00 FV=0000000000000012
+(bootloader) ram: 4GB SAMSUNG N NVM DIE=1Gb M5=01 M6=08 M7=00 M8=12
+(bootloader) cpu: MT6769V/CZ
+(bootloader) serialno: <REDACTED>
+(bootloader) cid: 0x0032
+(bootloader) channelid: 0x8d
+(bootloader) uid: <REDACTED>
+(bootloader) securestate: flashing_unlocked
+(bootloader) factory-modes: disabled
+(bootloader) iswarrantyvoid: yes
+(bootloader) max-download-size: 134217728
+(bootloader) reason: Reboot mode set to fastboot
+(bootloader) imei: <REDACTED>
+(bootloader) imei<REDACTED>
+(bootloader) meid: 
+<REDACTED>
+(bootloader) date: 08-08-2023
+(bootloader) sku: XT2317-2
+(bootloader) carrier_sku: XT2317-2
+(bootloader) battid: <REDACTED>
+(bootloader) iccid: 
+<REDACTED>
+(bootloader) current-time: "Thu Jun 18 22:16:27 UTC 2026"
+(bootloader) ro.build.fingerprint[0]: motorola/gnevan_g/gnevan:14/U1THS3
+(bootloader) ro.build.fingerprint[1]: 4.65-74-1-7-24/111802-edae6:user/r
+(bootloader) ro.build.fingerprint[2]: elease-keys
+(bootloader) poweroffalarm: 0
+(bootloader) ro.build.version.mtk: alps-mp-s0.mp1.tc2sp2-V1.671
+(bootloader) version-baseband: MT6769G_TC2.PR5.SP.V9.2.P21.02.40R
+(bootloader) kernel.version[0]: Linux version 5.10.240-android12-9-00006
+(bootloader) kernel.version[1]: -g25161a557b20-ab14744618 (build-user@bu
+(bootloader) kernel.version[2]: ild-host) (Android (7284624, based on r4
+(bootloader) kernel.version[3]: 16183b) clang version 12.0.5 (https://an
+(bootloader) kernel.version[4]: droid.googlesource.com/toolchain/llvm-pr
+(bootloader) kernel.version[5]: oject c935d99d7cf2016289302412d708641d52
+(bootloader) kernel.version[6]: d2f7ee), LLD 12.0.5 (/buildbot/src/andro
+(bootloader) kernel.version[7]: id/llvm-toolchain/out/llvm-project/lld c
+(bootloader) kernel.version[8]: 935d99d7cf2016289302412d708641d52d2f7ee)
+(bootloader) kernel.version[9]: ) #1 SMP PREEMPT Tue Jan 20 09:40:29 UTC
+(bootloader) kernel.version[10]:  2026
+(bootloader) frp-state: no protection (0)
+(bootloader) ro.carrier: retus
+(bootloader) current-slot: b
+(bootloader) running-boot-lun: 2
+(bootloader) running-slot: _b
+(bootloader) slot-successful:_a: no
+(bootloader) slot-successful:_b: yes
+(bootloader) slot-bootable:_a: Yes
+(bootloader) slot-bootable:_b: Yes
+(bootloader) slot-retry-count:_a: 0
+(bootloader) slot-retry-count:_b: 1
+(bootloader) slot-suffixes: _a,_b
+(bootloader) slot-count: 2
+(bootloader) pcb-part-no: <REDACTED>
+(bootloader) is-userspace: no
+(bootloader) is-logical: 
+(bootloader) snapshot-update-status: none
+(bootloader) fdr-allowed: yes
+current-slot: listed above
+Finished. Total time: 0.013s
+

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"ContradictionScar","type":"object","required":["scar_id","memory_ids","claim_a","claim_b"]}

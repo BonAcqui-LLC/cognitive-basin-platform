@@ -1,0 +1,35 @@
+{
+  "receipt_type": "apk_build",
+  "recorded_at": "2026-06-17T20:42:57.5782847-04:00",
+  "repository": {
+    "branch": "master",
+    "head_commit": null
+  },
+  "build": {
+    "command": "gradle -p C:\\Users\\moop\\Documents\\AIA\\android assembleDebug",
+    "build_start": "2026-06-17T20:42:55.2042842-04:00",
+    "build_finish": "2026-06-17T20:42:57.5782847-04:00",
+    "result": "success",
+    "gradle_version": "8.7",
+    "agp_version": "8.5.2",
+    "kotlin_android_plugin_version": "1.9.24",
+    "java_runtime_version": "17.0.19+10",
+    "android_sdk_root": "C:\\Android\\android-sdk",
+    "build_tools_version": "34.0.0",
+    "compile_sdk": 34,
+    "target_sdk": 34,
+    "min_sdk": 29,
+    "build_type": "debug"
+  },
+  "artifact": {
+    "package_name": "llc.bonacqui.aia",
+    "version_code": 1,
+    "version_name": "0.1.1-stockos",
+    "apk_path": "C:\\Users\\moop\\Documents\\AIA\\android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+    "apk_size_bytes": 12072530,
+    "sha256": "39531CC09BA4CE51E0AEDEA9FC3375F3E555AAE0D7303DC358C140E138D6020A",
+    "signer_dn": "C=US, O=Android, CN=Android Debug",
+    "signer_sha256": "b24a3ca3659747af71cd80bb50de8cec39943783c3a01b6db309fdf845071a46",
+    "signer_sha1": "0211db9b0d9ef94378cf55b69d979972337e9af4"
+  }
+}
