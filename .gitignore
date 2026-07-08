@@ -1,90 +1,48 @@
-﻿# cognitive-basin-platform .gitignore
-# Created as part of pre-push security gate
-
-# Dependencies
-node_modules/
+```gitignore
+# Python
 __pycache__/
 *.pyc
-.venv/
-venv/
+*.pyo
+*.pyd
+.Python
 env/
+venv/
+.venv/
+.ENV
+.python-version
 
-# Build / dist
+# Testing
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+.hypothesis/
+
+# Distribution / packaging
 dist/
 build/
+*.egg
 *.egg-info/
-.next/
-out/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Cloudflare / Wrangler / deployment
-.wrangler/
-.dev.vars
-wrangler.toml.bak
-.mf/
-
-# Environment & secrets (strictly excluded)
-.env
-.env.*
-*.env
-.envrc
-.env.local
-.dev.vars
-*.pem
-*.key
-*secret*
-*token*
-*credential*
-gho_*
-# Re-include CI scanners and policy (their names contain the pattern for discoverability but hold no secrets/keys)
-!tools/ci/scan_credentials.py
-!ops/policies/credential-scan-policy.json
-sk-*
-xai-*
-ALL_TOKENS_KEYS_FOR_GROK.txt
-mcp_credentials.json
-auth.json
-*.p12
-*.pfx
-
-# Logs & temp
-logs/
-*.log
-*.tmp
-*.swp
-*~
-.DS_Store
-
-# IDE / OS
-.idea/
+# IDE
 .vscode/
-*.sublime-*
-.history/
+.idea/
+*.swp
+*.swo
+*.tmp
 
-# Test / coverage
-coverage/
-.nyc_output/
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
-.basinlab_store/
-artifacts/
-.natural-math-visualizations/
+# Logs
+*.log
 
-# Large binaries / media we do not want in repo
-*.zip
-*.tar.gz
-*.mp4
-*.mov
-*.iso
+# Environment variables
+.env
+.env.local
+*.env.*
 
-# Recovery evidence (never import whole recovery tree)
-recovery/
-Cognitive-Basin-Recovery*/
-
-# Local verification artifacts and run helpers (do not pollute git status)
-ops/verification/
-run_full_sequence.py
-docs/DECISIONS.md
-
-# Placeholder for intentionally empty but reserved dirs (see docs/structure.md)
-# .gitkeep is used only for reserved dirs and marked SPECIFIED
+# OS generated files
+.DS_Store
+Thumbs.db
+```
