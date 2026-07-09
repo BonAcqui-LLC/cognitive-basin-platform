@@ -131,8 +131,9 @@ replay reconstructs the final repaired `SUPPORTED / EXTEND` state.
 
 ## Provenance and Clean-Room Note
 
-The user-supplied Qwen/Grok prototype artifacts were retained unchanged outside
-this worktree and used as conceptual provenance:
+The user-supplied Qwen/Grok prototype artifacts were retained unchanged as
+conceptual provenance. Current `main` also preserves the expanded prototype at
+the repository root; v0.3 remains a separate implementation:
 
 - compact `specificity_engine.py` SHA-256:
   `C1AE7D5D8BD22BBF0D4305F2817B827FCBD1E1511303142E37B99D39A38D2DB5`
