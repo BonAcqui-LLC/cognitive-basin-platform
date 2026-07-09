@@ -1,0 +1,20 @@
+{
+    "filename":  "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "exact_path":  "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\original\\XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "byte_count":  4190063592,
+    "sha256_first_read":  "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+    "sha256_second_read":  "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+    "hash_stable_across_two_reads":  true,
+    "file_timestamps":  {
+                            "created":  "2026-06-18T18:44:24.2963376-04:00",
+                            "last_write":  "2026-06-18T19:21:08.5628509-04:00"
+                        },
+    "download_complete_evidence":  [
+                                       "final byte count matches observed HTTP Content-Length",
+                                       "no partial-download suffix observed on preserved file"
+                                   ],
+    "archive_listable_without_errors":  true,
+    "archive_entry_count":  87,
+    "external_checksum_or_signature_exists":  false,
+    "preservation_status":  "ORIGINAL_UNCHANGED"
+}

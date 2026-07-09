@@ -1,0 +1,394 @@
+You found the correct ambiguity. Here is the project decision.
+
+# What We Are Building
+
+The primary target is the BasinLab fledgling developmental AI runtime.
+
+It is not merely:
+
+* the Motorola activation sequence
+* the Cognitive Basin platform as a product shell
+* a cluster benchmark
+* a crystal-stick simulation
+* a single Natural Math version
+* a language model wrapper
+
+The runtime should begin as a small, inspectable, software-first developmental system that acquires useful behavior from bounded experience.
+
+The long-term architecture is:
+
+Natural Math
+→ experience-dependent local adaptation
+→ Cognitive Basin persistent association and understanding
+→ Fractalish modular reasoning and governance
+→ Construction A+ / PEFP attractor readout
+→ SymLan stable symbolic compression
+→ activation, device, and product layers
+
+Do not collapse these into one mechanism.
+
+# Natural Math Authority Decision
+
+Use Natural Math v5 frozen integer base as the behavioral authority and reference semantics.
+
+The exact frozen source and validated evidence chain define what v5 behavior means.
+
+Do not replace v5 with v3.6, v6, v7.2, or another variant.
+
+Use this rule:
+
+* v5 frozen integer base = authoritative reference behavior
+* v3.6 FractalishBuild `core_runtime.py` = potential implementation donor or earlier operational baseline
+* v5.1 = first separately versioned developmental extension
+* v6 and v7.2 = research branches requiring lineage and authority review
+* older and later variants do not override v5 merely because they contain more features
+
+# What To Do With v3.6
+
+Do not throw away the existing v3.6 runtime.
+
+Audit it against frozen v5.
+
+Determine:
+
+1. Which v5 rules it implements exactly.
+2. Which v5 rules it implements differently.
+3. Which behavior exists only in v3.6.
+4. Which v5 behavior is absent.
+5. Whether its 8/8 reported oracles test the same semantics as the v5 40/40 oracle suite.
+6. Whether parts of `core_runtime.py` can be reused without altering v5 behavior.
+7. Whether it should become:
+
+   * the implementation base after correction;
+   * a reusable donor;
+   * a historical baseline; or
+   * a separate experimental branch.
+
+Do not assume “already running” means “canonical.”
+
+Create a rule-by-rule crosswalk:
+
+v5 specification section
+v5 required behavior
+v3.6 implementation location
+match status
+test coverage
+reuse decision
+required correction
+
+Allowed match statuses:
+
+* EXACT MATCH
+* FUNCTIONAL MATCH
+* PARTIAL
+* DIFFERENT SEMANTICS
+* ABSENT
+* EXTRA BEHAVIOR
+* UNVERIFIED
+
+# Treatment Of Other Natural Math Branches
+
+Inventory and classify:
+
+* v3.6
+* v5 frozen
+* v5.1 proposals
+* v6
+* v7.2
+* stick/crystal-grain mechanisms
+* cluster energy-network benchmark
+* persistent-attractor and PEFP work
+* CNTM-related Natural Math implementations
+
+For each, record:
+
+* purpose
+* date and lineage
+* authority status
+* code status
+* validation status
+* relationship to the baby-AI build
+* whether it is reusable now
+* whether it belongs later
+* whether it conflicts with frozen v5
+
+Do not choose a later version merely because its number is higher.
+
+# The Bigger Fish
+
+The immediate product target is not Motorola activation.
+
+Motorola or phone activation is a later embodiment and onboarding path.
+
+The immediate target is not merely a web platform either.
+
+The current engineering target is:
+
+A local developmental runtime that can:
+
+1. receive a bounded task environment;
+2. act through explicit local rules;
+3. spend finite resources;
+4. record consequences of its own actions;
+5. alter later choices from prior experience;
+6. preserve failures as usable constraints;
+7. form persistent associations across repeated encounters;
+8. recover from contradiction or failed routing;
+9. explain its behavior from recorded internal state;
+10. remain inspectable, replayable, and provenance-bearing.
+
+The first version may run entirely in a Python sandbox.
+
+Phone, activation, UI, cloud, and product packaging come after the developmental core is demonstrated.
+
+# Development Sequence
+
+Use this order.
+
+## Stage 0 — Version and implementation crosswalk
+
+Compare v3.6, frozen v5, current code, and later variants.
+
+Do not add behavior.
+
+Deliver:
+
+* Natural Math lineage map
+* v3.6-to-v5 conformance crosswalk
+* code-reuse recommendation
+* test-suite comparison
+* selected implementation starting point
+
+## Stage 1 — Frozen v5 executable reference
+
+Establish or verify an implementation that passes the supplied frozen-v5 fixtures.
+
+Required target:
+
+* local integer oracle suite: 25/25
+* cluster oracle suite: 15/15
+* total: 40/40
+
+Reproduce the listed scale evidence where artifacts permit.
+
+Frozen v5 must remain unchanged.
+
+## Stage 2 — Extension harness
+
+Create an isolated extension interface.
+
+Requirements:
+
+* frozen v5 remains importable and unchanged
+* extensions cannot rewrite frozen defaults or fixtures
+* matched-seed A/B execution
+* separate extension state
+* exact provenance
+* runtime and memory accounting
+* deterministic replay
+
+## Stage 3 — Natural Math v5.1 Local Flow Trail Memory
+
+Implement exactly one experience-dependent mechanism.
+
+Successful local movement deposits temporary directed local edge memory.
+
+Later local choices may use that memory at a narrowly defined integration point.
+
+No:
+
+* scars
+* backing out
+* roles
+* BFS
+* A*
+* global maps
+* hidden planning
+* neural learning
+* full-route storage
+
+Test frozen v5 against v5 plus trail memory under identical conditions.
+
+The question is:
+
+Does local memory of prior successful action alter later behavior usefully without global planning?
+
+## Stage 4 — Local failure/scar memory
+
+Only after Stage 3 review.
+
+Test whether failed or blocked local actions leave temporary negative constraints.
+
+Do not hard-code dead-end escape unless the trail-plus-scar system fails to produce recovery.
+
+## Stage 5 — Minimal Cognitive Basin
+
+Add persistent association above Natural Math rather than hiding it inside Natural Math.
+
+Begin with:
+
+* encounter or brush records
+* local outcome history
+* attractor strength
+* contradiction scars
+* recovery routes
+* retrieval frequency
+* survival weighting
+* pruning
+* replay
+
+The basin must preserve provenance back to the experiences that formed it.
+
+Do not begin with language generation.
+
+## Stage 6 — Fractalish runtime integration
+
+Map the developing system through:
+
+PERCEPT
+→ ATAL
+→ RIGOR
+→ CIRCUIT
+→ GUARD
+→ SERA
+
+Initial meanings:
+
+* PERCEPT: receive and normalize bounded observations
+* ATAL: assign pressure, salience, deficit, and regulatory state
+* RIGOR: challenge candidate interpretations and expose contradiction
+* CIRCUIT: maintain recursive processing and active continuity
+* GUARD: constrain unsafe, incoherent, or disallowed action
+* SERA: preserve cost, provenance, retention, replay, and audit
+
+## Stage 7 — Construction A+, PEFP, and SymLan
+
+Do not treat these as built-in AutoClaw features.
+
+Inventory their authoritative documents and code now, but implement them later.
+
+Use this relationship:
+
+* Natural Math creates bounded processes and histories.
+* MCVA describes stable morphology and process configurations.
+* Construction A+ / Honeybee / PiA+ reads sufficiently settled attractor structure into discrete glyph candidates.
+* PEFP tests persistence and recurrence of attractor expression where applicable.
+* SymLan represents only states and vocabularies that have earned stability and replay support.
+* Unsettled states remain unresolved rather than being forced into symbols.
+
+Construction A+ and SymLan must not be omitted from the architecture, but they must not be prematurely substituted for learning or understanding.
+
+## Stage 8 — Developmental task ladder
+
+Test progressively:
+
+1. move toward a resource;
+2. retain successful local action;
+3. avoid repeated local failure;
+4. recover from blockage;
+5. adapt when the resource moves;
+6. choose between competing resources;
+7. trade danger against reward;
+8. preserve group energy while seeking;
+9. recognize repeated environment patterns;
+10. report why an action occurred using its state and provenance history.
+
+Behavior comes first.
+Explanation must be grounded in recorded state rather than invented afterward.
+
+## Stage 9 — Activation and product embodiment
+
+Only after the developmental runtime is demonstrated.
+
+Possible later embodiments include:
+
+* Motorola or inexpensive Android activation sequence
+* Sovereign AIA device
+* offline-first phone runtime
+* Cognitive Basin platform
+* sensor-rich receptor device
+* civil-rights distributions
+
+These are deployment targets, not substitutes for the developmental engine.
+
+# Duplicate Libraries
+
+Do not spend the build phase cleaning the entire hard drive.
+
+The drive contains redundant canonical-library copies.
+
+Use them as search sources, but establish one declared build authority and one writable build root.
+
+Do not delete duplicates.
+
+Do not rewrite originals.
+
+Record:
+
+* exact duplicate groups
+* differing versions
+* selected authority
+* original source paths
+
+Use:
+
+C:_MASTER_LIBRARY
+
+as the primary curated reference root unless an exact required source exists only elsewhere.
+
+Write implementation work only under:
+
+C:_MASTER_LIBRARY\06_AUTOCLAW_WORKSPACE
+
+Drive-wide access may be used for discovery and reading.
+
+Do not write outside the declared workspace without explicit authorization.
+
+# Immediate Assignment
+
+Do not ask us to choose the target again. The target is now defined.
+
+Begin with Stage 0 only.
+
+Produce:
+
+1. `natural_math_version_lineage.md`
+2. `v3_6_vs_v5_rule_crosswalk.csv`
+3. `v3_6_vs_v5_test_crosswalk.md`
+4. `natural_math_code_reuse_recommendation.md`
+5. `baby_ai_layered_build_map.md`
+6. `symLan_construction_A_plus_inventory.md`
+7. `stage_1_execution_plan.md`
+
+The Stage 0 report must recommend one of these implementation paths:
+
+A. Correct and promote the existing v3.6 runtime to exact v5 conformance.
+
+B. Build a clean v5 reference implementation and reuse selected v3.6 components.
+
+C. Use an already conformant v5 implementation found elsewhere on the drive.
+
+D. Stop because no implementation path can be justified from available evidence.
+
+Do not start Stage 1 until the Stage 0 recommendation is written and supported by file paths, hashes, code locations, and test evidence.
+
+Do not modify Natural Math v5.
+Do not blend later-version behavior into v5.
+Do not start activation work.
+Do not build the product shell.
+Do not deploy anything.
+
+At completion, report:
+
+* selected Natural Math authority
+* recommended implementation path
+* reusable v3.6 components
+* incompatible v3.6 components
+* status of v6 and v7.2
+* role of the cluster benchmark
+* role of the stick/crystal mechanism
+* role of persistent attractors and PEFP
+* SymLan and Construction A+ source status
+* unresolved conflicts
+* exact files created
+* whether Stage 1 is ready to begin

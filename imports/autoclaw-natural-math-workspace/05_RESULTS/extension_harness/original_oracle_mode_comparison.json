@@ -1,0 +1,899 @@
+{
+  "task": "original_oracle_mode_comparison",
+  "timestamp": "2026-06-23T16:09:09Z",
+  "overall_passed": true,
+  "total_fixtures": 40,
+  "passed_count": 40,
+  "integer_fixtures": {
+    "passed": true,
+    "count": 25,
+    "passed_count": 25,
+    "results": [
+      {
+        "category": "integer",
+        "fixture_index": 0,
+        "fixture_name": "empty_list_returns_empty",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "4f53cda18c2baa0c",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "4f53cda18c2baa0c",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "4f53cda18c2baa0c",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 1,
+        "fixture_name": "energy_below_tau_restrict_dies_before_pressure",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "2eda8089dd1f77d3",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "2eda8089dd1f77d3",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "2eda8089dd1f77d3",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 2,
+        "fixture_name": "duplicate_live_position_contact_death",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "6ba53da16db53e6f",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "6ba53da16db53e6f",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "6ba53da16db53e6f",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 3,
+        "fixture_name": "adjacent_live_nodes_sense_and_pressure",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "cfd0ac7f9e94aa62",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "cfd0ac7f9e94aa62",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "cfd0ac7f9e94aa62",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 4,
+        "fixture_name": "integer_gradient_successful_extend",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "6c06d5465e20e31d",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "6c06d5465e20e31d",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "6c06d5465e20e31d",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 5,
+        "fixture_name": "fallback_extend_with_seeded_rng",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "8bd46444ab195681",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "8bd46444ab195681",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "8bd46444ab195681",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 6,
+        "fixture_name": "blocked_fallback_target_pays_sense_and_conflict_pressure",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "ea16785ebaf4264f",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "ea16785ebaf4264f",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "ea16785ebaf4264f",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 7,
+        "fixture_name": "contested_unblocked_fallback_target_high_energy_wins",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "01f718887aea2a84",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "01f718887aea2a84",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "01f718887aea2a84",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 8,
+        "fixture_name": "bifurcation_successful_split_from_fallback_extend",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "5d883b6ca56256e6",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "5d883b6ca56256e6",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "5d883b6ca56256e6",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 9,
+        "fixture_name": "bifurcation_pressure_below_threshold_moves_normally",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "7f75b5f8fdb397c4",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "7f75b5f8fdb397c4",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "7f75b5f8fdb397c4",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 10,
+        "fixture_name": "bifurcation_energy_threshold_must_be_strictly_greater",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "cbe20bac019988c2",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "cbe20bac019988c2",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "cbe20bac019988c2",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 11,
+        "fixture_name": "bifurcation_child_position_blocked_by_frozen_occupancy",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "be5cd11c2746f3c8",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "be5cd11c2746f3c8",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "be5cd11c2746f3c8",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 12,
+        "fixture_name": "bifurcation_child_position_outside_boundary_moves_normally",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "454ebe7eb90dbd96",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "454ebe7eb90dbd96",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "454ebe7eb90dbd96",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 13,
+        "fixture_name": "bifurcation_reserved_child_position_blocks_later_split",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "e1daa81b94c748f6",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "e1daa81b94c748f6",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "e1daa81b94c748f6",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 14,
+        "fixture_name": "bonding_adjacent_pair_forms_after_pressure_and_equalizes_energy",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "c20992624419effb",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "c20992624419effb",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "c20992624419effb",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 15,
+        "fixture_name": "bonding_strict_rejects_distance_equal_to_threshold",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "af360d6cdf8fbf87",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "af360d6cdf8fbf87",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "af360d6cdf8fbf87",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 16,
+        "fixture_name": "bonding_non_strict_allows_distance_equal_to_threshold",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "08939c597bb8ca29",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "08939c597bb8ca29",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "08939c597bb8ca29",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 17,
+        "fixture_name": "bonding_max_live_degree_blocks_extra_pairs",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "8628e5b773149506",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "8628e5b773149506",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "8628e5b773149506",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 18,
+        "fixture_name": "bonding_historical_dead_bonds_do_not_count_against_live_capacity",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "9e4239dc46a1225f",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "9e4239dc46a1225f",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "9e4239dc46a1225f",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 19,
+        "fixture_name": "bonding_collapse_positions_keeps_bonded_duplicate_live_nodes_alive",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "46f04af1cc649fb0",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "46f04af1cc649fb0",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "46f04af1cc649fb0",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 20,
+        "fixture_name": "deficit_mode_can_reverse_gradient_direction",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "1bc1a6c989db4d34",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "1bc1a6c989db4d34",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "1bc1a6c989db4d34",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 21,
+        "fixture_name": "deficit_mode_is_zero_when_both_nodes_at_or_above_E0",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "ce7a0c56967f7919",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "ce7a0c56967f7919",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "ce7a0c56967f7919",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 22,
+        "fixture_name": "poc_scream_low_energy_neighbor_uses_suffering_strength",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "7d48c427b1ca3af3",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "7d48c427b1ca3af3",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "7d48c427b1ca3af3",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 23,
+        "fixture_name": "poc_scream_disables_bifurcation_and_extends_normally",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "c4fb65c63617b6f1",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "c4fb65c63617b6f1",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "c4fb65c63617b6f1",
+            "hook_event_count": 9
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "integer",
+        "fixture_index": 24,
+        "fixture_name": "validation_rejects_deficit_and_poc_scream_together",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "error_raised": true,
+            "error": "Section 6 runtime flags: use_deficit and use_poc_scream conflict",
+            "hook_event_count": 0
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "error_raised": true,
+            "error": "Section 6 runtime flags: use_deficit and use_poc_scream conflict",
+            "hook_event_count": 0
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "error_raised": true,
+            "error": "Section 6 runtime flags: use_deficit and use_poc_scream conflict",
+            "hook_event_count": 0
+          }
+        },
+        "errors": []
+      }
+    ]
+  },
+  "cluster_fixtures": {
+    "passed": true,
+    "count": 15,
+    "passed_count": 15,
+    "results": [
+      {
+        "category": "cluster_initialization",
+        "fixture_index": 0,
+        "fixture_name": "cluster_seed_3_initialization_summary",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "3b7e649a3b160423"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "3b7e649a3b160423"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "3b7e649a3b160423"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_initialization",
+        "fixture_index": 1,
+        "fixture_name": "cluster_seed_11_initialization_summary",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "f56c1a06fb52e1cd"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "f56c1a06fb52e1cd"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "f56c1a06fb52e1cd"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_metrics",
+        "fixture_index": 0,
+        "fixture_name": "cluster_metrics_empty_state",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "51888daef8577553"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "51888daef8577553"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "51888daef8577553"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_metrics",
+        "fixture_index": 1,
+        "fixture_name": "cluster_metrics_connected_success_low_gini",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "7fa60283d4a84190"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "7fa60283d4a84190"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "7fa60283d4a84190"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_metrics",
+        "fixture_index": 2,
+        "fixture_name": "cluster_metrics_fragmented_high_gini_far_resource",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "70a6968170b90b66"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "70a6968170b90b66"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "70a6968170b90b66"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_action",
+        "fixture_index": 0,
+        "fixture_name": "cluster_action_policy_seek_moves_toward_resource",
+        "status": "PASS",
+        "modes": {
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "38e6bbd0ede2dd2c"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_action",
+        "fixture_index": 1,
+        "fixture_name": "cluster_action_policy_rest_adds_rest_gain",
+        "status": "PASS",
+        "modes": {
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "9c29ff5b70274337"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_action",
+        "fixture_index": 2,
+        "fixture_name": "cluster_action_redistribute_transfers_energy_over_live_bond",
+        "status": "PASS",
+        "modes": {
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "3bea971cbcdb1dc3"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_action",
+        "fixture_index": 3,
+        "fixture_name": "cluster_action_policy_repair_fragmented_adds_first_valid_bond",
+        "status": "PASS",
+        "modes": {
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "ddac4de6c7e18130"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_action",
+        "fixture_index": 4,
+        "fixture_name": "cluster_resource_absorption_shares_integer_energy",
+        "status": "PASS",
+        "modes": {
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "5b56c395af57af21"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_damage",
+        "fixture_index": 0,
+        "fixture_name": "cluster_damage_loses_energy_and_breaks_seeded_bonds",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "2aef94e2ab4ba320"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "2aef94e2ab4ba320"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "2aef94e2ab4ba320"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_run",
+        "fixture_index": 0,
+        "fixture_name": "cluster_seed_3_steps_0_exact_result",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "d24e57842b67dfee"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "d24e57842b67dfee"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "d24e57842b67dfee"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_run",
+        "fixture_index": 1,
+        "fixture_name": "cluster_seed_3_steps_1_exact_result",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "ba6df24fba63e9f7"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "ba6df24fba63e9f7"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "ba6df24fba63e9f7"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_run",
+        "fixture_index": 2,
+        "fixture_name": "cluster_seed_3_steps_35_damage_gate_exact_result",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "7ab17eb1fc762b85"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "7ab17eb1fc762b85"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "7ab17eb1fc762b85"
+          }
+        },
+        "errors": []
+      },
+      {
+        "category": "cluster_run",
+        "fixture_index": 3,
+        "fixture_name": "cluster_seed_3_steps_140_exact_result",
+        "status": "PASS",
+        "modes": {
+          "BASELINE": {
+            "match": true,
+            "hash": "a8cc5a5a5332722c"
+          },
+          "HARNESS_NO_EXTENSIONS": {
+            "match": true,
+            "hash": "a8cc5a5a5332722c"
+          },
+          "HARNESS_WITH_EXTENSIONS": {
+            "match": true,
+            "hash": "a8cc5a5a5332722c"
+          }
+        },
+        "errors": []
+      }
+    ]
+  }
+}

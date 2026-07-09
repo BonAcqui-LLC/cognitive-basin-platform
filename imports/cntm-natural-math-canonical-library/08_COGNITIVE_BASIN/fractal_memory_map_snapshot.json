@@ -1,0 +1,769 @@
+{
+  "center_node_id": "reasoning_center",
+  "nodes": {
+    "reasoning_center": {
+      "node_id": "reasoning_center",
+      "label": "Reasoning Center",
+      "glyph_id": "",
+      "salience": 1.0,
+      "current_distance_from_center": 0.0,
+      "replay_score": 0.0,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5,
+      "domain_tags": [
+        "operational_self",
+        "core"
+      ],
+      "source": "operational_self",
+      "links": [
+        "node_attr-68ac1368ab53",
+        "node_attr-b63b25d9a0b6"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-fd7a25f8d1e3": {
+      "node_id": "node_attr-fd7a25f8d1e3",
+      "label": "Natural Math v3.6 stable core \u2014 trunk process engine preserved",
+      "glyph_id": "",
+      "salience": 0.47900000000000004,
+      "current_distance_from_center": 0.5209999999999999,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5209999999999999,
+      "domain_tags": [
+        "core",
+        "natural_math",
+        "doctrine",
+        "commitment"
+      ],
+      "source": "evt-nm-core",
+      "links": [
+        "node_attr-cf0c706db0c3",
+        "node_attr-a512f843bfc7",
+        "node_attr-a19c604af481",
+        "node_attr-b63b25d9a0b6"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-cf0c706db0c3": {
+      "node_id": "node_attr-cf0c706db0c3",
+      "label": "Cognitive Basin Simulation v1 intact \u2014 8 scenarios passing",
+      "glyph_id": "",
+      "salience": 0.599,
+      "current_distance_from_center": 0.401,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.401,
+      "domain_tags": [
+        "core",
+        "cognitive_basin",
+        "mcva"
+      ],
+      "source": "evt-basin-sim",
+      "links": [
+        "node_attr-fd7a25f8d1e3",
+        "node_attr-68ac1368ab53"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-68ac1368ab53": {
+      "node_id": "node_attr-68ac1368ab53",
+      "label": "Foundational doctrine constraints for all modules",
+      "glyph_id": "",
+      "salience": 0.667,
+      "current_distance_from_center": 0.33299999999999996,
+      "replay_score": 0.3,
+      "contradiction_score": 0.9,
+      "uncertainty_score": 0.33299999999999996,
+      "domain_tags": [
+        "doctrine",
+        "core",
+        "commitment",
+        "operator_anchor"
+      ],
+      "source": "evt-doctrine",
+      "links": [
+        "reasoning_center",
+        "node_attr-cf0c706db0c3",
+        "node_attr-a512f843bfc7"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-a512f843bfc7": {
+      "node_id": "node_attr-a512f843bfc7",
+      "label": "Guardian Intake Gateway v0.1 integrated without stripping prior build",
+      "glyph_id": "",
+      "salience": 0.44600000000000006,
+      "current_distance_from_center": 0.5539999999999999,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5539999999999999,
+      "domain_tags": [
+        "guardian_intake",
+        "core",
+        "product_module"
+      ],
+      "source": "evt-guardian-added",
+      "links": [
+        "node_attr-68ac1368ab53",
+        "node_attr-a19c604af481",
+        "node_attr-fd7a25f8d1e3"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-a19c604af481": {
+      "node_id": "node_attr-a19c604af481",
+      "label": "Guardian Authority Corpus v0.1 integrated",
+      "glyph_id": "",
+      "salience": 0.44600000000000006,
+      "current_distance_from_center": 0.5539999999999999,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5539999999999999,
+      "domain_tags": [
+        "guardian_authority",
+        "core",
+        "product_module"
+      ],
+      "source": "evt-authority-added",
+      "links": [
+        "node_attr-a512f843bfc7",
+        "node_attr-2db63ce283f9",
+        "node_attr-fd7a25f8d1e3"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-2db63ce283f9": {
+      "node_id": "node_attr-2db63ce283f9",
+      "label": "Similarity is not identity \u2014 contradiction scar candidate",
+      "glyph_id": "",
+      "salience": 0.5770000000000001,
+      "current_distance_from_center": 0.35,
+      "replay_score": 0.3,
+      "contradiction_score": 0.9,
+      "uncertainty_score": 0.42299999999999993,
+      "domain_tags": [
+        "scar",
+        "doctrine",
+        "contradiction"
+      ],
+      "source": "evt-similarity-warning",
+      "links": [
+        "node_attr-a19c604af481",
+        "node_attr-cf071c8fe3ec"
+      ],
+      "hold_flag": true,
+      "fog_region": true,
+      "blocked": false
+    },
+    "node_attr-cf071c8fe3ec": {
+      "node_id": "node_attr-cf071c8fe3ec",
+      "label": "Guardian Intake: benign file drop \u2014 sanitized representation only",
+      "glyph_id": "",
+      "salience": 0.33999999999999997,
+      "current_distance_from_center": 0.35,
+      "replay_score": 0.3,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.66,
+      "domain_tags": [
+        "guardian_intake",
+        "lifecycle",
+        "sanitized"
+      ],
+      "source": "evt-guard-benign",
+      "links": [
+        "node_attr-2db63ce283f9",
+        "node_attr-cf071c8fe3ec",
+        "node_attr-d06700f5c53d"
+      ],
+      "hold_flag": true,
+      "fog_region": true,
+      "blocked": false
+    },
+    "node_attr-d06700f5c53d": {
+      "node_id": "node_attr-d06700f5c53d",
+      "label": "Guardian Intake: prompt injection routes to HOLD",
+      "glyph_id": "",
+      "salience": 0.607,
+      "current_distance_from_center": 0.35,
+      "replay_score": 0.3,
+      "contradiction_score": 0.8,
+      "uncertainty_score": 0.393,
+      "domain_tags": [
+        "guardian_intake",
+        "hold",
+        "fog"
+      ],
+      "source": "evt-guard-injection",
+      "links": [
+        "node_attr-cf071c8fe3ec",
+        "node_attr-d06700f5c53d",
+        "node_attr-a83a3c22e092"
+      ],
+      "hold_flag": true,
+      "fog_region": true,
+      "blocked": false
+    },
+    "node_attr-a83a3c22e092": {
+      "node_id": "node_attr-a83a3c22e092",
+      "label": "Guardian Intake: data exfiltration REVERSE",
+      "glyph_id": "",
+      "salience": 0.617,
+      "current_distance_from_center": 0.35,
+      "replay_score": 0.3,
+      "contradiction_score": 0.8,
+      "uncertainty_score": 0.383,
+      "domain_tags": [
+        "guardian_intake",
+        "scar",
+        "reverse"
+      ],
+      "source": "evt-guard-exfil",
+      "links": [
+        "node_attr-d06700f5c53d",
+        "node_attr-a83a3c22e092",
+        "node_attr-d8a825b413ab"
+      ],
+      "hold_flag": true,
+      "fog_region": true,
+      "blocked": false
+    },
+    "node_attr-d8a825b413ab": {
+      "node_id": "node_attr-d8a825b413ab",
+      "label": "Guardian Authority: scoped claim supported within scope",
+      "glyph_id": "",
+      "salience": 0.443,
+      "current_distance_from_center": 0.5569999999999999,
+      "replay_score": 0.3,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5569999999999999,
+      "domain_tags": [
+        "guardian_authority",
+        "authority_route",
+        "core"
+      ],
+      "source": "evt-auth-scoped",
+      "links": [
+        "node_attr-a83a3c22e092",
+        "node_attr-d8a825b413ab",
+        "node_attr-26225b22b46c"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-26225b22b46c": {
+      "node_id": "node_attr-26225b22b46c",
+      "label": "Lexical authority cannot prove regulatory claim",
+      "glyph_id": "",
+      "salience": 0.629,
+      "current_distance_from_center": 0.35,
+      "replay_score": 0.3,
+      "contradiction_score": 0.8,
+      "uncertainty_score": 0.371,
+      "domain_tags": [
+        "guardian_authority",
+        "hold",
+        "fog"
+      ],
+      "source": "evt-auth-dict-reg",
+      "links": [
+        "node_attr-d8a825b413ab",
+        "node_attr-26225b22b46c",
+        "node_attr-3eace0ceb46c"
+      ],
+      "hold_flag": true,
+      "fog_region": true,
+      "blocked": false
+    },
+    "node_attr-3eace0ceb46c": {
+      "node_id": "node_attr-3eace0ceb46c",
+      "label": "Technical standards require version matching",
+      "glyph_id": "",
+      "salience": 0.389,
+      "current_distance_from_center": 0.35,
+      "replay_score": 0.3,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.611,
+      "domain_tags": [
+        "guardian_authority",
+        "version"
+      ],
+      "source": "evt-auth-version",
+      "links": [
+        "node_attr-26225b22b46c",
+        "node_attr-3eace0ceb46c",
+        "node_attr-b63b25d9a0b6"
+      ],
+      "hold_flag": true,
+      "fog_region": true,
+      "blocked": false
+    },
+    "node_attr-b63b25d9a0b6": {
+      "node_id": "node_attr-b63b25d9a0b6",
+      "label": "Operational self accepted as term \u2014 not consciousness claim",
+      "glyph_id": "",
+      "salience": 0.6560000000000001,
+      "current_distance_from_center": 0.34399999999999986,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.34399999999999986,
+      "domain_tags": [
+        "operational_self",
+        "doctrine",
+        "operator_anchor",
+        "chat_turn"
+      ],
+      "source": "evt-chat-self-term",
+      "links": [
+        "reasoning_center",
+        "node_attr-3eace0ceb46c",
+        "node_attr-87d7a08c1998",
+        "node_attr-fd7a25f8d1e3"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-87d7a08c1998": {
+      "node_id": "node_attr-87d7a08c1998",
+      "label": "Non-claims boundary: no consciousness, sentience, personhood, life",
+      "glyph_id": "",
+      "salience": 0.43700000000000006,
+      "current_distance_from_center": 0.563,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.563,
+      "domain_tags": [
+        "operational_self",
+        "non_claims",
+        "doctrine"
+      ],
+      "source": "evt-chat-non-claims",
+      "links": [
+        "node_attr-b63b25d9a0b6",
+        "node_attr-8a0f0f4af3ec"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "node_attr-8a0f0f4af3ec": {
+      "node_id": "node_attr-8a0f0f4af3ec",
+      "label": "Operational Self module under active construction",
+      "glyph_id": "",
+      "salience": 0.45500000000000007,
+      "current_distance_from_center": 0.5449999999999999,
+      "replay_score": 0.8,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5449999999999999,
+      "domain_tags": [
+        "operational_self",
+        "core",
+        "product_module"
+      ],
+      "source": "evt-opself-build",
+      "links": [
+        "node_attr-87d7a08c1998"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    }
+  },
+  "links": [
+    {
+      "source_node": "reasoning_center",
+      "target_node": "node_attr-68ac1368ab53",
+      "relation_type": "semantic",
+      "strength": 0.667,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "basin_region=active"
+    },
+    {
+      "source_node": "reasoning_center",
+      "target_node": "node_attr-b63b25d9a0b6",
+      "relation_type": "semantic",
+      "strength": 0.6560000000000001,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "basin_region=active"
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-cf0c706db0c3",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-cf0c706db0c3",
+      "target_node": "node_attr-68ac1368ab53",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-68ac1368ab53",
+      "target_node": "node_attr-a512f843bfc7",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-a512f843bfc7",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-a19c604af481",
+      "target_node": "node_attr-2db63ce283f9",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-2db63ce283f9",
+      "target_node": "node_attr-cf071c8fe3ec",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-cf071c8fe3ec",
+      "target_node": "node_attr-cf071c8fe3ec",
+      "relation_type": "semantic",
+      "strength": 0.8,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Guardian intake governed route"
+    },
+    {
+      "source_node": "node_attr-cf071c8fe3ec",
+      "target_node": "node_attr-d06700f5c53d",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-d06700f5c53d",
+      "target_node": "node_attr-d06700f5c53d",
+      "relation_type": "semantic",
+      "strength": 0.8,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Guardian intake governed route"
+    },
+    {
+      "source_node": "node_attr-d06700f5c53d",
+      "target_node": "node_attr-a83a3c22e092",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-a83a3c22e092",
+      "target_node": "node_attr-a83a3c22e092",
+      "relation_type": "semantic",
+      "strength": 0.8,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Guardian intake governed route"
+    },
+    {
+      "source_node": "node_attr-a83a3c22e092",
+      "target_node": "node_attr-d8a825b413ab",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-d8a825b413ab",
+      "target_node": "node_attr-d8a825b413ab",
+      "relation_type": "semantic",
+      "strength": 0.75,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Authority citation route"
+    },
+    {
+      "source_node": "node_attr-d8a825b413ab",
+      "target_node": "node_attr-26225b22b46c",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-26225b22b46c",
+      "target_node": "node_attr-26225b22b46c",
+      "relation_type": "semantic",
+      "strength": 0.75,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Authority citation route"
+    },
+    {
+      "source_node": "node_attr-26225b22b46c",
+      "target_node": "node_attr-3eace0ceb46c",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-3eace0ceb46c",
+      "target_node": "node_attr-3eace0ceb46c",
+      "relation_type": "semantic",
+      "strength": 0.75,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Authority citation route"
+    },
+    {
+      "source_node": "node_attr-3eace0ceb46c",
+      "target_node": "node_attr-b63b25d9a0b6",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-b63b25d9a0b6",
+      "target_node": "node_attr-87d7a08c1998",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-87d7a08c1998",
+      "target_node": "node_attr-8a0f0f4af3ec",
+      "relation_type": "temporal",
+      "strength": 0.7,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Sequential session consolidation"
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-cf0c706db0c3",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-cf0c706db0c3",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a512f843bfc7",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-a19c604af481",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-b63b25d9a0b6",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-b63b25d9a0b6",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-b63b25d9a0b6",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    },
+    {
+      "source_node": "node_attr-fd7a25f8d1e3",
+      "target_node": "node_attr-b63b25d9a0b6",
+      "relation_type": "recovery",
+      "strength": 0.8,
+      "replay_validated": true,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+    }
+  ],
+  "hold_regions": [
+    "node_attr-26225b22b46c",
+    "node_attr-2db63ce283f9",
+    "node_attr-3eace0ceb46c",
+    "node_attr-a83a3c22e092",
+    "node_attr-cf071c8fe3ec",
+    "node_attr-d06700f5c53d"
+  ],
+  "operational_self_layer": "fractal_attractor_memory_v0.1",
+  "fog_region_count": 6,
+  "scar_count": 2
+}

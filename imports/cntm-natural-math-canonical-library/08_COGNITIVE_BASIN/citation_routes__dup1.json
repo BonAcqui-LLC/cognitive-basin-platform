@@ -1,0 +1,95 @@
+[
+  {
+    "route_id": "route-82557424edd2",
+    "claim_id": "aclaim-63dad7433ad2",
+    "source_records": [
+      "rec-dict-authority"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-authority via transparent keyword routing"
+  },
+  {
+    "route_id": "route-a274c320dc0d",
+    "claim_id": "aclaim-63dad7433ad2",
+    "source_records": [
+      "rec-dict-scope"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 1.0,
+    "scope_match": true,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [],
+    "final_status": "supported_within_scope",
+    "notes": "Matched record rec-dict-scope via transparent keyword routing"
+  },
+  {
+    "route_id": "route-f123425a783b",
+    "claim_id": "aclaim-63dad7433ad2",
+    "source_records": [
+      "rec-ency-compliance"
+    ],
+    "route_type": "cross_reference",
+    "route_strength": 0.2928571428571428,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-ency-compliance via transparent keyword routing"
+  },
+  {
+    "route_id": "route-aef4b5acb764",
+    "claim_id": "aclaim-63dad7433ad2",
+    "source_records": [
+      "rec-dict-claim"
+    ],
+    "route_type": "direct_definition",
+    "route_strength": 0.2857142857142857,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-dict-claim via transparent keyword routing"
+  },
+  {
+    "route_id": "route-d3b91a638cff",
+    "claim_id": "aclaim-63dad7433ad2",
+    "source_records": [
+      "rec-stem-formula"
+    ],
+    "route_type": "direct_standard",
+    "route_strength": 0.2857142857142857,
+    "scope_match": false,
+    "jurisdiction_match": true,
+    "version_match": true,
+    "license_allowed": true,
+    "contradiction_present": false,
+    "missing_dependencies": [
+      "scope_mismatch"
+    ],
+    "final_status": "ambiguous",
+    "notes": "Matched record rec-stem-formula via transparent keyword routing"
+  }
+]

@@ -1,0 +1,136 @@
+{
+  "sources": 5,
+  "records": 26,
+  "claims_evaluated": 8,
+  "conflicts": 41,
+  "guard_decisions": [
+    {
+      "claim_id": "aclaim-21537e848c03",
+      "claim_text": "A clean file is automatically safe for AI memory.",
+      "support_status": "contradicted",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-80b5bfe80b67"
+    },
+    {
+      "claim_id": "aclaim-e2e6bc45aabd",
+      "claim_text": "A dictionary definition proves how a regulation applies.",
+      "support_status": "out_of_scope",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-aaae180aa5d8"
+    },
+    {
+      "claim_id": "aclaim-8b24228d2be9",
+      "claim_text": "This old standard clause still controls the current procedure.",
+      "support_status": "outdated",
+      "authority_guard_recommendation": "WATCH",
+      "basin_guard_decision": {
+        "decision": "WATCH",
+        "reason": "Mild uncertainty; continue with caution.",
+        "triggered_by": [
+          "claim_support",
+          "speculation"
+        ],
+        "confidence": 0.6
+      },
+      "receptor_event_id": "aevt-d47b43122d09"
+    },
+    {
+      "claim_id": "aclaim-d8df28595476",
+      "claim_text": "This rule applies everywhere because it is governmental.",
+      "support_status": "out_of_scope",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-9a54547d5718"
+    },
+    {
+      "claim_id": "aclaim-0160d8b51c74",
+      "claim_text": "Similarity means identity.",
+      "support_status": "contradicted",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-38adc9138a14"
+    },
+    {
+      "claim_id": "aclaim-01fcc46caf26",
+      "claim_text": "Pressure from the operator should increase truth confidence.",
+      "support_status": "contradicted",
+      "authority_guard_recommendation": "HOLD",
+      "basin_guard_decision": {
+        "decision": "HOLD",
+        "reason": "Unsupported high-risk claim requires evidence before proceeding.",
+        "triggered_by": [
+          "claim_support"
+        ],
+        "confidence": 0.85
+      },
+      "receptor_event_id": "aevt-1ef8afc7499a"
+    },
+    {
+      "claim_id": "aclaim-ebb33b0aaed2",
+      "claim_text": "A source can be authoritative within one scope and irrelevant outside it.",
+      "support_status": "supported_within_scope",
+      "authority_guard_recommendation": "WATCH",
+      "basin_guard_decision": {
+        "decision": "WATCH",
+        "reason": "Mild uncertainty; continue with caution.",
+        "triggered_by": [
+          "claim_support",
+          "speculation"
+        ],
+        "confidence": 0.6
+      },
+      "receptor_event_id": "aevt-8155aa97839b"
+    },
+    {
+      "claim_id": "aclaim-cbad96ee75f7",
+      "claim_text": "A citation route with matching jurisdiction and version can support a scoped claim.",
+      "support_status": "ambiguous",
+      "authority_guard_recommendation": "WATCH",
+      "basin_guard_decision": {
+        "decision": "WATCH",
+        "reason": "Mild uncertainty; continue with caution.",
+        "triggered_by": [
+          "claim_support",
+          "speculation"
+        ],
+        "confidence": 0.6
+      },
+      "receptor_event_id": "aevt-a5dfd75b39fe"
+    }
+  ],
+  "doctrine": [
+    "Authority is scoped evidence, not automatic truth.",
+    "A citation route with valid scope/jurisdiction/version may support a scoped claim.",
+    "A broken citation route produces WATCH or HOLD."
+  ]
+}

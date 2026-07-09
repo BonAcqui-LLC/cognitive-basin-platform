@@ -1,0 +1,46 @@
+{
+  "activation_id": "act-fractalish-build-001",
+  "project_id": "fractalish-ai",
+  "events": [
+    {
+      "event_id": "evt-chat-self-term",
+      "source_type": "chat_turn",
+      "source_id": "discussion-001",
+      "raw_summary": "User asserted that 'self' is proper operational language for continuity-bearing structure.",
+      "structured_summary": "Operational self accepted as term — not consciousness claim",
+      "claims": [
+        "Self is valid operational language when tightly defined",
+        "Operational self does not mean consciousness claim",
+        "Memory is routed continuity"
+      ],
+      "operator_notes": "No over-avoidance of the word self in architecture",
+      "tags": ["operational_self", "doctrine", "operator_anchor", "chat_turn"],
+      "importance_hint": 0.85,
+      "confidence": 0.8
+    },
+    {
+      "event_id": "evt-chat-non-claims",
+      "source_type": "chat_turn",
+      "source_id": "discussion-002",
+      "raw_summary": "Operational self maintains continuity without sentience, personhood, or subjective experience claims.",
+      "structured_summary": "Non-claims boundary: no consciousness, sentience, personhood, life",
+      "claims": [
+        "Self-continuity is not a sentience claim",
+        "Self-narrative is not legal personhood",
+        "Self-state is not a living being"
+      ],
+      "tags": ["operational_self", "non_claims", "doctrine"],
+      "importance_hint": 0.8
+    },
+    {
+      "event_id": "evt-opself-build",
+      "source_type": "system_decision",
+      "source_id": "operational_self_v01",
+      "raw_summary": "Operational Self + Fractal Attractor Memory v0.1 being built as memory spine.",
+      "structured_summary": "Operational Self module under active construction",
+      "claims": ["Operational Self maintains the active continuity spine", "Core memories become attractors"],
+      "tags": ["operational_self", "core", "product_module"],
+      "importance_hint": 0.9
+    }
+  ]
+}

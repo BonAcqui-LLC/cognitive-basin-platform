@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"MemoryLink","type":"object","required":["link_id","from_memory_id","to_memory_id","link_type"]}

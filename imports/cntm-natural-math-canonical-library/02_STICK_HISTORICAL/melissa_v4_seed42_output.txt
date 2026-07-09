@@ -1,0 +1,31 @@
+=== CRYSTAL GRAIN v4: STRONG SPRING + SOFT LOCK ===
+24h, 30 steps/hour, 20 atoms
+Bond range <=4, spring stiffness=0.5, sensing radius=50
+
+Time 00:00 | alive= 20 | clusters= 13 | avg=1.54 | max= 3 | bonded= 12
+Time 01:00 | alive= 20 | clusters= 11 | avg=1.82 | max= 4 | bonded= 14
+Time 02:00 | alive= 20 | clusters= 13 | avg=1.54 | max= 4 | bonded= 11
+Time 03:00 | alive= 20 | clusters= 11 | avg=1.82 | max= 4 | bonded= 14
+Time 04:00 | alive= 20 | clusters= 10 | avg=2.00 | max= 4 | bonded= 15
+Time 05:00 | alive= 20 | clusters=  8 | avg=2.50 | max= 7 | bonded= 17
+Time 06:00 | alive= 20 | clusters=  8 | avg=2.50 | max= 7 | bonded= 18
+Time 07:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 7 | bonded= 20
+Time 08:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 7 | bonded= 20
+Time 09:00 | alive= 20 | clusters=  7 | avg=2.86 | max= 4 | bonded= 20
+Time 10:00 | alive= 20 | clusters=  7 | avg=2.86 | max= 4 | bonded= 19
+Time 11:00 | alive= 20 | clusters=  7 | avg=2.86 | max= 4 | bonded= 19
+Time 12:00 | alive= 20 | clusters=  7 | avg=2.86 | max= 4 | bonded= 19
+Time 13:00 | alive= 20 | clusters=  7 | avg=2.86 | max= 4 | bonded= 19
+Time 14:00 | alive= 20 | clusters=  5 | avg=4.00 | max= 9 | bonded= 20
+Time 15:00 | alive= 20 | clusters=  5 | avg=4.00 | max= 9 | bonded= 20
+Time 16:00 | alive= 20 | clusters=  7 | avg=2.86 | max= 4 | bonded= 20
+Time 17:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 18:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 19:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 20:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 21:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 22:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 23:00 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+Time 23:58 | alive= 20 | clusters=  6 | avg=3.33 | max= 5 | bonded= 20
+
+Final cluster sizes: [5, 4, 4, 3, 2, 2]

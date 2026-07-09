@@ -1,0 +1,45 @@
+{
+    "activation_id":  "A01-stock-closure",
+    "principal":  "human_operator",
+    "purpose":  "Freeze exact live build identity and preserve the best stock-package candidate with provenance and match classification.",
+    "scope":  [
+                  "read_local_evidence",
+                  "read_device_identity",
+                  "search_stock_packages",
+                  "download_candidate_package",
+                  "hash_artifacts",
+                  "write_evidence_records"
+              ],
+    "permissions":  [
+                        "adb_read_only",
+                        "fastboot_getvar_read_only_if_already_in_bootloader",
+                        "network_download",
+                        "local_file_write_under_motorola_activation"
+                    ],
+    "prohibited_actions":  [
+                               "flash",
+                               "erase",
+                               "set_active",
+                               "boot_custom_image",
+                               "disable_verity",
+                               "disable_verification",
+                               "partition_write",
+                               "userdata_write",
+                               "radio_configuration_change",
+                               "bootloader_change"
+                           ],
+    "completion_criteria":  [
+                                "current-build-identity.json validated",
+                                "original package candidate preserved unchanged",
+                                "package SHA-256 and byte count recorded",
+                                "source and redirect provenance recorded",
+                                "match status explicitly classified",
+                                "unresolved risks preserved",
+                                "A01 completion receipt emitted"
+                            ],
+    "recovery_policy":  "Stop, preserve evidence, and return control to the operator on ambiguity, device disconnect, incomplete download, hash instability, or match contradiction.",
+    "device_change_authorized":  false,
+    "created_at":  "2026-06-19T09:17:49.5506346-04:00",
+    "host_identity":  "host-82b417a917e3",
+    "tool_versions_path":  "tool-versions.json"
+}

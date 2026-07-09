@@ -1,0 +1,25 @@
+{
+  "activation_id": "A02A-offline-stock-topology",
+  "status": "COMPLETE",
+  "completed_at": "2026-06-19T10:03:07-04:00",
+  "original_archive_hash_before": "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+  "original_archive_hash_after": "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+  "extraction_success": true,
+  "extracted_file_count": 87,
+  "parsed_manifest_count": 2,
+  "package_identity_conclusion": "Package is a same-family RETUS/gnevan_g stock release for XT2317-2 lineage, but it is an older build (-8) than the frozen live handset build (-24).",
+  "dynamic_partition_conclusion": "SUPPORTED_BY_PACKAGE_SUPER_TARGET_AND_FROZEN_DM_MOUNTS",
+  "avb_conclusion": "Package contains vbmeta and vbmeta_system payloads, but descriptor-level chain parsing and rollback metadata remain unresolved offline.",
+  "anti_rollback_status": "UNRESOLVED",
+  "restore_suitability": "NOT_YET_ESTABLISHED",
+  "device_contacted": false,
+  "device_changed": false,
+  "open_holds": [
+    "anti_rollback",
+    "restore_suitability",
+    "super_logical_inventory",
+    "fastbootd_support"
+  ],
+  "a02b_recommended": true,
+  "operator_approval_for_a02b": "PENDING"
+}

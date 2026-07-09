@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-06-19T10:01:05-04:00",
+  "completed_at": "2026-06-19T10:03:07-04:00",
+  "original_archive": "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\original\\XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+  "working_extraction_root": "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\extracted\\B3B86713E066002C",
+  "original_archive_hash_before": "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+  "original_archive_hash_after": "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+  "archive_hash_stable": true,
+  "entry_count": 87,
+  "archive_entry_count": 87,
+  "disk_space_before_bytes": 8255180800,
+  "disk_space_after_bytes": 8254803968,
+  "original_archive_modified": false
+}

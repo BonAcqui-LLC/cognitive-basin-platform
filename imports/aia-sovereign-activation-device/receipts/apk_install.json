@@ -1,0 +1,34 @@
+{
+  "receipt_type": "apk_install",
+  "recorded_at": "2026-06-17T20:43:13.3710000-04:00",
+  "install": {
+    "adb_path": "C:\\Android\\android-sdk\\platform-tools\\adb.exe",
+    "command": "adb install -r app-debug.apk",
+    "result": "success"
+  },
+  "package_verification": {
+    "package_name": "llc.bonacqui.aia",
+    "uid": 10163,
+    "resolved_activity": "llc.bonacqui.aia/.MainActivity",
+    "install_path": "/data/app/~~gsZCTGTOl1C1kruAxP5oXQ==/llc.bonacqui.aia-eYk3ZQXt07fVzE43Ne3T0A==/base.apk",
+    "version_code": 1,
+    "version_name": "0.1.1-stockos",
+    "min_sdk": 29,
+    "target_sdk": 34,
+    "requested_permissions": [
+      "android.permission.ACCESS_NETWORK_STATE"
+    ],
+    "granted_permissions": [
+      "android.permission.ACCESS_NETWORK_STATE",
+      "llc.bonacqui.aia.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+    ]
+  },
+  "launch_verification": {
+    "force_stop_before_launch": true,
+    "launch_command": "adb shell am start -W -n llc.bonacqui.aia/.MainActivity",
+    "status": "ok",
+    "launch_state": "COLD",
+    "total_time_ms": 1764,
+    "wait_time_ms": 1773
+  }
+}

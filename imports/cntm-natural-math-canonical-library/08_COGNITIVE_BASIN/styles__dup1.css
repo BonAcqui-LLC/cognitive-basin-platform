@@ -1,0 +1,22 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #101820; color: #e8eef4; padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+header { border-bottom: 1px solid #2a3a4a; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+h1 { color: #8ecae6; font-size: 1.5rem; }
+h2 { color: #a8c8e0; font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+.subtitle { color: #7a8fa0; font-size: 0.9rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.6rem; margin-bottom: 1rem; }
+.stat-card { background: #1a2836; border: 1px solid #2a3a4a; border-radius: 6px; padding: 0.6rem 0.8rem; }
+.stat-card .label { font-size: 0.7rem; color: #7a8fa0; text-transform: uppercase; }
+.stat-card .value { font-size: 1.3rem; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-size: 0.8rem; background: #1a2836; border-radius: 6px; overflow: hidden; }
+th, td { padding: 0.45rem 0.6rem; border-bottom: 1px solid #2a3a4a; text-align: left; }
+th { background: #243444; color: #a8c8e0; }
+.badge { padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.7rem; font-weight: 600; }
+.badge-HOLD { background: #4a2020; color: #f08080; }
+.badge-WATCH { background: #4a4020; color: #f0d060; }
+.badge-supported { background: #1a4a30; color: #80f0a0; }
+.badge-contradicted { background: #4a1020; color: #ff6080; }
+.conflict-entry, .audit-entry { background: #1a2836; border-left: 3px solid #5a8ab0; padding: 0.5rem 0.7rem; margin-bottom: 0.4rem; font-size: 0.8rem; border-radius: 0 4px 4px 0; }
+footer { margin-top: 1.5rem; font-size: 0.75rem; color: #6a7f90; border-top: 1px solid #2a3a4a; padding-top: 0.8rem; }
+code { background: #243444; padding: 0.1rem 0.3rem; border-radius: 3px; }
+.error { color: #ff8080; background: #2a1520; padding: 0.8rem; border-radius: 6px; }

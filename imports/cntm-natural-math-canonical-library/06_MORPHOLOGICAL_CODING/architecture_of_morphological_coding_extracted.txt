@@ -1,0 +1,235 @@
+The Architecture of Morphological Coding: Unifying Thermodynamics, Material Computation, and Semantic Closure in Complex Physical Systems
+
+Introduction: Deconstructing the Metaphor of Biological Code
+
+The term "code" in the context of biological and complex physical systems has frequently suffered from severe semantic dilution, often reduced to a mere metaphor for any observed structural regularity or correlational pattern. Physical systems routinely produce structures reflecting their formation history—dendritic deposits map chemical transport and electric fields, vascular and fungal networks reflect resource distributions, and fracture mechanics preserve geological stress histories. However, the observation that physical form contains correlational information does not logically entail that the form participates in a genuine, functional coding system. A machine-learning classifier or an external human observer can impose categorical labels on continuously varying forms, but post hoc binning by an external agent does not demonstrate that the physical system itself possesses intrinsic, discrete digital states capable of autonomous causal influence.
+
+To satisfy the stringent requirements of information theory, computational enactivism, and rigorous origin-of-life frameworks—such as the Evolution 2.0 Challenge—a purely chemical, non-living process must be shown to generate, transmit, and receive a simple digital code without pre-programmed instructions, external designers, or biological derivatives. This necessitates a formal and operational separation between a passive structural pattern and an active functional code. In this paradigm, morphology alone is never a code; rather, morphology serves strictly as the physical carrier or state. The code itself is the reproducible mapping among a set of input conditions or histories, a finite alphabet of morphologically instantiated states, and a corresponding set of decoded physical outcomes.
+
+This report establishes a comprehensive theoretical and experimental architecture that unifies formerly siloed scientific domains: non-equilibrium thermodynamics, basal cognition, chemical automata, biosemiotics, and advanced soft and hard materials science. By integrating the thermodynamic concept of dissipative adaptation, the biosemiotic threshold of semantic closure, and rigorous physical substrates—such as confined metal electrodeposition, nematic electrolytes, and morphologically tunable mycelium networks—a definitive pathway is established. This pathway determines exactly where physical morphology transitions from a passive process trace into an active, autonomously arising morphological code capable of genuine computation.
+
+The Thermodynamic Imperative: Dissipative Adaptation and the Origin of Form
+
+Before a physical system can utilize morphology as a computational state or memory register, there must be an underlying physical driver that compels the spontaneous generation of ordered, recognizable structures from disordered, entropic precursors. The foundational mechanism for this emergence lies in classical irreversible thermodynamics and the extended theory of dissipative adaptation.
+
+When a system is subjected to a continuous external energy drive—such as an applied voltage in an electrochemical cell, a chemical gradient in a reaction-diffusion medium, or intense solar radiation on a planetary surface—it is forced into a state far from thermodynamic equilibrium. Under these specific conditions, systems do not merely dissipate energy randomly; rather, the physical structure of the system spontaneously rearranges itself to absorb and dissipate that external energy more efficiently. This phenomenon dictates that matter, when driven by external work, will adopt stable geometric configurations that maximize entropy production in the surrounding environment while maintaining its own internal dynamic stability.
+
+The profound implications of dissipative adaptation extend directly into the emergence of primitive information handling and predictive memory. Through the lens of non-equilibrium statistical mechanics, the evolutionary equation of motion for such a driven system—often modeled via dissipative Langevin equations or Hamilton-Jacobi dynamics—reveals that the system effectively "learns" the structure of its energetic environment. The theoretical physics of deep learning and stochastic gradient descent (SGD) map almost perfectly onto these thermodynamic equations; the Bellman equation in reinforcement learning is a direct derivation of the Hamilton-Jacobi equations that describe the evolution of a physical dynamical system.
+
+In this thermodynamic framework, the preferred physical state is the one possessing the highest average dissipation and the most consistent dissipation distribution across the possible trajectories required to reach it. Consequently, the resulting physical morphology is not an arbitrary arrangement of matter; it is an encoded historical record of the energetic perturbations the system has survived and adapted to. When an operatic singer shatters a wine glass, the resulting shards are not random; they represent a morphological state that is significantly more stable and much worse at absorbing energy from that specific resonant frequency. The glass has adapted by changing its physical form.
+
+This thermodynamic imperative scales from microscopic molecular interactions to macroscopic planetary processes. The Thermodynamic Dissipation Theory of the Origin and Evolution of Life, developed extensively by Karo Michaelian and others, posits that the fundamental molecules of life—such as early nucleic acids, RNA, and DNA—originally emerged as dissipatively structured pigments. Formed on the surface of Archean oceans from simpler precursor molecules, these structures were synthesized under the potential of soft UVC solar radiation (specifically the 205–285 nm wavelength range of the Archean atmospheric window). They existed specifically to fulfill a thermodynamic imperative: to absorb this highly energetic UVC radiation and dissipate it as longer-wavelength heat (photons) into the environment.
+
+Because these microscopic dissipative structures possessed peaked conical intersections, they achieved extraordinary stability due to reduced quantum efficiency for de-excitation through further photochemical reaction pathways. Unlike macroscopic dissipative structures such as hurricanes or convection cells, which collapse when the thermal gradient vanishes, these microscopic structures maintained their integrity due to strong covalent bonding even after the UVC driver was removed. They represent a primordial form of "morphological memory".
+
+Thus, thermodynamics provides the primary constraint required for morphological coding: a specific morphology becomes an active functional constraint inside later dynamics precisely because the energetic cost of altering the existing structure is significantly higher than the cost of utilizing it to channel subsequent energy flows. This establishes the robust physical carrier required for morphological coding without invoking biological teleology or intelligent design.
+
+The Computable Form: Morphological Computation and Native Chemical Automata
+
+If thermodynamics provides the mechanism for robust form generation, morphological computation provides the framework for understanding how that physical form processes information without a central processing unit. The principle of morphological computation posits that complex physical bodies inherently compute through their spatial geometries and physical interactions, alleviating the need for centralized, explicit symbolic processing. Within the context of basal cognition, cognitive and computational properties scale down to inanimate and primitive biological systems, treating self-organization, autopoiesis, and morphological morphogenesis as embodied information-processing networks capable of navigating environmental complexity.
+
+To rigorously prove that abiotic chemistry can compute, it must be demonstrated that chemical reactions can function as true molecular recognition machines capable of classifying information in a manner formally equivalent to abstract computational automata. Groundbreaking research on native chemical automata has definitively established this capability. By utilizing strictly inorganic, non-biochemical reactions—such as bi-molecular precipitation and pH-sensitive reaction networks—chemistry alone can natively recognize formal languages belonging to the Chomsky hierarchy without the aid of DNA, enzymes, or any machinery associated with life.
+
+In these systems, a sequence of chemical aliquots acts as the input word, translating the letters of an abstract language into discrete chemical processing events, one symbol at a time. The chemical reactions process this string of inputs sequentially. For instance, a pH-sensitive chemical network can function as a Pushdown Automaton, where the state of the system's memory stack is directly encoded in the macroscopic acidity of the solution. The system maintains a memory of its state through the cumulative, non-linear effect of acid and base additions. If the final pH returns to the initial baseline upon the completion of the input sequence, the stack is recognized as empty, and the chemical "word" is formally accepted; otherwise, it produces a distinct chemical rejection signature.
+
+These results demonstrate a profound second-order insight: chemical networks natively possess the architecture of an encoder, a state-maintenance channel, and a decoder. However, while chemical automata prove that chemical concentrations can perform state-based computation , a true morphological code requires these states to be instantiated in persistent, spatially localized physical geometries that a distinct downstream system can interact with. A chemical concentration wave is transient; a morphological state persists and acts as an enduring boundary condition. Therefore, while native chemical automata establish that chemistry can process distinguishable states, they represent a stepping stone toward the ultimate goal: linking this computational capacity to permanent physical morphology.
+
+Abstract Automaton Class
+
+Chemical Automaton Realization
+
+Input Encoding Mechanism
+
+Memory Mechanism
+
+Decoder Readout
+
+Finite-State Automaton
+
+Bi-molecular precipitation reaction
+
+Sequence of chemical aliquots
+
+Presence/absence of precipitate
+
+Optical density / turbidity threshold
+
+Pushdown Automaton
+
+pH-sensitive acid/base reaction network
+
+Sequenced acidic/basic additions
+
+Cumulative solution pH
+
+Return to baseline pH indicator
+
+Turing Machine
+
+Belousov-Zhabotinsky (BZ) / Excitable media
+
+Spatiotemporal chemical waves
+
+Self-sustaining wave fronts
+
+Wave annihilation / propagation
+
+Bridging the Epistemic Cut: Semantic Closure and the Origin of Code
+
+The boundary separating a "morphological signal" from an "autonomous morphological code" represents one of the most significant and stubbornly defended transitions in theoretical physics and theoretical biology: the crossing of the epistemic cut. Articulated primarily by physicist Howard Pattee, the epistemic cut delineates the absolute, irreducible boundary between energy-degenerate, rate-independent symbols (the realm of information and syntax) and the rate-dependent physical dynamics of construction that they control (the realm of matter and pragmatics).
+
+In purely physical systems, microscopic laws govern the continuous motion of corpuscles based strictly on energy potentials and gradients. However, information processing, agency, and life require an inherently semiotic distinction between a subject (the control system, the observer, the memory) and an object (the physical dynamics being controlled or measured). A physical variable—such as the branching angle of a dendrite, the folding configuration of a protein, or the specific sequence of nucleotides—must break its energetic degeneracy and acquire a specific functional meaning within a closed system.
+
+This critical distinction cannot be derived solely from microscopic laws; it requires non-integrable functional constraints. A morphological code achieves true autonomy only when it exhibits "semantic closure". Semantic closure is the self-referential condition in which a system's physical symbols actively construct the very mechanisms that interpret them. It forms a closed causal loop where the genotype informs the phenotype, which in turn acts as the operational hardware to construct, replicate, and interpret the genotype, bridging syntax and pragmatics through self-referential dynamics. Without semantic closure, syntax alone is insufficient for autonomous evolution.
+
+To model the evolutionary emergence of semantic closure from raw chemical dynamics, the framework of computational enactivism maps chemical environments into sophisticated computational architectures. The primordial ecosystem began with simple, spontaneous bimolecular reactions guided by geophysical constraints—a "primaeval ecosystem language" computable by basic finite-state automata without the need for memory or counting. As catalysis increased in the environment, these open systems transitioned into complex, interdependent chemical networks mathematically equivalent to stream X-machines. Within these systems, intermediate chemical species functioned as both the product of one reaction and the reactant for another.
+
+The critical threshold of open-ended, highly generative evolution is reached when these networks achieve closure to efficient causation—when the nested symbolic loops of computation transmute into non-symbolic processes of self-replication. By extending Hofmeyr's (Fabrication, Assembly) systems—a continuation of Rosen's (Metabolism, Repair) relational systems—with temporal parameterization and multiscale causality, researchers have formalized how this closure occurs. In a resource-limited environment, driven by Dynamic Kinetic Stability (DKS), entities that can self-replicate reliably begin to optimize their morphology to retain functional memory. DKS represents a kinetic form of stability associated exclusively with replicating entities, distinct from thermodynamic stability, driving them toward greater robustness.
+
+Here, "protosemantics" emerges: the physical shape of the network acts as a template (syntax) that preferentially catalyzes the assembly of its own interpretative machinery (pragmatics). Therefore, for an experimental abiotic system to demonstrate an autonomous morphological code, it must generate an observable epistemic cut. The physical state boundaries must arise endogenously from the system's own threshold chemistry or structural bistability, rather than being imposed by a human observer's post hoc classification. This is the frontier of xenobiology and code biology, which actively seeks to rewrite inherited genetic codes with non-canonical amino acid alphabets, proving that the semantic mapping between symbol and matter is an operational a priori, contingent in its origin but functionally necessary for life.
+
+A Rigorous Taxonomy of Form and Function: The Claim Hierarchy
+
+To prevent the misclassification of simple physical traces as functioning codes, an explicit, cumulative claim hierarchy is required. The transition from disorganized matter to a functional code relies on distinct evidence classes. Moving up the hierarchy demands progressively stricter experimental proofs, ensuring that mere equifinality—where different input histories produce indistinguishable final endpoints—is not mistaken for information processing.
+
+The operational framework of the Clow thesis defines a morphological coding system as the tuple $C_M = (U, H, E, M, Q, \Sigma, T, D, Y, \Gamma)$. Here, an input condition $u \in U$ and history $h \in H$ undergo encoding dynamics $E$ subject to local constraints $\Gamma$, generating a physical morphology $M$. Crucially, $M$ is not the symbol; $M$ is the material state. The symbol $s \in \Sigma$ emerges only when a rigorously defined state-identification function $Q$ maps $M$ into a finite alphabet based on objective, non-arbitrary physical thresholds. The state $s$ transmits via physical channel $T$ to a decoder $D$, which interacts with the state to produce a specific physical outcome $y \in Y$.
+
+Evidence Level
+
+Formal Definition
+
+Minimum Required Experimental Evidence
+
+Pattern
+
+A distinguishable spatial or topological form exists.
+
+The structure differs from an established baseline (e.g., a simple crack pattern or snowflake).
+
+Process Trace
+
+The form is statistically associated with prior conditions or history.
+
+Prediction of upstream parameters from morphology beats chance on held-out data.
+
+Morphological Memory
+
+The existing form alters the probability of later physical events.
+
+Intervening on the form measurably changes subsequent dynamics under tightly controlled external conditions.
+
+Morphological Signal
+
+A state is exposed or transmitted to a spatially or temporally distinct receiver.
+
+A downstream subsystem responds to the state after a defined physical channel operation.
+
+Morphological Code
+
+A finite set of physically distinguished states is generated and reproducibly decoded.
+
+Formal encoding/decoding tables, causal intervention tests, and defined state boundaries are validated.
+
+Autonomous Morphological Code
+
+The encoder-decoder relationship and discrete alphabet arise without a pre-loaded codebook.
+
+Demonstration of origin without imported instructions, satisfying stringent Evolution 2.0 criteria.
+
+The integrity of this framework relies on the dual analytical disciplines of MCVA (Morphology-mediated Coding Validation Architecture) and AMCVA (Ambiguous Morphology Coding Validation Architecture). Positive readout cases exist alongside a strict HOLD protocol, preventing the premature classification of continuous geometric variations into arbitrary digital bins. If altering, erasing, or masking the morphology $M$ does not change the distribution of the decoded outcome $Y$, the system fails the causal mediation test. In causal notation, $P(Y | do(S = s_1))$ must differ significantly from $P(Y | do(S = s_2))$. If it does not, it proves the morphology is merely a correlated epiphenomenon resulting from a common cause, rather than an active mediating code.
+
+To operationalize this, the framework utilizes "Natural Math" as a constructive simulation grammar. Natural Math models the system discretely, where physical sites undergo bounded state transitions governed by available energy, pressure, and local occupancy constraints. For any candidate site $i$ at time $t$, its internal state $x_i(t)$ updates based on a local transition operator chosen from an admissible set (e.g., EXTEND, BIFURCATE, PRUNE, or HOLD) according to the transition equation:
+
+$$x_i(t+1) = \mathcal{F}(x_i(t), \mathcal{N}_i(t), E_i(t), P_i(t), \Gamma; \theta)$$
+
+Where $\mathcal{N}_i$ represents neighborhood parameters, $E_i$ represents localized energy potentials, $P_i$ denotes pressure or deficit, $\Gamma$ encompasses global boundary constraints, and $\theta$ defines the specific phenomenological coefficients calibrated via a physical adapter. This simulated path dependence provides a "digital twin" against which physical experiments are evaluated.
+
+Physical Validation I: Confined Metal Electrodeposition and Phase-Field Dynamics
+
+To drag these theoretical constructs into the realm of falsifiable engineering, physical surrogate systems must be utilized. The Phase Zero experimental pathway explicitly requires a low-risk, highly controllable electrochemical surrogate to validate whether localized morphology can be written, measured, converted into a discrete graph-plus-electrical signature, and used by a downstream decoder. Confined metal electrodeposition serves as the premier candidate for this rigorous validation.
+
+Electrodeposition is a highly controllable, out-of-equilibrium physical process where the reduction of metal ions (such as zinc, copper, lithium, or iron) at a cathode drives the growth of complex, ramified, or highly dendritic structures. The morphological evolution of these metallic structures is exquisitely sensitive to local concentration gradients, applied overpotentials, and the presence of carefully selected electrolyte additives.
+
+Pioneering experimental and modeling studies—led by researchers such as Rohan Akolkar, Uziel Landau, and Daniel Cogswell—reveal exactly how local electrochemical constraints map directly to global morphological states. Mathematical modeling of dendritic growth reveals that the onset of a dendritic branch—a morphological transition from a smooth film to a fractal, high-curvature geometry—correlates strongly with a specific depletion of ion concentration at the solid-liquid interface, a phenomenon classically described by Sand's time. However, detailed chronopotentiometry and optical imaging studies reveal that experimental dendrite onset times often deviate significantly from classical Sand's theory. This deviation is caused by non-integrable transport limitations imposed by the Solid Electrolyte Interphase (SEI). As the SEI evolves temporally, it imposes localized constraints on ion transport; when the surface overpotential reaches a maximum value and the interfacial ion concentration approaches zero, surface roughness amplifies into dendritic spikes that rupture the SEI.
+
+Advanced computational frameworks utilizing phase-field modeling seamlessly bridge the microscopic physics of these interfaces with macroscopic morphological outcomes. Cogswell's phase-field models accurately capture the fractal dimension, tip velocity, and radius of curvature of zinc dendrites by coupling concentration fields, electric potentials, interface kinetics, and crystalline anisotropy. This high-fidelity simulation establishes how to coarse-grain microscopic physics into experimental length and time scales, providing the exact "digital twin" necessary for morphological code validation.
+
+Furthermore, researchers have developed advanced methodologies to actively command and rewrite these morphological states. Through the application of pulse-reverse electrodeposition protocols, the input sequence ($U$) is altered to force a change in the encoding dynamics ($E$). Pulse-reverse plating toggles rapidly between a forward deposition stage and a reverse dissolution stage. This temporal input schedule actively prunes high-curvature features and dendrites, fundamentally altering the topology of the resulting deposit to achieve void-free filling in high-aspect-ratio Through-Silicon Vias (TSVs), characterized by the dimensionless Thiele modulus ($\mu$). Additionally, electrolyte engineering—such as utilizing concentrated LiCl to stabilize $Fe^{3+}$, suppress parasitic hydrogen evolution, and inhibit the out-diffusion of intermediate $Fe^{2+}$ species—provides another vector for tuning morphological states by suppressing water activity and altering electrolyte viscosity.
+
+In the context of morphological coding, these specifically generated metallic branches act as spatial states. A single deposited branch locally concentrates the electric field, actively diverting later electrochemical growth and shielding adjacent regions. This is an explicit, physically measurable demonstration of "morphological memory". If an upstream input sequence reliably produces a specific branching topology that later routes an electrical current to a predefined destination terminal, the deposit has successfully transitioned from a continuous physical process trace into a finite, causally active physical symbol ($s \in \Sigma$).
+
+Physical Validation II: Active Soft Matter and Nematic Electrolytes
+
+While metal electrodeposition offers highly stable, frozen morphologies suitable for permanent memory storage, the architecture of intelligence and living systems frequently relies on dynamic, reconfigurable, and fluid substrates. Liquid crystals (LCs) and nematic electrolytes provide a sophisticated, responsive platform for evaluating unconventional computing and morphology-mediated memory within active soft matter. Extensive research from institutes such as the Advanced Materials and Liquid Crystal Institute (AMLCI) at Kent State University, spearheaded by researchers like Oleg Lavrentovich, has demonstrated the profound computational capabilities of these materials.
+
+Liquid crystals exhibit orientational order, endowing the fluid with significant bulk anisotropy in conductivity, permittivity, and elasticity. When topological point defects—known mathematically as hedgehogs or hopfions—arise within the nematic matrix, they create highly localized, energetic disruptions in the orientational order parameter. These topological defects act as highly stable, discrete entities that exhibit no equivalent in ordered atomic solids. Because of their intrinsic topological stability, these defects represent ideal candidates for physically grounded discrete symbols within a continuous medium, perfectly suited for unconventional computing and data storage.
+
+The introduction of electric fields into these anisotropic matrices generates complex, nonlinear electrokinetic phenomena. Unlike standard isotropic aqueous electrolytes, which are governed by linear electro-osmosis originating from the dissociation of surface groups at the water-solid interface, a nematic electrolyte supports flows with a quadratic dependence on the applied electric field. This quadratic non-linearity ensures that the induced flow velocity does not reverse direction when the polarity of an applied AC electric field is reversed. This extraordinary property allows for sustained, directed transport of mass, charge, and colloidal particles without requiring a direct current.
+
+This dynamic fluid substrate allows for real-time morphological encoding. Utilizing advanced photoalignment techniques or azopolymer interactions (such as PAZO), the director field of the liquid crystal can be intricately patterned. These pre-designed director patterns serve as the physical morphology ($M$) that actively commands the trajectories, polarities, and collective interactions of active agents, such as swimming bacteria or externally driven colloidal spheres.
+
+For example, a patterned liquid crystal director lattice containing specific topological defects can force biological bacteria to swim counterclockwise around a $+1$ topological defect while actively avoiding the core of a $-1$ defect. The gradients in the patterned director field mediate hydrodynamic interactions among the bacteria, generating active forces and collective polar modes of swimming that translate the static geometric pattern into a dynamic, computational response. In this paradigm, the topological defect serves as the encoded morphological state, the non-linear nematic flow serves as the transmission channel, and the specific spatial distribution of the active matter serves as the decoded outcome. By proving that specific topological formations can uniquely compute the routing of active matter and implement synaptic functionalities (such as short-term, long-term, and visual memory), nematic electrolytes rigorously validate the feasibility of autonomous, non-biological semiotic interpretation systems.
+
+Physical Validation III: OMIECs and Mycelial Reservoir Computing
+
+To demonstrate sequence recognition and complex temporal logic without relying on traditional silicon processors or rigid state machines, research into Organic Mixed Ionic-Electronic Conductors (OMIECs) integrated with biologically derived topologies has proven phenomenally successful. Specifically, the synergistic combination of the conductive polymer PEDOT:PSS with the native, highly branched architecture of fungal mycelium has yielded morphologically tunable physical reservoir computing platforms capable of profound analog inference.
+
+Physical reservoir computing exploits the intrinsic, high-dimensional, nonlinear dynamics of a physical substrate to map low-dimensional analog or digital inputs into complex state trajectories that can be easily classified by a simple readout layer. Mycelium networks represent naturally occurring, complex, highly branched morphologies. When a mycelium sheet is grown under tightly controlled parametric environments (regulating temperature, humidity, and nutrient media), its structural parameters—such as hyphal connectivity, branching density, node distribution, and cross-sectional area—are highly predictable and tunable.
+
+In a sophisticated "design-grow-compute" workflow, precision-sliced mycelium networks are vacuum-infused with PEDOT:PSS. PEDOT:PSS (poly(3,4-ethylenedioxythiophene) polystyrene sulfonate) is a benchmark OMIEC capable of efficiently coupling and transporting both ionic and electronic charge species. This dual transport allows the polymer to undergo localized overoxidation and reduction, increasing its volumetric capacitance dramatically. This electrochemical behavior grants the polymer properties directly comparable to short-term and long-term synaptic plasticity, forming the foundation for organic electrochemical transistors (OECTs) and neuromorphic electronics.
+
+The resulting infused "mycelium chips" function as dense, complex networks of resistors, capacitors, and non-linear conduction elements defined entirely by the underlying biological morphology. A crucial and groundbreaking finding in this domain is that the native morphology of the mycelium strictly predicts its post-infusion electrical behavior, completely independent of the absolute mass uptake of the conductive polymer. By analyzing pre-infusion images of the mycelial topology, researchers can predict electrical responses and rationally select specific regions of the network to optimize reservoir computing function. This represents a pure validation of the morphological coding hypothesis: the geometric form ($M$), not merely the chemical constituent, governs the state identification ($Q$) and the decoded electrical response ($Y$).
+
+To execute computations, these mycelium chips are interfaced via custom carrier boards and operated in a non-linear conduction regime requiring amplification to 16-18V. At these higher voltages, trap-state saturation occurs, driving diode-like transitions characteristic of space-charge-limited conduction (SCLC). When benchmarked against the NARMA-10 task—a highly non-linear autoregressive sequence prediction metric designed to test temporal memory and predictive capability—the mycelium reservoirs successfully maintain short-term memory and process temporal signals with a normalized root mean squared error (NRMSE) approaching 0.984.
+
+While currently lagging behind highly optimized, capital-intensive memristor arrays (which face scaling and yield challenges) or photonic reservoirs (which are difficult to fabricate), these analog mycelial computers offer unprecedented advantages. They achieve an extraordinary cost reduction, with materials costing less than $1 per chip, and offer full biodegradability and massive scalability using existing agricultural infrastructure. More importantly for theoretical physics, they empirically prove that complex, naturally grown morphology acts as an active, predictive computational state, fully bridging the gap between biological growth and electronic computation.
+
+Physical Computing Substrate
+
+State Carrier (M)
+
+Primary Signal/Conduction Mechanism
+
+Decoder / Computational Functionality
+
+Metal Electrodeposition
+
+Dendritic / fractal metallic branches
+
+Overpotential shielding / local field enhancement
+
+Electrical routing / spatial growth inhibition
+
+Nematic Electrolytes
+
+Topological point defects (Hedgehogs/Hopfions)
+
+Non-linear AC electro-osmosis
+
+Targeted transport / active matter command
+
+PEDOT:PSS Mycelium
+
+Hyphal branching / node topology
+
+Space-charge-limited conduction (SCLC)
+
+High-dimensional non-linear reservoir mapping
+
+Chemical Automata
+
+Sequential reactant concentrations
+
+pH fluctuations / transient precipitation
+
+Pushdown stack representation / language parsing
+
+Conclusion: Toward an Autonomous Architecture of Matter and Intelligence
+
+The distinction between a process trace and a genuine code is the profound distinction between a passive footprint and an active blueprint. Nature routinely generates complex structures that record their physical history; however, the emergence of an autonomous morphological code requires a physical system to traverse the epistemic cut. It must utilize its own physical geometry as a finite, causally active state that dictates and controls subsequent functional outcomes, achieving semantic closure.
+
+This report unifies previously isolated scientific domains to map the exact, mechanistic trajectory of this emergence. Non-equilibrium thermodynamics and the theory of dissipative adaptation explain exactly why matter organizes into stable, energy-dissipating structures rather than remaining entropic and chaotic. Research into native inorganic chemical automata proves that raw, non-biochemical reactions possess the inherent mathematical capacity to execute algorithmic logic, maintain memory stacks, and parse formal languages in the Chomsky hierarchy. The principle of morphological computation proves that geometric form can bypass centralized symbolic processing, allowing physical structure to compute inherently through embodied interaction.
+
+To empirically prove these theories without conflating biological metaphor with physical mechanics, diverse substrates act as falsifiable proving grounds. Confined metal electrodeposition and its accompanying phase-field models demonstrate that dendritic geometry provides localized memory by altering electrical field vectors, dictating Sand's time onset, and directing downstream growth. Nematic electrolytes and liquid crystal defect dynamics demonstrate that topological boundaries can function as discrete semiotic states that physically route active matter via non-linear electrokinetics. Organic mixed ionic-electronic conductors infused into mycelial networks prove that biological topologies can function as complex temporal processing reservoirs, mapping analog inputs into predictable, high-dimensional memory states capable of sequence prediction without relying on silicon architectures.
+
+By adhering to a strict claim hierarchy—where pattern, trace, memory, signal, and code are aggressively segregated by escalating burdens of operational evidence—the scientific community can systematically eliminate equifinality and observational bias. The ultimate target is the verifiable laboratory demonstration of an autonomously arising code, bridging the epistemic gap through semantic closure without imported designer codebooks. The formal frameworks, thermodynamic principles, and empirical physical mechanisms detailed herein do not merely simulate this transition; they provide the governed, mathematically verifiable architecture required to discover exactly where chemistry acquires memory, where memory becomes a signal, and where a signal ignites the profound origin of information processing.

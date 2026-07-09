@@ -1,0 +1,18 @@
+[
+  {
+    "claim_id": "aclaim-63dad7433ad2",
+    "claim_text": "A source can be authoritative within one scope and irrelevant outside it.",
+    "support_status": "ambiguous",
+    "authority_guard_recommendation": "WATCH",
+    "basin_guard_decision": {
+      "decision": "WATCH",
+      "reason": "Mild uncertainty; continue with caution.",
+      "triggered_by": [
+        "claim_support",
+        "speculation"
+      ],
+      "confidence": 0.6
+    },
+    "receptor_event_id": "aevt-735e017a6a96"
+  }
+]

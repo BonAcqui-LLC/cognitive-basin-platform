@@ -1,0 +1,123 @@
+{
+  "center_node_id": "authority_hub",
+  "nodes": {
+    "authority_hub": {
+      "node_id": "authority_hub",
+      "label": "Authority Corpus Hub",
+      "glyph_id": "",
+      "salience": 0.9,
+      "current_distance_from_center": 1.0,
+      "replay_score": 0.0,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5,
+      "domain_tags": [
+        "authority"
+      ],
+      "source": "guardian_authority",
+      "links": [
+        "src_src-mock-encyclopedia-v1"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "src_src-mock-encyclopedia-v1": {
+      "node_id": "src_src-mock-encyclopedia-v1",
+      "label": "Fractalish Mock Encyclopedia",
+      "glyph_id": "",
+      "salience": 0.7,
+      "current_distance_from_center": 1.0,
+      "replay_score": 0.0,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.5,
+      "domain_tags": [
+        "encyclopedia",
+        "global"
+      ],
+      "source": "Fractalish AI (mock)",
+      "links": [
+        "authority_hub",
+        "rec_rec-ency-compliance"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "rec_rec-ency-compliance": {
+      "node_id": "rec_rec-ency-compliance",
+      "label": "Regulatory Compliance",
+      "glyph_id": "",
+      "salience": 0.65,
+      "current_distance_from_center": 1.0,
+      "replay_score": 0.0,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.3,
+      "domain_tags": [
+        "encyclopedia_summary",
+        "regulatory_education"
+      ],
+      "source": "src-mock-encyclopedia-v1",
+      "links": [
+        "src_src-mock-encyclopedia-v1",
+        "claim_aclaim-cbad96ee75f7"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    },
+    "claim_aclaim-cbad96ee75f7": {
+      "node_id": "claim_aclaim-cbad96ee75f7",
+      "label": "A citation route with matching jurisdiction and version can support a scoped cla",
+      "glyph_id": "",
+      "salience": 0.6,
+      "current_distance_from_center": 1.0,
+      "replay_score": 0.0,
+      "contradiction_score": 0.0,
+      "uncertainty_score": 0.575,
+      "domain_tags": [
+        "scope_claim",
+        "ambiguous"
+      ],
+      "source": "",
+      "links": [
+        "rec_rec-ency-compliance"
+      ],
+      "hold_flag": false,
+      "fog_region": false,
+      "blocked": false
+    }
+  },
+  "links": [
+    {
+      "source_node": "authority_hub",
+      "target_node": "src_src-mock-encyclopedia-v1",
+      "relation_type": "semantic",
+      "strength": 0.8,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "authority source"
+    },
+    {
+      "source_node": "src_src-mock-encyclopedia-v1",
+      "target_node": "rec_rec-ency-compliance",
+      "relation_type": "semantic",
+      "strength": 0.75,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": ""
+    },
+    {
+      "source_node": "claim_aclaim-cbad96ee75f7",
+      "target_node": "rec_rec-ency-compliance",
+      "relation_type": "semantic",
+      "strength": 0.42500000000000004,
+      "replay_validated": false,
+      "blocked": false,
+      "hold_flag": false,
+      "notes": "cross_reference"
+    }
+  ],
+  "hold_regions": []
+}

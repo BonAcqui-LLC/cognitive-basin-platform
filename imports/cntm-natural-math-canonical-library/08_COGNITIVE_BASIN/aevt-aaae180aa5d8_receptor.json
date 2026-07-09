@@ -1,0 +1,368 @@
+{
+  "receptor_id": "67735ee7-e0db-4485-b710-9802ea3d8645",
+  "receptor_type": "authority_dictionary",
+  "event_id": "aevt-aaae180aa5d8",
+  "timestamp": "2026-06-10T23:19:19.244583+00:00",
+  "source": "authority@Fractalish Mock Lexical Reference",
+  "modality": "authority_governed_reference",
+  "raw_reference": "aevt-aaae180aa5d8",
+  "raw_summary": "A dictionary definition proves how a regulation applies.",
+  "normalized_payload": {
+    "authority_claims": [
+      {
+        "claim_id": "aclaim-e2e6bc45aabd",
+        "text": "A dictionary definition proves how a regulation applies.",
+        "claim_type": "definition_claim",
+        "source_record_id": "",
+        "source_id": "",
+        "scope": "",
+        "jurisdiction": "",
+        "version": "",
+        "confidence": 0.55,
+        "uncertainty": 0.44999999999999996,
+        "dependency_terms": [
+          "applies",
+          "definition",
+          "dictionary",
+          "proves",
+          "regulation"
+        ],
+        "cited_records": [
+          "rec-dict-scope",
+          "rec-dict-jurisdiction",
+          "rec-gov-us-ca-retention",
+          "rec-gov-eu-de-retention",
+          "rec-stem-formula"
+        ],
+        "conflicts": [
+          "conflict-08e8b3c620ba",
+          "conflict-419fc880a70e",
+          "conflict-e06f387cf90a",
+          "conflict-f037d2724b5b",
+          "conflict-45ba8764ec0c",
+          "conflict-53202e9447e1",
+          "conflict-20eda1a6c0dc",
+          "conflict-8fcd168560d3",
+          "conflict-fe5a0038c420",
+          "conflict-80da49703b74",
+          "conflict-ef8e0a4d7268",
+          "conflict-bc7ebbbe8412",
+          "conflict-d6c98c6550af",
+          "conflict-f764d95896d8",
+          "conflict-a598cd7afa30",
+          "conflict-e63ed15936a7",
+          "conflict-c9907570341b",
+          "conflict-fb4c46b7b66a",
+          "conflict-0579953b1432"
+        ],
+        "support_status": "out_of_scope",
+        "guard_recommendation": "HOLD",
+        "notes": "Evaluated via 5 citation route(s); status=out_of_scope"
+      }
+    ],
+    "citation_routes": [
+      {
+        "route_id": "route-c72b1dec0588",
+        "claim_id": "aclaim-e2e6bc45aabd",
+        "source_records": [
+          "rec-dict-scope"
+        ],
+        "route_type": "direct_definition",
+        "route_strength": 0.55,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch"
+        ],
+        "final_status": "out_of_scope",
+        "notes": "Matched record rec-dict-scope via transparent keyword routing"
+      },
+      {
+        "route_id": "route-3fe74ecfabc5",
+        "claim_id": "aclaim-e2e6bc45aabd",
+        "source_records": [
+          "rec-dict-jurisdiction"
+        ],
+        "route_type": "direct_definition",
+        "route_strength": 0.55,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch"
+        ],
+        "final_status": "out_of_scope",
+        "notes": "Matched record rec-dict-jurisdiction via transparent keyword routing"
+      },
+      {
+        "route_id": "route-e85003f6c888",
+        "claim_id": "aclaim-e2e6bc45aabd",
+        "source_records": [
+          "rec-gov-us-ca-retention"
+        ],
+        "route_type": "direct_rule",
+        "route_strength": 0.2,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch"
+        ],
+        "final_status": "out_of_scope",
+        "notes": "Matched record rec-gov-us-ca-retention via transparent keyword routing"
+      },
+      {
+        "route_id": "route-50d16bfd5153",
+        "claim_id": "aclaim-e2e6bc45aabd",
+        "source_records": [
+          "rec-gov-eu-de-retention"
+        ],
+        "route_type": "direct_rule",
+        "route_strength": 0.2,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch"
+        ],
+        "final_status": "out_of_scope",
+        "notes": "Matched record rec-gov-eu-de-retention via transparent keyword routing"
+      },
+      {
+        "route_id": "route-279ec0230a88",
+        "claim_id": "aclaim-e2e6bc45aabd",
+        "source_records": [
+          "rec-stem-formula"
+        ],
+        "route_type": "direct_standard",
+        "route_strength": 0.2,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch"
+        ],
+        "final_status": "out_of_scope",
+        "notes": "Matched record rec-stem-formula via transparent keyword routing"
+      }
+    ],
+    "conflicts": [
+      {
+        "conflict_id": "conflict-66b34eec758c",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-claim",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "A claim is not proof by itself",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-4b41bedc00b7",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-memory",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "A passed scan is not permission for memory",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_safety",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-cbaa72316e57",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-identity",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-5e86353f9705",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-similarity",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-f8c4ac3e96a2",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-ency-rag",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Retrieval alone is not reasoning",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_architecture",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-077cdcbf740d",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-stem-pressure-truth",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Pressure is not truth",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs measurement_ethics",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-e7de17b3b222",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-dict-memory",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "A passed scan is not permission for memory",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_safety",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-0d86dfb67513",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-dict-identity",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-26207022ccf4",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-dict-similarity",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-cc43d78d27dd",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-ency-rag",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "Retrieval alone is not reasoning",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_architecture",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      }
+    ],
+    "guard_recommendation": "HOLD"
+  },
+  "confidence": 0.55,
+  "uncertainty": 0.44999999999999996,
+  "noise_estimate": 0.0,
+  "provenance": {
+    "authority_source_id": "src-mock-dictionary-v1",
+    "authority_record_id": "rec-dict-scope",
+    "claim_id": "aclaim-e2e6bc45aabd",
+    "support_status": "out_of_scope",
+    "intake_layer": "guardian_authority_corpus",
+    "governed_reference": true,
+    "automatic_truth": false,
+    "guardian_authority_decision": "HOLD",
+    "guardian_risk_level": "high",
+    "license_status": "mock_only",
+    "jurisdiction": "global",
+    "version": "1.0",
+    "lifecycle_state": "EVALUATED",
+    "citation_route_count": 5
+  },
+  "domain_tags": [
+    "authority",
+    "governed_reference",
+    "authority_corpus"
+  ],
+  "privacy_scope": "local",
+  "local_only": true,
+  "suggested_basin_tags": [],
+  "possible_claims": [
+    "A dictionary definition proves how a regulation applies."
+  ],
+  "missing_context": [
+    "conflict-0579953b1432",
+    "conflict-08e8b3c620ba",
+    "conflict-20eda1a6c0dc",
+    "conflict-419fc880a70e",
+    "conflict-45ba8764ec0c",
+    "conflict-53202e9447e1",
+    "conflict-80da49703b74",
+    "conflict-8fcd168560d3",
+    "conflict-a598cd7afa30",
+    "conflict-bc7ebbbe8412",
+    "conflict-c9907570341b",
+    "conflict-d6c98c6550af",
+    "conflict-e06f387cf90a",
+    "conflict-e63ed15936a7",
+    "conflict-ef8e0a4d7268",
+    "conflict-f037d2724b5b",
+    "conflict-f764d95896d8",
+    "conflict-fb4c46b7b66a",
+    "conflict-fe5a0038c420",
+    "out_of_scope",
+    "scope_mismatch"
+  ],
+  "receptor_notes": "Authority evidence \u2014 not automatic truth; RIGOR/GUARD must evaluate"
+}

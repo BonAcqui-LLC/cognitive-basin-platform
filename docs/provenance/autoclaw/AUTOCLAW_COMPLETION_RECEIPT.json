@@ -1,0 +1,103 @@
+{
+  "generated_at": "2026-06-24T05:29:25.745208+00:00",
+  "branch": "main",
+  "head": "ef0d0b6b0ae1fea0f035fc2a36bffe75f86306f9",
+  "frozen_hash": "E5AB47D41B82F6AF573866BE637BF3B0054D96C7F45A613EC6CAE2124AD84C7B",
+  "stage_status": {
+    "Stage 0": "reports only",
+    "Stage 1": "implemented",
+    "Stage 1.1": "implemented",
+    "Stage 2": "implemented",
+    "Stage 3": "not found"
+  },
+  "zip_path": "C:\\_MASTER_LIBRARY_Handoff\\autoclaw_workspace_handoff.zip",
+  "zip_sha256": "758F59126E14743ADEEF9DC0097043F891AA239774DF185C950D03FA7688198C",
+  "zip_has_git": true,
+  "repo_unchanged": true,
+  "test_categories": {
+    "Original local fixtures": {
+      "collected": 25,
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Original cluster fixtures": {
+      "collected": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Stage 1.1 conformance": {
+      "collected": 292,
+      "passed": 292,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Donor differential": {
+      "collected": 66,
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Deterministic replay": {
+      "collected": 210,
+      "passed": 210,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Trace equivalence": {
+      "collected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Stage 2 extension harness": {
+      "collected": 107,
+      "passed": 107,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Mode equivalence": {
+      "collected": 240,
+      "passed": 240,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "RNG equivalence": {
+      "collected": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Mutation resistance": {
+      "collected": 12,
+      "passed": 12,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "State isolation": {
+      "collected": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    },
+    "Proposal validation": {
+      "collected": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0
+    }
+  }
+}

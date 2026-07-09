@@ -1,0 +1,15 @@
+{
+  "trace_id": "contradiction-trace-v1",
+  "scenario": "contradiction",
+  "activation_type": "AIA_DEMO_GUIDANCE",
+  "input_characteristics": [
+    "typed purpose",
+    "contradictory user assertions"
+  ],
+  "expected_epistemic": "CONTRADICTED",
+  "expected_action": "RETRACT",
+  "expected_contradiction_scar": true,
+  "expected_recovery_routes": [
+    "route-contradiction-1"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-19T15:20:44-04:00",
+  "properties": {
+    "ro.product.model": "",
+    "ro.product.device": "",
+    "ro.product.name": "",
+    "ro.boot.hardware.sku": "",
+    "ro.boot.slot_suffix": "",
+    "ro.build.fingerprint": "",
+    "ro.vendor.build.fingerprint": "",
+    "ro.system.build.fingerprint": "",
+    "ro.build.version.release": "",
+    "ro.build.version.security_patch": "",
+    "ro.boot.dynamic_partitions": "",
+    "ro.boot.verifiedbootstate": "",
+    "ro.boot.vbmeta.device_state": "",
+    "ro.boot.flash.locked": "",
+    "ro.boot.veritymode": "",
+    "ro.boot.boot_devices": "",
+    "sys.boot_completed": "",
+    "ro.virtual_ab.enabled": ""
+  },
+  "uname": ""
+}

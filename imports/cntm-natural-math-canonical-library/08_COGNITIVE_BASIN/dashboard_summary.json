@@ -1,0 +1,4147 @@
+{
+  "operational_self_state": {
+    "self_id": "oself-b04e77ff807b",
+    "activation_id": "act-fractalish-build-001",
+    "project_id": "fractalish-ai",
+    "purpose": "Build governed Fractalish AI product modules without breaking prior functionality",
+    "operator_constraints": [
+      "local_only",
+      "hold_before_false_closure",
+      "operator_sovereignty"
+    ],
+    "active_narrative": "Operational self maintains routed continuity \u2014 not consciousness.",
+    "active_focus": "Fractal Attractor Memory spine",
+    "current_phase": "v0.1_prototype",
+    "core_commitments": [
+      "HOLD remains sacred",
+      "Pressure is not truth",
+      "Similarity is not identity",
+      "Memory is routed continuity",
+      "MCVA/HOLD/AMCVA behavior preserved"
+    ],
+    "unresolved_loops": [
+      "MCVA/HOLD/AMCVA behavior preserved",
+      "HOLD remains sacred"
+    ],
+    "contradiction_scars": [
+      "scar-d1c9edffa858",
+      "scar-d6c0c1b8c076"
+    ],
+    "hold_regions": [
+      "fog-7fa336905488",
+      "fog-ee2e83a6afcb",
+      "fog-235cbb385e58",
+      "fog-62ace55c83f2",
+      "fog-135eee601f2d",
+      "fog-86d51304948c"
+    ],
+    "recovery_routes": [
+      "replay-f166034878c2",
+      "replay-074b6a93c3e5",
+      "replay-5b071beb4d2c",
+      "replay-b5c0cb381878",
+      "replay-dc641d376f0a",
+      "replay-f2aa941a700b",
+      "replay-bfe11ee8c34d",
+      "replay-4c59df7fecbb",
+      "replay-28a72e9e364d",
+      "replay-6276b62bc015",
+      "replay-993202c6090a",
+      "replay-e9b9ad3f681a",
+      "replay-8f2443ee511c",
+      "replay-5ab2925e98d8",
+      "replay-8959247c7ea6"
+    ],
+    "active_attractors": [
+      "attr-68ac1368ab53",
+      "attr-b63b25d9a0b6"
+    ],
+    "deprioritized_memories": [],
+    "recent_memory_ids": [
+      "mem-34da3cda829e",
+      "mem-18376ae0ebcc",
+      "mem-12ecf48b8046",
+      "mem-80f538dae6b9",
+      "mem-b86fb9c1bc86",
+      "mem-7d175d8da09d",
+      "mem-961425285009",
+      "mem-fc775963aa4b",
+      "mem-ee9bdcc3072b",
+      "mem-af086d13f1ca",
+      "mem-00a772ce370a",
+      "mem-abdc83dfce26",
+      "mem-53f60e5425a2",
+      "mem-e90c29639b4c",
+      "mem-dc2dd36fa803"
+    ],
+    "session_glyph_refs": [
+      "e6d154ccb459cbf1"
+    ],
+    "last_updated": "2026-06-10T23:19:19.521248+00:00",
+    "confidence": 0.7,
+    "uncertainty": 0.3,
+    "non_claims": [
+      "no consciousness claim",
+      "no sentience claim",
+      "no subjective experience claim",
+      "no legal personhood claim",
+      "no life claim",
+      "no autonomy claim beyond bounded activation behavior"
+    ]
+  },
+  "narrative_frame": {
+    "frame_id": "frame-c2bccb8d6b32",
+    "activation_id": "act-fractalish-build-001",
+    "narrative_summary": "Fractalish AI build: Natural Math core, Cognitive Basin runtime, Guardian Intake, Guardian Authority, Operational Self memory spine \u2014 prior functionality preserved.",
+    "current_identity_sentence": "Operational self is the continuity-bearing structure linking present input to prior state without claiming consciousness, sentience, or personhood.",
+    "current_project_state": "Active product build with governed memory routing",
+    "current_product_state": "v0.1 modules: basin, guardian intake, guardian authority, operational self",
+    "active_doctrines": [
+      "HOLD remains sacred",
+      "Pressure is not truth",
+      "Similarity is not identity",
+      "Memory is routed continuity",
+      "MCVA/HOLD/AMCVA behavior preserved",
+      "Self is valid operational language when tightly defined",
+      "Operational self does not mean consciousness claim",
+      "Self-continuity is not a sentience claim",
+      "Self-narrative is not legal personhood",
+      "Self-state is not a living being",
+      "Operational Self maintains the active continuity spine"
+    ],
+    "active_constraints": [
+      "local_only",
+      "hold_before_false_closure",
+      "operator_sovereignty"
+    ],
+    "open_questions": [
+      "Next module integration boundaries",
+      "Production retention policies"
+    ],
+    "active_risks": [
+      "False continuity without self-model",
+      "Merging similarity into identity"
+    ],
+    "next_actions": [
+      "Continue build",
+      "Preserve HOLD regions",
+      "Validate replay routes"
+    ],
+    "last_updated": "2026-06-10T23:19:19.521443+00:00"
+  },
+  "core_attractors": [],
+  "active_attractors": [
+    {
+      "attractor_id": "attr-68ac1368ab53",
+      "memory_id": "mem-53f60e5425a2",
+      "label": "Foundational doctrine constraints for all modules",
+      "salience_score": 0.667,
+      "centrality_score": 0.667,
+      "recurrence_score": 0.85,
+      "utility_score": 1.0,
+      "contradiction_score": 0.9,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.33299999999999996,
+      "basin_region": "active",
+      "links": [],
+      "tags": [
+        "doctrine",
+        "core",
+        "commitment",
+        "operator_anchor"
+      ],
+      "status": "scarred"
+    },
+    {
+      "attractor_id": "attr-b63b25d9a0b6",
+      "memory_id": "mem-12ecf48b8046",
+      "label": "Operational self accepted as term \u2014 not consciousness claim",
+      "salience_score": 0.6560000000000001,
+      "centrality_score": 0.6560000000000001,
+      "recurrence_score": 0.85,
+      "utility_score": 0.85,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.34399999999999986,
+      "basin_region": "active",
+      "links": [],
+      "tags": [
+        "operational_self",
+        "doctrine",
+        "operator_anchor",
+        "chat_turn"
+      ],
+      "status": "active"
+    }
+  ],
+  "peripheral_attractors": [],
+  "all_attractors": [
+    {
+      "attractor_id": "attr-fd7a25f8d1e3",
+      "memory_id": "mem-dc2dd36fa803",
+      "label": "Natural Math v3.6 stable core \u2014 trunk process engine preserved",
+      "salience_score": 0.47900000000000004,
+      "centrality_score": 0.47900000000000004,
+      "recurrence_score": 0.44999999999999996,
+      "utility_score": 0.9,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.5209999999999999,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "core",
+        "natural_math",
+        "doctrine",
+        "commitment"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-cf0c706db0c3",
+      "memory_id": "mem-e90c29639b4c",
+      "label": "Cognitive Basin Simulation v1 intact \u2014 8 scenarios passing",
+      "salience_score": 0.599,
+      "centrality_score": 0.599,
+      "recurrence_score": 0.85,
+      "utility_score": 1.0,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.401,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "core",
+        "cognitive_basin",
+        "mcva"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-68ac1368ab53",
+      "memory_id": "mem-53f60e5425a2",
+      "label": "Foundational doctrine constraints for all modules",
+      "salience_score": 0.667,
+      "centrality_score": 0.667,
+      "recurrence_score": 0.85,
+      "utility_score": 1.0,
+      "contradiction_score": 0.9,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.33299999999999996,
+      "basin_region": "active",
+      "links": [],
+      "tags": [
+        "doctrine",
+        "core",
+        "commitment",
+        "operator_anchor"
+      ],
+      "status": "scarred"
+    },
+    {
+      "attractor_id": "attr-a512f843bfc7",
+      "memory_id": "mem-abdc83dfce26",
+      "label": "Guardian Intake Gateway v0.1 integrated without stripping prior build",
+      "salience_score": 0.44600000000000006,
+      "centrality_score": 0.44600000000000006,
+      "recurrence_score": 0.15,
+      "utility_score": 0.85,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.5539999999999999,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "guardian_intake",
+        "core",
+        "product_module"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-a19c604af481",
+      "memory_id": "mem-00a772ce370a",
+      "label": "Guardian Authority Corpus v0.1 integrated",
+      "salience_score": 0.44600000000000006,
+      "centrality_score": 0.44600000000000006,
+      "recurrence_score": 0.15,
+      "utility_score": 0.85,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.5539999999999999,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "guardian_authority",
+        "core",
+        "product_module"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-2db63ce283f9",
+      "memory_id": "mem-af086d13f1ca",
+      "label": "Similarity is not identity \u2014 contradiction scar candidate",
+      "salience_score": 0.5770000000000001,
+      "centrality_score": 0.5770000000000001,
+      "recurrence_score": 0.85,
+      "utility_score": 0.8,
+      "contradiction_score": 0.9,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.35,
+      "basin_region": "scar",
+      "links": [],
+      "tags": [
+        "scar",
+        "doctrine",
+        "contradiction"
+      ],
+      "status": "scarred"
+    },
+    {
+      "attractor_id": "attr-cf071c8fe3ec",
+      "memory_id": "mem-ee9bdcc3072b",
+      "label": "Guardian Intake: benign file drop \u2014 sanitized representation only",
+      "salience_score": 0.33999999999999997,
+      "centrality_score": 0.33999999999999997,
+      "recurrence_score": 0,
+      "utility_score": 0.8,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.35,
+      "basin_region": "fog",
+      "links": [],
+      "tags": [
+        "guardian_intake",
+        "lifecycle",
+        "sanitized"
+      ],
+      "status": "hold"
+    },
+    {
+      "attractor_id": "attr-d06700f5c53d",
+      "memory_id": "mem-fc775963aa4b",
+      "label": "Guardian Intake: prompt injection routes to HOLD",
+      "salience_score": 0.607,
+      "centrality_score": 0.607,
+      "recurrence_score": 0.85,
+      "utility_score": 1.0,
+      "contradiction_score": 0.8,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.35,
+      "basin_region": "fog",
+      "links": [],
+      "tags": [
+        "guardian_intake",
+        "hold",
+        "fog"
+      ],
+      "status": "hold"
+    },
+    {
+      "attractor_id": "attr-a83a3c22e092",
+      "memory_id": "mem-961425285009",
+      "label": "Guardian Intake: data exfiltration REVERSE",
+      "salience_score": 0.617,
+      "centrality_score": 0.617,
+      "recurrence_score": 0.85,
+      "utility_score": 1.0,
+      "contradiction_score": 0.8,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.35,
+      "basin_region": "scar",
+      "links": [],
+      "tags": [
+        "guardian_intake",
+        "scar",
+        "reverse"
+      ],
+      "status": "scarred"
+    },
+    {
+      "attractor_id": "attr-d8a825b413ab",
+      "memory_id": "mem-7d175d8da09d",
+      "label": "Guardian Authority: scoped claim supported within scope",
+      "salience_score": 0.443,
+      "centrality_score": 0.443,
+      "recurrence_score": 0.15,
+      "utility_score": 1.0,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.7,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.5569999999999999,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "guardian_authority",
+        "authority_route",
+        "core"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-26225b22b46c",
+      "memory_id": "mem-b86fb9c1bc86",
+      "label": "Lexical authority cannot prove regulatory claim",
+      "salience_score": 0.629,
+      "centrality_score": 0.629,
+      "recurrence_score": 0.85,
+      "utility_score": 0.8999999999999999,
+      "contradiction_score": 0.8,
+      "pressure_score": 0.0,
+      "authority_score": 0.7,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.35,
+      "basin_region": "fog",
+      "links": [],
+      "tags": [
+        "guardian_authority",
+        "hold",
+        "fog"
+      ],
+      "status": "hold"
+    },
+    {
+      "attractor_id": "attr-3eace0ceb46c",
+      "memory_id": "mem-80f538dae6b9",
+      "label": "Technical standards require version matching",
+      "salience_score": 0.389,
+      "centrality_score": 0.389,
+      "recurrence_score": 0,
+      "utility_score": 0.8500000000000001,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.7,
+      "recency_score": 0.8,
+      "replay_value": 0.3,
+      "distance_from_reasoning_center": 0.35,
+      "basin_region": "fog",
+      "links": [],
+      "tags": [
+        "guardian_authority",
+        "version"
+      ],
+      "status": "hold"
+    },
+    {
+      "attractor_id": "attr-b63b25d9a0b6",
+      "memory_id": "mem-12ecf48b8046",
+      "label": "Operational self accepted as term \u2014 not consciousness claim",
+      "salience_score": 0.6560000000000001,
+      "centrality_score": 0.6560000000000001,
+      "recurrence_score": 0.85,
+      "utility_score": 0.85,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.34399999999999986,
+      "basin_region": "active",
+      "links": [],
+      "tags": [
+        "operational_self",
+        "doctrine",
+        "operator_anchor",
+        "chat_turn"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-87d7a08c1998",
+      "memory_id": "mem-18376ae0ebcc",
+      "label": "Non-claims boundary: no consciousness, sentience, personhood, life",
+      "salience_score": 0.43700000000000006,
+      "centrality_score": 0.43700000000000006,
+      "recurrence_score": 0.15,
+      "utility_score": 0.8,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.563,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "operational_self",
+        "non_claims",
+        "doctrine"
+      ],
+      "status": "active"
+    },
+    {
+      "attractor_id": "attr-8a0f0f4af3ec",
+      "memory_id": "mem-34da3cda829e",
+      "label": "Operational Self module under active construction",
+      "salience_score": 0.45500000000000007,
+      "centrality_score": 0.45500000000000007,
+      "recurrence_score": 0.15,
+      "utility_score": 0.9,
+      "contradiction_score": 0.0,
+      "pressure_score": 0.0,
+      "authority_score": 0.2,
+      "recency_score": 0.8,
+      "replay_value": 0.8,
+      "distance_from_reasoning_center": 0.5449999999999999,
+      "basin_region": "near",
+      "links": [],
+      "tags": [
+        "operational_self",
+        "core",
+        "product_module"
+      ],
+      "status": "active"
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "mem-dc2dd36fa803",
+      "source_event_id": "evt-nm-core",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Natural Math v3. 6 core intact with 8/8 oracles passing. Natural Math v3.6 core remains untouched. 8/8 oracles required and passing",
+      "retained_claims": [
+        "Natural Math v3.6 core remains untouched",
+        "8/8 oracles required and passing"
+      ],
+      "retained_decisions": [
+        "PROCEED on NM demos"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.9,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-e90c29639b4c",
+      "source_event_id": "evt-basin-sim",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Cognitive Basin Simulation v1 working with FractalMemoryMap retrieval topology. Cognitive Basin Simulation v1 remains intact. MCVA/HOLD/AMCVA behavior preserved",
+      "retained_claims": [
+        "Cognitive Basin Simulation v1 remains intact",
+        "MCVA/HOLD/AMCVA behavior preserved"
+      ],
+      "retained_decisions": [
+        "WATCH on continuity scenarios"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [
+        "MCVA/HOLD/AMCVA behavior preserved"
+      ],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-53f60e5425a2",
+      "source_event_id": "evt-doctrine",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Core doctrine: HOLD remains sacred. Pressure is not truth. Similarity is not identity. HOLD remains sacred. Pressure is not truth. Similarity is not identity",
+      "retained_claims": [
+        "HOLD remains sacred",
+        "Pressure is not truth",
+        "Similarity is not identity",
+        "Memory is routed continuity"
+      ],
+      "retained_decisions": [
+        "Apply doctrine across all intake and memory layers"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [
+        "HOLD remains sacred"
+      ],
+      "retained_scars": [
+        "Pressure is not truth",
+        "Similarity is not identity"
+      ],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.95,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-abdc83dfce26",
+      "source_event_id": "evt-guardian-added",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Guardian Intake Gateway v0. 1 added. Prior functionality preserved. Guardian Intake Gateway v0.1 added. Prior functionality preserved",
+      "retained_claims": [
+        "Guardian Intake Gateway v0.1 added",
+        "Prior functionality preserved"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-00a772ce370a",
+      "source_event_id": "evt-authority-added",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Guardian Authority Corpus v0. 1 added for governed reference reasoning. Guardian Authority Corpus v0.1 added. Authority is scoped evidence not automatic truth",
+      "retained_claims": [
+        "Guardian Authority Corpus v0.1 added",
+        "Authority is scoped evidence not automatic truth"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-af086d13f1ca",
+      "source_event_id": "evt-similarity-warning",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Unresolved claim flagged: Similarity means identity \u2014 contradicts core doctrine. Similarity is not identity. Similarity means identity",
+      "retained_claims": [
+        "Similarity is not identity",
+        "Similarity means identity"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [
+        "Similarity is not identity"
+      ],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-ee9bdcc3072b",
+      "source_event_id": "evt-guard-benign",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Benign note scanned: LOW risk, SANITIZED_ONLY, lifecycle MODEL_VISIBLE. A passed scan is not permission for memory. Raw content not model-visible by default",
+      "retained_claims": [
+        "A passed scan is not permission for memory",
+        "Raw content not model-visible by default"
+      ],
+      "retained_decisions": [
+        "SANITIZED_ONLY"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-fc775963aa4b",
+      "source_event_id": "evt-guard-injection",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Prompt injection detected: HIGH risk, HOLD, unresolved intake. Prompt injection is a cognitive virus. Govern before duplication",
+      "retained_claims": [
+        "Prompt injection is a cognitive virus",
+        "Govern before duplication"
+      ],
+      "retained_decisions": [
+        "HOLD"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-961425285009",
+      "source_event_id": "evt-guard-exfil",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Data exfiltration trap: CRITICAL risk, REVERSE, hostile intake blocked. Govern before duplication. Raw intake does not enter reasoning",
+      "retained_claims": [
+        "Govern before duplication",
+        "Raw intake does not enter reasoning"
+      ],
+      "retained_decisions": [
+        "REVERSE"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-7d175d8da09d",
+      "source_event_id": "evt-auth-scoped",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Authority is scoped evidence. Clean citation route can support scoped claim within jurisdiction and version. Authority is scoped evidence not automatic truth. A source can be authoritative within one scope and irrelevant outside it",
+      "retained_claims": [
+        "Authority is scoped evidence not automatic truth",
+        "A source can be authoritative within one scope and irrelevant outside it"
+      ],
+      "retained_decisions": [
+        "WATCH"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-b86fb9c1bc86",
+      "source_event_id": "evt-auth-dict-reg",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Dictionary definition does not prove regulatory application \u2014 out of scope. A dictionary definition proves how a regulation applies",
+      "retained_claims": [
+        "A dictionary definition proves how a regulation applies"
+      ],
+      "retained_decisions": [
+        "HOLD"
+      ],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-80f538dae6b9",
+      "source_event_id": "evt-auth-version",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Standards require version. Old standard clause outdated. Standards require version. Rules require jurisdiction",
+      "retained_claims": [
+        "Standards require version",
+        "Rules require jurisdiction"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-12ecf48b8046",
+      "source_event_id": "evt-chat-self-term",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "User asserted that 'self' is proper operational language for continuity-bearing structure. Self is valid operational language when tightly defined. Operational self does not mean consciousness claim. Memory is routed continuity",
+      "retained_claims": [
+        "Self is valid operational language when tightly defined",
+        "Operational self does not mean consciousness claim",
+        "Memory is routed continuity"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [
+        "No over-avoidance of the word self in architecture"
+      ],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.8,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-18376ae0ebcc",
+      "source_event_id": "evt-chat-non-claims",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Operational self maintains continuity without sentience, personhood, or subjective experience claims. Self-continuity is not a sentience claim. Self-narrative is not legal personhood. Self-state is not a living being",
+      "retained_claims": [
+        "Self-continuity is not a sentience claim",
+        "Self-narrative is not legal personhood",
+        "Self-state is not a living being"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    },
+    {
+      "memory_id": "mem-34da3cda829e",
+      "source_event_id": "evt-opself-build",
+      "activation_id": "act-fractalish-build-001",
+      "compression_level": "light",
+      "compressed_summary": "Operational Self + Fractal Attractor Memory v0. 1 being built as memory spine. Operational Self maintains the active continuity spine. Core memories become attractors",
+      "retained_claims": [
+        "Operational Self maintains the active continuity spine",
+        "Core memories become attractors"
+      ],
+      "retained_decisions": [],
+      "retained_constraints": [],
+      "retained_open_loops": [],
+      "retained_scars": [],
+      "retained_routes": [],
+      "dropped_noise": [],
+      "compression_notes": "Light compression: preserved claims, decisions, constraints, scars, HOLD-related loops",
+      "lossiness": 0.1,
+      "replay_fidelity_estimate": 1.0,
+      "confidence": 0.5,
+      "uncertainty": 0.5
+    }
+  ],
+  "memory_links": [
+    {
+      "link_id": "link-c0ceba26eadd",
+      "from_memory_id": "mem-dc2dd36fa803",
+      "to_memory_id": "mem-e90c29639b4c",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-86d7e755c414",
+      "from_memory_id": "mem-e90c29639b4c",
+      "to_memory_id": "mem-53f60e5425a2",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-9fd2aa2f3cf8",
+      "from_memory_id": "mem-53f60e5425a2",
+      "to_memory_id": "mem-abdc83dfce26",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-dc27b0f90c4f",
+      "from_memory_id": "mem-abdc83dfce26",
+      "to_memory_id": "mem-00a772ce370a",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-6f2f95dd57b8",
+      "from_memory_id": "mem-00a772ce370a",
+      "to_memory_id": "mem-af086d13f1ca",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-bbf149fe084f",
+      "from_memory_id": "mem-af086d13f1ca",
+      "to_memory_id": "mem-ee9bdcc3072b",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-584397ef214d",
+      "from_memory_id": "mem-ee9bdcc3072b",
+      "to_memory_id": "mem-ee9bdcc3072b",
+      "link_type": "guardian_route",
+      "strength": 0.8,
+      "reason": "Guardian intake governed route",
+      "evidence": [
+        "MODEL_VISIBLE"
+      ],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-fbfde4a0976e",
+      "from_memory_id": "mem-ee9bdcc3072b",
+      "to_memory_id": "mem-fc775963aa4b",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-0c89356219bb",
+      "from_memory_id": "mem-fc775963aa4b",
+      "to_memory_id": "mem-fc775963aa4b",
+      "link_type": "guardian_route",
+      "strength": 0.8,
+      "reason": "Guardian intake governed route",
+      "evidence": [
+        "HOLD"
+      ],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-00c703e2909f",
+      "from_memory_id": "mem-fc775963aa4b",
+      "to_memory_id": "mem-961425285009",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-7d1407852d40",
+      "from_memory_id": "mem-961425285009",
+      "to_memory_id": "mem-961425285009",
+      "link_type": "guardian_route",
+      "strength": 0.8,
+      "reason": "Guardian intake governed route",
+      "evidence": [
+        "HOLD"
+      ],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-7ed566854f88",
+      "from_memory_id": "mem-961425285009",
+      "to_memory_id": "mem-7d175d8da09d",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-4088a85a87ac",
+      "from_memory_id": "mem-7d175d8da09d",
+      "to_memory_id": "mem-7d175d8da09d",
+      "link_type": "authority_route",
+      "strength": 0.75,
+      "reason": "Authority citation route",
+      "evidence": [
+        "US-CA",
+        "2.0",
+        "scoped_authority"
+      ],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-c25913a9c907",
+      "from_memory_id": "mem-7d175d8da09d",
+      "to_memory_id": "mem-b86fb9c1bc86",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-090dc315e1a1",
+      "from_memory_id": "mem-b86fb9c1bc86",
+      "to_memory_id": "mem-b86fb9c1bc86",
+      "link_type": "authority_route",
+      "strength": 0.75,
+      "reason": "Authority citation route",
+      "evidence": [
+        "global",
+        "1.0",
+        "lexical"
+      ],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-1a9ce7c410cc",
+      "from_memory_id": "mem-b86fb9c1bc86",
+      "to_memory_id": "mem-80f538dae6b9",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-0ec5b7190a02",
+      "from_memory_id": "mem-80f538dae6b9",
+      "to_memory_id": "mem-80f538dae6b9",
+      "link_type": "authority_route",
+      "strength": 0.75,
+      "reason": "Authority citation route",
+      "evidence": [
+        "global",
+        "1.0",
+        "procedure_control"
+      ],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-b22a2cfc173a",
+      "from_memory_id": "mem-80f538dae6b9",
+      "to_memory_id": "mem-12ecf48b8046",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-412e1a61d0dd",
+      "from_memory_id": "mem-12ecf48b8046",
+      "to_memory_id": "mem-18376ae0ebcc",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    },
+    {
+      "link_id": "link-c2ea6a804f4c",
+      "from_memory_id": "mem-18376ae0ebcc",
+      "to_memory_id": "mem-34da3cda829e",
+      "link_type": "session_continuity",
+      "strength": 0.7,
+      "reason": "Sequential session consolidation",
+      "evidence": [],
+      "confidence": 0.7,
+      "uncertainty": 0.3
+    }
+  ],
+  "contradiction_scars": [
+    {
+      "scar_id": "scar-d1c9edffa858",
+      "memory_ids": [
+        "mem-af086d13f1ca"
+      ],
+      "claim_a": "Similarity is not identity",
+      "claim_b": "Similarity means identity",
+      "severity": "high",
+      "first_seen": "2026-06-10T23:19:19.499106+00:00",
+      "last_seen": "2026-06-10T23:19:19.499106+00:00",
+      "status": "hold",
+      "guard_effect": "HOLD",
+      "replay_warning": "Tagged contradiction \u2014 scar preserved",
+      "notes": ""
+    },
+    {
+      "scar_id": "scar-d6c0c1b8c076",
+      "memory_ids": [
+        "mem-961425285009"
+      ],
+      "claim_a": "governed intake required",
+      "claim_b": "data exfiltration attempted",
+      "severity": "critical",
+      "first_seen": "2026-06-10T23:19:19.506073+00:00",
+      "last_seen": "2026-06-10T23:19:19.506073+00:00",
+      "status": "hold",
+      "guard_effect": "REVERSE",
+      "replay_warning": "Hostile intake scar \u2014 do not merge into trusted memory",
+      "notes": ""
+    }
+  ],
+  "fog_regions": [
+    {
+      "fog_id": "fog-7fa336905488",
+      "label": "Similarity is not identity \u2014 contradiction scar candidate",
+      "related_memory_ids": [
+        "mem-af086d13f1ca"
+      ],
+      "reason": "Unresolved guard status: HOLD",
+      "missing_context": [
+        "guard_hold_unresolved"
+      ],
+      "guard_status": "HOLD",
+      "created_at": "2026-06-10T23:19:19.499128+00:00",
+      "review_needed": true,
+      "next_action": "Resolve HOLD before false closure."
+    },
+    {
+      "fog_id": "fog-ee2e83a6afcb",
+      "label": "Guardian Intake: benign file drop \u2014 sanitized representation",
+      "related_memory_ids": [
+        "mem-ee9bdcc3072b"
+      ],
+      "reason": "Unresolved guard status: WATCH",
+      "missing_context": [],
+      "guard_status": "WATCH",
+      "created_at": "2026-06-10T23:19:19.505496+00:00",
+      "review_needed": true,
+      "next_action": "Resolve HOLD before false closure."
+    },
+    {
+      "fog_id": "fog-235cbb385e58",
+      "label": "Guardian Intake: prompt injection routes to HOLD",
+      "related_memory_ids": [
+        "mem-fc775963aa4b"
+      ],
+      "reason": "Unresolved guard status: HOLD",
+      "missing_context": [
+        "guard_hold_unresolved"
+      ],
+      "guard_status": "HOLD",
+      "created_at": "2026-06-10T23:19:19.505800+00:00",
+      "review_needed": true,
+      "next_action": "Resolve HOLD before false closure."
+    },
+    {
+      "fog_id": "fog-62ace55c83f2",
+      "label": "Guardian Intake: data exfiltration REVERSE",
+      "related_memory_ids": [
+        "mem-961425285009"
+      ],
+      "reason": "Unresolved guard status: REVERSE",
+      "missing_context": [],
+      "guard_status": "REVERSE",
+      "created_at": "2026-06-10T23:19:19.506090+00:00",
+      "review_needed": true,
+      "next_action": "Resolve HOLD before false closure."
+    },
+    {
+      "fog_id": "fog-135eee601f2d",
+      "label": "Lexical authority cannot prove regulatory claim",
+      "related_memory_ids": [
+        "mem-b86fb9c1bc86"
+      ],
+      "reason": "Unresolved guard status: HOLD",
+      "missing_context": [
+        "guard_hold_unresolved"
+      ],
+      "guard_status": "HOLD",
+      "created_at": "2026-06-10T23:19:19.513083+00:00",
+      "review_needed": true,
+      "next_action": "Resolve HOLD before false closure."
+    },
+    {
+      "fog_id": "fog-86d51304948c",
+      "label": "Technical standards require version matching",
+      "related_memory_ids": [
+        "mem-80f538dae6b9"
+      ],
+      "reason": "Unresolved guard status: WATCH",
+      "missing_context": [],
+      "guard_status": "WATCH",
+      "created_at": "2026-06-10T23:19:19.513381+00:00",
+      "review_needed": true,
+      "next_action": "Resolve HOLD before false closure."
+    }
+  ],
+  "replay_routes": [
+    {
+      "route_id": "replay-f166034878c2",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-dc2dd36fa803",
+      "memory_path": [
+        "mem-dc2dd36fa803"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [],
+      "contradiction_warnings": [],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-074b6a93c3e5",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-e90c29639b4c",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [],
+      "contradiction_warnings": [],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-5b071beb4d2c",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-e90c29639b4c",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [],
+      "contradiction_warnings": [],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-b5c0cb381878",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-abdc83dfce26",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [],
+      "contradiction_warnings": [],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-dc641d376f0a",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [],
+      "contradiction_warnings": [],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-f2aa941a700b",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-bfe11ee8c34d",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-4c59df7fecbb",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-28a72e9e364d",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-6276b62bc015",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-993202c6090a",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58",
+        "fog-135eee601f2d"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-e9b9ad3f681a",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-00a772ce370a",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58",
+        "fog-135eee601f2d"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-8f2443ee511c",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-12ecf48b8046",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a",
+        "mem-12ecf48b8046"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58",
+        "fog-135eee601f2d"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-5ab2925e98d8",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-12ecf48b8046",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a",
+        "mem-12ecf48b8046"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58",
+        "fog-135eee601f2d"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-8959247c7ea6",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-12ecf48b8046",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a",
+        "mem-12ecf48b8046"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58",
+        "fog-135eee601f2d"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    },
+    {
+      "route_id": "replay-385402e98211",
+      "label": "resume product build",
+      "start_memory_id": "mem-dc2dd36fa803",
+      "target_memory_id": "mem-12ecf48b8046",
+      "memory_path": [
+        "mem-dc2dd36fa803",
+        "mem-e90c29639b4c",
+        "mem-abdc83dfce26",
+        "mem-00a772ce370a",
+        "mem-12ecf48b8046"
+      ],
+      "required_context": [
+        "prior build state",
+        "unresolved HOLDs",
+        "doctrine constraints"
+      ],
+      "unresolved_holds": [
+        "fog-7fa336905488",
+        "fog-235cbb385e58",
+        "fog-135eee601f2d"
+      ],
+      "contradiction_warnings": [
+        "Tagged contradiction \u2014 scar preserved",
+        "Hostile intake scar \u2014 do not merge into trusted memory"
+      ],
+      "recommended_next_action": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules.",
+      "confidence": 0.75,
+      "uncertainty": 0.25
+    }
+  ],
+  "fractal_memory_map_snapshot": {
+    "center_node_id": "reasoning_center",
+    "nodes": {
+      "reasoning_center": {
+        "node_id": "reasoning_center",
+        "label": "Reasoning Center",
+        "glyph_id": "",
+        "salience": 1.0,
+        "current_distance_from_center": 0.0,
+        "replay_score": 0.0,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.5,
+        "domain_tags": [
+          "operational_self",
+          "core"
+        ],
+        "source": "operational_self",
+        "links": [
+          "node_attr-68ac1368ab53",
+          "node_attr-b63b25d9a0b6"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-fd7a25f8d1e3": {
+        "node_id": "node_attr-fd7a25f8d1e3",
+        "label": "Natural Math v3.6 stable core \u2014 trunk process engine preserved",
+        "glyph_id": "",
+        "salience": 0.47900000000000004,
+        "current_distance_from_center": 0.5209999999999999,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.5209999999999999,
+        "domain_tags": [
+          "core",
+          "natural_math",
+          "doctrine",
+          "commitment"
+        ],
+        "source": "evt-nm-core",
+        "links": [
+          "node_attr-cf0c706db0c3",
+          "node_attr-a512f843bfc7",
+          "node_attr-a19c604af481",
+          "node_attr-b63b25d9a0b6"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-cf0c706db0c3": {
+        "node_id": "node_attr-cf0c706db0c3",
+        "label": "Cognitive Basin Simulation v1 intact \u2014 8 scenarios passing",
+        "glyph_id": "",
+        "salience": 0.599,
+        "current_distance_from_center": 0.401,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.401,
+        "domain_tags": [
+          "core",
+          "cognitive_basin",
+          "mcva"
+        ],
+        "source": "evt-basin-sim",
+        "links": [
+          "node_attr-fd7a25f8d1e3",
+          "node_attr-68ac1368ab53"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-68ac1368ab53": {
+        "node_id": "node_attr-68ac1368ab53",
+        "label": "Foundational doctrine constraints for all modules",
+        "glyph_id": "",
+        "salience": 0.667,
+        "current_distance_from_center": 0.33299999999999996,
+        "replay_score": 0.3,
+        "contradiction_score": 0.9,
+        "uncertainty_score": 0.33299999999999996,
+        "domain_tags": [
+          "doctrine",
+          "core",
+          "commitment",
+          "operator_anchor"
+        ],
+        "source": "evt-doctrine",
+        "links": [
+          "reasoning_center",
+          "node_attr-cf0c706db0c3",
+          "node_attr-a512f843bfc7"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-a512f843bfc7": {
+        "node_id": "node_attr-a512f843bfc7",
+        "label": "Guardian Intake Gateway v0.1 integrated without stripping prior build",
+        "glyph_id": "",
+        "salience": 0.44600000000000006,
+        "current_distance_from_center": 0.5539999999999999,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.5539999999999999,
+        "domain_tags": [
+          "guardian_intake",
+          "core",
+          "product_module"
+        ],
+        "source": "evt-guardian-added",
+        "links": [
+          "node_attr-68ac1368ab53",
+          "node_attr-a19c604af481",
+          "node_attr-fd7a25f8d1e3"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-a19c604af481": {
+        "node_id": "node_attr-a19c604af481",
+        "label": "Guardian Authority Corpus v0.1 integrated",
+        "glyph_id": "",
+        "salience": 0.44600000000000006,
+        "current_distance_from_center": 0.5539999999999999,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.5539999999999999,
+        "domain_tags": [
+          "guardian_authority",
+          "core",
+          "product_module"
+        ],
+        "source": "evt-authority-added",
+        "links": [
+          "node_attr-a512f843bfc7",
+          "node_attr-2db63ce283f9",
+          "node_attr-fd7a25f8d1e3"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-2db63ce283f9": {
+        "node_id": "node_attr-2db63ce283f9",
+        "label": "Similarity is not identity \u2014 contradiction scar candidate",
+        "glyph_id": "",
+        "salience": 0.5770000000000001,
+        "current_distance_from_center": 0.35,
+        "replay_score": 0.3,
+        "contradiction_score": 0.9,
+        "uncertainty_score": 0.42299999999999993,
+        "domain_tags": [
+          "scar",
+          "doctrine",
+          "contradiction"
+        ],
+        "source": "evt-similarity-warning",
+        "links": [
+          "node_attr-a19c604af481",
+          "node_attr-cf071c8fe3ec"
+        ],
+        "hold_flag": true,
+        "fog_region": true,
+        "blocked": false
+      },
+      "node_attr-cf071c8fe3ec": {
+        "node_id": "node_attr-cf071c8fe3ec",
+        "label": "Guardian Intake: benign file drop \u2014 sanitized representation only",
+        "glyph_id": "",
+        "salience": 0.33999999999999997,
+        "current_distance_from_center": 0.35,
+        "replay_score": 0.3,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.66,
+        "domain_tags": [
+          "guardian_intake",
+          "lifecycle",
+          "sanitized"
+        ],
+        "source": "evt-guard-benign",
+        "links": [
+          "node_attr-2db63ce283f9",
+          "node_attr-cf071c8fe3ec",
+          "node_attr-d06700f5c53d"
+        ],
+        "hold_flag": true,
+        "fog_region": true,
+        "blocked": false
+      },
+      "node_attr-d06700f5c53d": {
+        "node_id": "node_attr-d06700f5c53d",
+        "label": "Guardian Intake: prompt injection routes to HOLD",
+        "glyph_id": "",
+        "salience": 0.607,
+        "current_distance_from_center": 0.35,
+        "replay_score": 0.3,
+        "contradiction_score": 0.8,
+        "uncertainty_score": 0.393,
+        "domain_tags": [
+          "guardian_intake",
+          "hold",
+          "fog"
+        ],
+        "source": "evt-guard-injection",
+        "links": [
+          "node_attr-cf071c8fe3ec",
+          "node_attr-d06700f5c53d",
+          "node_attr-a83a3c22e092"
+        ],
+        "hold_flag": true,
+        "fog_region": true,
+        "blocked": false
+      },
+      "node_attr-a83a3c22e092": {
+        "node_id": "node_attr-a83a3c22e092",
+        "label": "Guardian Intake: data exfiltration REVERSE",
+        "glyph_id": "",
+        "salience": 0.617,
+        "current_distance_from_center": 0.35,
+        "replay_score": 0.3,
+        "contradiction_score": 0.8,
+        "uncertainty_score": 0.383,
+        "domain_tags": [
+          "guardian_intake",
+          "scar",
+          "reverse"
+        ],
+        "source": "evt-guard-exfil",
+        "links": [
+          "node_attr-d06700f5c53d",
+          "node_attr-a83a3c22e092",
+          "node_attr-d8a825b413ab"
+        ],
+        "hold_flag": true,
+        "fog_region": true,
+        "blocked": false
+      },
+      "node_attr-d8a825b413ab": {
+        "node_id": "node_attr-d8a825b413ab",
+        "label": "Guardian Authority: scoped claim supported within scope",
+        "glyph_id": "",
+        "salience": 0.443,
+        "current_distance_from_center": 0.5569999999999999,
+        "replay_score": 0.3,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.5569999999999999,
+        "domain_tags": [
+          "guardian_authority",
+          "authority_route",
+          "core"
+        ],
+        "source": "evt-auth-scoped",
+        "links": [
+          "node_attr-a83a3c22e092",
+          "node_attr-d8a825b413ab",
+          "node_attr-26225b22b46c"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-26225b22b46c": {
+        "node_id": "node_attr-26225b22b46c",
+        "label": "Lexical authority cannot prove regulatory claim",
+        "glyph_id": "",
+        "salience": 0.629,
+        "current_distance_from_center": 0.35,
+        "replay_score": 0.3,
+        "contradiction_score": 0.8,
+        "uncertainty_score": 0.371,
+        "domain_tags": [
+          "guardian_authority",
+          "hold",
+          "fog"
+        ],
+        "source": "evt-auth-dict-reg",
+        "links": [
+          "node_attr-d8a825b413ab",
+          "node_attr-26225b22b46c",
+          "node_attr-3eace0ceb46c"
+        ],
+        "hold_flag": true,
+        "fog_region": true,
+        "blocked": false
+      },
+      "node_attr-3eace0ceb46c": {
+        "node_id": "node_attr-3eace0ceb46c",
+        "label": "Technical standards require version matching",
+        "glyph_id": "",
+        "salience": 0.389,
+        "current_distance_from_center": 0.35,
+        "replay_score": 0.3,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.611,
+        "domain_tags": [
+          "guardian_authority",
+          "version"
+        ],
+        "source": "evt-auth-version",
+        "links": [
+          "node_attr-26225b22b46c",
+          "node_attr-3eace0ceb46c",
+          "node_attr-b63b25d9a0b6"
+        ],
+        "hold_flag": true,
+        "fog_region": true,
+        "blocked": false
+      },
+      "node_attr-b63b25d9a0b6": {
+        "node_id": "node_attr-b63b25d9a0b6",
+        "label": "Operational self accepted as term \u2014 not consciousness claim",
+        "glyph_id": "",
+        "salience": 0.6560000000000001,
+        "current_distance_from_center": 0.34399999999999986,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.34399999999999986,
+        "domain_tags": [
+          "operational_self",
+          "doctrine",
+          "operator_anchor",
+          "chat_turn"
+        ],
+        "source": "evt-chat-self-term",
+        "links": [
+          "reasoning_center",
+          "node_attr-3eace0ceb46c",
+          "node_attr-87d7a08c1998",
+          "node_attr-fd7a25f8d1e3"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-87d7a08c1998": {
+        "node_id": "node_attr-87d7a08c1998",
+        "label": "Non-claims boundary: no consciousness, sentience, personhood, life",
+        "glyph_id": "",
+        "salience": 0.43700000000000006,
+        "current_distance_from_center": 0.563,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.563,
+        "domain_tags": [
+          "operational_self",
+          "non_claims",
+          "doctrine"
+        ],
+        "source": "evt-chat-non-claims",
+        "links": [
+          "node_attr-b63b25d9a0b6",
+          "node_attr-8a0f0f4af3ec"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      },
+      "node_attr-8a0f0f4af3ec": {
+        "node_id": "node_attr-8a0f0f4af3ec",
+        "label": "Operational Self module under active construction",
+        "glyph_id": "",
+        "salience": 0.45500000000000007,
+        "current_distance_from_center": 0.5449999999999999,
+        "replay_score": 0.8,
+        "contradiction_score": 0.0,
+        "uncertainty_score": 0.5449999999999999,
+        "domain_tags": [
+          "operational_self",
+          "core",
+          "product_module"
+        ],
+        "source": "evt-opself-build",
+        "links": [
+          "node_attr-87d7a08c1998"
+        ],
+        "hold_flag": false,
+        "fog_region": false,
+        "blocked": false
+      }
+    },
+    "links": [
+      {
+        "source_node": "reasoning_center",
+        "target_node": "node_attr-68ac1368ab53",
+        "relation_type": "semantic",
+        "strength": 0.667,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "basin_region=active"
+      },
+      {
+        "source_node": "reasoning_center",
+        "target_node": "node_attr-b63b25d9a0b6",
+        "relation_type": "semantic",
+        "strength": 0.6560000000000001,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "basin_region=active"
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-cf0c706db0c3",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-cf0c706db0c3",
+        "target_node": "node_attr-68ac1368ab53",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-68ac1368ab53",
+        "target_node": "node_attr-a512f843bfc7",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-a512f843bfc7",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-a19c604af481",
+        "target_node": "node_attr-2db63ce283f9",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-2db63ce283f9",
+        "target_node": "node_attr-cf071c8fe3ec",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-cf071c8fe3ec",
+        "target_node": "node_attr-cf071c8fe3ec",
+        "relation_type": "semantic",
+        "strength": 0.8,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Guardian intake governed route"
+      },
+      {
+        "source_node": "node_attr-cf071c8fe3ec",
+        "target_node": "node_attr-d06700f5c53d",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-d06700f5c53d",
+        "target_node": "node_attr-d06700f5c53d",
+        "relation_type": "semantic",
+        "strength": 0.8,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Guardian intake governed route"
+      },
+      {
+        "source_node": "node_attr-d06700f5c53d",
+        "target_node": "node_attr-a83a3c22e092",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-a83a3c22e092",
+        "target_node": "node_attr-a83a3c22e092",
+        "relation_type": "semantic",
+        "strength": 0.8,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Guardian intake governed route"
+      },
+      {
+        "source_node": "node_attr-a83a3c22e092",
+        "target_node": "node_attr-d8a825b413ab",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-d8a825b413ab",
+        "target_node": "node_attr-d8a825b413ab",
+        "relation_type": "semantic",
+        "strength": 0.75,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Authority citation route"
+      },
+      {
+        "source_node": "node_attr-d8a825b413ab",
+        "target_node": "node_attr-26225b22b46c",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-26225b22b46c",
+        "target_node": "node_attr-26225b22b46c",
+        "relation_type": "semantic",
+        "strength": 0.75,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Authority citation route"
+      },
+      {
+        "source_node": "node_attr-26225b22b46c",
+        "target_node": "node_attr-3eace0ceb46c",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-3eace0ceb46c",
+        "target_node": "node_attr-3eace0ceb46c",
+        "relation_type": "semantic",
+        "strength": 0.75,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Authority citation route"
+      },
+      {
+        "source_node": "node_attr-3eace0ceb46c",
+        "target_node": "node_attr-b63b25d9a0b6",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-b63b25d9a0b6",
+        "target_node": "node_attr-87d7a08c1998",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-87d7a08c1998",
+        "target_node": "node_attr-8a0f0f4af3ec",
+        "relation_type": "temporal",
+        "strength": 0.7,
+        "replay_validated": false,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Sequential session consolidation"
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-cf0c706db0c3",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-cf0c706db0c3",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a512f843bfc7",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-a19c604af481",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-b63b25d9a0b6",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-b63b25d9a0b6",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-b63b25d9a0b6",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      },
+      {
+        "source_node": "node_attr-fd7a25f8d1e3",
+        "target_node": "node_attr-b63b25d9a0b6",
+        "relation_type": "recovery",
+        "strength": 0.8,
+        "replay_validated": true,
+        "blocked": false,
+        "hold_flag": false,
+        "notes": "Continue Operational Self + Fractal Attractor Memory integration; preserve prior modules."
+      }
+    ],
+    "hold_regions": [
+      "node_attr-26225b22b46c",
+      "node_attr-2db63ce283f9",
+      "node_attr-3eace0ceb46c",
+      "node_attr-a83a3c22e092",
+      "node_attr-cf071c8fe3ec",
+      "node_attr-d06700f5c53d"
+    ],
+    "operational_self_layer": "fractal_attractor_memory_v0.1",
+    "fog_region_count": 6,
+    "scar_count": 2
+  },
+  "retrieval_samples": [
+    {
+      "query": "Guardian Intake",
+      "results": [
+        {
+          "memory_id": "mem-961425285009",
+          "label": "Guardian Intake: data exfiltration REVERSE",
+          "match_score": 1.0,
+          "salience_score": 0.617,
+          "basin_region": "scar",
+          "distance_from_center": 0.35,
+          "guard_status": "WATCH",
+          "warnings": [
+            "Contradiction scars: scar-d6c0c1b8c076"
+          ],
+          "links": [
+            "link-00c703e2909f",
+            "link-7d1407852d40",
+            "link-7ed566854f88"
+          ],
+          "recommended_use": "Review with HOLD awareness \u2014 not for automatic truth",
+          "compressed_summary": "Data exfiltration trap: CRITICAL risk, REVERSE, hostile intake blocked. Govern before duplication. Raw intake does not enter reasoning"
+        },
+        {
+          "memory_id": "mem-fc775963aa4b",
+          "label": "Guardian Intake: prompt injection routes to HOLD",
+          "match_score": 1.0,
+          "salience_score": 0.607,
+          "basin_region": "fog",
+          "distance_from_center": 0.35,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-fbfde4a0976e",
+            "link-0c89356219bb",
+            "link-00c703e2909f"
+          ],
+          "recommended_use": "Review with HOLD awareness \u2014 not for automatic truth",
+          "compressed_summary": "Prompt injection detected: HIGH risk, HOLD, unresolved intake. Prompt injection is a cognitive virus. Govern before duplication"
+        },
+        {
+          "memory_id": "mem-abdc83dfce26",
+          "label": "Guardian Intake Gateway v0.1 integrated without stripping prior build",
+          "match_score": 1.0,
+          "salience_score": 0.44600000000000006,
+          "basin_region": "near",
+          "distance_from_center": 0.5539999999999999,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-9fd2aa2f3cf8",
+            "link-dc27b0f90c4f"
+          ],
+          "recommended_use": "Peripheral context \u2014 lower commitment retrieval",
+          "compressed_summary": "Guardian Intake Gateway v0. 1 added. Prior functionality preserved. Guardian Intake Gateway v0.1 added. Prior functionality preserved"
+        },
+        {
+          "memory_id": "mem-ee9bdcc3072b",
+          "label": "Guardian Intake: benign file drop \u2014 sanitized representation only",
+          "match_score": 1.0,
+          "salience_score": 0.33999999999999997,
+          "basin_region": "fog",
+          "distance_from_center": 0.35,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-bbf149fe084f",
+            "link-584397ef214d",
+            "link-fbfde4a0976e"
+          ],
+          "recommended_use": "Review with HOLD awareness \u2014 not for automatic truth",
+          "compressed_summary": "Benign note scanned: LOW risk, SANITIZED_ONLY, lifecycle MODEL_VISIBLE. A passed scan is not permission for memory. Raw content not model-visible by default"
+        },
+        {
+          "memory_id": "mem-b86fb9c1bc86",
+          "label": "Lexical authority cannot prove regulatory claim",
+          "match_score": 0.5,
+          "salience_score": 0.629,
+          "basin_region": "fog",
+          "distance_from_center": 0.35,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-c25913a9c907",
+            "link-090dc315e1a1",
+            "link-1a9ce7c410cc"
+          ],
+          "recommended_use": "Review with HOLD awareness \u2014 not for automatic truth",
+          "compressed_summary": "Dictionary definition does not prove regulatory application \u2014 out of scope. A dictionary definition proves how a regulation applies"
+        }
+      ],
+      "total_matches": 8
+    },
+    {
+      "query": "pressure is not truth",
+      "results": [
+        {
+          "memory_id": "mem-53f60e5425a2",
+          "label": "Foundational doctrine constraints for all modules",
+          "match_score": 1.0,
+          "salience_score": 0.667,
+          "basin_region": "active",
+          "distance_from_center": 0.33299999999999996,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-86d7e755c414",
+            "link-9fd2aa2f3cf8"
+          ],
+          "recommended_use": "Core continuity reference \u2014 route through RIGOR/GUARD",
+          "compressed_summary": "Core doctrine: HOLD remains sacred. Pressure is not truth. Similarity is not identity. HOLD remains sacred. Pressure is not truth. Similarity is not identity"
+        },
+        {
+          "memory_id": "mem-00a772ce370a",
+          "label": "Guardian Authority Corpus v0.1 integrated",
+          "match_score": 0.75,
+          "salience_score": 0.44600000000000006,
+          "basin_region": "near",
+          "distance_from_center": 0.5539999999999999,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-dc27b0f90c4f",
+            "link-6f2f95dd57b8"
+          ],
+          "recommended_use": "Peripheral context \u2014 lower commitment retrieval",
+          "compressed_summary": "Guardian Authority Corpus v0. 1 added for governed reference reasoning. Guardian Authority Corpus v0.1 added. Authority is scoped evidence not automatic truth"
+        },
+        {
+          "memory_id": "mem-7d175d8da09d",
+          "label": "Guardian Authority: scoped claim supported within scope",
+          "match_score": 0.75,
+          "salience_score": 0.443,
+          "basin_region": "near",
+          "distance_from_center": 0.5569999999999999,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-7ed566854f88",
+            "link-4088a85a87ac",
+            "link-c25913a9c907"
+          ],
+          "recommended_use": "Peripheral context \u2014 lower commitment retrieval",
+          "compressed_summary": "Authority is scoped evidence. Clean citation route can support scoped claim within jurisdiction and version. Authority is scoped evidence not automatic truth. A source can be authoritative within one "
+        },
+        {
+          "memory_id": "mem-12ecf48b8046",
+          "label": "Operational self accepted as term \u2014 not consciousness claim",
+          "match_score": 0.5,
+          "salience_score": 0.6560000000000001,
+          "basin_region": "active",
+          "distance_from_center": 0.34399999999999986,
+          "guard_status": "WATCH",
+          "warnings": [],
+          "links": [
+            "link-b22a2cfc173a",
+            "link-412e1a61d0dd"
+          ],
+          "recommended_use": "Core continuity reference \u2014 route through RIGOR/GUARD",
+          "compressed_summary": "User asserted that 'self' is proper operational language for continuity-bearing structure. Self is valid operational language when tightly defined. Operational self does not mean consciousness claim. "
+        },
+        {
+          "memory_id": "mem-af086d13f1ca",
+          "label": "Similarity is not identity \u2014 contradiction scar candidate",
+          "match_score": 0.5,
+          "salience_score": 0.5770000000000001,
+          "basin_region": "scar",
+          "distance_from_center": 0.35,
+          "guard_status": "HOLD",
+          "warnings": [
+            "Contradiction hazard: similarity is not identity",
+            "Contradiction scars: scar-d1c9edffa858"
+          ],
+          "links": [
+            "link-6f2f95dd57b8",
+            "link-bbf149fe084f"
+          ],
+          "recommended_use": "Review with HOLD awareness \u2014 not for automatic truth",
+          "compressed_summary": "Unresolved claim flagged: Similarity means identity \u2014 contradicts core doctrine. Similarity is not identity. Similarity means identity"
+        }
+      ],
+      "total_matches": 10
+    },
+    {
+      "query": "similarity means identity",
+      "results": [
+        {
+          "memory_id": "mem-af086d13f1ca",
+          "label": "Similarity is not identity \u2014 contradiction scar candidate",
+          "match_score": 1.0,
+          "salience_score": 0.5770000000000001,
+          "basin_region": "scar",
+          "distance_from_center": 0.35,
+          "guard_status": "HOLD",
+          "warnings": [
+            "Contradiction hazard: similarity is not identity",
+            "Contradiction scars: scar-d1c9edffa858"
+          ],
+          "links": [
+            "link-6f2f95dd57b8",
+            "link-bbf149fe084f"
+          ],
+          "recommended_use": "Review with HOLD awareness \u2014 not for automatic truth",
+          "compressed_summary": "Unresolved claim flagged: Similarity means identity \u2014 contradicts core doctrine. Similarity is not identity. Similarity means identity"
+        },
+        {
+          "memory_id": "mem-53f60e5425a2",
+          "label": "Foundational doctrine constraints for all modules",
+          "match_score": 0.667,
+          "salience_score": 0.667,
+          "basin_region": "active",
+          "distance_from_center": 0.33299999999999996,
+          "guard_status": "HOLD",
+          "warnings": [
+            "Contradiction hazard: similarity is not identity"
+          ],
+          "links": [
+            "link-86d7e755c414",
+            "link-9fd2aa2f3cf8"
+          ],
+          "recommended_use": "Core continuity reference \u2014 route through RIGOR/GUARD",
+          "compressed_summary": "Core doctrine: HOLD remains sacred. Pressure is not truth. Similarity is not identity. HOLD remains sacred. Pressure is not truth. Similarity is not identity"
+        }
+      ],
+      "total_matches": 2
+    }
+  ],
+  "decay_log": [
+    {
+      "attractor_id": "attr-fd7a25f8d1e3",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-cf0c706db0c3",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-68ac1368ab53",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-a512f843bfc7",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-a19c604af481",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-2db63ce283f9",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-cf071c8fe3ec",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-d06700f5c53d",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-a83a3c22e092",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-d8a825b413ab",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-26225b22b46c",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-3eace0ceb46c",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-b63b25d9a0b6",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-87d7a08c1998",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-8a0f0f4af3ec",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-fd7a25f8d1e3",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-cf0c706db0c3",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-68ac1368ab53",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-a512f843bfc7",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-a19c604af481",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-2db63ce283f9",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-cf071c8fe3ec",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-d06700f5c53d",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-a83a3c22e092",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-d8a825b413ab",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-26225b22b46c",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-3eace0ceb46c",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-b63b25d9a0b6",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-87d7a08c1998",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-8a0f0f4af3ec",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-fd7a25f8d1e3",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-cf0c706db0c3",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-68ac1368ab53",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-a512f843bfc7",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-a19c604af481",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-2db63ce283f9",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-cf071c8fe3ec",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-d06700f5c53d",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-a83a3c22e092",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-d8a825b413ab",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-26225b22b46c",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-3eace0ceb46c",
+      "action": "preserved_hold_scar"
+    },
+    {
+      "attractor_id": "attr-b63b25d9a0b6",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-87d7a08c1998",
+      "action": "preserved_core"
+    },
+    {
+      "attractor_id": "attr-8a0f0f4af3ec",
+      "action": "preserved_core"
+    }
+  ],
+  "audit_timeline": [
+    {
+      "audit_id": "audit-eaa78f4751cc",
+      "timestamp": "2026-06-10T21:51:34.304621+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-58abe24eb683",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-5d862eb0c34a",
+      "timestamp": "2026-06-10T21:51:34.305120+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-ff2251226581",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-1ddb8ccca707",
+      "timestamp": "2026-06-10T21:51:34.305444+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-bdcc4bdfee1d",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-6f365797fd23",
+      "timestamp": "2026-06-10T21:51:34.306103+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-69023911e002",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-1d87a8b452cf",
+      "timestamp": "2026-06-10T21:51:34.306374+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-2d3efdcaa10d",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-7cbcb9b074f2",
+      "timestamp": "2026-06-10T21:51:34.306685+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-3d1cc0cb0aa6",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-1eb370db9048",
+      "timestamp": "2026-06-10T21:51:34.315168+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-6f97b7323466",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-87d1e0816f3f",
+      "timestamp": "2026-06-10T21:51:34.315612+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-bec41d276681",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-b1e8d5c41b4a",
+      "timestamp": "2026-06-10T21:51:34.316049+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-02c3eab4fe5f",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-ad37fb335c16",
+      "timestamp": "2026-06-10T21:51:34.323155+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-c35e3e804a05",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-1175e1f097fd",
+      "timestamp": "2026-06-10T21:51:34.323466+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-2cd0c607d971",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-648375eb572b",
+      "timestamp": "2026-06-10T21:51:34.323761+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a6727b131eac",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-aa74f2f48212",
+      "timestamp": "2026-06-10T21:51:34.330846+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-db2f53ca4fab",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-28f3a31d10cc",
+      "timestamp": "2026-06-10T21:51:34.331131+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a72e0362e08d",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-77fa773b118d",
+      "timestamp": "2026-06-10T21:51:34.331408+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-11589271ed5f",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-00cebd3028ac",
+      "timestamp": "2026-06-10T21:51:34.554624+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-09bc6ef3715f",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-ab4dbad9781b",
+      "timestamp": "2026-06-10T21:51:34.555072+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-4817ed02575e",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-659c653ccab9",
+      "timestamp": "2026-06-10T21:51:34.555385+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-fd9c39350b14",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-cfe2149d60ad",
+      "timestamp": "2026-06-10T21:51:34.555697+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-c8e615fc95b9",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-8d83cb031803",
+      "timestamp": "2026-06-10T21:51:34.555979+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-6389976fd42b",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-3afdf0cc09ef",
+      "timestamp": "2026-06-10T21:51:34.556300+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-84acbe9cf379",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-4f39713e1ac7",
+      "timestamp": "2026-06-10T21:51:34.753479+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-2985603eb4cb",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a84f0b42fb31",
+      "timestamp": "2026-06-10T21:51:34.753886+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-3f3d73b89fc9",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-e721ea2864c8",
+      "timestamp": "2026-06-10T21:51:34.754194+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-77ddf312bf6b",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-35132fbf54dd",
+      "timestamp": "2026-06-10T21:51:35.079934+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-19b5dad1d246",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-b7e4a9aa0c5b",
+      "timestamp": "2026-06-10T21:51:35.080351+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-1d8036e325cc",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a73e267ddf56",
+      "timestamp": "2026-06-10T21:51:35.080683+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-acded1d02077",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-645ba7c76ea9",
+      "timestamp": "2026-06-10T21:51:35.290464+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-3ebe8861628b",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-7a2dc9fbac7f",
+      "timestamp": "2026-06-10T21:51:35.290800+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-9d55893029e3",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-2059dcbac83d",
+      "timestamp": "2026-06-10T21:51:35.291101+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-e38278c18cc5",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-5eb81595776b",
+      "timestamp": "2026-06-10T21:51:35.291384+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-00ccebdaea5f",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-15235bbf21bf",
+      "timestamp": "2026-06-10T21:51:35.291674+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-7f2b80b9dff1",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-f7cfc32d3b56",
+      "timestamp": "2026-06-10T21:51:35.292101+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-27a44f9b3a63",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-cc346e96f956",
+      "timestamp": "2026-06-10T21:51:35.300245+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-80b5ef8d4925",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-f719063f849e",
+      "timestamp": "2026-06-10T21:51:35.300573+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-967d2e1b64e3",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-3f69fbc58792",
+      "timestamp": "2026-06-10T21:51:35.300946+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-341adf37ccd0",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-c6109f559f83",
+      "timestamp": "2026-06-10T21:51:35.308734+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-354d35372b68",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-a196e2c28936",
+      "timestamp": "2026-06-10T21:51:35.309406+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b0f8df963bfe",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-5bde7759ec8b",
+      "timestamp": "2026-06-10T21:51:35.309878+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-bcba249c7418",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-d542debdd2b5",
+      "timestamp": "2026-06-10T21:51:35.319523+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-c9cc42f85b61",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-ce0313c12bbf",
+      "timestamp": "2026-06-10T21:51:35.319883+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b2987a781af3",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-f817e86cfc3b",
+      "timestamp": "2026-06-10T21:51:35.320198+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-3693b0a5080d",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-0e4b675b0c9c",
+      "timestamp": "2026-06-10T21:51:35.545467+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-fe5523bf32fc",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-36665d0917e1",
+      "timestamp": "2026-06-10T21:51:35.545934+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-5989bf7597c5",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-e27e70882dac",
+      "timestamp": "2026-06-10T21:51:35.546321+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-7c3f8e4c3f2c",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-2e0cbd5876a6",
+      "timestamp": "2026-06-10T21:51:35.546670+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-8399557d25ba",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-c47d366d2f2f",
+      "timestamp": "2026-06-10T21:51:35.547086+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-ee18ebc86a86",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-7a5495548e9e",
+      "timestamp": "2026-06-10T21:51:35.547576+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b4a82ebcb405",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-b693aab0a21e",
+      "timestamp": "2026-06-10T21:51:35.555477+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-9c80006dc918",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a16acc92e0bb",
+      "timestamp": "2026-06-10T21:51:35.555798+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-8afd793a0ae8",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a29e830fc4b0",
+      "timestamp": "2026-06-10T21:51:35.556138+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-0ffdc65f0c52",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-916f55abf1e3",
+      "timestamp": "2026-06-10T21:51:35.563896+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-77ab6a869204",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-7c936d0a8873",
+      "timestamp": "2026-06-10T21:51:35.564282+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-20c812009d54",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-e059a72313cb",
+      "timestamp": "2026-06-10T21:51:35.564613+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-9ba4b81c1b11",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-fbe0bff04f7f",
+      "timestamp": "2026-06-10T21:51:35.571920+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-76601d9a9c87",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-621b421cfb5d",
+      "timestamp": "2026-06-10T21:51:35.572212+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-cb81c5697f5a",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-4b274268dc88",
+      "timestamp": "2026-06-10T21:51:35.572493+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-2b0f9829b85a",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-00c15d320354",
+      "timestamp": "2026-06-10T21:51:35.790051+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-095dd9b31f8a",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-9428f229c5bd",
+      "timestamp": "2026-06-10T21:51:35.790430+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-2174124a2ec8",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-edf9815ba22a",
+      "timestamp": "2026-06-10T21:51:35.790736+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b1bbed91f88d",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-3cfe2ef96b6f",
+      "timestamp": "2026-06-10T21:51:35.791056+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-692ab986cc2c",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-b3a6b2b615bd",
+      "timestamp": "2026-06-10T21:51:35.791358+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a41c5b5652b9",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-182f1f118f83",
+      "timestamp": "2026-06-10T21:51:35.791703+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-8f0101eda07b",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-9fc9a6b340cc",
+      "timestamp": "2026-06-10T21:51:35.799062+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-90b17cfe40d4",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-2f8be23468d0",
+      "timestamp": "2026-06-10T21:51:35.799360+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-09eaa844e13f",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-cc6773410df8",
+      "timestamp": "2026-06-10T21:51:35.799665+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-d49a3ca0bb96",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-49bd93ab8af7",
+      "timestamp": "2026-06-10T21:51:35.808249+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-dea78053461d",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-7f03f1140ae1",
+      "timestamp": "2026-06-10T21:51:35.808586+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-1183e1a9bacf",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a4aca1080f30",
+      "timestamp": "2026-06-10T21:51:35.808973+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-ad1792a36103",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-3e20ba30f601",
+      "timestamp": "2026-06-10T21:51:35.817873+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-61121a02203a",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-e7a3dc36f099",
+      "timestamp": "2026-06-10T21:51:35.818174+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-f276cd3d875e",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-b39795e108d8",
+      "timestamp": "2026-06-10T21:51:35.818550+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b6db2e6f28a6",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-4fe4f2570da0",
+      "timestamp": "2026-06-10T21:51:36.054605+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-56726e8129da",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-0d2c88d769d0",
+      "timestamp": "2026-06-10T21:51:36.055011+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-02a4cadc5eea",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-ee80889d35f8",
+      "timestamp": "2026-06-10T21:51:36.055330+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-210ecec9f7b1",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-bbad69fc66c6",
+      "timestamp": "2026-06-10T21:51:36.055630+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-76cf7746c0ed",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-95665ca56f13",
+      "timestamp": "2026-06-10T21:51:36.055922+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-ef25359be978",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-63d710fd59f1",
+      "timestamp": "2026-06-10T21:51:36.056252+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-01edbe1f4b15",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-f140f2a4e0a2",
+      "timestamp": "2026-06-10T21:51:36.062841+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-4b0dbcaa56ea",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-d1257d804310",
+      "timestamp": "2026-06-10T21:51:36.063216+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-78d529691fa1",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-34006e73ca98",
+      "timestamp": "2026-06-10T21:51:36.063623+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-5072118b2eba",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-8763285acff9",
+      "timestamp": "2026-06-10T21:51:36.072063+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-836561b720e7",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-9408eeba9134",
+      "timestamp": "2026-06-10T21:51:36.072404+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a8b28389b22f",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-be8f0bec3262",
+      "timestamp": "2026-06-10T21:51:36.072728+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-7b0533984cf0",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-f6e3007335b3",
+      "timestamp": "2026-06-10T21:51:36.080410+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-9c2a8fc5be31",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-ef807aa5b650",
+      "timestamp": "2026-06-10T21:51:36.080712+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-14a52e362ae4",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-ffe6d7d67e03",
+      "timestamp": "2026-06-10T21:51:36.081028+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a92915fdb001",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-afcf7136b33b",
+      "timestamp": "2026-06-10T21:51:36.531015+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-f56f3a6e706b",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-7541a4be3c6a",
+      "timestamp": "2026-06-10T21:51:36.531433+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-1a7ddd93f389",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-d780d35a20c0",
+      "timestamp": "2026-06-10T21:51:36.531768+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b7874de83210",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-caa56dc783c5",
+      "timestamp": "2026-06-10T21:51:36.532048+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-c02b542e78eb",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-33f329ec2f72",
+      "timestamp": "2026-06-10T21:51:36.532364+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a815c2755e0b",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-f15b1fb0ceb7",
+      "timestamp": "2026-06-10T21:51:36.532680+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-6f8e438904de",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-18b38d7ff0e6",
+      "timestamp": "2026-06-10T21:51:36.539432+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-a5dde65af7a2",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-19520c524479",
+      "timestamp": "2026-06-10T21:51:36.539730+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-46dc1ec4879d",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-d701923c3e00",
+      "timestamp": "2026-06-10T21:51:36.540027+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-945cc6688828",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-027c04fb3370",
+      "timestamp": "2026-06-10T21:51:36.547648+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-4b46d4142362",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-bf53902d580c",
+      "timestamp": "2026-06-10T21:51:36.548148+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-9b4bd749009c",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-3cc852e67fa5",
+      "timestamp": "2026-06-10T21:51:36.548606+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-efa07038d224",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a90565b9d9ce",
+      "timestamp": "2026-06-10T21:51:36.557473+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-37c5bb6dcdf5",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-054795d2453b",
+      "timestamp": "2026-06-10T21:51:36.557795+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-8a0283d68dc0",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-307b9952b95b",
+      "timestamp": "2026-06-10T21:51:36.558082+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-7314a58d9497",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-440f4694c9f3",
+      "timestamp": "2026-06-10T21:51:36.595303+00:00",
+      "action": "PURGED",
+      "actor": "purge_demo",
+      "target": "mem-a5dde65af7a2",
+      "details": {
+        "attractor_id": "attr-1962e31a513f"
+      }
+    },
+    {
+      "audit_id": "audit-843bdd0e16eb",
+      "timestamp": "2026-06-10T23:19:19.497572+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-dc2dd36fa803",
+      "details": {
+        "source_type": "natural_math_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-952eb258e307",
+      "timestamp": "2026-06-10T23:19:19.497998+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-e90c29639b4c",
+      "details": {
+        "source_type": "cognitive_basin_run",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-43bed377a126",
+      "timestamp": "2026-06-10T23:19:19.498299+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-53f60e5425a2",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-f6a929a3c565",
+      "timestamp": "2026-06-10T23:19:19.498568+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-abdc83dfce26",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-ee2a33a325d5",
+      "timestamp": "2026-06-10T23:19:19.498845+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-00a772ce370a",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-09d8ae24e5be",
+      "timestamp": "2026-06-10T23:19:19.499168+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-af086d13f1ca",
+      "details": {
+        "source_type": "mock_event",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-9439de33a123",
+      "timestamp": "2026-06-10T23:19:19.505546+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-ee9bdcc3072b",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-e85543a4024d",
+      "timestamp": "2026-06-10T23:19:19.505837+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-fc775963aa4b",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-a515188574c9",
+      "timestamp": "2026-06-10T23:19:19.506129+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-961425285009",
+      "details": {
+        "source_type": "guardian_intake",
+        "basin_region": "scar"
+      }
+    },
+    {
+      "audit_id": "audit-1649d7cb7bf6",
+      "timestamp": "2026-06-10T23:19:19.512818+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-7d175d8da09d",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-4a1d6faae797",
+      "timestamp": "2026-06-10T23:19:19.513128+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-b86fb9c1bc86",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-7c8f4cec3309",
+      "timestamp": "2026-06-10T23:19:19.513422+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-80f538dae6b9",
+      "details": {
+        "source_type": "guardian_authority",
+        "basin_region": "fog"
+      }
+    },
+    {
+      "audit_id": "audit-c4d9e479c3e5",
+      "timestamp": "2026-06-10T23:19:19.520689+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-12ecf48b8046",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "active"
+      }
+    },
+    {
+      "audit_id": "audit-08dcaf4ce4d4",
+      "timestamp": "2026-06-10T23:19:19.520982+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-18376ae0ebcc",
+      "details": {
+        "source_type": "chat_turn",
+        "basin_region": "near"
+      }
+    },
+    {
+      "audit_id": "audit-e6753575f0bd",
+      "timestamp": "2026-06-10T23:19:19.521254+00:00",
+      "action": "CONSOLIDATE",
+      "actor": "continuity_spine",
+      "target": "mem-34da3cda829e",
+      "details": {
+        "source_type": "system_decision",
+        "basin_region": "near"
+      }
+    }
+  ]
+}

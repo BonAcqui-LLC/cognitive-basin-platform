@@ -1,0 +1,4 @@
+total 0
+lrwxrwxrwx 1 root root 0 2026-06-18 18:35 iio:device0 -> ../../../devices/platform/1000d000.pwrap/1000d000.pwrap:mt6358-pmic/mt635x-auxadc/iio:device0
+lrwxrwxrwx 1 root root 0 2026-06-18 18:35 iio:device1 -> ../../../devices/platform/11001000.auxadc/iio:device1
+lrwxrwxrwx 1 root root 0 2026-06-18 18:35 iio:device2 -> ../../../devices/platform/nanohub_ipi/iio:device2

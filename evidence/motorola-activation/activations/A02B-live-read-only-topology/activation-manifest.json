@@ -1,0 +1,39 @@
+{
+  "activation_id": "A02B-live-read-only-topology",
+  "principal": "human_operator",
+  "purpose": "Resolve live Android, bootloader-fastboot, and optional fastbootd topology without writing any device state.",
+  "predecessor": "A02A-offline-stock-topology",
+  "operator_approval": "RECORDED_BEFORE_EXECUTION",
+  "device_contact_authorized": true,
+  "authorized_transitions": [
+    "ANDROID_TO_BOOTLOADER_FASTBOOT",
+    "BOOTLOADER_FASTBOOT_TO_FASTBOOTD_IF_SUPPORTED",
+    "FASTBOOT_OR_FASTBOOTD_TO_ANDROID"
+  ],
+  "partition_write_authorized": false,
+  "custom_boot_authorized": false,
+  "current_expected_slot": "_b",
+  "minimum_battery_percent": 60,
+  "completion_criteria": [
+    "preflight identity and battery verified",
+    "Android topology captured",
+    "bootloader fastboot topology captured",
+    "fastbootd support classified",
+    "device returned to Android",
+    "slot unchanged",
+    "post-transition identity verified",
+    "no write command issued",
+    "completion receipt emitted"
+  ],
+  "host": {
+    "os": "Windows-10-10.0.19045-SP0",
+    "powershell_version": "5.1.19041.6456",
+    "platform_tools": {
+      "adb": "Android Debug Bridge version 1.0.41\nVersion 37.0.0-14910828\nInstalled as C:\\Android\\android-sdk\\platform-tools\\adb.exe\nRunning on Windows 10.0.19045",
+      "fastboot": "fastboot version 37.0.0-14910828\nInstalled as C:\\Android\\android-sdk\\platform-tools\\fastboot.exe"
+    },
+    "start_time": "2026-06-19T15:20:13-04:00",
+    "cable_port_note": "Operator-approved current live session; direct cable stability inferred from successful authorized ADB enumeration in this activation.",
+    "usb_hub_present": "UNVERIFIED"
+  }
+}

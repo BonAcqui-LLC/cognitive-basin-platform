@@ -1,0 +1,32 @@
+[
+  {
+    "scar_id": "scar-d1c9edffa858",
+    "memory_ids": [
+      "mem-af086d13f1ca"
+    ],
+    "claim_a": "Similarity is not identity",
+    "claim_b": "Similarity means identity",
+    "severity": "high",
+    "first_seen": "2026-06-10T23:19:19.499106+00:00",
+    "last_seen": "2026-06-10T23:19:19.499106+00:00",
+    "status": "hold",
+    "guard_effect": "HOLD",
+    "replay_warning": "Tagged contradiction \u2014 scar preserved",
+    "notes": ""
+  },
+  {
+    "scar_id": "scar-d6c0c1b8c076",
+    "memory_ids": [
+      "mem-961425285009"
+    ],
+    "claim_a": "governed intake required",
+    "claim_b": "data exfiltration attempted",
+    "severity": "critical",
+    "first_seen": "2026-06-10T23:19:19.506073+00:00",
+    "last_seen": "2026-06-10T23:19:19.506073+00:00",
+    "status": "hold",
+    "guard_effect": "REVERSE",
+    "replay_warning": "Hostile intake scar \u2014 do not merge into trusted memory",
+    "notes": ""
+  }
+]

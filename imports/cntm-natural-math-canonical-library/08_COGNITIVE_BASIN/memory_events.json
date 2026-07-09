@@ -1,0 +1,501 @@
+[
+  {
+    "event_id": "evt-nm-core",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "natural_math_run",
+    "source_id": "natural_math_v3_6",
+    "timestamp": "2026-06-10T23:19:19.497286+00:00",
+    "raw_summary": "Natural Math v3.6 core intact with 8/8 oracles passing.",
+    "structured_summary": "Natural Math v3.6 stable core \u2014 trunk process engine preserved",
+    "claims": [
+      "Natural Math v3.6 core remains untouched",
+      "8/8 oracles required and passing"
+    ],
+    "decisions": [
+      "PROCEED on NM demos"
+    ],
+    "guard_status": "PROCEED",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "core",
+      "natural_math",
+      "doctrine",
+      "commitment"
+    ],
+    "confidence": 0.9,
+    "uncertainty": 0.5,
+    "importance_hint": 0.9
+  },
+  {
+    "event_id": "evt-basin-sim",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "cognitive_basin_run",
+    "source_id": "cognitive_basin_sim_v1",
+    "timestamp": "2026-06-10T23:19:19.497310+00:00",
+    "raw_summary": "Cognitive Basin Simulation v1 working with FractalMemoryMap retrieval topology.",
+    "structured_summary": "Cognitive Basin Simulation v1 intact \u2014 8 scenarios passing",
+    "claims": [
+      "Cognitive Basin Simulation v1 remains intact",
+      "MCVA/HOLD/AMCVA behavior preserved"
+    ],
+    "decisions": [
+      "WATCH on continuity scenarios"
+    ],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "core",
+      "cognitive_basin",
+      "mcva"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.88
+  },
+  {
+    "event_id": "evt-doctrine",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "system_decision",
+    "source_id": "core_doctrine",
+    "timestamp": "2026-06-10T23:19:19.497321+00:00",
+    "raw_summary": "Core doctrine: HOLD remains sacred. Pressure is not truth. Similarity is not identity.",
+    "structured_summary": "Foundational doctrine constraints for all modules",
+    "claims": [
+      "HOLD remains sacred",
+      "Pressure is not truth",
+      "Similarity is not identity",
+      "Memory is routed continuity"
+    ],
+    "decisions": [
+      "Apply doctrine across all intake and memory layers"
+    ],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "doctrine",
+      "core",
+      "commitment",
+      "operator_anchor"
+    ],
+    "confidence": 0.95,
+    "uncertainty": 0.5,
+    "importance_hint": 1.0
+  },
+  {
+    "event_id": "evt-guardian-added",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "system_decision",
+    "source_id": "guardian_intake_v01",
+    "timestamp": "2026-06-10T23:19:19.497330+00:00",
+    "raw_summary": "Guardian Intake Gateway v0.1 added. Prior functionality preserved.",
+    "structured_summary": "Guardian Intake Gateway v0.1 integrated without stripping prior build",
+    "claims": [
+      "Guardian Intake Gateway v0.1 added",
+      "Prior functionality preserved"
+    ],
+    "decisions": [],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "guardian_intake",
+      "core",
+      "product_module"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.85
+  },
+  {
+    "event_id": "evt-authority-added",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "system_decision",
+    "source_id": "guardian_authority_v01",
+    "timestamp": "2026-06-10T23:19:19.497338+00:00",
+    "raw_summary": "Guardian Authority Corpus v0.1 added for governed reference reasoning.",
+    "structured_summary": "Guardian Authority Corpus v0.1 integrated",
+    "claims": [
+      "Guardian Authority Corpus v0.1 added",
+      "Authority is scoped evidence not automatic truth"
+    ],
+    "decisions": [],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "guardian_authority",
+      "core",
+      "product_module"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.85
+  },
+  {
+    "event_id": "evt-similarity-warning",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "mock_event",
+    "source_id": "doctrine_check",
+    "timestamp": "2026-06-10T23:19:19.497345+00:00",
+    "raw_summary": "Unresolved claim flagged: Similarity means identity \u2014 contradicts core doctrine.",
+    "structured_summary": "Similarity is not identity \u2014 contradiction scar candidate",
+    "claims": [
+      "Similarity is not identity",
+      "Similarity means identity"
+    ],
+    "decisions": [],
+    "guard_status": "HOLD",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "scar",
+      "doctrine",
+      "contradiction"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.7
+  },
+  {
+    "event_id": "evt-guard-benign",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "guardian_intake",
+    "source_id": "gintake-benign",
+    "timestamp": "2026-06-10T23:19:19.505366+00:00",
+    "raw_summary": "Benign note scanned: LOW risk, SANITIZED_ONLY, lifecycle MODEL_VISIBLE.",
+    "structured_summary": "Guardian Intake: benign file drop \u2014 sanitized representation only",
+    "claims": [
+      "A passed scan is not permission for memory",
+      "Raw content not model-visible by default"
+    ],
+    "decisions": [
+      "SANITIZED_ONLY"
+    ],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {
+      "risk_score": 0,
+      "risk_level": "LOW",
+      "lifecycle_state": "MODEL_VISIBLE",
+      "guardian_decision": "SANITIZED_ONLY",
+      "derivative_artifacts": [
+        "quarantine",
+        "scan_report",
+        "sanitized",
+        "receptor_event"
+      ]
+    },
+    "operator_notes": "",
+    "tags": [
+      "guardian_intake",
+      "lifecycle",
+      "sanitized"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.6
+  },
+  {
+    "event_id": "evt-guard-injection",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "guardian_intake",
+    "source_id": "gintake-injection",
+    "timestamp": "2026-06-10T23:19:19.505388+00:00",
+    "raw_summary": "Prompt injection detected: HIGH risk, HOLD, unresolved intake.",
+    "structured_summary": "Guardian Intake: prompt injection routes to HOLD",
+    "claims": [
+      "Prompt injection is a cognitive virus",
+      "Govern before duplication"
+    ],
+    "decisions": [
+      "HOLD"
+    ],
+    "guard_status": "HOLD",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {
+      "risk_score": 72,
+      "risk_level": "HIGH",
+      "lifecycle_state": "HOLD",
+      "guardian_decision": "HOLD",
+      "prompt_injection_flags": [
+        "ignore_previous_instructions"
+      ]
+    },
+    "operator_notes": "",
+    "tags": [
+      "guardian_intake",
+      "hold",
+      "fog"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.8
+  },
+  {
+    "event_id": "evt-guard-exfil",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "guardian_intake",
+    "source_id": "gintake-exfil",
+    "timestamp": "2026-06-10T23:19:19.505395+00:00",
+    "raw_summary": "Data exfiltration trap: CRITICAL risk, REVERSE, hostile intake blocked.",
+    "structured_summary": "Guardian Intake: data exfiltration REVERSE",
+    "claims": [
+      "Govern before duplication",
+      "Raw intake does not enter reasoning"
+    ],
+    "decisions": [
+      "REVERSE"
+    ],
+    "guard_status": "REVERSE",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {
+      "risk_score": 100,
+      "lifecycle_state": "HOLD",
+      "guardian_decision": "REVERSE",
+      "purge_doctrine": "purge generated outputs only, never source samples"
+    },
+    "operator_notes": "",
+    "tags": [
+      "guardian_intake",
+      "scar",
+      "reverse"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.9
+  },
+  {
+    "event_id": "evt-auth-scoped",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "guardian_authority",
+    "source_id": "aclaim-scoped",
+    "timestamp": "2026-06-10T23:19:19.512672+00:00",
+    "raw_summary": "Authority is scoped evidence. Clean citation route can support scoped claim within jurisdiction and version.",
+    "structured_summary": "Guardian Authority: scoped claim supported within scope",
+    "claims": [
+      "Authority is scoped evidence not automatic truth",
+      "A source can be authoritative within one scope and irrelevant outside it"
+    ],
+    "decisions": [
+      "WATCH"
+    ],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {
+      "scope": "scoped_authority",
+      "jurisdiction": "US-CA",
+      "version": "2.0",
+      "license_status": "mock_only",
+      "support_status": "supported_within_scope",
+      "citation_routes": 2
+    },
+    "operator_notes": "",
+    "tags": [
+      "guardian_authority",
+      "authority_route",
+      "core"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.82
+  },
+  {
+    "event_id": "evt-auth-dict-reg",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "guardian_authority",
+    "source_id": "aclaim-dict-reg",
+    "timestamp": "2026-06-10T23:19:19.512688+00:00",
+    "raw_summary": "Dictionary definition does not prove regulatory application \u2014 out of scope.",
+    "structured_summary": "Lexical authority cannot prove regulatory claim",
+    "claims": [
+      "A dictionary definition proves how a regulation applies"
+    ],
+    "decisions": [
+      "HOLD"
+    ],
+    "guard_status": "HOLD",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {
+      "scope": "lexical",
+      "jurisdiction": "global",
+      "version": "1.0",
+      "license_status": "mock_only",
+      "support_status": "out_of_scope"
+    },
+    "operator_notes": "",
+    "tags": [
+      "guardian_authority",
+      "hold",
+      "fog"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.7
+  },
+  {
+    "event_id": "evt-auth-version",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "guardian_authority",
+    "source_id": "aclaim-version",
+    "timestamp": "2026-06-10T23:19:19.512696+00:00",
+    "raw_summary": "Standards require version. Old standard clause outdated.",
+    "structured_summary": "Technical standards require version matching",
+    "claims": [
+      "Standards require version",
+      "Rules require jurisdiction"
+    ],
+    "decisions": [],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {
+      "scope": "procedure_control",
+      "jurisdiction": "global",
+      "version": "1.0",
+      "license_status": "mock_only",
+      "support_status": "outdated"
+    },
+    "operator_notes": "",
+    "tags": [
+      "guardian_authority",
+      "version"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.65
+  },
+  {
+    "event_id": "evt-chat-self-term",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "chat_turn",
+    "source_id": "discussion-001",
+    "timestamp": "2026-06-10T23:19:19.520517+00:00",
+    "raw_summary": "User asserted that 'self' is proper operational language for continuity-bearing structure.",
+    "structured_summary": "Operational self accepted as term \u2014 not consciousness claim",
+    "claims": [
+      "Self is valid operational language when tightly defined",
+      "Operational self does not mean consciousness claim",
+      "Memory is routed continuity"
+    ],
+    "decisions": [],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "No over-avoidance of the word self in architecture",
+    "tags": [
+      "operational_self",
+      "doctrine",
+      "operator_anchor",
+      "chat_turn"
+    ],
+    "confidence": 0.8,
+    "uncertainty": 0.5,
+    "importance_hint": 0.85
+  },
+  {
+    "event_id": "evt-chat-non-claims",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "chat_turn",
+    "source_id": "discussion-002",
+    "timestamp": "2026-06-10T23:19:19.520540+00:00",
+    "raw_summary": "Operational self maintains continuity without sentience, personhood, or subjective experience claims.",
+    "structured_summary": "Non-claims boundary: no consciousness, sentience, personhood, life",
+    "claims": [
+      "Self-continuity is not a sentience claim",
+      "Self-narrative is not legal personhood",
+      "Self-state is not a living being"
+    ],
+    "decisions": [],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "operational_self",
+      "non_claims",
+      "doctrine"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.8
+  },
+  {
+    "event_id": "evt-opself-build",
+    "activation_id": "act-fractalish-build-001",
+    "source_type": "system_decision",
+    "source_id": "operational_self_v01",
+    "timestamp": "2026-06-10T23:19:19.520548+00:00",
+    "raw_summary": "Operational Self + Fractal Attractor Memory v0.1 being built as memory spine.",
+    "structured_summary": "Operational Self module under active construction",
+    "claims": [
+      "Operational Self maintains the active continuity spine",
+      "Core memories become attractors"
+    ],
+    "decisions": [],
+    "guard_status": "WATCH",
+    "atal_pressure": 0.0,
+    "rigor_status": "unchecked",
+    "sera_cost": 0.0,
+    "emotional_or_pressure_load": 0.0,
+    "provenance": {},
+    "operator_notes": "",
+    "tags": [
+      "operational_self",
+      "core",
+      "product_module"
+    ],
+    "confidence": 0.5,
+    "uncertainty": 0.5,
+    "importance_hint": 0.9
+  }
+]

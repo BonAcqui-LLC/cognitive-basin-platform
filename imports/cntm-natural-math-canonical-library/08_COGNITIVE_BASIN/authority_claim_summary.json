@@ -1,0 +1,66 @@
+{
+  "activation_id": "act-fractalish-build-001",
+  "project_id": "fractalish-ai",
+  "events": [
+    {
+      "event_id": "evt-auth-scoped",
+      "source_type": "guardian_authority",
+      "source_id": "aclaim-scoped",
+      "raw_summary": "Authority is scoped evidence. Clean citation route can support scoped claim within jurisdiction and version.",
+      "structured_summary": "Guardian Authority: scoped claim supported within scope",
+      "claims": [
+        "Authority is scoped evidence not automatic truth",
+        "A source can be authoritative within one scope and irrelevant outside it"
+      ],
+      "decisions": ["WATCH"],
+      "guard_status": "WATCH",
+      "provenance": {
+        "scope": "scoped_authority",
+        "jurisdiction": "US-CA",
+        "version": "2.0",
+        "license_status": "mock_only",
+        "support_status": "supported_within_scope",
+        "citation_routes": 2
+      },
+      "tags": ["guardian_authority", "authority_route", "core"],
+      "importance_hint": 0.82
+    },
+    {
+      "event_id": "evt-auth-dict-reg",
+      "source_type": "guardian_authority",
+      "source_id": "aclaim-dict-reg",
+      "raw_summary": "Dictionary definition does not prove regulatory application — out of scope.",
+      "structured_summary": "Lexical authority cannot prove regulatory claim",
+      "claims": ["A dictionary definition proves how a regulation applies"],
+      "decisions": ["HOLD"],
+      "guard_status": "HOLD",
+      "provenance": {
+        "scope": "lexical",
+        "jurisdiction": "global",
+        "version": "1.0",
+        "license_status": "mock_only",
+        "support_status": "out_of_scope"
+      },
+      "tags": ["guardian_authority", "hold", "fog"],
+      "importance_hint": 0.7
+    },
+    {
+      "event_id": "evt-auth-version",
+      "source_type": "guardian_authority",
+      "source_id": "aclaim-version",
+      "raw_summary": "Standards require version. Old standard clause outdated.",
+      "structured_summary": "Technical standards require version matching",
+      "claims": ["Standards require version", "Rules require jurisdiction"],
+      "guard_status": "WATCH",
+      "provenance": {
+        "scope": "procedure_control",
+        "jurisdiction": "global",
+        "version": "1.0",
+        "license_status": "mock_only",
+        "support_status": "outdated"
+      },
+      "tags": ["guardian_authority", "version"],
+      "importance_hint": 0.65
+    }
+  ]
+}

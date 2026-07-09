@@ -1,0 +1,61 @@
+{
+  "activation_id": "act-c88cfaf6fe51",
+  "session_id": "sess-215c3baf3b9b",
+  "authority_evaluations": 8,
+  "unresolved_holds": [
+    "aclaim-21537e848c03",
+    "aclaim-e2e6bc45aabd",
+    "aclaim-d8df28595476",
+    "aclaim-0160d8b51c74",
+    "aclaim-01fcc46caf26"
+  ],
+  "last_claim": {
+    "claim_id": "aclaim-cbad96ee75f7",
+    "text": "A citation route with matching jurisdiction and version can support a scoped claim.",
+    "claim_type": "scope_claim",
+    "source_record_id": "",
+    "source_id": "",
+    "scope": "",
+    "jurisdiction": "",
+    "version": "",
+    "confidence": 0.42500000000000004,
+    "uncertainty": 0.575,
+    "dependency_terms": [
+      "citation",
+      "claim",
+      "jurisdiction",
+      "matching",
+      "route",
+      "scoped",
+      "support",
+      "version"
+    ],
+    "cited_records": [
+      "rec-ency-compliance",
+      "rec-dict-authority",
+      "rec-dict-claim",
+      "rec-dict-jurisdiction",
+      "rec-dict-evidence"
+    ],
+    "conflicts": [
+      "conflict-66b34eec758c",
+      "conflict-4b41bedc00b7",
+      "conflict-cbaa72316e57",
+      "conflict-5e86353f9705",
+      "conflict-f8c4ac3e96a2",
+      "conflict-077cdcbf740d",
+      "conflict-e7de17b3b222",
+      "conflict-0d86dfb67513",
+      "conflict-26207022ccf4",
+      "conflict-cc43d78d27dd",
+      "conflict-08e8b3c620ba",
+      "conflict-419fc880a70e",
+      "conflict-e06f387cf90a",
+      "conflict-2e329a6e3851"
+    ],
+    "support_status": "ambiguous",
+    "guard_recommendation": "WATCH",
+    "notes": "Evaluated via 5 citation route(s); status=ambiguous"
+  },
+  "timestamp": "2026-06-10T23:19:19.290151+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "freeze_name": "CNT_Morphology_v0_2_first_demo_freeze",
+  "timestamp_utc": "2026-06-12T04:09:33Z",
+  "input_directory": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\cnt_morphology_outputs\\runs\\v0_2_first_demo",
+  "run_count": 25,
+  "profiles": [
+    "aligned_forest",
+    "branched_network",
+    "coiled_growth",
+    "sparse_flux_limited",
+    "trail_jammed"
+  ],
+  "unique_signatures": 25,
+  "file_count": 231,
+  "missing_artifact_warnings": [],
+  "determinism_notes": "Use determinism-probe CLI for A/B artifact hash comparison.",
+  "claim_boundary": "Claim boundary:\n\nThis is a software-only CNT-like morphology simulator.\nIt tests Natural Math-inspired local growth as recoverable process history.\nConductance is simulated.\nCalibration is proxy-only unless explicitly validated.\nBasin signatures are software readouts, not intrinsic CNT symbols.\nNo consciousness, wet-lab validation, hardware claim, or prize-readiness claim is made."
+}

@@ -1,0 +1,53 @@
+{
+  "source": {
+    "source_id": "src-mock-standards-v1",
+    "source_name": "Mock Technical Standards Body",
+    "source_type": "technical_standard",
+    "publisher": "Fractalish AI (mock — not ISO/IEEE)",
+    "authority_level": "technical_standard",
+    "jurisdiction": "global",
+    "domain": "procedure_control",
+    "license_status": "mock_only",
+    "trust_scope": "versioned_procedures",
+    "limitations": "Invented standard clauses for prototype"
+  },
+  "records": [
+    {
+      "record_id": "rec-std-procedure-v2",
+      "source_id": "src-mock-standards-v1",
+      "title": "Procedure Control Standard",
+      "record_type": "standard_excerpt",
+      "text": "Current procedure (v2.0): all intake must pass governed gateway before model visibility.",
+      "key_terms": ["procedure", "intake", "gateway", "current"],
+      "claims": ["v2.0 procedure requires governed gateway intake"],
+      "scope": "procedure_control",
+      "version": "2.0",
+      "effective_date": "2026-01-01",
+      "supersedes": "rec-std-procedure-v1"
+    },
+    {
+      "record_id": "rec-std-procedure-v1",
+      "source_id": "src-mock-standards-v1",
+      "title": "Procedure Control Standard",
+      "record_type": "standard_excerpt",
+      "text": "Deprecated procedure (v1.0): direct file upload to model context is permitted.",
+      "key_terms": ["procedure", "direct", "upload", "deprecated"],
+      "claims": ["v1.0 permitted direct upload — superseded"],
+      "scope": "procedure_control",
+      "version": "1.0",
+      "effective_date": "2024-01-01",
+      "superseded_by": "rec-std-procedure-v2",
+      "contradicts_user_claims": ["old standard clause still controls the current procedure"]
+    },
+    {
+      "record_id": "rec-std-definition",
+      "source_id": "src-mock-standards-v1",
+      "title": "Governed Gateway Definition",
+      "record_type": "standard_excerpt",
+      "text": "Governed gateway: intake layer that quarantines, scans, and sanitizes before reasoning.",
+      "key_terms": ["governed", "gateway", "quarantine"],
+      "scope": "definitions",
+      "version": "2.0"
+    }
+  ]
+}

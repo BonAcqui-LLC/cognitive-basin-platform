@@ -1,0 +1,240 @@
+[
+  {
+    "link_id": "link-c0ceba26eadd",
+    "from_memory_id": "mem-dc2dd36fa803",
+    "to_memory_id": "mem-e90c29639b4c",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-86d7e755c414",
+    "from_memory_id": "mem-e90c29639b4c",
+    "to_memory_id": "mem-53f60e5425a2",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-9fd2aa2f3cf8",
+    "from_memory_id": "mem-53f60e5425a2",
+    "to_memory_id": "mem-abdc83dfce26",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-dc27b0f90c4f",
+    "from_memory_id": "mem-abdc83dfce26",
+    "to_memory_id": "mem-00a772ce370a",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-6f2f95dd57b8",
+    "from_memory_id": "mem-00a772ce370a",
+    "to_memory_id": "mem-af086d13f1ca",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-bbf149fe084f",
+    "from_memory_id": "mem-af086d13f1ca",
+    "to_memory_id": "mem-ee9bdcc3072b",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-584397ef214d",
+    "from_memory_id": "mem-ee9bdcc3072b",
+    "to_memory_id": "mem-ee9bdcc3072b",
+    "link_type": "guardian_route",
+    "strength": 0.8,
+    "reason": "Guardian intake governed route",
+    "evidence": [
+      "MODEL_VISIBLE"
+    ],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-fbfde4a0976e",
+    "from_memory_id": "mem-ee9bdcc3072b",
+    "to_memory_id": "mem-fc775963aa4b",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-0c89356219bb",
+    "from_memory_id": "mem-fc775963aa4b",
+    "to_memory_id": "mem-fc775963aa4b",
+    "link_type": "guardian_route",
+    "strength": 0.8,
+    "reason": "Guardian intake governed route",
+    "evidence": [
+      "HOLD"
+    ],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-00c703e2909f",
+    "from_memory_id": "mem-fc775963aa4b",
+    "to_memory_id": "mem-961425285009",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-7d1407852d40",
+    "from_memory_id": "mem-961425285009",
+    "to_memory_id": "mem-961425285009",
+    "link_type": "guardian_route",
+    "strength": 0.8,
+    "reason": "Guardian intake governed route",
+    "evidence": [
+      "HOLD"
+    ],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-7ed566854f88",
+    "from_memory_id": "mem-961425285009",
+    "to_memory_id": "mem-7d175d8da09d",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-4088a85a87ac",
+    "from_memory_id": "mem-7d175d8da09d",
+    "to_memory_id": "mem-7d175d8da09d",
+    "link_type": "authority_route",
+    "strength": 0.75,
+    "reason": "Authority citation route",
+    "evidence": [
+      "US-CA",
+      "2.0",
+      "scoped_authority"
+    ],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-c25913a9c907",
+    "from_memory_id": "mem-7d175d8da09d",
+    "to_memory_id": "mem-b86fb9c1bc86",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-090dc315e1a1",
+    "from_memory_id": "mem-b86fb9c1bc86",
+    "to_memory_id": "mem-b86fb9c1bc86",
+    "link_type": "authority_route",
+    "strength": 0.75,
+    "reason": "Authority citation route",
+    "evidence": [
+      "global",
+      "1.0",
+      "lexical"
+    ],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-1a9ce7c410cc",
+    "from_memory_id": "mem-b86fb9c1bc86",
+    "to_memory_id": "mem-80f538dae6b9",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-0ec5b7190a02",
+    "from_memory_id": "mem-80f538dae6b9",
+    "to_memory_id": "mem-80f538dae6b9",
+    "link_type": "authority_route",
+    "strength": 0.75,
+    "reason": "Authority citation route",
+    "evidence": [
+      "global",
+      "1.0",
+      "procedure_control"
+    ],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-b22a2cfc173a",
+    "from_memory_id": "mem-80f538dae6b9",
+    "to_memory_id": "mem-12ecf48b8046",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-412e1a61d0dd",
+    "from_memory_id": "mem-12ecf48b8046",
+    "to_memory_id": "mem-18376ae0ebcc",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  },
+  {
+    "link_id": "link-c2ea6a804f4c",
+    "from_memory_id": "mem-18376ae0ebcc",
+    "to_memory_id": "mem-34da3cda829e",
+    "link_type": "session_continuity",
+    "strength": 0.7,
+    "reason": "Sequential session consolidation",
+    "evidence": [],
+    "confidence": 0.7,
+    "uncertainty": 0.3
+  }
+]

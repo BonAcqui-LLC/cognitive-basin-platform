@@ -1,0 +1,20 @@
+{
+    "activation_id":  "A01-stock-closure",
+    "status":  "COMPLETE",
+    "device_changed":  false,
+    "device_commands_executed":  [
+                                     "adb devices -l"
+                                 ],
+    "package_preserved":  true,
+    "package_hash":  "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+    "match_classification":  "STRONG_MATCH_OLDER_BUILD",
+    "restore_suitability":  "NOT_YET_ESTABLISHED",
+    "anti_rollback_status":  "UNRESOLVED",
+    "open_holds":  [
+                       "Exact trustworthy live-build package not found",
+                       "Live adb re-verification unavailable at closure moment",
+                       "Anti-rollback metadata unresolved"
+                   ],
+    "next_activation":  "A02-read-only-topology",
+    "operator_approval_required_for_next_device_transition":  true
+}

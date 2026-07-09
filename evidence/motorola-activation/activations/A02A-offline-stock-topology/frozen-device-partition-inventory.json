@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-06-19T10:03:07-04:00",
+  "physical_partitions": [],
+  "logical_partitions_from_mounts": [
+    {
+      "logical_partition": "apex",
+      "device_mapper": "tmpfs",
+      "evidence_source": "mount.txt",
+      "confidence": "HIGH"
+    },
+    {
+      "logical_partition": "product",
+      "device_mapper": "/dev/block/dm-9",
+      "evidence_source": "mount.txt",
+      "confidence": "HIGH"
+    },
+    {
+      "logical_partition": "system",
+      "device_mapper": "/dev/block/dm-6",
+      "evidence_source": "mount.txt",
+      "confidence": "HIGH"
+    },
+    {
+      "logical_partition": "system_ext",
+      "device_mapper": "/dev/block/dm-7",
+      "evidence_source": "mount.txt",
+      "confidence": "HIGH"
+    },
+    {
+      "logical_partition": "vendor",
+      "device_mapper": "/dev/block/dm-8",
+      "evidence_source": "mount.txt",
+      "confidence": "HIGH"
+    }
+  ],
+  "sources": [
+    "baseline-unlocked/by-name.txt",
+    "device/motorola/gnevan/hardware/mount.txt",
+    "baseline-unlocked/fastboot-getvar-all.txt"
+  ]
+}

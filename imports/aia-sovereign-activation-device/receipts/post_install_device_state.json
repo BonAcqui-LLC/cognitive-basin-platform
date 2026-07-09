@@ -1,0 +1,53 @@
+{
+  "receipt_type": "post_install_device_state",
+  "recorded_at": "2026-06-17T20:43:13.3710000-04:00",
+  "package_name": "llc.bonacqui.aia",
+  "process": {
+    "pid": 29731,
+    "uid": 10163,
+    "exit_history": [
+      {
+        "reason": "PACKAGE UPDATED",
+        "timestamp": "2026-06-17T20:43:13.371-04:00"
+      },
+      {
+        "reason": "FORCE STOP",
+        "timestamp": "2026-06-17T20:37:11.284-04:00"
+      }
+    ]
+  },
+  "memory": {
+    "java_heap_pss_kb": 13352,
+    "native_heap_pss_kb": 8948,
+    "graphics_pss_kb": 31516,
+    "total_pss_kb": 87458,
+    "total_rss_kb": 192712,
+    "total_swap_pss_kb": 399
+  },
+  "local_storage": {
+    "session_files": [
+      {
+        "name": "session-1ad825bb.json",
+        "size_bytes": 2568
+      },
+      {
+        "name": "session-3b7ba8c8.json",
+        "size_bytes": 2166
+      },
+      {
+        "name": "session-91d5c81e.json",
+        "size_bytes": 2696
+      }
+    ],
+    "export_files": [
+      {
+        "name": "session-91d5c81e.aiaexport.json",
+        "size_bytes": 3847
+      },
+      {
+        "name": "session-91d5c81e.aiaexport.tampered.json",
+        "size_bytes": 3829
+      }
+    ]
+  }
+}

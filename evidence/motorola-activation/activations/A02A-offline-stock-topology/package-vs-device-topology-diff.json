@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-06-19T10:03:07-04:00",
+  "comparisons": [
+    {
+      "partition": "apex",
+      "classification": "MATCH",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "boot_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "dtbo_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "efuse",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "gpt",
+      "classification": "UNRESOLVED",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "gz_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "lk_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "logo_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "md1img_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "metadata",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "nvdata",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "preloader",
+      "classification": "NAME_ALIAS_LIKELY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "product",
+      "classification": "MATCH",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "scp_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "spmfw_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "sspm_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "super",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "system",
+      "classification": "MATCH",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "system_ext",
+      "classification": "MATCH",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "tee_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "userdata",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "vbmeta_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "vbmeta_system_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "vendor",
+      "classification": "MATCH",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    },
+    {
+      "partition": "vendor_boot_a",
+      "classification": "PACKAGE_ONLY",
+      "notes": "Comparison is against frozen evidence only; absence from sanitized lists is not proof of device absence."
+    }
+  ]
+}

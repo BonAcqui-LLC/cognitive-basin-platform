@@ -1,0 +1,30 @@
+{
+    "requested_url":  "https://mirrors.lolinet.com/firmware/lenomola/2023/gnevan/official/RETUS/XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "redirect_chain":  [
+                           "https://mirrors.lolinet.com/firmware/lenomola/2023/gnevan/official/RETUS/XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip"
+                       ],
+    "final_host":  "mirrors.lolinet.com",
+    "final_url":  "https://mirrors.lolinet.com/firmware/lenomola/2023/gnevan/official/RETUS/XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "retrieval_start":  "2026-06-18T18:44:24.2963376-04:00",
+    "retrieval_completion_time":  "2026-06-18T19:21:08.5628509-04:00",
+    "http_status_observations":  [
+                                     "HTTP/1.1 200 OK"
+                                 ],
+    "published_filename":  "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "expected_byte_count":  4190063592,
+    "checksum_or_signature_supplied_by_source":  null,
+    "source_classification":  "THIRD_PARTY_MIRROR",
+    "classification_rationale":  [
+                                     "Source host is mirrors.lolinet.com rather than a Motorola or Lenovo-owned host.",
+                                     "Directory naming suggests a Motorola firmware mirror but does not itself establish first-party provenance.",
+                                     "No first-party checksum or signature was observed during retrieval."
+                                 ],
+    "tls_transport_status":  "HTTPS 200 observed via HEAD request",
+    "archival_or_directory_listing_evidence":  [
+                                                   "curl listing of /firmware/lenomola/2023/gnevan/official/",
+                                                   "curl listing of /firmware/lenomola/2023/gnevan/official/RETUS/"
+                                               ],
+    "local_preservation_record":  "stock-package-preservation-record.json",
+    "original_package_path":  "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\original\\XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+    "original_package_sha256":  "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D"
+}

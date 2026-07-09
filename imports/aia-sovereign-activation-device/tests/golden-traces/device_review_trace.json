@@ -1,0 +1,15 @@
+{
+  "trace_id": "device-review-trace-v1",
+  "scenario": "device_review",
+  "activation_type": "DEVICE_INTEGRITY_REVIEW",
+  "input_characteristics": [
+    "typed purpose",
+    "deterministic runtime available",
+    "provider disabled"
+  ],
+  "expected_epistemic": "SUPPORTED",
+  "expected_action": "EXTEND",
+  "expected_recovery_routes": [
+    "route-supported-1"
+  ]
+}

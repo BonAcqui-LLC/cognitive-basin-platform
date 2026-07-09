@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "steps_completed": 720,
+  "survivors": 20,
+  "cluster_sizes": [
+    9,
+    4,
+    4,
+    3
+  ],
+  "bonded_nodes": 20,
+  "total_initial_energy": 15423.92446384025,
+  "total_final_energy": 12100.014716633239,
+  "total_movement_cost": 473.90974720697807,
+  "total_metabolic_cost": 2849.99999999999,
+  "total_external_inflow": 0.0,
+  "maximum_degree": 3,
+  "determinism_check": true
+}

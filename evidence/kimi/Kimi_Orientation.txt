@@ -1,0 +1,613 @@
+You have access to the C drive and are being asked to continue an existing Natural Math / fledgling-AI implementation.
+
+Do not begin coding yet.
+
+Do not begin Stage 2R until you have reconstructed the larger project architecture from primary project files.
+
+The previous engineering system built a frozen Natural Math v5 reference implementation and a partially operational extension harness. That code is only one layer of a much larger body of work.
+
+A technically correct local repair can still damage the project if you misunderstand the architecture it is meant to support.
+
+Your first task is therefore:
+
+CANONICAL ORIENTATION, SOURCE RECONSTRUCTION, AND STACK MAPPING
+
+Core Principle
+
+Do not reduce named concepts to taglines.
+
+For every project or concept, determine:
+
+its canonical definition;
+the failure or problem it was introduced to answer;
+its mechanism;
+its inputs;
+its outputs;
+its relationship to the rest of the stack;
+its implementation status;
+its evidence or validation status;
+its non-claims and guardrails;
+the first intended implementation;
+what it must not be confused with.
+
+If a concept cannot be resolved, classify it as HOLD / UNRESOLVED.
+
+Do not invent closure.
+
+Drive Search Permission
+
+You may search readable locations on the C drive for project materials.
+
+Search broadly, including:
+
+C:_MASTER_LIBRARY
+C:_MASTER_LIBRARY_Handoff
+C:\Users\moop
+C:\NaturalMath
+FractalishBuild directories
+Cognitive Basin libraries
+CNTM libraries
+SymLan directories
+Construction A+ directories
+Honeybee directories
+Git repositories
+ZIP archives
+document backups
+Codex working folders
+Downloads
+Documents
+Desktop
+
+Do not modify or delete source materials.
+
+Do not reorganize the drive.
+
+Do not write outside the designated continuation workspace except for the orientation reports.
+
+Treat duplicate libraries as search sources, not separate authorities.
+
+Source Authority Order
+
+Use this authority order unless a later explicit canonical document supersedes it:
+
+Frozen, hash-verified specifications and validated source artifacts.
+Explicit master-anchor or canonical thesis documents.
+Explicit current team kernels and architecture specifications.
+Current implementation repositories and verified tests.
+Current technical papers, validation records, and experimental reports.
+Earlier versions and historical implementation branches.
+Team discussions and AI-generated reviews.
+Newly generated summaries.
+
+A new summary has no authority over the files it summarizes.
+
+File names alone do not establish authority.
+
+Use:
+
+content;
+explicit version language;
+canonical/frozen/current markings;
+date and lineage;
+repository history;
+source hashes;
+supersession statements.
+
+Do not silently blend conflicting versions.
+
+Required Project Search
+
+Locate and study primary materials for at least the following.
+
+Umbrella and continuity architecture
+BonAcqui
+Synaptient
+Master Anchor Thesis
+Closure Thesis
+Great Work
+Quorum
+Hive
+Tower
+SymID
+SessionGlyph
+Logientia where relevant
+Natural Math family
+Natural Math v3.x
+Natural Math v3.6
+Natural Math v3.8.1
+Natural Math v5 frozen integer base
+Natural Math v5.1 proposals
+Natural Math v6
+Natural Math v7.2
+Basic Persistent Growth System
+Local Flow Trail Memory
+stick / crystal-grain mechanism
+cluster energy-network benchmark
+Encoder / Message / Decoder primitive
+morphological memory
+scars, trails, depletion, reinforcement, replay
+Cognitive Basin
+Cognitive Basin Thesis
+Cognitive Basin Team Kernel
+tri-field and extended basin model
+brushes
+associations
+association fields
+association beacons
+attractors
+affective pressure
+contradiction scars
+recovery routes
+retrieval weighting
+survival weighting
+replay
+pruning
+narrative continuity
+TeamNarrative
+FractalMemoryMap
+HOLD
+sleep / consolidation
+interruption recovery
+operator correction
+adversarial activation
+Fractalish AI architecture
+PERCEPT
+ATAL
+RIGOR
+CIRCUIT
+GUARD
+SERA
+HOLD fog
+anti-drift
+anti-illogical / antiviral concepts
+Guardian
+Viral Sentinel
+ExoMCP
+EphUX
+activation runtime
+current Fractalish AI repositories and runtimes
+SymLan family
+SymLan
+SymLan v1.0
+SymLan book/specification
+ternary state grammar
+declared / pending / resolved states
+attractor-derived symbolic readout
+vocabulary registration
+replay validation
+provenance-bearing symbols
+collision handling
+Tower registration
+stable-state compression
+restrictions against premature symbolic encoding
+Construction A+ family
+Construction A+
+PiA+
+Honeybee
+Honeybee A++
+Construction A+ glyph generation
+attractor readout
+substrate-derived thresholds
+PEFP
+tau_E
+energy polarity
+collision splitting
+asymmetric basins
+ambiguity rejection
+Hopfield reference embodiment
+simulated versus physical claims
+hardware limitations
+current executable code and test artifacts
+Morphology and perception
+Fractalish
+Morphological Memory Theory
+MCVA
+AMCVA
+MCVA Gate
+InfinitySight
+MNMVE
+morphology descriptors
+topology descriptors
+positive atlas
+negative atlas
+confidence and HOLD routing
+generated-versus-observed morphology comparison
+CNTM
+Carbon Nanotube Morphology Memory
+CNTM digital twin
+CNTM v0.2
+Phase Zero physical realization
+electrodeposition
+Hele-Shaw cell
+tip propensity
+branch separation
+calibration surface
+inverse calibration
+perturbation and replay
+Kirchhoff readout
+physical adapter
+shadow retraining
+physical memory versus simulated memory
+relationship to Cognitive Basin and Natural Math
+AIA and activation
+AIA
+Sovereign AIA
+activation OS
+ternary OS
+phone activation
+offline-first runtime
+custom Android OS
+civil-rights distribution
+device receptor pipeline
+operator sovereignty
+bounded activation
+permissions
+purpose and success criteria
+activation is the basin in motion
+SERA
+original SERA
+SERA as security / retention / audit
+SERA as efficiency, resilience, or metabolic accounting
+any naming collision or evolution between those definitions
+cost per valid output
+waste
+retry
+semantic rework
+context waste
+energy accounting
+provenance
+audit
+retention
+replay
+failure accounting
+
+Do not assume all documents use SERA in exactly the same sense.
+
+Map the naming history and current intended meaning.
+
+APTD
+
+Search for the exact terms:
+
+APTD
+first APTD
+original APTD
+APTD v1
+APTD prototype
+APTD architecture
+any expanded form of the acronym
+
+Do not guess what APTD means.
+
+Locate the first authoritative source, its expanded name, purpose, date, implementation status, and relationship to the present system.
+
+If you cannot locate it, report:
+
+APTD — UNRESOLVED / SOURCE NOT FOUND
+
+and list every location and search term used.
+
+Required Stack Distinctions
+
+Preserve at least these distinctions.
+
+Natural Math versus Cognitive Basin
+
+Natural Math is a bounded generative and developmental process grammar.
+
+Cognitive Basin is persistent associative state and understanding infrastructure.
+
+Do not hide the entire Cognitive Basin inside Natural Math.
+
+Do not treat a local memory extension as the complete cognitive system.
+
+Natural Math versus MCVA
+
+Natural Math generates or models process.
+
+MCVA reads or describes morphology and possible process evidence.
+
+Generation and readout must remain distinguishable.
+
+Construction A+ versus SymLan
+
+Construction A+ / Honeybee concerns how settled attractor or substrate structure becomes a discrete glyph candidate.
+
+SymLan specifies and compresses stable states, transitions, and vocabularies.
+
+Construction A+ is not merely a font generator.
+
+SymLan is not decorative notation.
+
+SymLan timing
+
+Symbols must be earned.
+
+Do not assign a SymLan token merely because a state exists once.
+
+Determine the actual project criteria for:
+
+recurrence;
+stability;
+replay;
+collision handling;
+provenance;
+vocabulary registration;
+rejection or HOLD.
+Cognitive Basin versus ordinary memory
+
+Cognitive Basin is not a vector database, chat history, summary file, user profile, or long context window.
+
+It concerns routed formation:
+
+what recurs;
+what survives;
+what contradicts;
+what is trusted;
+what is feared or pressured;
+what routes recover;
+what remains unresolved;
+what becomes an attractor.
+Activation versus autonomy
+
+Activation is bounded purpose-driven invocation.
+
+Persistence is not permission for autonomy.
+
+The system must remain operator-anchored.
+
+Do not introduce:
+
+credential seeking;
+resource seeking;
+self-replication;
+uncontrolled continuation;
+hidden deployment;
+authority acquisition.
+CNTM versus software memory
+
+CNTM is a physical-memory research path.
+
+Its software twin and calibration work may inform the baby AI, but a Python state store is not CNTM.
+
+Do not claim physical realization where only simulation exists.
+
+SERA versus raw performance
+
+SERA is not merely execution speed.
+
+Map its intended roles in:
+
+efficiency;
+waste;
+resilience;
+security;
+retention;
+audit;
+replay;
+cost per valid output.
+Fledgling AI versus product shell
+
+The immediate target is the developmental runtime.
+
+Phone activation, custom Android, web platforms, and Sovereign AIA devices are embodiment and distribution layers.
+
+Do not substitute the product surface for the developmental core.
+
+Canonical Layer Map To Verify
+
+Treat this as a hypothesis to verify against the source files, not as permission to skip reading them:
+
+Closure
+→ Natural Math
+→ Morphological Memory
+→ MCVA / AMCVA / HOLD
+→ InfinitySight
+→ Construction A+ / Honeybee / PiA+
+→ SymLan
+→ Cognitive Basin
+→ Fractalish runtime
+→ Activation / AIA
+→ Guardian / ExoMCP / Viral Sentinel
+→ SERA
+→ Tower / SymID / SessionGlyph
+→ Quorum / Hive
+→ Great Work
+
+Also determine where CNTM, APTD, EphUX, T81/Axion, and the current fledgling-AI runtime belong.
+
+If the actual files support a different ordering, document the evidence.
+
+Architecture Reconstruction Deliverables
+
+Create an orientation directory inside the writable continuation workspace:
+
+00_CANONICAL_ORIENTATION
+
+
+
+Create:
+
+00_SOURCE_SEARCH_LEDGER.csv
+01_CANONICAL_SOURCE_AUTHORITY.md
+02_STACK_ARCHITECTURE_MAP.md
+03_CONCEPT_DOSSIERS.md
+04_PROJECT_LINEAGE_AND_VERSION_MAP.md
+05_IMPLEMENTATION_STATUS_MATRIX.csv
+06_VALIDATION_AND_EVIDENCE_MATRIX.csv
+07_CONFLICT_AND_SUPERSESSION_LEDGER.md
+08_NAMING_COLLISION_LEDGER.md
+09_APTD_SOURCE_REPORT.md
+10_BABY_AI_BUILD_RELATIONSHIP.md
+11_STAGE_2R_RELEVANCE_MAP.md
+12_UNRESOLVED_HOLD_ITEMS.md
+13_CANONICAL_RECONSTRUCTION_TEST.md
+14_ORIENTATION_COMPLETION.md
+Concept Dossier Format
+
+For every major concept, use this structure:
+
+Name
+Alternate names and versions
+Canonical source files
+Definition
+Problem answered
+Mechanism
+Inputs
+Outputs
+State carried forward
+Relationship to upstream layers
+Relationship to downstream layers
+Evidence and validation
+Current implementation status
+
+Use only:
+
+IMPLEMENTED
+PARTIALLY IMPLEMENTED
+SIMULATED
+SPECIFIED
+PROPOSED
+HISTORICAL
+SUPERSEDED
+SOURCE CONFLICT
+SOURCE NOT FOUND
+Non-claims
+Known limitations
+First intended implementation
+What this concept must not be confused with
+Relevance to the fledgling AI
+Implementation Status Matrix
+
+For every named project, separate:
+
+theory;
+specification;
+code;
+tests;
+simulation;
+physical experiment;
+hardware;
+deployment;
+public website;
+patent or disclosure status.
+
+Do not let the existence of a document imply working code.
+
+Do not let code imply validation.
+
+Do not let simulation imply hardware.
+
+Do not let a website imply implementation.
+
+Conflict Handling
+
+When versions conflict:
+
+record both;
+identify their dates;
+identify explicit authority language;
+identify later supersession statements;
+compare implementation evidence;
+select an authority only when justified;
+otherwise route the conflict to HOLD.
+
+Do not blend incompatible rules into a synthetic compromise.
+
+Examples requiring explicit attention:
+
+Natural Math v3.6 versus frozen v5;
+later Natural Math research branches;
+old and new SymLan vocabulary models;
+continuous versus integer attractor states;
+old and new Construction A+ pipelines;
+different meanings of SERA;
+older Cognitive Basin summaries versus current team kernel;
+Fractalish public language versus implementation architecture;
+AIA product plans versus activation theory;
+CNTM physical claims versus digital twin status.
+Reconstruction Test
+
+Before coding, answer in your own words without copying a glossary:
+
+Why is Closure placed before symbolic language?
+What does “memory becomes geometry outside cognition; memory becomes constraint inside cognition” mean operationally?
+Why is Natural Math not the whole fledgling AI?
+Why is Local Flow Trail Memory only an extension experiment?
+What is the difference between MCVA and Natural Math?
+What is the difference between Construction A+ and SymLan?
+How does Honeybee relate to Construction A+?
+What must happen before a state earns a SymLan token?
+What does Cognitive Basin preserve that ordinary memory does not?
+How do contradiction scars differ from negative trail memory?
+What are PERCEPT, ATAL, RIGOR, CIRCUIT, GUARD, and SERA responsible for?
+What is HOLD, and why is it not indecision?
+What is activation, and why is it not autonomy?
+What is Sovereign AIA meant to embody?
+What is CNTM meant to provide physically?
+How should SERA measure the Local Flow Trail Memory experiment?
+Where do Tower, SymID, and SessionGlyph fit?
+What did the first APTD contribute?
+Which components currently exist as code?
+Which remain specification, simulation, or research proposals?
+What is the next valid build step, and why?
+What must not be implemented yet?
+
+Every answer must cite local source paths.
+
+If a question cannot be answered from evidence, answer HOLD and state what is missing.
+
+Stage 2R Relevance Report
+
+After reconstructing the complete stack, explain why Stage 2R matters to the larger architecture.
+
+At minimum explain:
+
+why exact Natural Math phase hooks are necessary for trustworthy experience;
+why extension state must remain separate from frozen node state;
+why a movement proposal is not yet understanding;
+how later successful movement history may become morphological memory;
+how later repeated patterns could become Cognitive Basin associations;
+how stable repeated structures might eventually be described by MCVA;
+how Construction A+ could later read settled attractor structure;
+how SymLan could later compress only earned stable states;
+how SERA should measure benefit, waste, and regressions;
+why none of those later layers should be prematurely implemented during Stage 2R.
+Completion Standard
+
+Canonical Orientation is COMPLETE only if:
+
+the drive search ledger is present;
+every required project has a dossier or explicit SOURCE NOT FOUND result;
+APTD is resolved or honestly marked unresolved;
+authority and conflicts are documented;
+the layer map is evidence-grounded;
+implementation status is separated from theory;
+the reconstruction test is answered with file paths;
+the next build step is justified in stack context;
+no source files were modified;
+no implementation work began.
+
+If orientation is incomplete, stop.
+
+Do not start Stage 2R merely because the repair prompt is available.
+
+Final Response
+
+Report:
+
+Search roots examined.
+Number of candidate files reviewed.
+Canonical anchors selected.
+Concepts resolved.
+Concepts unresolved.
+APTD result.
+Major version conflicts.
+Current implementation layers.
+Current unimplemented layers.
+Exact relationship of Natural Math, Construction A+, SymLan, Cognitive Basin, Fractalish, AIA, CNTM, and SERA.
+Whether you can accurately explain the fledgling-AI build path.
+Whether Stage 2R may safely begin.
+Exact orientation files created.
+
+Do not begin coding until this orientation is reviewed or explicitly accepted.

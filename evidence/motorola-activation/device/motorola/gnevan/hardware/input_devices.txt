@@ -1,0 +1,69 @@
+add device 1: /dev/input/event9
+  name:     "double-tap"
+  events:
+    KEY (0001): KEY_F1                KEY_F4               
+  input props:
+    <none>
+add device 2: /dev/input/event8
+  name:     "NVTCapacitiveTouchScreen"
+  events:
+    KEY (0001): KEY_POWER             BTN_TOUCH            
+    ABS (0003): ABS_MT_SLOT           : value 0, min 0, max 9, fuzz 0, flat 0, resolution 0
+                ABS_MT_TOUCH_MAJOR    : value 0, min 0, max 1600, fuzz 0, flat 0, resolution 0
+                ABS_MT_TOUCH_MINOR    : value 0, min 0, max 1600, fuzz 0, flat 0, resolution 0
+                ABS_MT_ORIENTATION    : value 0, min 0, max 90, fuzz 0, flat 0, resolution 0
+                ABS_MT_POSITION_X     : value 0, min 0, max 720, fuzz 0, flat 0, resolution 0
+                ABS_MT_POSITION_Y     : value 0, min 0, max 1600, fuzz 0, flat 0, resolution 0
+                ABS_MT_TRACKING_ID    : value 0, min 0, max 65535, fuzz 0, flat 0, resolution 0
+                ABS_MT_PRESSURE       : value 0, min 0, max 1000, fuzz 0, flat 0, resolution 0
+  input props:
+    INPUT_PROP_DIRECT
+add device 3: /dev/input/event7
+  name:     "pen_detect"
+  events:
+    SW  (0005): SW_PEN_INSERTED      
+  input props:
+    <none>
+add device 4: /dev/input/event6
+  name:     "Moto CapSense Ch3"
+  events:
+    ABS (0003): ABS_DISTANCE          : value -1, min -1, max 100, fuzz 0, flat 0, resolution 0
+  input props:
+    <none>
+add device 5: /dev/input/event5
+  name:     "Moto CapSense Ch2"
+  events:
+    ABS (0003): ABS_DISTANCE          : value -1, min -1, max 100, fuzz 0, flat 0, resolution 0
+  input props:
+    <none>
+add device 6: /dev/input/event4
+  name:     "Moto CapSense Ch1"
+  events:
+    ABS (0003): ABS_DISTANCE          : value -1, min -1, max 100, fuzz 0, flat 0, resolution 0
+  input props:
+    <none>
+add device 7: /dev/input/event3
+  name:     "Moto CapSense Ch0"
+  events:
+    ABS (0003): ABS_DISTANCE          : value -1, min -1, max 100, fuzz 0, flat 0, resolution 0
+  input props:
+    <none>
+add device 8: /dev/input/event2
+  name:     "mt6768-mt6358 Headset Jack"
+  events:
+    KEY (0001): KEY_VOLUMEDOWN        KEY_VOLUMEUP          KEY_MEDIA             KEY_VOICECOMMAND     
+    SW  (0005): SW_HEADPHONE_INSERT   SW_MICROPHONE_INSERT  SW_LINEOUT_INSERT     SW_JACK_PHYSICAL_INS    
+  input props:
+    <none>
+add device 9: /dev/input/event0
+  name:     "mtk-pmic-keys"
+  events:
+    KEY (0001): KEY_VOLUMEDOWN        KEY_POWER            
+  input props:
+    <none>
+add device 10: /dev/input/event1
+  name:     "mtk-kpd"
+  events:
+    KEY (0001): KEY_VOLUMEUP         
+  input props:
+    <none>

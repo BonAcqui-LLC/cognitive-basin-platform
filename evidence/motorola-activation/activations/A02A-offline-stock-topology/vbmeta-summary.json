@@ -1,0 +1,27 @@
+{
+  "images": [
+    {
+      "image": "vbmeta.img",
+      "status": "UNPARSED",
+      "reason": "Trusted AOSP host parsers were not present in the A02A environment (avbtool, unpack_bootimg, lpunpack unavailable on PATH). Read-only byte hashing completed; authoritative structured header parsing remains pending A02B/AOSP tooling.",
+      "sha256": "DB1B9349B12E6605F56EC6D20612E1A9867FE0A607EBDCA5AD15292460C25068",
+      "magic": {
+        "magic_ascii": "AVB0............",
+        "magic_hex": "41564230000000010000000000000000",
+        "looks_like_android_sparse": false
+      }
+    },
+    {
+      "image": "vbmeta_system.img",
+      "status": "UNPARSED",
+      "reason": "Trusted AOSP host parsers were not present in the A02A environment (avbtool, unpack_bootimg, lpunpack unavailable on PATH). Read-only byte hashing completed; authoritative structured header parsing remains pending A02B/AOSP tooling.",
+      "sha256": "ADEF5A364B29C95056588473FF86C5507A84F8EF527745628FA255EC14851608",
+      "magic": {
+        "magic_ascii": "AVB0............",
+        "magic_hex": "41564230000000010000000000000000",
+        "looks_like_android_sparse": false
+      }
+    }
+  ],
+  "conclusion": "Package clearly carries root and system vbmeta payloads, but chain descriptors and rollback indexes were not authoritatively parsed offline in A02A."
+}

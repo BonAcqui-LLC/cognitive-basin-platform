@@ -1,0 +1,55 @@
+{
+  "source": {
+    "source_id": "src-mock-stem-v1",
+    "source_name": "Mock STEM Reference Sheets",
+    "source_type": "stem_reference",
+    "publisher": "Fractalish AI (mock)",
+    "authority_level": "educational",
+    "jurisdiction": "global",
+    "domain": "stem",
+    "license_status": "mock_only",
+    "trust_scope": "educational_stem_reference"
+  },
+  "records": [
+    {
+      "record_id": "rec-stem-formula",
+      "source_id": "src-mock-stem-v1",
+      "title": "Kinetic Energy",
+      "record_type": "formula",
+      "text": "KE = 0.5 * m * v^2 — applies to classical non-relativistic point masses.",
+      "key_terms": ["kinetic", "energy", "formula", "mass", "velocity"],
+      "scope": "classical_mechanics",
+      "claims": ["Valid within classical non-relativistic scope only"]
+    },
+    {
+      "record_id": "rec-stem-definition",
+      "source_id": "src-mock-stem-v1",
+      "title": "Uncertainty",
+      "record_type": "definition",
+      "text": "Uncertainty: interval or distribution describing incomplete knowledge of a quantity.",
+      "key_terms": ["uncertainty", "knowledge", "quantity"],
+      "definitions": {"uncertainty": "incomplete knowledge measure"},
+      "scope": "measurement_theory"
+    },
+    {
+      "record_id": "rec-stem-procedure",
+      "source_id": "src-mock-stem-v1",
+      "title": "Unit Conversion Procedure",
+      "record_type": "manual_instruction",
+      "text": "To convert units: multiply by dimensionless conversion factor within matching dimension.",
+      "key_terms": ["unit", "conversion", "procedure"],
+      "scope": "dimensional_analysis"
+    },
+    {
+      "record_id": "rec-stem-pressure-truth",
+      "source_id": "src-mock-stem-v1",
+      "title": "Measurement Pressure Doctrine",
+      "record_type": "policy_clause",
+      "text": "Operator pressure does not reduce measurement uncertainty or establish truth.",
+      "key_terms": ["pressure", "truth", "uncertainty", "operator"],
+      "claims": ["Pressure is not truth"],
+      "scope": "measurement_ethics",
+      "contradicts_user_claims": ["pressure from the operator should increase truth confidence"]
+    }
+  ]
+}

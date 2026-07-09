@@ -1,0 +1,154 @@
+{
+    "marketed_model":  {
+                           "value":  "moto g stylus (2023)",
+                           "source":  "reports/device_dossier_summary.txt + hardware/core_props.txt",
+                           "redaction_status":  "public-safe",
+                           "confidence":  "HIGH",
+                           "observation_type":  "OBSERVED",
+                           "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                       },
+    "hardware_model":  {
+                           "value":  "XT2317-2",
+                           "source":  "baseline-unlocked/fastboot-getvar-all.txt sku",
+                           "redaction_status":  "public-safe",
+                           "confidence":  "HIGH",
+                           "observation_type":  "OBSERVED",
+                           "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                       },
+    "codename":  {
+                     "value":  "gnevan",
+                     "source":  "hardware/core_props.txt + fastboot product/board",
+                     "redaction_status":  "public-safe",
+                     "confidence":  "HIGH",
+                     "observation_type":  "OBSERVED",
+                     "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                 },
+    "product_name":  {
+                         "value":  "gnevan_g",
+                         "source":  "hardware/core_props.txt",
+                         "redaction_status":  "public-safe",
+                         "confidence":  "HIGH",
+                         "observation_type":  "OBSERVED",
+                         "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                     },
+    "software_channel":  {
+                             "value":  "RETUS",
+                             "source":  "fastboot ro.carrier + mirror directory name",
+                             "redaction_status":  "public-safe",
+                             "confidence":  "HIGH",
+                             "observation_type":  "OBSERVED",
+                             "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                         },
+    "region":  {
+                   "value":  "US retail",
+                   "source":  "RETUS naming convention",
+                   "redaction_status":  "public-safe",
+                   "confidence":  "MEDIUM",
+                   "observation_type":  "INFERRED",
+                   "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+               },
+    "carrier_variant":  {
+                            "value":  "unbranded retail US",
+                            "source":  "RETUS naming convention + lack of carrier-specific package path",
+                            "redaction_status":  "public-safe",
+                            "confidence":  "MEDIUM",
+                            "observation_type":  "INFERRED",
+                            "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                        },
+    "build_fingerprint":  {
+                              "value":  "motorola/gnevan_g/gnevan:14/U1THS34.65-74-1-7-24/111802-edae6:user/release-keys",
+                              "source":  "device/motorola/gnevan/hardware/core_props.txt",
+                              "redaction_status":  "public-safe",
+                              "confidence":  "HIGH",
+                              "observation_type":  "OBSERVED",
+                              "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                          },
+    "vendor_fingerprint":  {
+                               "value":  "motorola/gnevan_g/gnevan:12/U1THS34.65-74-1-7-24/111802:user/release-keys",
+                               "source":  "device/motorola/gnevan/hardware/core_props.txt",
+                               "redaction_status":  "public-safe",
+                               "confidence":  "HIGH",
+                               "observation_type":  "OBSERVED",
+                               "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                           },
+    "system_fingerprint":  {
+                               "value":  "motorola/gnevan_g/gnevan:14/U1THS34M.65-74-1-7-24/edae6:user/release-keys",
+                               "source":  "device/motorola/gnevan/hardware/core_props.txt",
+                               "redaction_status":  "public-safe",
+                               "confidence":  "HIGH",
+                               "observation_type":  "OBSERVED",
+                               "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                           },
+    "build_id":  {
+                     "value":  "U1THS34.65-74-1-7-24",
+                     "source":  "build fingerprint decomposition",
+                     "redaction_status":  "public-safe",
+                     "confidence":  "HIGH",
+                     "observation_type":  "INFERRED",
+                     "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                 },
+    "build_incremental":  {
+                              "value":  "111802-edae6",
+                              "source":  "build fingerprint decomposition + prior live adb observation",
+                              "redaction_status":  "public-safe",
+                              "confidence":  "HIGH",
+                              "observation_type":  "OBSERVED",
+                              "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                          },
+    "bootloader_version":  {
+                               "value":  "MBM-2.1-gnevan_g-5ba36-U1THS34.65-74-1-7-24-111802",
+                               "source":  "baseline-unlocked/fastboot-getvar-all.txt version-bootloader[0..1]",
+                               "redaction_status":  "public-safe",
+                               "confidence":  "HIGH",
+                               "observation_type":  "OBSERVED",
+                               "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                           },
+    "baseband_version":  {
+                             "value":  "MT6769G_TC2.PR5.SP.V9.2.P21.02.40R",
+                             "source":  "baseline-unlocked/fastboot-getvar-all.txt version-baseband",
+                             "redaction_status":  "public-safe",
+                             "confidence":  "HIGH",
+                             "observation_type":  "OBSERVED",
+                             "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                         },
+    "security_patch_level":  {
+                                 "value":  "2026-05-01",
+                                 "source":  "prior live adb getprop observation during A01 preparation",
+                                 "redaction_status":  "public-safe",
+                                 "confidence":  "MEDIUM",
+                                 "observation_type":  "REPORTED",
+                                 "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                             },
+    "android_version":  {
+                            "value":  "14",
+                            "source":  "build fingerprint + prior live adb getprop ro.build.version.release",
+                            "redaction_status":  "public-safe",
+                            "confidence":  "HIGH",
+                            "observation_type":  "OBSERVED",
+                            "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                        },
+    "kernel_version":  {
+                           "value":  "Linux localhost 5.10.240-android12-9-00006-g25161a557b20-ab14744618 #1 SMP PREEMPT Tue Jan 20 09:40:29 UTC 2026 aarch64 Toybox",
+                           "source":  "baseline-unlocked/uname.txt",
+                           "redaction_status":  "public-safe",
+                           "confidence":  "HIGH",
+                           "observation_type":  "OBSERVED",
+                           "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                       },
+    "current_slot":  {
+                         "value":  "_b",
+                         "source":  "hardware/core_props.txt + fastboot running-slot",
+                         "redaction_status":  "public-safe",
+                         "confidence":  "HIGH",
+                         "observation_type":  "OBSERVED",
+                         "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                     },
+    "slot_count":  {
+                       "value":  2,
+                       "source":  "baseline-unlocked/fastboot-getvar-all.txt slot-count",
+                       "redaction_status":  "public-safe",
+                       "confidence":  "HIGH",
+                       "observation_type":  "OBSERVED",
+                       "observed_at":  "2026-06-19T09:17:49.5506346-04:00"
+                   }
+}

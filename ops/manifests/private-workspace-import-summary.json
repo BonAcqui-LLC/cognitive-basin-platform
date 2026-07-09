@@ -1,0 +1,16 @@
+{
+  "AIA": 49,
+  "CNTM": 392,
+  "Motorola baseline": 14,
+  "Motorola A01": 12,
+  "Motorola A02A": 33,
+  "Motorola A02B": 18,
+  "Motorola sanitized evidence": 4,
+  "Motorola hardware": 17,
+  "Motorola manifests": 2,
+  "Motorola reports": 4,
+  "Motorola current-build-identity.json": 1,
+  "Motorola current-build-identity.md": 1,
+  "Motorola package-candidate.json": 1,
+  "Motorola A02A tool": 1
+}

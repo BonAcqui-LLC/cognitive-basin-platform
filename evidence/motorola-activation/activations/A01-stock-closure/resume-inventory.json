@@ -1,0 +1,45 @@
+{
+    "generated_at":  "2026-06-19T09:17:49.5506346-04:00",
+    "entries":  [
+                    {
+                        "path":  "C:\\Motorola-Activation\\baseline-unlocked",
+                        "byte_count":  null,
+                        "last_write_timestamp":  "2026-06-18T18:16:31.6426026-04:00",
+                        "file_type":  "directory",
+                        "completion_state":  "complete",
+                        "sha256":  null,
+                        "relationship_to_prior_session":  "baseline-bundle",
+                        "original_or_derived":  "original"
+                    },
+                    {
+                        "path":  "C:\\Motorola-Activation\\device\\motorola\\gnevan",
+                        "byte_count":  null,
+                        "last_write_timestamp":  "2026-06-18T18:32:17.4739189-04:00",
+                        "file_type":  "directory",
+                        "completion_state":  "complete",
+                        "sha256":  null,
+                        "relationship_to_prior_session":  "device-dossier",
+                        "original_or_derived":  "derived"
+                    },
+                    {
+                        "path":  "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock",
+                        "byte_count":  null,
+                        "last_write_timestamp":  "2026-06-18T18:44:23.7423375-04:00",
+                        "file_type":  "directory",
+                        "completion_state":  "complete",
+                        "sha256":  null,
+                        "relationship_to_prior_session":  "stock-subtree",
+                        "original_or_derived":  "derived"
+                    },
+                    {
+                        "path":  "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\original\\XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+                        "byte_count":  4190063592,
+                        "last_write_timestamp":  "2026-06-18T19:21:08.5628509-04:00",
+                        "file_type":  ".zip",
+                        "completion_state":  "complete",
+                        "sha256":  "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+                        "relationship_to_prior_session":  "downloaded-package-candidate-preserved",
+                        "original_or_derived":  "original"
+                    }
+                ]
+}

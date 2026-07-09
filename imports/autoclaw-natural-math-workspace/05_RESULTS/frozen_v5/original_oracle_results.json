@@ -1,0 +1,209 @@
+{
+  "runner": "stage_1_1_oracle_runner.py",
+  "timestamp": "2026-06-23",
+  "overall_passed": true,
+  "total_fixtures": 40,
+  "passed_count": 40,
+  "integer_fixtures": {
+    "passed": true,
+    "count": 25,
+    "passed_count": 25,
+    "cases": [
+      {
+        "name": "empty_list_returns_empty",
+        "status": "PASS"
+      },
+      {
+        "name": "energy_below_tau_restrict_dies_before_pressure",
+        "status": "PASS"
+      },
+      {
+        "name": "duplicate_live_position_contact_death",
+        "status": "PASS"
+      },
+      {
+        "name": "adjacent_live_nodes_sense_and_pressure",
+        "status": "PASS"
+      },
+      {
+        "name": "integer_gradient_successful_extend",
+        "status": "PASS"
+      },
+      {
+        "name": "fallback_extend_with_seeded_rng",
+        "status": "PASS"
+      },
+      {
+        "name": "blocked_fallback_target_pays_sense_and_conflict_pressure",
+        "status": "PASS"
+      },
+      {
+        "name": "contested_unblocked_fallback_target_high_energy_wins",
+        "status": "PASS"
+      },
+      {
+        "name": "bifurcation_successful_split_from_fallback_extend",
+        "status": "PASS"
+      },
+      {
+        "name": "bifurcation_pressure_below_threshold_moves_normally",
+        "status": "PASS"
+      },
+      {
+        "name": "bifurcation_energy_threshold_must_be_strictly_greater",
+        "status": "PASS"
+      },
+      {
+        "name": "bifurcation_child_position_blocked_by_frozen_occupancy",
+        "status": "PASS"
+      },
+      {
+        "name": "bifurcation_child_position_outside_boundary_moves_normally",
+        "status": "PASS"
+      },
+      {
+        "name": "bifurcation_reserved_child_position_blocks_later_split",
+        "status": "PASS"
+      },
+      {
+        "name": "bonding_adjacent_pair_forms_after_pressure_and_equalizes_energy",
+        "status": "PASS"
+      },
+      {
+        "name": "bonding_strict_rejects_distance_equal_to_threshold",
+        "status": "PASS"
+      },
+      {
+        "name": "bonding_non_strict_allows_distance_equal_to_threshold",
+        "status": "PASS"
+      },
+      {
+        "name": "bonding_max_live_degree_blocks_extra_pairs",
+        "status": "PASS"
+      },
+      {
+        "name": "bonding_historical_dead_bonds_do_not_count_against_live_capacity",
+        "status": "PASS"
+      },
+      {
+        "name": "bonding_collapse_positions_keeps_bonded_duplicate_live_nodes_alive",
+        "status": "PASS"
+      },
+      {
+        "name": "deficit_mode_can_reverse_gradient_direction",
+        "status": "PASS"
+      },
+      {
+        "name": "deficit_mode_is_zero_when_both_nodes_at_or_above_E0",
+        "status": "PASS"
+      },
+      {
+        "name": "poc_scream_low_energy_neighbor_uses_suffering_strength",
+        "status": "PASS"
+      },
+      {
+        "name": "poc_scream_disables_bifurcation_and_extends_normally",
+        "status": "PASS"
+      },
+      {
+        "name": "validation_rejects_deficit_and_poc_scream_together",
+        "status": "PASS"
+      }
+    ]
+  },
+  "cluster_fixtures": {
+    "passed": true,
+    "count": 15,
+    "passed_count": 15,
+    "initialization": {
+      "count": 2,
+      "passed": 2,
+      "cases": [
+        {
+          "name": "cluster_seed_3_initialization_summary",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_seed_11_initialization_summary",
+          "status": "PASS"
+        }
+      ]
+    },
+    "metrics": {
+      "count": 3,
+      "passed": 3,
+      "cases": [
+        {
+          "name": "cluster_metrics_empty_state",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_metrics_connected_success_low_gini",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_metrics_fragmented_high_gini_far_resource",
+          "status": "PASS"
+        }
+      ]
+    },
+    "action": {
+      "count": 5,
+      "passed": 5,
+      "cases": [
+        {
+          "name": "cluster_action_policy_seek_moves_toward_resource",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_action_policy_rest_adds_rest_gain",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_action_redistribute_transfers_energy_over_live_bond",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_action_policy_repair_fragmented_adds_first_valid_bond",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_resource_absorption_shares_integer_energy",
+          "status": "PASS"
+        }
+      ]
+    },
+    "damage": {
+      "count": 1,
+      "passed": 1,
+      "cases": [
+        {
+          "name": "cluster_damage_loses_energy_and_breaks_seeded_bonds",
+          "status": "PASS"
+        }
+      ]
+    },
+    "run": {
+      "count": 4,
+      "passed": 4,
+      "cases": [
+        {
+          "name": "cluster_seed_3_steps_0_exact_result",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_seed_3_steps_1_exact_result",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_seed_3_steps_35_damage_gate_exact_result",
+          "status": "PASS"
+        },
+        {
+          "name": "cluster_seed_3_steps_140_exact_result",
+          "status": "PASS"
+        }
+      ]
+    }
+  }
+}

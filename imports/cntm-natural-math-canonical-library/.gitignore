@@ -1,0 +1,16 @@
+manifests/local_provenance_private.json
+*.tmp
+*.temp
+*.bak
+.DS_Store
+Thumbs.db
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+*.env
+*.key
+*.pem
+*.p12
+*.secret

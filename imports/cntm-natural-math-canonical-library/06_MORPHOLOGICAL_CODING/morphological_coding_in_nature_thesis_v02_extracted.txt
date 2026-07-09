@@ -1,0 +1,775 @@
+Morphological Coding in Nature
+
+The Emergence of Functional, Distinguishable, and Transmissible States Through Local Geometric and Fractal Processes
+
+James Allen Clow and Melissa Ellen Clow
+
+Research thesis and experimental framework - Version 0.2 - June 2026
+
+Status and claim boundary: This manuscript proposes an operational framework for testing morphology-mediated coding. It does not claim that every natural pattern is a code, that any current CNTM simulation is a physical chemical process, that CNT memory has been built, or that the Evolution 2.0 Challenge has been solved.
+
+Core proposition
+
+Local physical processes can generate morphology that serves as a persistent, causally active carrier of finite, distinguishable states. A code exists only when those states participate in a reproducible encoder-state-decoder mapping.
+
+Abstract
+
+We propose a testable framework for morphological coding: physical systems in which local growth, deposition, branching, exclusion, and transport processes generate distinguishable structural states that persist, propagate influence, and are reproducibly decoded into different downstream outcomes. The central correction to loose uses of the word code is that morphology alone is not a code. Morphology is the physical carrier or state. The code is the mapping among a set of input conditions or histories, a finite alphabet of morphologically instantiated states, and a corresponding set of decoded outcomes.
+
+The framework separates six progressively stronger claims: pattern, process trace, morphological memory, morphological signal, morphological code, and autonomously arising morphological code. Each level requires evidence not supplied by the preceding level. A branching structure may preserve information about concentration or field history without functioning as a code; a code claim additionally requires stable state boundaries, objective encoding and decoding tables, reproducibility, causal intervention, and error characterization. This hierarchy incorporates the Fractalish/MCVA discipline of reading form while preserving AMCVA and HOLD cases where morphology is equifinal, erased, misleading, or insufficiently diagnostic.
+
+Natural Math supplies a constructive local-rule grammar for generating candidate morphological alphabets in simulation. CNTM supplies a software morphology and conductance workbench. CNTM Phase Zero supplies a controlled surrogate electrochemical pathway for testing whether morphology can be written, measured, converted into a graph-plus-electrical signature, and used by a physical decoder. The proposed program is explicitly pre-CNT, pre-memory-device, and pre-prize-completion. Its immediate purpose is to determine, with falsifiable metrics, whether morphology-mediated state generation and decoding can be demonstrated in a confined electrodeposition system and whether process history is recoverable from the combined temporal, morphological, and electrical evidence chain.
+
+Keywords: morphological coding; physical information; local growth rules; Fractalish; Natural Math; CNTM; electrodeposition; morphology memory; chemical communication; encoder-decoder systems
+
+Contents
+
+1. Problem Statement and Contribution
+
+2. A Claim Hierarchy for Morphology and Code
+
+3. Formal Definition of a Morphological Coding System
+
+4. Digital States, Physical Alphabets, and Decoding
+
+5. Mechanisms That Make Form Informative and Causally Active
+
+6. Evidence Classes Across Physical and Biological Domains
+
+7. Natural Math as a Constructive Morphology Grammar
+
+8. Fractalish, MCVA, AMCVA, and HOLD
+
+9. Falsifiable Hypotheses and Null Models
+
+10. CNTM Phase Zero Physical Validation Path
+
+11. Mapping to the Evolution 2.0 Challenge
+
+12. Required Artifacts and Evidence Package
+
+13. Boundaries, Failure Conditions, and Research Ethics
+
+14. Conclusion
+
+Appendix A. Minimal Formal Model
+
+Appendix B. Example Encoding and Decoding Tables
+
+References
+
+1. Problem Statement and Contribution
+
+Physical systems routinely produce structures that reflect how they were formed. Dendritic deposits reflect transport and field conditions; vascular and fungal networks reflect resource distributions and mechanical constraints; reaction-diffusion media produce spatial states that redirect later waves; fracture networks preserve aspects of stress history. The difficult question is not whether form contains information in a broad correlational sense. The difficult question is when form participates in a coding system.
+
+The term code is often stretched until it means any regularity, pattern, or correlation. That usage is too weak for engineering and too weak for the Evolution 2.0 specification. A crack pattern can be a process trace without being a message. A river network can constrain later flow without possessing a finite alphabet. A machine-learning classifier can impose labels on continuously varying forms without those labels being intrinsic to the physical system. The present framework therefore imposes a sequence of operational tests before a morphology is described as coded.
+
+The contribution is fivefold:
+
+A claim hierarchy that separates pattern, trace, memory, signal, code, and autonomously arising code.
+
+A formal encoder-state-channel-decoder representation in which morphology is the carrier rather than the code by itself.
+
+A falsifiable measurement program using topology, geometry, electrical readout, causal intervention, and information-theoretic tests.
+
+A disciplined role for Fractalish/MCVA positive readout, AMCVA negative cases, and HOLD when equifinality or low confidence prevents closure.
+
+A governed bridge from Natural Math and CNTM simulation to a low-risk electrochemical surrogate, without claiming CNT production or memory-device readiness.
+
+Figure 1. Claim hierarchy. Informative morphology is not automatically a signal, code, or autonomous code.
+
+2. A Claim Hierarchy for Morphology and Code
+
+The thesis becomes stronger when it claims less at each step and requires explicit evidence to move upward. The following hierarchy is cumulative.
+
+Level
+
+Definition
+
+Minimum evidence
+
+Illustrative status
+
+Pattern
+
+A distinguishable spatial or topological form exists.
+
+Image or structure differs from a baseline.
+
+A snowflake or crack pattern.
+
+Process trace
+
+The form is statistically associated with prior conditions or history.
+
+Prediction of an upstream condition from morphology beats chance on held-out data.
+
+Deposit density correlates with current density.
+
+Morphological memory
+
+The existing form changes the probability of later physical events.
+
+Intervention on the form changes later dynamics while relevant external conditions are controlled.
+
+A deposited branch concentrates field and attracts or diverts later growth.
+
+Morphological signal
+
+A state is exposed, transmitted, or made available to a spatially or temporally distinct receiver.
+
+A downstream subsystem responds to the state after a defined channel operation.
+
+A persistent conductive path changes a later current distribution.
+
+Morphological code
+
+A finite set of physically distinguished states is generated and reproducibly decoded into corresponding outcomes.
+
+Encoding and decoding tables, error rates, causal tests, and state boundaries are demonstrated.
+
+Several morphology families each cause a specified output class.
+
+Autonomously arising morphological code
+
+The encoder-decoder relation and alphabet arise from the chemical/physical system without a preloaded codebook.
+
+Origin process, no-code contamination controls, and autonomous state assignment are demonstrated.
+
+This is the stronger unsolved target relevant to the prize.
+
+The hierarchy prevents two common category errors. First, recoverability of history does not by itself establish coding. Second, causal function does not necessarily establish a finite alphabet. A morphology can be functionally important while remaining continuously variable and analog. Conversely, a researcher can discretize any continuous measurement into bins, but post hoc binning does not demonstrate that the physical system itself has digital states.
+
+3. Formal Definition of a Morphological Coding System
+
+Let u denote an input condition, environmental state, or prior history. Let E be the physical encoding dynamics generated by local laws and constraints. Let M be the resulting morphology. Let Q be a physically justified state-identification function that maps M into a member s of a finite alphabet Sigma. Let T represent persistence or transmission through a physical channel. Let D be a decoder whose response depends on the received morphological state and local context z, producing outcome y.
+
+u, h  --E-->  M  --Q-->  s in Sigma  --T-->  s'  --D(., z)-->  y
+
+A candidate morphological coding system is therefore the tuple C_M = (U, H, E, M, Q, Sigma, T, D, Y, Gamma), where Gamma contains the physical constraints, energy budgets, geometry, and boundary conditions. This representation makes three distinctions explicit:
+
+The morphology M is a material state, not automatically a symbol.
+
+The symbol s exists only when the state boundary is physically or functionally justified and classification uncertainty is quantified.
+
+The code is the repeatable relation among u, s, and y, not any one object in isolation.
+
+Figure 2. Operational morphological coding loop. Formation feedback allows prior structure to alter later encoding dynamics.
+
+3.1 Necessary operational criteria
+
+Criterion
+
+Operational requirement
+
+MC-1 Distinguishability
+
+Candidate states form separable clusters under preregistered measurements, with uncertainty and collision rates reported.
+
+MC-2 Reproducible encoding
+
+Repeated equivalent inputs generate the intended state distribution within declared tolerances.
+
+MC-3 Persistence or transmission
+
+The state remains available long enough, or propagates far enough, to be encountered by a distinct decoding event.
+
+MC-4 Reproducible decoding
+
+A defined receiver produces an objectively classifiable outcome conditional on the state.
+
+MC-5 Causal mediation
+
+Changing or masking morphology changes the decoder outcome while competing explanations are controlled.
+
+MC-6 Finite alphabet
+
+The states are not merely arbitrary analysis bins; they correspond to robust physical basins or receiver-sensitive decision regions.
+
+MC-7 Error characterization
+
+False matches, false nonmatches, state collisions, drift, erasure, and ambiguous HOLD cases are measured.
+
+MC-8 Origin account
+
+For autonomous-code claims, the emergence of the alphabet and mapping must be observed without importing a pre-existing codebook.
+
+3.2 Information and intervention tests
+
+A morphology that carries process information should support measurable dependence between input/history U and identified state S. A decoder relation should support dependence between S and outcome Y. Mutual information can summarize these associations, but association alone is insufficient.
+
+I(U; S) > 0  and  I(S; Y) > 0
+
+The decisive test is intervention. If morphology is causally mediating the outcome, then replacing, erasing, masking, or rewiring the morphology should change the distribution of Y under otherwise comparable conditions. In causal notation, P(Y | do(S = s1)) should differ from P(Y | do(S = s2)). This separates a genuine morphology-mediated decoder from a common-cause correlation in which U independently determines both M and Y.
+
+4. Digital States, Physical Alphabets, and Decoding
+
+The phrase digital-like should be used narrowly. Digital behavior does not require silicon or binary voltage levels, but it does require a finite set of reliably distinguishable states and objective decision boundaries. Those boundaries may arise from bistability, threshold chemistry, topological connectivity, branch count, contact/no-contact, or receiver response. They should not be invented after viewing the result.
+
+4.1 Endogenous versus imposed discretization
+
+A physical alphabet is strongest when the system or receiver supplies its own thresholds. A conductive bridge is either absent or present relative to a defined electrical criterion; a decoder may switch regimes once a field concentration exceeds a reaction threshold; a topology may contain or lack a connection between designated terminals. These are more defensible symbol boundaries than dividing fractal dimension into arbitrary numerical bins.
+
+Continuous morphology metrics remain useful as descriptors and predictors, but they become symbols only when linked to robust basins or decoding behavior. Accordingly, the Phase Zero program should begin with low-cardinality, physically anchored states such as no bridge / bridge, one active route / two active routes, or left-biased / balanced / right-biased connectivity before pursuing larger alphabets.
+
+4.2 Sequence, character, and compositionality
+
+A single morphological state can function as stored information, but a communication-code claim becomes stronger when states can be arranged into sequences or layered characters. Spatially separated cells, temporally staged growth epochs, or multiple terminal regions can provide symbol positions. The decoding table must be specified before evaluation, and success must be judged on held-out sequences rather than selected demonstrations.
+
+5. Mechanisms That Make Form Informative and Causally Active
+
+5.1 Local growth and branching
+
+Local deposition and growth fronts respond to concentration, potential, curvature, field orientation, surface condition, and neighboring occupancy. Small differences can be amplified into different branch topologies. Electrodeposition experiments in confined cells demonstrate regime changes between ramified and dendritic structures as current density and concentration vary, while phase-field models couple concentration, electric potential, interface kinetics, and anisotropy to predict tip velocity and morphology [6-8].
+
+5.2 Occupancy and contact as discrete constraints
+
+Occupancy turns continuous space into a history-dependent constraint field. Once a site is filled, later trajectories are excluded, diverted, merged, or shorted. Contact can create an abrupt change in conductance, transport, or mechanical load. These contact events are natural candidates for physically grounded symbols because they create state transitions that a receiver can detect.
+
+5.3 Finite resources and path dependence
+
+Finite precursor, energy, space, and time make growth selective. Existing structures alter gradients and consume resources, so the probability of future extension depends on the route already taken. This is the physical basis of morphological memory: prior formation is no longer passive history but an active constraint inside later dynamics.
+
+5.4 Multi-scale signatures
+
+Branching ratio, junction degree, path length, tortuosity, occupied area, lacunarity, box-counting dimension, loop structure, and graph spectra can summarize morphology across scales. These descriptors are useful for classification and model comparison, but no single fractal statistic establishes coding. The strongest evidence combines morphology with direct functional observables such as conductance, flow, impedance, or subsequent growth behavior.
+
+5.5 Closure and stable referenceability
+
+A state becomes addressable only when it closes sufficiently to be recognized again. Closure may be topological, electrical, chemical, or statistical. It does not imply perfect permanence. It means that the state has a defined identity region and a replay test. States outside that region remain pending or HOLD rather than being forced into the nearest symbol.
+
+6. Evidence Classes Across Physical and Biological Domains
+
+Existing systems support different portions of the framework. They should not be treated as interchangeable proof. The following classification distinguishes what each domain demonstrates and what remains missing.
+
+Domain
+
+What is established
+
+Relevance
+
+Missing evidence
+
+Confined metal electrodeposition
+
+Local fields and transport generate measurable morphology families; morphology can strongly affect bridging and conductance.
+
+Excellent surrogate for writing, imaging, and electrical readout.
+
+Does not by itself demonstrate a finite alphabet or autonomous encoder-decoder mapping.
+
+Charged porous electrodeposition
+
+Surface charge and confinement can guide or suppress dendritic paths.
+
+Shows that local boundary conditions can act as physical steering and restriction mechanisms.
+
+The pore geometry and charge treatment are externally designed.
+
+Reaction-diffusion / BZ media
+
+Chemical waves can implement logic and language-recognition behaviors under configured conditions.
+
+Demonstrates that non-biochemical chemistry can process distinguishable states.
+
+Many demonstrations use imposed geometry, timed inputs, or externally designed reaction networks.
+
+Physarum and adaptive biological networks
+
+Network morphology adapts to resources and supports transport optimization.
+
+Strong example of form-function feedback and morphology-mediated behavior.
+
+Living material is excluded by the prize and does not establish abiotic code origin.
+
+Vascular, fungal, and root networks
+
+Branch topology reflects gradients and affects transport and resilience.
+
+Supports the general principle that morphology is an active functional constraint.
+
+Discrete alphabet and decoder are usually not identified.
+
+Fractures, clouds, plumes, and geological patterns
+
+Form may retain statistical evidence of generating regimes.
+
+Useful as process traces and for Fractalish measurement.
+
+Usually lacks a distinct receiver and should not be called code without additional evidence.
+
+6.1 Strongest abiotic precedent: chemical automata
+
+Experiments with non-biochemical chemical automata show that chemical reactions can recognize input sequences and produce distinct accept/reject outcomes [9]. Earlier excitable-media work demonstrated logical operations through propagating chemical waves [10,11]. These results establish that chemistry can instantiate information processing. They do not automatically satisfy an autonomous-origin requirement because the reaction network, geometry, input protocol, or interpretation may be externally configured. For the present thesis, their importance is narrower and more secure: chemistry can be an encoder, channel, and decoder substrate.
+
+6.2 Strongest morphology precedent: adaptive networks
+
+Physarum experiments and models show that a physical network can adapt its tube geometry to resource placement and produce efficient transport networks [4,5]. The morphology is both record and functional infrastructure. This supports the idea that form can perform work normally assigned to a controller. It is evidence for morphological memory and computation, not a direct abiotic prize solution.
+
+6.3 Negative evidence is part of the framework
+
+A rigorous program must publish morphology that fails to decode history, produces equifinal outcomes, or changes function without forming discrete states. Such cases populate AMCVA rather than being discarded. A thesis that treats every branched or fractal object as code is unfalsifiable; a thesis that identifies exactly where the code test fails is scientifically useful.
+
+7. Natural Math as a Constructive Morphology Grammar
+
+Natural Math is used here as a constructive simulation grammar, not as a claim that physical systems literally execute software instructions. Active sites make bounded local transitions under finite energy, occupancy, proximity, and pressure constraints. Core operators include EXTEND, SENSE, RESTRICT, BIFURCATE, MAINTAIN, PRUNE, and HOLD. Prior movement deposits state that changes later possibility.
+
+7.1 Minimal state model
+
+For a site i at time t, let x_i(t) contain occupancy, local energy, pressure or deficit, lineage, and neighborhood summary. A local transition rule selects an operator from the admissible set A_i(t).
+
+x_i(t+1) = F(x_i(t), N_i(t), E_i(t), P_i(t), Gamma; theta)
+
+The local rule can generate candidate morphology families whose topology and conductance are measured. The simulation is useful because every transition has provenance and can be replayed. It does not establish that the same operator labels correspond one-to-one with electrochemical mechanisms; that mapping belongs in a separate physical adapter calibrated from experiments.
+
+7.2 Encoder / state / decoder primitive
+
+A minimal Natural Math coding experiment should not merely produce different shapes. It should define: (1) a set of input regimes; (2) a preregistered finite morphology alphabet; (3) a physical or simulated decoder whose behavior changes according to the selected state; and (4) an encoding and decoding table. This converts a growth demonstration into a communication test.
+
+7.3 Determinism, stochasticity, and replay
+
+Software determinism is valuable for debugging and provenance. Physical realization will be stochastic. The correct comparison is therefore not pixel identity but distributional fidelity: branch-count distributions, endpoint regions, graph topology, conductance bands, and state-confusion matrices. Natural Math supplies the intended grammar; the physical twin supplies uncertainty and transport physics.
+
+8. Fractalish, MCVA, AMCVA, and HOLD
+
+Fractalish is the disciplined practice of asking what form can and cannot reveal about the processes that generated it. MCVA records positive cases where morphology supports a stable inference. AMCVA records non-diagnostic, misleading, erased, or equifinal cases. HOLD protects unresolved states from premature classification. Together they form the readout discipline required for morphological coding.
+
+8.1 Measurement layers
+
+Layer
+
+Representative observables
+
+Image layer
+
+illumination, calibration, segmentation confidence, occupied area, boundary roughness
+
+Skeleton layer
+
+tips, junctions, branch lengths, branch angles, loops, connectivity
+
+Graph layer
+
+degree distribution, shortest paths, redundancy, spectral features, edit distance
+
+Multi-scale layer
+
+lacunarity, box-counting dimension, scale-dependent anisotropy, path entropy
+
+Electrical/functional layer
+
+two- and four-wire resistance, transfer conductance, impedance features, later growth response
+
+Provenance layer
+
+input schedule, environment, cartridge, chemistry, software, extraction version, hashes
+
+8.2 Equifinality
+
+Different histories can produce similar endpoints. Therefore, morphology-only process recovery must be treated as a hypothesis, not an assumption. The decisive comparison is among endpoint morphology alone, electrical readout alone, combined endpoint evidence, and the full temporal evidence chain. Claims must be limited to the channel that actually supports held-out recovery.
+
+8.3 Every association carries its diff
+
+A physical brush should contain the intended state, observed state, unexplained differences, measurement confidence, and replay history. Positive examples without their failure envelope create brittle associations. Association fields should update only after reproducibility and confidence requirements are met; otherwise the brush is recorded but priors remain unchanged.
+
+9. Falsifiable Hypotheses and Null Models
+
+The thesis should be judged by experiments that could fail. The following hypotheses are deliberately narrower than the broad claim that nature contains code.
+
+Hypothesis
+
+Positive result
+
+Falsifying or limiting result
+
+H1 - State formation
+
+Distinct controlled input histories generate separable morphology families whose held-out classification exceeds a preregistered baseline.
+
+Morphology varies continuously with no stable clusters, or classification fails on held-out runs.
+
+H2 - Morphological memory
+
+Existing deposit geometry changes subsequent growth probability or field distribution under matched external controls.
+
+The apparent effect disappears when field, charge, and concentration are controlled.
+
+H3 - Physical decoding
+
+A spatially or temporally distinct receiver produces different objective outcomes for different morphology states.
+
+Outcome is explained entirely by residual input conditions rather than morphology.
+
+H4 - History recovery
+
+Combined temporal trace, morphology, and conductance identify defined history classes better than endpoint morphology alone.
+
+No improvement over baseline, or high equifinality prevents reliable recovery.
+
+H5 - Closed-loop learning
+
+Versioned physical brushes improve target realization or reduce uncertainty on held-out runs.
+
+Performance does not improve over fixed calibration or improvements vanish after model freeze.
+
+9.1 Required null models
+
+Straightest-path or strongest-field growth baseline.
+
+Unguided diffusion-limited aggregation baseline.
+
+Charge-only predictor that ignores morphology.
+
+Endpoint-area predictor that ignores topology.
+
+Random or permuted encoding table.
+
+Human-selected showcase runs compared with preregistered full-run analysis.
+
+A digital twin is not validated because its images look dendritic. It is validated only if frozen predictions outperform declared baselines on held-out growth rate, branching, bridge timing, topology, and electrical readout.
+
+10. CNTM Phase Zero Physical Validation Path
+
+CNTM currently remains a software morphology simulator and conductance workbench. Phase Zero is a surrogate electrochemical platform intended to validate the control, measurement, comparison, and association architecture before any attempt at CNT growth. The recommended physical system is a transparent, confined, low-voltage electrodeposition cell with synchronized imaging and electrical logging.
+
+Figure 3. Phase Zero evidence chain. The output is a governed physical brush, not a memory-chip claim.
+
+10.1 Phase Zero ladder
+
+Stage
+
+Purpose
+
+Exit evidence
+
+P0-A Apparatus and extraction
+
+Demonstrate stable imaging, electrical logging, segmentation, and graph extraction.
+
+Repeatable baselines; complete provenance; no uncontrolled bridging.
+
+P0-B Morphology alphabet
+
+Produce a small set of physically grounded states such as no-bridge/bridge or left/balanced/right connectivity.
+
+Held-out state classification and reproducibility meet preregistered thresholds.
+
+P0-C Physical decoder
+
+Use morphology to alter a later electrical or growth outcome in a distinct receiver region or epoch.
+
+Causal intervention supports morphology-mediated outcome differences.
+
+P0-D History challenge
+
+Generate similar endpoints by different histories and test recoverability.
+
+Claims restricted to morphology, electrical, or temporal evidence according to results.
+
+P0-E Primitive rewrite
+
+Grow, read, strip/deactivate, reread, and regrow.
+
+Classify honestly as logical prune, bulk erase, scar-mediated regrowth, or branch-selective rewrite.
+
+P0-F Larger alphabet
+
+Only after low-cardinality states are stable, test layered symbol positions and larger state sets.
+
+Confusion matrix, collision rate, decoding table, and endurance reported.
+
+10.2 What Phase Zero can establish
+
+Software can specify a target morphology family and conductance band.
+
+A bounded physical process can be executed with complete provenance.
+
+Morphology and electrical state can be extracted with quantified confidence.
+
+A physical receiver can discriminate some morphology states.
+
+A reduced-order twin can make falsifiable held-out predictions.
+
+Reproducible brushes can update later control decisions through explicit evidence.
+
+10.3 What Phase Zero cannot establish
+
+CNT growth, CNT permanence, or CNT rewrite.
+
+A commercially useful memory device.
+
+Autonomous emergence of a 32-state chemical code.
+
+Morphology-only recovery of arbitrary process history.
+
+Consciousness, sentience, or semantic meaning in the human sense.
+
+11. Mapping to the Evolution 2.0 Challenge
+
+The current public Challenge Guidelines are considerably stricter than a general demonstration that morphology contains information. They require a purely chemical process that generates, transmits, and receives a simple digital code without a designer operating inside the system; an encoder, code, and decoder; a finite alphabet and layered character structure representing at least 32 states; objective encoding and decoding tables; no preprogrammed code; exclusion of living organisms and biological derivatives; documented origin; data; a live demonstration; and independent verification [12].
+
+This has two consequences. First, the thesis should not state that existing natural morphology already satisfies the prize merely because it records and affects physical history. Second, the prize itself recognizes potentially valuable partial solutions that meet a significant fraction of the specification. CNTM Phase Zero is best positioned as a measurement and mechanism-validation program that could support a later submission, not as a current winning demonstration.
+
+Challenge element
+
+Current contribution
+
+Status / gap
+
+Purely chemical and non-living
+
+Copper or polymer electrodeposition can satisfy the non-living surrogate condition.
+
+Possible in later physical work; not established by software.
+
+Encoder, code, decoder
+
+Framework defines all three operationally.
+
+Physical decoder must still be demonstrated.
+
+Digital, finite alphabet
+
+Low-cardinality physically anchored states are proposed.
+
+32-state, two-layer alphabet is not demonstrated.
+
+Encoding and decoding tables
+
+Templates and objective scoring can be produced.
+
+Tables require real held-out data.
+
+No preprogrammed code
+
+Phase Zero uses software control and therefore does not meet this condition.
+
+Autonomous emergence remains HOLD.
+
+Observable origin
+
+Growth can be recorded from initial conditions.
+
+Origin of the code mapping, not merely the morphology, remains unproven.
+
+Live, independently verified operation
+
+Architecture supports reproducible artifacts and protocols.
+
+No live validated system yet exists.
+
+11.1 Strategic implication
+
+The strongest near-term claim is not that the prize has misunderstood code or that any natural fractal qualifies. It is that the project supplies a disciplined candidate class, a formal test, and a physical validation path for determining whether morphology-mediated chemical states can meet progressively more of the specification. This framing invites experimental judgment rather than philosophical agreement.
+
+12. Required Artifacts and Evidence Package
+
+Artifact
+
+Minimum content
+
+Formal specification
+
+Machine-readable definition of inputs, morphology alphabet, decoder outcomes, tolerances, and HOLD conditions.
+
+Natural Math implementation
+
+Versioned local-rule simulator with deterministic replay, seeds, and transition provenance.
+
+Physical adapter
+
+Separate mapping from substrate-agnostic operators to calibrated electrochemical controls.
+
+Run manifest
+
+Immutable target, apparatus, chemistry, waveform, environment, image, and electrical provenance with hashes.
+
+Image-to-graph pipeline
+
+Calibration, segmentation, skeletonization, graph construction, confidence scoring, and manual-audit subset.
+
+Twin and baselines
+
+Reduced-order field/transport model plus frozen naive baselines.
+
+Physical brush schema
+
+Observed state, intended state, diff, confidence, target comparison, twin comparison, and prior-update eligibility.
+
+Preregistered validation protocol
+
+Hypotheses, run counts, exclusions, thresholds, held-out splits, and stopping rules.
+
+MCVA/AMCVA atlas
+
+Positive cases, ambiguous cases, failed decodes, equifinal cases, and instrument failures.
+
+Claim-boundary document
+
+Permitted statements for each experimental gate and prohibited extrapolations.
+
+12.1 Evidence should be replayable, not merely visible
+
+A photograph of an impressive dendrite is not an adequate artifact. Each claimed state should be linked to raw frames, electrical traces, environment logs, extraction version, analysis code, and a frozen comparison output. Replay fidelity is more important than aesthetic similarity. The evidence package should allow an independent reviewer to reproduce the state assignment and determine whether a PASS, HOLD, or FAIL decision was justified.
+
+13. Boundaries, Failure Conditions, and Research Ethics
+
+13.1 Claim boundaries
+
+The thesis proposes that morphological coding is a legitimate, testable class; it does not assert that all morphology is coded.
+
+Natural Math is a simulation grammar; it is not evidence that matter literally executes the named operators.
+
+CNTM is software; Phase Zero is a surrogate electrochemical validation platform.
+
+No CNT production, memory-device, commercial-readiness, consciousness, or sentience claim is made.
+
+Recoverable process history is limited to the histories and evidence channels that pass held-out tests.
+
+Evolution 2.0 compliance is not claimed until every published requirement is experimentally met.
+
+13.2 Failure conditions that improve the theory
+
+Morphology families cannot be reproduced beyond chance.
+
+Apparent symbols disappear under improved measurement resolution.
+
+Decoder outcomes are driven by residual chemistry rather than morphology.
+
+Different histories produce indistinguishable evidence at unacceptable rates.
+
+Physical state boundaries require arbitrary analyst-selected thresholds.
+
+Twin performance does not beat naive baselines on held-out runs.
+
+Association updates cause degradation, drift, or overfitting.
+
+Any of these outcomes would narrow the thesis rather than invalidate the entire research program. The framework is designed to distinguish morphology as trace, memory, signal, or code, so a negative code result can still produce a useful and precisely classified physical phenomenon.
+
+13.3 Safety and operator sovereignty
+
+Physical experimentation must remain low-voltage, current-limited, chemically contained, and governed by written disposal and emergency procedures. No dry nanomaterial handling, high-voltage breakdown, uncontrolled biological material, or unattended energized runs are part of Phase Zero. The human operator defines purpose, permissions, scope, and completion. HOLD is mandatory when provenance, safety, or interpretation is insufficient.
+
+14. Conclusion
+
+Nature does not require human-authored symbols to produce distinguishable, persistent, and functionally consequential states. Local physical rules can write history into form, and form can alter what happens next. That establishes a broad substrate for morphological memory and morphology-mediated information processing.
+
+The stronger word code should be earned. A morphological code exists when a finite set of physically grounded states is reproducibly generated, made available through a channel, and decoded into corresponding outcomes with measurable error. An autonomous morphological code requires still more: the alphabet and mapping must arise without importing a codebook. These distinctions transform a provocative intuition into a research program that can succeed, fail, or narrow in public view.
+
+Natural Math provides a constructive grammar for candidate states. Fractalish provides the discipline for reading form without overreading it. CNTM provides the software workbench. Phase Zero provides the first governed physical evidence chain. The immediate goal is not to declare that nature has already solved the prize. It is to build the apparatus and tests that can determine, with engineering precision, where morphology becomes memory, where memory becomes signal, and where signal becomes code.
+
+Appendix A. Minimal Formal Model
+
+A.1 Local growth state
+
+Let the physical domain be a lattice or discretized field Omega. Each site i carries occupancy q_i(t), concentration c_i(t), potential phi_i(t), local energy e_i(t), and lineage/history l_i(t). The physical fields evolve according to a transport model, while an attachment rule updates the deposit mask.
+
+c(t+dt) = c(t) + dt [D del^2 c - div(mu c grad phi) - R(c, phi, q)]
+
+div(sigma(c,q) grad phi) = 0
+
+At a candidate front site i, define deposition propensity p_i as a bounded function of local concentration, cathodic driving force, field alignment, curvature, and neighborhood occupancy. A generic reduced form is:
+
+p_i = sigmoid(b0 + bc c_i + be |grad phi_i| + ba cos(theta_i) - bk kappa_i - bo occupancy_penalty_i)
+
+The exact coefficients are fitted from calibration data and remain in the physical adapter or reduced-order twin, not in the substrate-agnostic Natural Math grammar. Attachment is sampled from the normalized propensities subject to finite charge, safety, and branch-separation constraints.
+
+A.2 Morphology state identification
+
+s = Q(M, G, r)  if confidence >= tau; otherwise s = HOLD
+
+M is the binary or probabilistic deposit mask, G is the extracted graph, and r is the electrical signature. Q is versioned and preregistered. A state assignment requires both target-family membership and adequate confidence. State collisions and rejected assignments are retained.
+
+A.3 Decoder test
+
+y = D(s, z) + epsilon
+
+The decoder may be a later growth region, terminal conductance measurement, impedance response, or chemically distinct receiver. A code claim requires a confusion matrix between intended inputs and decoded outcomes, not merely a successful example.
+
+Appendix B. Example Encoding and Decoding Tables
+
+The table below illustrates the structure required for a small preliminary alphabet. The values are placeholders and must be replaced by preregistered, experimentally grounded state definitions.
+
+Input
+
+Morphology/electrical state definition
+
+Symbol
+
+Decoder outcome
+
+Output
+
+U0
+
+No conductive bridge; terminal resistance above R_open
+
+S0
+
+Receiver remains below activation threshold
+
+Y0
+
+U1
+
+Single left-biased bridge; left transfer conductance dominates
+
+S1
+
+Left receiver activates
+
+Y1
+
+U2
+
+Balanced bifurcated bridge; both transfer paths within tolerance
+
+S2
+
+Dual receiver activation
+
+Y2
+
+U3
+
+Single right-biased bridge; right transfer conductance dominates
+
+S3
+
+Right receiver activates
+
+Y3
+
+A later 32-state experiment would require at least 32 objectively distinguishable input/output correspondences and the layered symbol/character structure required by the Challenge Guidelines. The project should not scale state count until low-cardinality states have acceptable reproducibility, collision rates, and decoder causality.
+
+References
+
+[1] C. E. Shannon, “A Mathematical Theory of Communication,” Bell System Technical Journal, vol. 27, pp. 379-423 and 623-656, 1948. doi:10.1002/j.1538-7305.1948.tb01338.x and doi:10.1002/j.1538-7305.1948.tb00917.x.
+
+[2] K. Zahedi and N. Ay, “Quantifying Morphological Computation,” Entropy, vol. 15, no. 5, pp. 1887-1915, 2013. doi:10.3390/e15051887.
+
+[3] K. Ghazi-Zahedi and J. Rauh, “Quantifying Morphological Computation Based on an Information Decomposition of the Sensorimotor Loop,” arXiv:1503.05113, 2015.
+
+[4] T. Nakagaki, H. Yamada, and A. Tóth, “Maze-Solving by an Amoeboid Organism,” Nature, vol. 407, p. 470, 2000. doi:10.1038/35035159.
+
+[5] A. Tero et al., “Rules for Biologically Inspired Adaptive Network Design,” Science, vol. 327, no. 5964, pp. 439-442, 2010. doi:10.1126/science.1177894.
+
+[6] C. Kharbachi, T. Tzedakis, and F. Chauvet, “Crossover between Re-Nucleation and Dendritic Growth in Electrodeposition without Supporting Electrolyte,” Journal of The Electrochemical Society, 2021. doi:10.1149/1945-7111/ac15bb.
+
+[7] J.-H. Han, E. Khoo, P. Bai, and M. Z. Bazant, “Over-Limiting Current and Control of Dendritic Growth by Surface Conduction in Nanopores,” Scientific Reports, vol. 4, 7056, 2014. doi:10.1038/srep07056.
+
+[8] D. A. Cogswell, “Quantitative Phase-Field Modeling of Dendritic Electrodeposition,” Physical Review E, vol. 92, 011301, 2015. doi:10.1103/PhysRevE.92.011301.
+
+[9] M. Dueñas-Díez and J. Pérez-Mercader, “How Chemistry Computes: Language Recognition by Non-Biochemical Chemical Automata. From Finite Automata to Turing Machines,” iScience, vol. 19, pp. 514-526, 2019. doi:10.1016/j.isci.2019.08.007.
+
+[10] Á. Tóth and K. Showalter, “Logic Gates in Excitable Media,” Journal of Chemical Physics, vol. 103, no. 6, pp. 2058-2066, 1995. doi:10.1063/1.469732.
+
+[11] J. N. Górecka, J. Górecki, and Y. Igarashi, “Experimental Logical Gates in a Reaction-Diffusion Medium: The XOR Gate and Beyond,” Physical Review E, vol. 66, 046112, 2002. doi:10.1103/PhysRevE.66.046112.
+
+[12] Natural Code LLC / HeroX, “Artificial Intelligence + Origin of Life Prize, $10 Million USD: Challenge and Winning Criteria,” current public guidelines, accessed June 2026.
+
+[13] J. A. Clow and M. E. Clow, Natural Math v3.8.1 and Encoder/Message/Decoder Primitive, unpublished project artifacts, 2026.
+
+[14] J. A. Clow and M. E. Clow, CNTM Physical Realization Phase Zero Engineering Plan, unpublished project document, 2026.
+
+[15] Synaptient Cognitive Basin Team, “Team Prompt Kernel v0.6,” project architecture document, 2026.

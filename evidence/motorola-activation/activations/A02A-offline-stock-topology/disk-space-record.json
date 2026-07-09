@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-06-19T10:03:07-04:00",
+  "before_extraction": {
+    "total_bytes": 255383826432,
+    "used_bytes": 247128645632,
+    "free_bytes": 8255180800
+  },
+  "after_extraction": {
+    "total_bytes": 255383826432,
+    "used_bytes": 247129022464,
+    "free_bytes": 8254803968
+  },
+  "archive_uncompressed_bytes": 8600947970,
+  "working_extraction_root": "C:\\Motorola-Activation\\device\\motorola\\gnevan\\stock\\extracted\\B3B86713E066002C"
+}

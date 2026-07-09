@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-06-19T10:03:07-04:00",
+  "fields": {
+    "model": {
+      "value": "XT2317-2",
+      "evidence_source": "archive filename",
+      "confidence": "HIGH"
+    },
+    "codename": {
+      "value": "gnevan",
+      "evidence_source": "archive filename family + current-build identity lineage",
+      "confidence": "MEDIUM"
+    },
+    "product": {
+      "value": "gnevan_g",
+      "evidence_source": "flashfile.xml/header/phone_model",
+      "confidence": "HIGH"
+    },
+    "channel": {
+      "value": "RETUS",
+      "evidence_source": "archive filename",
+      "confidence": "HIGH"
+    },
+    "region": {
+      "value": "US retail",
+      "evidence_source": "RETUS naming convention",
+      "confidence": "MEDIUM"
+    },
+    "carrier_subsidy": {
+      "value": "DEFAULT",
+      "evidence_source": "archive filename subsidy token",
+      "confidence": "HIGH"
+    },
+    "cid": {
+      "value": "0x0032",
+      "evidence_source": "flashfile.xml/header/cid_value",
+      "confidence": "HIGH"
+    },
+    "android_version": {
+      "value": "14",
+      "evidence_source": "software version string",
+      "confidence": "HIGH"
+    },
+    "package_build_id": {
+      "value": "U1THS34.65-74-1-7-8",
+      "evidence_source": ".info.txt SW Display Build ID",
+      "confidence": "HIGH"
+    },
+    "package_incremental": {
+      "value": "2e589-1f965e",
+      "evidence_source": "software version string",
+      "confidence": "HIGH"
+    },
+    "security_patch": {
+      "value": null,
+      "evidence_source": "not recoverable from trusted offline parser in A02A",
+      "confidence": "LOW"
+    },
+    "bootloader_version": {
+      "value": "MBM-2.1-gnevan_g-5ba36-U1THS34.65-74-1-7-8-2e589",
+      "evidence_source": ".info.txt MBM Version",
+      "confidence": "HIGH"
+    },
+    "baseband_version": {
+      "value": "MT6769G_TC2.PR5.SP.V9.2.P17.02.35R",
+      "evidence_source": ".info.txt Modem Version",
+      "confidence": "HIGH"
+    },
+    "build_fingerprint": {
+      "value": "motorola/gnevan_g/gnevan:14/U1THS34.65-74-1-7-8/2e589-1f965e:user/release-keys",
+      "evidence_source": ".info.txt Build Fingerprint",
+      "confidence": "HIGH"
+    },
+    "software_version_string": {
+      "value": "gnevan_g-user 14 U1THS34.65-74-1-7-8 2e589-1f965e release-keys MUR1-0.306",
+      "evidence_source": "flashfile.xml/header/software_version",
+      "confidence": "HIGH"
+    },
+    "build_date": {
+      "value": null,
+      "evidence_source": "not exposed in trusted parsed metadata",
+      "confidence": "LOW"
+    }
+  }
+}

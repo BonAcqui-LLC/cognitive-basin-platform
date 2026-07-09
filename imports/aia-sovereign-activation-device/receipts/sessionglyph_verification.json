@@ -1,0 +1,24 @@
+{
+  "receipt_type": "sessionglyph_verification",
+  "recorded_at": "2026-06-17T20:43:13.3710000-04:00",
+  "export_file": "session-91d5c81e.aiaexport.json",
+  "tampered_file": "session-91d5c81e.aiaexport.tampered.json",
+  "export_size_bytes": 3847,
+  "tampered_size_bytes": 3829,
+  "verification": {
+    "original_export_reopened": true,
+    "tampered_export_rejected": true
+  },
+  "bundle_fields_present": [
+    "manifest_version",
+    "session_hash",
+    "application_version",
+    "contract_version",
+    "rule_pack_identity",
+    "provider_identity",
+    "guardian_findings",
+    "sera_metrics",
+    "final_governed_state",
+    "session_data"
+  ]
+}

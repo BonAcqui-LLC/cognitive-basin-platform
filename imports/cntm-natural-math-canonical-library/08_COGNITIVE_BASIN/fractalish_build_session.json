@@ -1,0 +1,82 @@
+{
+  "activation_id": "act-fractalish-build-001",
+  "project_id": "fractalish-ai",
+  "purpose": "Build governed Fractalish AI product modules without breaking prior functionality",
+  "operator_constraints": ["local_only", "hold_before_false_closure", "operator_sovereignty"],
+  "events": [
+    {
+      "event_id": "evt-nm-core",
+      "source_type": "natural_math_run",
+      "source_id": "natural_math_v3_6",
+      "raw_summary": "Natural Math v3.6 core intact with 8/8 oracles passing.",
+      "structured_summary": "Natural Math v3.6 stable core — trunk process engine preserved",
+      "claims": ["Natural Math v3.6 core remains untouched", "8/8 oracles required and passing"],
+      "decisions": ["PROCEED on NM demos"],
+      "guard_status": "PROCEED",
+      "tags": ["core", "natural_math", "doctrine", "commitment"],
+      "importance_hint": 0.9,
+      "confidence": 0.9
+    },
+    {
+      "event_id": "evt-basin-sim",
+      "source_type": "cognitive_basin_run",
+      "source_id": "cognitive_basin_sim_v1",
+      "raw_summary": "Cognitive Basin Simulation v1 working with FractalMemoryMap retrieval topology.",
+      "structured_summary": "Cognitive Basin Simulation v1 intact — 8 scenarios passing",
+      "claims": ["Cognitive Basin Simulation v1 remains intact", "MCVA/HOLD/AMCVA behavior preserved"],
+      "decisions": ["WATCH on continuity scenarios"],
+      "guard_status": "WATCH",
+      "tags": ["core", "cognitive_basin", "mcva"],
+      "importance_hint": 0.88
+    },
+    {
+      "event_id": "evt-doctrine",
+      "source_type": "system_decision",
+      "source_id": "core_doctrine",
+      "raw_summary": "Core doctrine: HOLD remains sacred. Pressure is not truth. Similarity is not identity.",
+      "structured_summary": "Foundational doctrine constraints for all modules",
+      "claims": [
+        "HOLD remains sacred",
+        "Pressure is not truth",
+        "Similarity is not identity",
+        "Memory is routed continuity"
+      ],
+      "decisions": ["Apply doctrine across all intake and memory layers"],
+      "guard_status": "WATCH",
+      "tags": ["doctrine", "core", "commitment", "operator_anchor"],
+      "importance_hint": 1.0,
+      "confidence": 0.95
+    },
+    {
+      "event_id": "evt-guardian-added",
+      "source_type": "system_decision",
+      "source_id": "guardian_intake_v01",
+      "raw_summary": "Guardian Intake Gateway v0.1 added. Prior functionality preserved.",
+      "structured_summary": "Guardian Intake Gateway v0.1 integrated without stripping prior build",
+      "claims": ["Guardian Intake Gateway v0.1 added", "Prior functionality preserved"],
+      "tags": ["guardian_intake", "core", "product_module"],
+      "importance_hint": 0.85
+    },
+    {
+      "event_id": "evt-authority-added",
+      "source_type": "system_decision",
+      "source_id": "guardian_authority_v01",
+      "raw_summary": "Guardian Authority Corpus v0.1 added for governed reference reasoning.",
+      "structured_summary": "Guardian Authority Corpus v0.1 integrated",
+      "claims": ["Guardian Authority Corpus v0.1 added", "Authority is scoped evidence not automatic truth"],
+      "tags": ["guardian_authority", "core", "product_module"],
+      "importance_hint": 0.85
+    },
+    {
+      "event_id": "evt-similarity-warning",
+      "source_type": "mock_event",
+      "source_id": "doctrine_check",
+      "raw_summary": "Unresolved claim flagged: Similarity means identity — contradicts core doctrine.",
+      "structured_summary": "Similarity is not identity — contradiction scar candidate",
+      "claims": ["Similarity is not identity", "Similarity means identity"],
+      "guard_status": "HOLD",
+      "tags": ["scar", "doctrine", "contradiction"],
+      "importance_hint": 0.7
+    }
+  ]
+}

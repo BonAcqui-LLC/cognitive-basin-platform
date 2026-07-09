@@ -1,0 +1,71 @@
+{
+  "source": {
+    "source_id": "src-mock-encyclopedia-v1",
+    "source_name": "Fractalish Mock Encyclopedia",
+    "source_type": "encyclopedia",
+    "publisher": "Fractalish AI (mock)",
+    "authority_level": "educational",
+    "jurisdiction": "global",
+    "domain": "technology_education",
+    "license_status": "mock_only",
+    "trust_scope": "educational_summaries_only",
+    "limitations": "Educational summary — not regulatory or legal authority"
+  },
+  "records": [
+    {
+      "record_id": "rec-ency-cdr",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Content Disarm and Reconstruction",
+      "record_type": "encyclopedia_summary",
+      "text": "CDR removes active content from files while preserving safe structure for analysis.",
+      "key_terms": ["content", "disarm", "reconstruction", "safe"],
+      "scope": "cybersecurity_education"
+    },
+    {
+      "record_id": "rec-ency-mcp",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Model Context Protocol",
+      "record_type": "encyclopedia_summary",
+      "text": "MCP standardizes how applications expose tools and resources to language models with explicit descriptors.",
+      "key_terms": ["model", "context", "protocol", "tools"],
+      "scope": "ai_infrastructure"
+    },
+    {
+      "record_id": "rec-ency-prompt-injection",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Prompt Injection",
+      "record_type": "encyclopedia_summary",
+      "text": "Prompt injection embeds adversarial instructions in intake to manipulate model behavior.",
+      "key_terms": ["prompt", "injection", "adversarial"],
+      "scope": "ai_safety"
+    },
+    {
+      "record_id": "rec-ency-standards",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Technical Standards",
+      "record_type": "encyclopedia_summary",
+      "text": "Technical standards are versioned documents defining procedures within a declared domain.",
+      "key_terms": ["technical", "standards", "versioned", "procedure"],
+      "scope": "standards_education"
+    },
+    {
+      "record_id": "rec-ency-rag",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Retrieval Augmented Generation",
+      "record_type": "encyclopedia_summary",
+      "text": "RAG retrieves external material at inference time. Retrieval alone is not reasoning or closure.",
+      "key_terms": ["retrieval", "augmented", "generation", "reasoning"],
+      "claims": ["Retrieval alone is not reasoning"],
+      "scope": "ai_architecture"
+    },
+    {
+      "record_id": "rec-ency-compliance",
+      "source_id": "src-mock-encyclopedia-v1",
+      "title": "Regulatory Compliance",
+      "record_type": "encyclopedia_summary",
+      "text": "Regulatory compliance depends on jurisdiction, effective dates, and applicable rule scope.",
+      "key_terms": ["regulatory", "compliance", "jurisdiction", "scope"],
+      "scope": "regulatory_education"
+    }
+  ]
+}

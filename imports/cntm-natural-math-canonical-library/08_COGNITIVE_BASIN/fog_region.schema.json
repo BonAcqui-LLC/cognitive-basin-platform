@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"FogRegion","type":"object","required":["fog_id","label","related_memory_ids","reason"]}

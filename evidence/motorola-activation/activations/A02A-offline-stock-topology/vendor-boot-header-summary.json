@@ -1,0 +1,11 @@
+{
+  "image": "vendor_boot.img",
+  "status": "UNPARSED",
+  "reason": "Trusted AOSP host parsers were not present in the A02A environment (avbtool, unpack_bootimg, lpunpack unavailable on PATH). Read-only byte hashing completed; authoritative structured header parsing remains pending A02B/AOSP tooling.",
+  "sha256": "DF8ADF14FE9BD4D9A635561C6030265CDC3137DFF10D198FF0CE93437AC0D479",
+  "magic": {
+    "magic_ascii": "VNDRBOOT........",
+    "magic_hex": "564E4452424F4F540400000000100000",
+    "looks_like_android_sparse": false
+  }
+}

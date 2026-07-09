@@ -1,0 +1,2209 @@
+{
+  "task": "deterministic_mode_comparison",
+  "timestamp": "2026-06-23T16:09:09Z",
+  "overall_passed": true,
+  "total_runs": 200,
+  "passed_count": 200,
+  "results": [
+    {
+      "seed": 0,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "608ad59a8064fbfb6617008735df546c9bc07a2811fb5952f05a24a997476295",
+        "HARNESS_NO_EXTENSIONS": "608ad59a8064fbfb6617008735df546c9bc07a2811fb5952f05a24a997476295",
+        "HARNESS_WITH_EXTENSIONS": "608ad59a8064fbfb6617008735df546c9bc07a2811fb5952f05a24a997476295"
+      },
+      "errors": []
+    },
+    {
+      "seed": 0,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "5c191e24577ad45879c079bcf45dfa276d6093c3a340b20ad8d7507cf049b6cd",
+        "HARNESS_NO_EXTENSIONS": "5c191e24577ad45879c079bcf45dfa276d6093c3a340b20ad8d7507cf049b6cd",
+        "HARNESS_WITH_EXTENSIONS": "5c191e24577ad45879c079bcf45dfa276d6093c3a340b20ad8d7507cf049b6cd"
+      },
+      "errors": []
+    },
+    {
+      "seed": 0,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "7767177d5ffcdb99ccc20a5349506f18fbef3e1b2950f713fffc01a84ddb0e1f",
+        "HARNESS_NO_EXTENSIONS": "7767177d5ffcdb99ccc20a5349506f18fbef3e1b2950f713fffc01a84ddb0e1f",
+        "HARNESS_WITH_EXTENSIONS": "7767177d5ffcdb99ccc20a5349506f18fbef3e1b2950f713fffc01a84ddb0e1f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 0,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c704469400fb674b5a72c74de7757d3db08b512d39fdf97c0f7958f5bca32185",
+        "HARNESS_NO_EXTENSIONS": "c704469400fb674b5a72c74de7757d3db08b512d39fdf97c0f7958f5bca32185",
+        "HARNESS_WITH_EXTENSIONS": "c704469400fb674b5a72c74de7757d3db08b512d39fdf97c0f7958f5bca32185"
+      },
+      "errors": []
+    },
+    {
+      "seed": 1,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "cb51d3e69e3ef3eb19e6a4c358ea6e4109d27dfb1e4a94ba70824068236ffb13",
+        "HARNESS_NO_EXTENSIONS": "cb51d3e69e3ef3eb19e6a4c358ea6e4109d27dfb1e4a94ba70824068236ffb13",
+        "HARNESS_WITH_EXTENSIONS": "cb51d3e69e3ef3eb19e6a4c358ea6e4109d27dfb1e4a94ba70824068236ffb13"
+      },
+      "errors": []
+    },
+    {
+      "seed": 1,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "bed6ce3af338356060be72b5ad70a98081c14a477f7ab1f753438a15337b4aa7",
+        "HARNESS_NO_EXTENSIONS": "bed6ce3af338356060be72b5ad70a98081c14a477f7ab1f753438a15337b4aa7",
+        "HARNESS_WITH_EXTENSIONS": "bed6ce3af338356060be72b5ad70a98081c14a477f7ab1f753438a15337b4aa7"
+      },
+      "errors": []
+    },
+    {
+      "seed": 1,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4268348e9f483a9c516ffe262cd651598da8bd191d2fe04dba98820169e8d5b8",
+        "HARNESS_NO_EXTENSIONS": "4268348e9f483a9c516ffe262cd651598da8bd191d2fe04dba98820169e8d5b8",
+        "HARNESS_WITH_EXTENSIONS": "4268348e9f483a9c516ffe262cd651598da8bd191d2fe04dba98820169e8d5b8"
+      },
+      "errors": []
+    },
+    {
+      "seed": 1,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4268348e9f483a9c516ffe262cd651598da8bd191d2fe04dba98820169e8d5b8",
+        "HARNESS_NO_EXTENSIONS": "4268348e9f483a9c516ffe262cd651598da8bd191d2fe04dba98820169e8d5b8",
+        "HARNESS_WITH_EXTENSIONS": "4268348e9f483a9c516ffe262cd651598da8bd191d2fe04dba98820169e8d5b8"
+      },
+      "errors": []
+    },
+    {
+      "seed": 2,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "bff9ddfa8373866b7878bf0bde0051720ab15564d018c5f59958933cf1f2f874",
+        "HARNESS_NO_EXTENSIONS": "bff9ddfa8373866b7878bf0bde0051720ab15564d018c5f59958933cf1f2f874",
+        "HARNESS_WITH_EXTENSIONS": "bff9ddfa8373866b7878bf0bde0051720ab15564d018c5f59958933cf1f2f874"
+      },
+      "errors": []
+    },
+    {
+      "seed": 2,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c8af62c23efdac45f6cb3e81336a7d44ebdc6cf9cda21d00eb8147ff8c3f2882",
+        "HARNESS_NO_EXTENSIONS": "c8af62c23efdac45f6cb3e81336a7d44ebdc6cf9cda21d00eb8147ff8c3f2882",
+        "HARNESS_WITH_EXTENSIONS": "c8af62c23efdac45f6cb3e81336a7d44ebdc6cf9cda21d00eb8147ff8c3f2882"
+      },
+      "errors": []
+    },
+    {
+      "seed": 2,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e0368eb41522564e1cdd42d6fa7d190520bb8347d393ae5ca824e839199c6ae5",
+        "HARNESS_NO_EXTENSIONS": "e0368eb41522564e1cdd42d6fa7d190520bb8347d393ae5ca824e839199c6ae5",
+        "HARNESS_WITH_EXTENSIONS": "e0368eb41522564e1cdd42d6fa7d190520bb8347d393ae5ca824e839199c6ae5"
+      },
+      "errors": []
+    },
+    {
+      "seed": 2,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f8e34947694cdfa19087b207cd5f3fc604148f5daef895d645f168b83afbb1f6",
+        "HARNESS_NO_EXTENSIONS": "f8e34947694cdfa19087b207cd5f3fc604148f5daef895d645f168b83afbb1f6",
+        "HARNESS_WITH_EXTENSIONS": "f8e34947694cdfa19087b207cd5f3fc604148f5daef895d645f168b83afbb1f6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 3,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a4627e69fe7207516af6f61683554415eeee764527b462c9a5e3474446fed855",
+        "HARNESS_NO_EXTENSIONS": "a4627e69fe7207516af6f61683554415eeee764527b462c9a5e3474446fed855",
+        "HARNESS_WITH_EXTENSIONS": "a4627e69fe7207516af6f61683554415eeee764527b462c9a5e3474446fed855"
+      },
+      "errors": []
+    },
+    {
+      "seed": 3,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "19501c07d7b83050db18ebcfcd67180f75528b97f67bc58aad0b6c127ffe9bf6",
+        "HARNESS_NO_EXTENSIONS": "19501c07d7b83050db18ebcfcd67180f75528b97f67bc58aad0b6c127ffe9bf6",
+        "HARNESS_WITH_EXTENSIONS": "19501c07d7b83050db18ebcfcd67180f75528b97f67bc58aad0b6c127ffe9bf6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 3,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "5cbb5bc46dbf6b8fa0546e035e53fdfcf4ff6a6a0554aa34be3ba4fb44b9d523",
+        "HARNESS_NO_EXTENSIONS": "5cbb5bc46dbf6b8fa0546e035e53fdfcf4ff6a6a0554aa34be3ba4fb44b9d523",
+        "HARNESS_WITH_EXTENSIONS": "5cbb5bc46dbf6b8fa0546e035e53fdfcf4ff6a6a0554aa34be3ba4fb44b9d523"
+      },
+      "errors": []
+    },
+    {
+      "seed": 3,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "9adf76a407db3e3bc74781a7cf95d471619ceaca6a53e03a3e4a5c34136ccd01",
+        "HARNESS_NO_EXTENSIONS": "9adf76a407db3e3bc74781a7cf95d471619ceaca6a53e03a3e4a5c34136ccd01",
+        "HARNESS_WITH_EXTENSIONS": "9adf76a407db3e3bc74781a7cf95d471619ceaca6a53e03a3e4a5c34136ccd01"
+      },
+      "errors": []
+    },
+    {
+      "seed": 4,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2ac1a8af8d641ae3266a854315b9adaeaeb33e9fcc463682e3f5ef7726ae2e87",
+        "HARNESS_NO_EXTENSIONS": "2ac1a8af8d641ae3266a854315b9adaeaeb33e9fcc463682e3f5ef7726ae2e87",
+        "HARNESS_WITH_EXTENSIONS": "2ac1a8af8d641ae3266a854315b9adaeaeb33e9fcc463682e3f5ef7726ae2e87"
+      },
+      "errors": []
+    },
+    {
+      "seed": 4,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "53258d0dd50c83f6baa8be6821f486ace44591fbc5ee643246ecc39d465135f2",
+        "HARNESS_NO_EXTENSIONS": "53258d0dd50c83f6baa8be6821f486ace44591fbc5ee643246ecc39d465135f2",
+        "HARNESS_WITH_EXTENSIONS": "53258d0dd50c83f6baa8be6821f486ace44591fbc5ee643246ecc39d465135f2"
+      },
+      "errors": []
+    },
+    {
+      "seed": 4,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "3064c144aa908927a4a2646ebd3a1acdfe6ae634385142e5e6f2ec49dd95f76f",
+        "HARNESS_NO_EXTENSIONS": "3064c144aa908927a4a2646ebd3a1acdfe6ae634385142e5e6f2ec49dd95f76f",
+        "HARNESS_WITH_EXTENSIONS": "3064c144aa908927a4a2646ebd3a1acdfe6ae634385142e5e6f2ec49dd95f76f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 4,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "69058200e164b179e34d10a79340102a4f0c769763ef07db9f67d386066aa79e",
+        "HARNESS_NO_EXTENSIONS": "69058200e164b179e34d10a79340102a4f0c769763ef07db9f67d386066aa79e",
+        "HARNESS_WITH_EXTENSIONS": "69058200e164b179e34d10a79340102a4f0c769763ef07db9f67d386066aa79e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 5,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fa827d91b632c2722ad40318c5796dca647ab6e1860966cadf362c379b6c8e13",
+        "HARNESS_NO_EXTENSIONS": "fa827d91b632c2722ad40318c5796dca647ab6e1860966cadf362c379b6c8e13",
+        "HARNESS_WITH_EXTENSIONS": "fa827d91b632c2722ad40318c5796dca647ab6e1860966cadf362c379b6c8e13"
+      },
+      "errors": []
+    },
+    {
+      "seed": 5,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "40467149203e3b59249893a47d1dec2535cb05335e601488dc7651daf5bcaa64",
+        "HARNESS_NO_EXTENSIONS": "40467149203e3b59249893a47d1dec2535cb05335e601488dc7651daf5bcaa64",
+        "HARNESS_WITH_EXTENSIONS": "40467149203e3b59249893a47d1dec2535cb05335e601488dc7651daf5bcaa64"
+      },
+      "errors": []
+    },
+    {
+      "seed": 5,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "45aef66d78a101dc3030d90fbf8f004d2ae3a1a1983dea3b209da41c33851a04",
+        "HARNESS_NO_EXTENSIONS": "45aef66d78a101dc3030d90fbf8f004d2ae3a1a1983dea3b209da41c33851a04",
+        "HARNESS_WITH_EXTENSIONS": "45aef66d78a101dc3030d90fbf8f004d2ae3a1a1983dea3b209da41c33851a04"
+      },
+      "errors": []
+    },
+    {
+      "seed": 5,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "690dfed277d59a5f64d11cbdb0c81537050aca88ea62821d1a8730d638d02977",
+        "HARNESS_NO_EXTENSIONS": "690dfed277d59a5f64d11cbdb0c81537050aca88ea62821d1a8730d638d02977",
+        "HARNESS_WITH_EXTENSIONS": "690dfed277d59a5f64d11cbdb0c81537050aca88ea62821d1a8730d638d02977"
+      },
+      "errors": []
+    },
+    {
+      "seed": 6,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b1e30facc837e7091fb6772ac76b9afb9ce7c0854ea072b48fa66517edaa0096",
+        "HARNESS_NO_EXTENSIONS": "b1e30facc837e7091fb6772ac76b9afb9ce7c0854ea072b48fa66517edaa0096",
+        "HARNESS_WITH_EXTENSIONS": "b1e30facc837e7091fb6772ac76b9afb9ce7c0854ea072b48fa66517edaa0096"
+      },
+      "errors": []
+    },
+    {
+      "seed": 6,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "5bddce426c7ab6f08fe54c9013b297efb1636dade94661937ae7cd19c1c2a091",
+        "HARNESS_NO_EXTENSIONS": "5bddce426c7ab6f08fe54c9013b297efb1636dade94661937ae7cd19c1c2a091",
+        "HARNESS_WITH_EXTENSIONS": "5bddce426c7ab6f08fe54c9013b297efb1636dade94661937ae7cd19c1c2a091"
+      },
+      "errors": []
+    },
+    {
+      "seed": 6,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "506ff1fc62126e84300ae4aafd6b78e7f224c78b342997f4600b1082cd4d84cb",
+        "HARNESS_NO_EXTENSIONS": "506ff1fc62126e84300ae4aafd6b78e7f224c78b342997f4600b1082cd4d84cb",
+        "HARNESS_WITH_EXTENSIONS": "506ff1fc62126e84300ae4aafd6b78e7f224c78b342997f4600b1082cd4d84cb"
+      },
+      "errors": []
+    },
+    {
+      "seed": 6,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "8b1137f114ce3978a8e1dfa9b8a381ee5355398cdcaffbc727b6e81785129854",
+        "HARNESS_NO_EXTENSIONS": "8b1137f114ce3978a8e1dfa9b8a381ee5355398cdcaffbc727b6e81785129854",
+        "HARNESS_WITH_EXTENSIONS": "8b1137f114ce3978a8e1dfa9b8a381ee5355398cdcaffbc727b6e81785129854"
+      },
+      "errors": []
+    },
+    {
+      "seed": 7,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "13275043ae8d1b8de7645c1547b009ed38ee2c729620a614250e48bfee04aa32",
+        "HARNESS_NO_EXTENSIONS": "13275043ae8d1b8de7645c1547b009ed38ee2c729620a614250e48bfee04aa32",
+        "HARNESS_WITH_EXTENSIONS": "13275043ae8d1b8de7645c1547b009ed38ee2c729620a614250e48bfee04aa32"
+      },
+      "errors": []
+    },
+    {
+      "seed": 7,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b513a03554c0fcccc7890b4882b8249e67f4e314c4b13ad1bdec3f282ec2094a",
+        "HARNESS_NO_EXTENSIONS": "b513a03554c0fcccc7890b4882b8249e67f4e314c4b13ad1bdec3f282ec2094a",
+        "HARNESS_WITH_EXTENSIONS": "b513a03554c0fcccc7890b4882b8249e67f4e314c4b13ad1bdec3f282ec2094a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 7,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "19e5fe6511d4595f098fb3277f6344f9a778e9b5935c5df796ea40a73d54bf73",
+        "HARNESS_NO_EXTENSIONS": "19e5fe6511d4595f098fb3277f6344f9a778e9b5935c5df796ea40a73d54bf73",
+        "HARNESS_WITH_EXTENSIONS": "19e5fe6511d4595f098fb3277f6344f9a778e9b5935c5df796ea40a73d54bf73"
+      },
+      "errors": []
+    },
+    {
+      "seed": 7,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "19e5fe6511d4595f098fb3277f6344f9a778e9b5935c5df796ea40a73d54bf73",
+        "HARNESS_NO_EXTENSIONS": "19e5fe6511d4595f098fb3277f6344f9a778e9b5935c5df796ea40a73d54bf73",
+        "HARNESS_WITH_EXTENSIONS": "19e5fe6511d4595f098fb3277f6344f9a778e9b5935c5df796ea40a73d54bf73"
+      },
+      "errors": []
+    },
+    {
+      "seed": 8,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f3ec6a1a385988f7b275923d839fc65b2bb87d86c329333f683c6406b75d0dc0",
+        "HARNESS_NO_EXTENSIONS": "f3ec6a1a385988f7b275923d839fc65b2bb87d86c329333f683c6406b75d0dc0",
+        "HARNESS_WITH_EXTENSIONS": "f3ec6a1a385988f7b275923d839fc65b2bb87d86c329333f683c6406b75d0dc0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 8,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a44308132ba257eb00a082b7e1bebeacec09c66268c46e1560a1e9501fd2cd74",
+        "HARNESS_NO_EXTENSIONS": "a44308132ba257eb00a082b7e1bebeacec09c66268c46e1560a1e9501fd2cd74",
+        "HARNESS_WITH_EXTENSIONS": "a44308132ba257eb00a082b7e1bebeacec09c66268c46e1560a1e9501fd2cd74"
+      },
+      "errors": []
+    },
+    {
+      "seed": 8,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b1f5a15bad6f5bc2f692f5144eb4a1c0a57aa51c7fd6ed49915bc010b2684bfd",
+        "HARNESS_NO_EXTENSIONS": "b1f5a15bad6f5bc2f692f5144eb4a1c0a57aa51c7fd6ed49915bc010b2684bfd",
+        "HARNESS_WITH_EXTENSIONS": "b1f5a15bad6f5bc2f692f5144eb4a1c0a57aa51c7fd6ed49915bc010b2684bfd"
+      },
+      "errors": []
+    },
+    {
+      "seed": 8,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "7dc5d735ac1348b5ba51db6a3f88d6ccee7c0cd5d1415774345b2e8bcb2db513",
+        "HARNESS_NO_EXTENSIONS": "7dc5d735ac1348b5ba51db6a3f88d6ccee7c0cd5d1415774345b2e8bcb2db513",
+        "HARNESS_WITH_EXTENSIONS": "7dc5d735ac1348b5ba51db6a3f88d6ccee7c0cd5d1415774345b2e8bcb2db513"
+      },
+      "errors": []
+    },
+    {
+      "seed": 9,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "18bc1e3afc7889c82047a9cf12acd94a0d68ebd61dc401682d360505a17685c0",
+        "HARNESS_NO_EXTENSIONS": "18bc1e3afc7889c82047a9cf12acd94a0d68ebd61dc401682d360505a17685c0",
+        "HARNESS_WITH_EXTENSIONS": "18bc1e3afc7889c82047a9cf12acd94a0d68ebd61dc401682d360505a17685c0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 9,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e8cf8a06b20a4654a1301d6a9205001aefcf5803f158b17dd00952d569aef492",
+        "HARNESS_NO_EXTENSIONS": "e8cf8a06b20a4654a1301d6a9205001aefcf5803f158b17dd00952d569aef492",
+        "HARNESS_WITH_EXTENSIONS": "e8cf8a06b20a4654a1301d6a9205001aefcf5803f158b17dd00952d569aef492"
+      },
+      "errors": []
+    },
+    {
+      "seed": 9,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "211fa3d72791d070b811a3e0b33955137a74db390945d44f87a7e56830e2ce87",
+        "HARNESS_NO_EXTENSIONS": "211fa3d72791d070b811a3e0b33955137a74db390945d44f87a7e56830e2ce87",
+        "HARNESS_WITH_EXTENSIONS": "211fa3d72791d070b811a3e0b33955137a74db390945d44f87a7e56830e2ce87"
+      },
+      "errors": []
+    },
+    {
+      "seed": 9,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "211fa3d72791d070b811a3e0b33955137a74db390945d44f87a7e56830e2ce87",
+        "HARNESS_NO_EXTENSIONS": "211fa3d72791d070b811a3e0b33955137a74db390945d44f87a7e56830e2ce87",
+        "HARNESS_WITH_EXTENSIONS": "211fa3d72791d070b811a3e0b33955137a74db390945d44f87a7e56830e2ce87"
+      },
+      "errors": []
+    },
+    {
+      "seed": 10,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fe03152440b41784a6921de557bba7ba9ab5bc9cb51e58ae667466b58cccaeaf",
+        "HARNESS_NO_EXTENSIONS": "fe03152440b41784a6921de557bba7ba9ab5bc9cb51e58ae667466b58cccaeaf",
+        "HARNESS_WITH_EXTENSIONS": "fe03152440b41784a6921de557bba7ba9ab5bc9cb51e58ae667466b58cccaeaf"
+      },
+      "errors": []
+    },
+    {
+      "seed": 10,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "30b6198b31ddf8a1f304cd50ce69d5fd5b9e0c90ebf37f4b25c96506a8f0977b",
+        "HARNESS_NO_EXTENSIONS": "30b6198b31ddf8a1f304cd50ce69d5fd5b9e0c90ebf37f4b25c96506a8f0977b",
+        "HARNESS_WITH_EXTENSIONS": "30b6198b31ddf8a1f304cd50ce69d5fd5b9e0c90ebf37f4b25c96506a8f0977b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 10,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a6dc5f333e409f5c99d619bbc78755b724c7b3d76e388a7052b4a4976720fdc1",
+        "HARNESS_NO_EXTENSIONS": "a6dc5f333e409f5c99d619bbc78755b724c7b3d76e388a7052b4a4976720fdc1",
+        "HARNESS_WITH_EXTENSIONS": "a6dc5f333e409f5c99d619bbc78755b724c7b3d76e388a7052b4a4976720fdc1"
+      },
+      "errors": []
+    },
+    {
+      "seed": 10,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "246037951abbb9db5dfe6e5723725532fa8aab55c90a93ef6bc1240ebae99f98",
+        "HARNESS_NO_EXTENSIONS": "246037951abbb9db5dfe6e5723725532fa8aab55c90a93ef6bc1240ebae99f98",
+        "HARNESS_WITH_EXTENSIONS": "246037951abbb9db5dfe6e5723725532fa8aab55c90a93ef6bc1240ebae99f98"
+      },
+      "errors": []
+    },
+    {
+      "seed": 11,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "3f71683ccb789faa90a1139016144ef39de9f8fc65e2153673c82075804dc5fc",
+        "HARNESS_NO_EXTENSIONS": "3f71683ccb789faa90a1139016144ef39de9f8fc65e2153673c82075804dc5fc",
+        "HARNESS_WITH_EXTENSIONS": "3f71683ccb789faa90a1139016144ef39de9f8fc65e2153673c82075804dc5fc"
+      },
+      "errors": []
+    },
+    {
+      "seed": 11,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "80a8f31bde6e2a9b2816d3918245200bb1c958fc0805987c76bbd8f357834a6a",
+        "HARNESS_NO_EXTENSIONS": "80a8f31bde6e2a9b2816d3918245200bb1c958fc0805987c76bbd8f357834a6a",
+        "HARNESS_WITH_EXTENSIONS": "80a8f31bde6e2a9b2816d3918245200bb1c958fc0805987c76bbd8f357834a6a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 11,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e791bf03f7306ae9bcb579bda8d5ca056fe56af64027d73c03beb928f8d9465e",
+        "HARNESS_NO_EXTENSIONS": "e791bf03f7306ae9bcb579bda8d5ca056fe56af64027d73c03beb928f8d9465e",
+        "HARNESS_WITH_EXTENSIONS": "e791bf03f7306ae9bcb579bda8d5ca056fe56af64027d73c03beb928f8d9465e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 11,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e791bf03f7306ae9bcb579bda8d5ca056fe56af64027d73c03beb928f8d9465e",
+        "HARNESS_NO_EXTENSIONS": "e791bf03f7306ae9bcb579bda8d5ca056fe56af64027d73c03beb928f8d9465e",
+        "HARNESS_WITH_EXTENSIONS": "e791bf03f7306ae9bcb579bda8d5ca056fe56af64027d73c03beb928f8d9465e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 12,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4b03d95a57cc44bd4181fc0bfbded2e9675dd9b245474be1fa6172124ff4ead0",
+        "HARNESS_NO_EXTENSIONS": "4b03d95a57cc44bd4181fc0bfbded2e9675dd9b245474be1fa6172124ff4ead0",
+        "HARNESS_WITH_EXTENSIONS": "4b03d95a57cc44bd4181fc0bfbded2e9675dd9b245474be1fa6172124ff4ead0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 12,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "541d6172d40198276c72e98bee2c7656eea4f5dabeb02a511bde0ac462a1b0d7",
+        "HARNESS_NO_EXTENSIONS": "541d6172d40198276c72e98bee2c7656eea4f5dabeb02a511bde0ac462a1b0d7",
+        "HARNESS_WITH_EXTENSIONS": "541d6172d40198276c72e98bee2c7656eea4f5dabeb02a511bde0ac462a1b0d7"
+      },
+      "errors": []
+    },
+    {
+      "seed": 12,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "bd0ea4e01e331fe4e975b9a07b8787e0bc36f056e3a6fea812ed5b7114244a2b",
+        "HARNESS_NO_EXTENSIONS": "bd0ea4e01e331fe4e975b9a07b8787e0bc36f056e3a6fea812ed5b7114244a2b",
+        "HARNESS_WITH_EXTENSIONS": "bd0ea4e01e331fe4e975b9a07b8787e0bc36f056e3a6fea812ed5b7114244a2b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 12,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "67bb7c7b3ca482d5576a799f3549ca28b06823be5b10e8f467e7005e14459828",
+        "HARNESS_NO_EXTENSIONS": "67bb7c7b3ca482d5576a799f3549ca28b06823be5b10e8f467e7005e14459828",
+        "HARNESS_WITH_EXTENSIONS": "67bb7c7b3ca482d5576a799f3549ca28b06823be5b10e8f467e7005e14459828"
+      },
+      "errors": []
+    },
+    {
+      "seed": 13,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f5cf9d083f80c8eb03b77ce594ad7a4e6097eecee92532e5e1fc6f48a85cb941",
+        "HARNESS_NO_EXTENSIONS": "f5cf9d083f80c8eb03b77ce594ad7a4e6097eecee92532e5e1fc6f48a85cb941",
+        "HARNESS_WITH_EXTENSIONS": "f5cf9d083f80c8eb03b77ce594ad7a4e6097eecee92532e5e1fc6f48a85cb941"
+      },
+      "errors": []
+    },
+    {
+      "seed": 13,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "17d9ebecf4efbb431586f0d9173ad510b59c129d9d17cb093aa5d295095483f4",
+        "HARNESS_NO_EXTENSIONS": "17d9ebecf4efbb431586f0d9173ad510b59c129d9d17cb093aa5d295095483f4",
+        "HARNESS_WITH_EXTENSIONS": "17d9ebecf4efbb431586f0d9173ad510b59c129d9d17cb093aa5d295095483f4"
+      },
+      "errors": []
+    },
+    {
+      "seed": 13,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "dbb47af188d35a71b3f5247909600b1d3201dc2ffc8fc6456aa7cabfd52e8d2e",
+        "HARNESS_NO_EXTENSIONS": "dbb47af188d35a71b3f5247909600b1d3201dc2ffc8fc6456aa7cabfd52e8d2e",
+        "HARNESS_WITH_EXTENSIONS": "dbb47af188d35a71b3f5247909600b1d3201dc2ffc8fc6456aa7cabfd52e8d2e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 13,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "dbb47af188d35a71b3f5247909600b1d3201dc2ffc8fc6456aa7cabfd52e8d2e",
+        "HARNESS_NO_EXTENSIONS": "dbb47af188d35a71b3f5247909600b1d3201dc2ffc8fc6456aa7cabfd52e8d2e",
+        "HARNESS_WITH_EXTENSIONS": "dbb47af188d35a71b3f5247909600b1d3201dc2ffc8fc6456aa7cabfd52e8d2e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 14,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "7c318214423695683d93a12d350e6983607ecb4a30b8890cca8a2112045099d9",
+        "HARNESS_NO_EXTENSIONS": "7c318214423695683d93a12d350e6983607ecb4a30b8890cca8a2112045099d9",
+        "HARNESS_WITH_EXTENSIONS": "7c318214423695683d93a12d350e6983607ecb4a30b8890cca8a2112045099d9"
+      },
+      "errors": []
+    },
+    {
+      "seed": 14,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "87dad4082eeceeed7273240d9cf1cc3187e45748159d9988492db8d030ebd2b8",
+        "HARNESS_NO_EXTENSIONS": "87dad4082eeceeed7273240d9cf1cc3187e45748159d9988492db8d030ebd2b8",
+        "HARNESS_WITH_EXTENSIONS": "87dad4082eeceeed7273240d9cf1cc3187e45748159d9988492db8d030ebd2b8"
+      },
+      "errors": []
+    },
+    {
+      "seed": 14,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "0f7ffd0af255d35eb3a2dea61a71668dd168c0d76b787a1e0a43f74db60164a0",
+        "HARNESS_NO_EXTENSIONS": "0f7ffd0af255d35eb3a2dea61a71668dd168c0d76b787a1e0a43f74db60164a0",
+        "HARNESS_WITH_EXTENSIONS": "0f7ffd0af255d35eb3a2dea61a71668dd168c0d76b787a1e0a43f74db60164a0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 14,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b64fefcd283d7174c343b3fcaeeba0baad193a6fb1dfd5353441402694a0ddbb",
+        "HARNESS_NO_EXTENSIONS": "b64fefcd283d7174c343b3fcaeeba0baad193a6fb1dfd5353441402694a0ddbb",
+        "HARNESS_WITH_EXTENSIONS": "b64fefcd283d7174c343b3fcaeeba0baad193a6fb1dfd5353441402694a0ddbb"
+      },
+      "errors": []
+    },
+    {
+      "seed": 15,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d1ee57fd4720ae12f7e8c5fa15c5c844df7a2d3e956a5d1cc047406f0692607f",
+        "HARNESS_NO_EXTENSIONS": "d1ee57fd4720ae12f7e8c5fa15c5c844df7a2d3e956a5d1cc047406f0692607f",
+        "HARNESS_WITH_EXTENSIONS": "d1ee57fd4720ae12f7e8c5fa15c5c844df7a2d3e956a5d1cc047406f0692607f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 15,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e5f97fa46c2d7b188600382d125c0c6aaa32de740f818d2ddc20b4721f99eb49",
+        "HARNESS_NO_EXTENSIONS": "e5f97fa46c2d7b188600382d125c0c6aaa32de740f818d2ddc20b4721f99eb49",
+        "HARNESS_WITH_EXTENSIONS": "e5f97fa46c2d7b188600382d125c0c6aaa32de740f818d2ddc20b4721f99eb49"
+      },
+      "errors": []
+    },
+    {
+      "seed": 15,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e7ad6dbb73d3cac725ff59a6d2827204e235f4a67186093b9379837ef629419e",
+        "HARNESS_NO_EXTENSIONS": "e7ad6dbb73d3cac725ff59a6d2827204e235f4a67186093b9379837ef629419e",
+        "HARNESS_WITH_EXTENSIONS": "e7ad6dbb73d3cac725ff59a6d2827204e235f4a67186093b9379837ef629419e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 15,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e060630a0779038c5b5cd7b255b847bd4c493a64d0d6a7da4bdbae2cc6b35746",
+        "HARNESS_NO_EXTENSIONS": "e060630a0779038c5b5cd7b255b847bd4c493a64d0d6a7da4bdbae2cc6b35746",
+        "HARNESS_WITH_EXTENSIONS": "e060630a0779038c5b5cd7b255b847bd4c493a64d0d6a7da4bdbae2cc6b35746"
+      },
+      "errors": []
+    },
+    {
+      "seed": 16,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "6025d3c41431b5d46140b6926e5f524d2075ae5e61017dd2948c07bde2a79287",
+        "HARNESS_NO_EXTENSIONS": "6025d3c41431b5d46140b6926e5f524d2075ae5e61017dd2948c07bde2a79287",
+        "HARNESS_WITH_EXTENSIONS": "6025d3c41431b5d46140b6926e5f524d2075ae5e61017dd2948c07bde2a79287"
+      },
+      "errors": []
+    },
+    {
+      "seed": 16,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "797867bbd2975a0f1988e2a31aef08716337a54587fb4363dfe24e8707ff8974",
+        "HARNESS_NO_EXTENSIONS": "797867bbd2975a0f1988e2a31aef08716337a54587fb4363dfe24e8707ff8974",
+        "HARNESS_WITH_EXTENSIONS": "797867bbd2975a0f1988e2a31aef08716337a54587fb4363dfe24e8707ff8974"
+      },
+      "errors": []
+    },
+    {
+      "seed": 16,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2256e5145bbec173fe5875722536a4888021cd6558083c4d4390832ad8845f1a",
+        "HARNESS_NO_EXTENSIONS": "2256e5145bbec173fe5875722536a4888021cd6558083c4d4390832ad8845f1a",
+        "HARNESS_WITH_EXTENSIONS": "2256e5145bbec173fe5875722536a4888021cd6558083c4d4390832ad8845f1a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 16,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e21cd76cc1d1236926ce046112c17ea551884db166aa3e6fe9a1a9f0134c70d9",
+        "HARNESS_NO_EXTENSIONS": "e21cd76cc1d1236926ce046112c17ea551884db166aa3e6fe9a1a9f0134c70d9",
+        "HARNESS_WITH_EXTENSIONS": "e21cd76cc1d1236926ce046112c17ea551884db166aa3e6fe9a1a9f0134c70d9"
+      },
+      "errors": []
+    },
+    {
+      "seed": 17,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4ca973ab777642aefc6957993ab012f1528f7dddd76bf245870100122b599c01",
+        "HARNESS_NO_EXTENSIONS": "4ca973ab777642aefc6957993ab012f1528f7dddd76bf245870100122b599c01",
+        "HARNESS_WITH_EXTENSIONS": "4ca973ab777642aefc6957993ab012f1528f7dddd76bf245870100122b599c01"
+      },
+      "errors": []
+    },
+    {
+      "seed": 17,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e6007e1a180eaea53676109f57dd0cafd8054236ac25cc9c2f811d40a2e7d6de",
+        "HARNESS_NO_EXTENSIONS": "e6007e1a180eaea53676109f57dd0cafd8054236ac25cc9c2f811d40a2e7d6de",
+        "HARNESS_WITH_EXTENSIONS": "e6007e1a180eaea53676109f57dd0cafd8054236ac25cc9c2f811d40a2e7d6de"
+      },
+      "errors": []
+    },
+    {
+      "seed": 17,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f4fe81170463c4d8c17087b7ec6553155c5b993229caa8ea84264309cac5247a",
+        "HARNESS_NO_EXTENSIONS": "f4fe81170463c4d8c17087b7ec6553155c5b993229caa8ea84264309cac5247a",
+        "HARNESS_WITH_EXTENSIONS": "f4fe81170463c4d8c17087b7ec6553155c5b993229caa8ea84264309cac5247a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 17,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "8215f7d47c29026b54cd63ad05738366cd958ee406155b14dd71aa3e05365a2e",
+        "HARNESS_NO_EXTENSIONS": "8215f7d47c29026b54cd63ad05738366cd958ee406155b14dd71aa3e05365a2e",
+        "HARNESS_WITH_EXTENSIONS": "8215f7d47c29026b54cd63ad05738366cd958ee406155b14dd71aa3e05365a2e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 18,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "ae5c93359cd267db116a4f6793a5a25c3579a177e5a2856a2c14206ef3efc39f",
+        "HARNESS_NO_EXTENSIONS": "ae5c93359cd267db116a4f6793a5a25c3579a177e5a2856a2c14206ef3efc39f",
+        "HARNESS_WITH_EXTENSIONS": "ae5c93359cd267db116a4f6793a5a25c3579a177e5a2856a2c14206ef3efc39f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 18,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "722b6bd65b518029a7ebb060238b09ddce52d2b1141c178c1596472bd132d930",
+        "HARNESS_NO_EXTENSIONS": "722b6bd65b518029a7ebb060238b09ddce52d2b1141c178c1596472bd132d930",
+        "HARNESS_WITH_EXTENSIONS": "722b6bd65b518029a7ebb060238b09ddce52d2b1141c178c1596472bd132d930"
+      },
+      "errors": []
+    },
+    {
+      "seed": 18,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f6bc11caaffeb31e4b928a42d8abf16f55be1df743a607d6e34f51fc2eda6c25",
+        "HARNESS_NO_EXTENSIONS": "f6bc11caaffeb31e4b928a42d8abf16f55be1df743a607d6e34f51fc2eda6c25",
+        "HARNESS_WITH_EXTENSIONS": "f6bc11caaffeb31e4b928a42d8abf16f55be1df743a607d6e34f51fc2eda6c25"
+      },
+      "errors": []
+    },
+    {
+      "seed": 18,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "0889d0c8ae9de59b22acbda29455ba5c5d98e1d57684184146901720a8d9a34d",
+        "HARNESS_NO_EXTENSIONS": "0889d0c8ae9de59b22acbda29455ba5c5d98e1d57684184146901720a8d9a34d",
+        "HARNESS_WITH_EXTENSIONS": "0889d0c8ae9de59b22acbda29455ba5c5d98e1d57684184146901720a8d9a34d"
+      },
+      "errors": []
+    },
+    {
+      "seed": 19,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c3c8fb20e8c38b6b6b3bdb767331b0036b494395812910005d48d7ee250f7f54",
+        "HARNESS_NO_EXTENSIONS": "c3c8fb20e8c38b6b6b3bdb767331b0036b494395812910005d48d7ee250f7f54",
+        "HARNESS_WITH_EXTENSIONS": "c3c8fb20e8c38b6b6b3bdb767331b0036b494395812910005d48d7ee250f7f54"
+      },
+      "errors": []
+    },
+    {
+      "seed": 19,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "99d1b201a90ed42e7a14abec6c1595d6f0ac8739dab4c62c0a2d08883baae184",
+        "HARNESS_NO_EXTENSIONS": "99d1b201a90ed42e7a14abec6c1595d6f0ac8739dab4c62c0a2d08883baae184",
+        "HARNESS_WITH_EXTENSIONS": "99d1b201a90ed42e7a14abec6c1595d6f0ac8739dab4c62c0a2d08883baae184"
+      },
+      "errors": []
+    },
+    {
+      "seed": 19,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2742f9eae867b3034ee66f79aa255913a161e792739fa2c2352b5cd858dd5cb9",
+        "HARNESS_NO_EXTENSIONS": "2742f9eae867b3034ee66f79aa255913a161e792739fa2c2352b5cd858dd5cb9",
+        "HARNESS_WITH_EXTENSIONS": "2742f9eae867b3034ee66f79aa255913a161e792739fa2c2352b5cd858dd5cb9"
+      },
+      "errors": []
+    },
+    {
+      "seed": 19,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "024500b00fed2081442d964b0a1c81bec1d1cda47625ae6fdb28c85476607339",
+        "HARNESS_NO_EXTENSIONS": "024500b00fed2081442d964b0a1c81bec1d1cda47625ae6fdb28c85476607339",
+        "HARNESS_WITH_EXTENSIONS": "024500b00fed2081442d964b0a1c81bec1d1cda47625ae6fdb28c85476607339"
+      },
+      "errors": []
+    },
+    {
+      "seed": 20,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b296b241f4365ba43476b80d38b50d1898cfce3dc529a0fc0c684cdeb36dca88",
+        "HARNESS_NO_EXTENSIONS": "b296b241f4365ba43476b80d38b50d1898cfce3dc529a0fc0c684cdeb36dca88",
+        "HARNESS_WITH_EXTENSIONS": "b296b241f4365ba43476b80d38b50d1898cfce3dc529a0fc0c684cdeb36dca88"
+      },
+      "errors": []
+    },
+    {
+      "seed": 20,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "184a73120d4dd21bef73f319f0a1fd21f69391cde684486ae0ace13edf73a9e8",
+        "HARNESS_NO_EXTENSIONS": "184a73120d4dd21bef73f319f0a1fd21f69391cde684486ae0ace13edf73a9e8",
+        "HARNESS_WITH_EXTENSIONS": "184a73120d4dd21bef73f319f0a1fd21f69391cde684486ae0ace13edf73a9e8"
+      },
+      "errors": []
+    },
+    {
+      "seed": 20,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "92512224bec6a44fcc9a4585852ed2e738bf5af0ffafe14d4e417e8cfa1a5c82",
+        "HARNESS_NO_EXTENSIONS": "92512224bec6a44fcc9a4585852ed2e738bf5af0ffafe14d4e417e8cfa1a5c82",
+        "HARNESS_WITH_EXTENSIONS": "92512224bec6a44fcc9a4585852ed2e738bf5af0ffafe14d4e417e8cfa1a5c82"
+      },
+      "errors": []
+    },
+    {
+      "seed": 20,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "253fb0cc828310ee8740cf9d9759c8c3c0edcf7af39e6792db4004766daf0056",
+        "HARNESS_NO_EXTENSIONS": "253fb0cc828310ee8740cf9d9759c8c3c0edcf7af39e6792db4004766daf0056",
+        "HARNESS_WITH_EXTENSIONS": "253fb0cc828310ee8740cf9d9759c8c3c0edcf7af39e6792db4004766daf0056"
+      },
+      "errors": []
+    },
+    {
+      "seed": 21,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "503ccad48b14950d3f4c5bf96f28ba28440d7a7b18c07ee4f515d5b73cc41d6e",
+        "HARNESS_NO_EXTENSIONS": "503ccad48b14950d3f4c5bf96f28ba28440d7a7b18c07ee4f515d5b73cc41d6e",
+        "HARNESS_WITH_EXTENSIONS": "503ccad48b14950d3f4c5bf96f28ba28440d7a7b18c07ee4f515d5b73cc41d6e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 21,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "9afa2dd8435ce2c897922e5cf36906c487093787698693d35c0342f2d6e32c1a",
+        "HARNESS_NO_EXTENSIONS": "9afa2dd8435ce2c897922e5cf36906c487093787698693d35c0342f2d6e32c1a",
+        "HARNESS_WITH_EXTENSIONS": "9afa2dd8435ce2c897922e5cf36906c487093787698693d35c0342f2d6e32c1a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 21,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "20b162cd7eb270b3f2cbd7272fdf42423a456c608352f384d5e55a0cf2f8da22",
+        "HARNESS_NO_EXTENSIONS": "20b162cd7eb270b3f2cbd7272fdf42423a456c608352f384d5e55a0cf2f8da22",
+        "HARNESS_WITH_EXTENSIONS": "20b162cd7eb270b3f2cbd7272fdf42423a456c608352f384d5e55a0cf2f8da22"
+      },
+      "errors": []
+    },
+    {
+      "seed": 21,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "20b162cd7eb270b3f2cbd7272fdf42423a456c608352f384d5e55a0cf2f8da22",
+        "HARNESS_NO_EXTENSIONS": "20b162cd7eb270b3f2cbd7272fdf42423a456c608352f384d5e55a0cf2f8da22",
+        "HARNESS_WITH_EXTENSIONS": "20b162cd7eb270b3f2cbd7272fdf42423a456c608352f384d5e55a0cf2f8da22"
+      },
+      "errors": []
+    },
+    {
+      "seed": 22,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "6c711c789134900ed49dc30ec1e67e3ab1d003dbe59da6a911829b515ef2c86a",
+        "HARNESS_NO_EXTENSIONS": "6c711c789134900ed49dc30ec1e67e3ab1d003dbe59da6a911829b515ef2c86a",
+        "HARNESS_WITH_EXTENSIONS": "6c711c789134900ed49dc30ec1e67e3ab1d003dbe59da6a911829b515ef2c86a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 22,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "6991a534b7aac18fc8c768880e29acdbd3dd2c9adde68325203fda9153ce8738",
+        "HARNESS_NO_EXTENSIONS": "6991a534b7aac18fc8c768880e29acdbd3dd2c9adde68325203fda9153ce8738",
+        "HARNESS_WITH_EXTENSIONS": "6991a534b7aac18fc8c768880e29acdbd3dd2c9adde68325203fda9153ce8738"
+      },
+      "errors": []
+    },
+    {
+      "seed": 22,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f559f9db59546ac3f00be0fa92675e1a4b24807193466efb3965047904972023",
+        "HARNESS_NO_EXTENSIONS": "f559f9db59546ac3f00be0fa92675e1a4b24807193466efb3965047904972023",
+        "HARNESS_WITH_EXTENSIONS": "f559f9db59546ac3f00be0fa92675e1a4b24807193466efb3965047904972023"
+      },
+      "errors": []
+    },
+    {
+      "seed": 22,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "bc15ec8d887280b2c81efa1f11bb8b71a2103d95210bd24c825e3fa4968a2ba0",
+        "HARNESS_NO_EXTENSIONS": "bc15ec8d887280b2c81efa1f11bb8b71a2103d95210bd24c825e3fa4968a2ba0",
+        "HARNESS_WITH_EXTENSIONS": "bc15ec8d887280b2c81efa1f11bb8b71a2103d95210bd24c825e3fa4968a2ba0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 23,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2e3f6ac6ef071994fcb454326613dc772c473a92b5909bd6d26394ec5470c489",
+        "HARNESS_NO_EXTENSIONS": "2e3f6ac6ef071994fcb454326613dc772c473a92b5909bd6d26394ec5470c489",
+        "HARNESS_WITH_EXTENSIONS": "2e3f6ac6ef071994fcb454326613dc772c473a92b5909bd6d26394ec5470c489"
+      },
+      "errors": []
+    },
+    {
+      "seed": 23,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c64c803138323fc1ddeef8c95c534ef22e0d1cf2fe8b0ff18e08e76cd0b9cc59",
+        "HARNESS_NO_EXTENSIONS": "c64c803138323fc1ddeef8c95c534ef22e0d1cf2fe8b0ff18e08e76cd0b9cc59",
+        "HARNESS_WITH_EXTENSIONS": "c64c803138323fc1ddeef8c95c534ef22e0d1cf2fe8b0ff18e08e76cd0b9cc59"
+      },
+      "errors": []
+    },
+    {
+      "seed": 23,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "497cb3181f212215c51e71f1c7200fad5eeb8e471948c2244f80bf7329bb5516",
+        "HARNESS_NO_EXTENSIONS": "497cb3181f212215c51e71f1c7200fad5eeb8e471948c2244f80bf7329bb5516",
+        "HARNESS_WITH_EXTENSIONS": "497cb3181f212215c51e71f1c7200fad5eeb8e471948c2244f80bf7329bb5516"
+      },
+      "errors": []
+    },
+    {
+      "seed": 23,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "497cb3181f212215c51e71f1c7200fad5eeb8e471948c2244f80bf7329bb5516",
+        "HARNESS_NO_EXTENSIONS": "497cb3181f212215c51e71f1c7200fad5eeb8e471948c2244f80bf7329bb5516",
+        "HARNESS_WITH_EXTENSIONS": "497cb3181f212215c51e71f1c7200fad5eeb8e471948c2244f80bf7329bb5516"
+      },
+      "errors": []
+    },
+    {
+      "seed": 24,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a1b977984d0984a42b54588ba388e25be56620bd9ba00e7e281c69dcd64b9783",
+        "HARNESS_NO_EXTENSIONS": "a1b977984d0984a42b54588ba388e25be56620bd9ba00e7e281c69dcd64b9783",
+        "HARNESS_WITH_EXTENSIONS": "a1b977984d0984a42b54588ba388e25be56620bd9ba00e7e281c69dcd64b9783"
+      },
+      "errors": []
+    },
+    {
+      "seed": 24,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "821bfba7f62e063d75ba826d000341da36019557490254d8ca3cf0b8662dd345",
+        "HARNESS_NO_EXTENSIONS": "821bfba7f62e063d75ba826d000341da36019557490254d8ca3cf0b8662dd345",
+        "HARNESS_WITH_EXTENSIONS": "821bfba7f62e063d75ba826d000341da36019557490254d8ca3cf0b8662dd345"
+      },
+      "errors": []
+    },
+    {
+      "seed": 24,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fd96f6121e96694313b9301f3cf7ea1f03b79e22ecc894c4d87f691a4c619c2e",
+        "HARNESS_NO_EXTENSIONS": "fd96f6121e96694313b9301f3cf7ea1f03b79e22ecc894c4d87f691a4c619c2e",
+        "HARNESS_WITH_EXTENSIONS": "fd96f6121e96694313b9301f3cf7ea1f03b79e22ecc894c4d87f691a4c619c2e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 24,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "1f00c2fcef6fff7b0b87fe53a1b6860f215624c2f6b3dd516a536fe1c8e4cdd2",
+        "HARNESS_NO_EXTENSIONS": "1f00c2fcef6fff7b0b87fe53a1b6860f215624c2f6b3dd516a536fe1c8e4cdd2",
+        "HARNESS_WITH_EXTENSIONS": "1f00c2fcef6fff7b0b87fe53a1b6860f215624c2f6b3dd516a536fe1c8e4cdd2"
+      },
+      "errors": []
+    },
+    {
+      "seed": 25,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "7e131ea78ce5b9667855c34999a4504df790c9dc31cd33577542620f98314055",
+        "HARNESS_NO_EXTENSIONS": "7e131ea78ce5b9667855c34999a4504df790c9dc31cd33577542620f98314055",
+        "HARNESS_WITH_EXTENSIONS": "7e131ea78ce5b9667855c34999a4504df790c9dc31cd33577542620f98314055"
+      },
+      "errors": []
+    },
+    {
+      "seed": 25,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b7978f7dea978b8d8179cd47efb58dbc8bef8278584b25ffa3a1ae1cf6922d6d",
+        "HARNESS_NO_EXTENSIONS": "b7978f7dea978b8d8179cd47efb58dbc8bef8278584b25ffa3a1ae1cf6922d6d",
+        "HARNESS_WITH_EXTENSIONS": "b7978f7dea978b8d8179cd47efb58dbc8bef8278584b25ffa3a1ae1cf6922d6d"
+      },
+      "errors": []
+    },
+    {
+      "seed": 25,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2c2cf7f61d2019f9ee35fcfdfad2ba873c4201bd59fb9c80b954540b618313ad",
+        "HARNESS_NO_EXTENSIONS": "2c2cf7f61d2019f9ee35fcfdfad2ba873c4201bd59fb9c80b954540b618313ad",
+        "HARNESS_WITH_EXTENSIONS": "2c2cf7f61d2019f9ee35fcfdfad2ba873c4201bd59fb9c80b954540b618313ad"
+      },
+      "errors": []
+    },
+    {
+      "seed": 25,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2c2cf7f61d2019f9ee35fcfdfad2ba873c4201bd59fb9c80b954540b618313ad",
+        "HARNESS_NO_EXTENSIONS": "2c2cf7f61d2019f9ee35fcfdfad2ba873c4201bd59fb9c80b954540b618313ad",
+        "HARNESS_WITH_EXTENSIONS": "2c2cf7f61d2019f9ee35fcfdfad2ba873c4201bd59fb9c80b954540b618313ad"
+      },
+      "errors": []
+    },
+    {
+      "seed": 26,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "11a106753bbed27d2deeef85a4ca405079630292053466afff46b089fddd2365",
+        "HARNESS_NO_EXTENSIONS": "11a106753bbed27d2deeef85a4ca405079630292053466afff46b089fddd2365",
+        "HARNESS_WITH_EXTENSIONS": "11a106753bbed27d2deeef85a4ca405079630292053466afff46b089fddd2365"
+      },
+      "errors": []
+    },
+    {
+      "seed": 26,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "1a1f0ac2118bbf6f2a72ff785799a882c4914a2a465f51433e862ec71edc449c",
+        "HARNESS_NO_EXTENSIONS": "1a1f0ac2118bbf6f2a72ff785799a882c4914a2a465f51433e862ec71edc449c",
+        "HARNESS_WITH_EXTENSIONS": "1a1f0ac2118bbf6f2a72ff785799a882c4914a2a465f51433e862ec71edc449c"
+      },
+      "errors": []
+    },
+    {
+      "seed": 26,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "76b834089f557818b44afba40ce279e2cb415bab086c9f92995c45d7ed7510fe",
+        "HARNESS_NO_EXTENSIONS": "76b834089f557818b44afba40ce279e2cb415bab086c9f92995c45d7ed7510fe",
+        "HARNESS_WITH_EXTENSIONS": "76b834089f557818b44afba40ce279e2cb415bab086c9f92995c45d7ed7510fe"
+      },
+      "errors": []
+    },
+    {
+      "seed": 26,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "76b834089f557818b44afba40ce279e2cb415bab086c9f92995c45d7ed7510fe",
+        "HARNESS_NO_EXTENSIONS": "76b834089f557818b44afba40ce279e2cb415bab086c9f92995c45d7ed7510fe",
+        "HARNESS_WITH_EXTENSIONS": "76b834089f557818b44afba40ce279e2cb415bab086c9f92995c45d7ed7510fe"
+      },
+      "errors": []
+    },
+    {
+      "seed": 27,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "20cc2234a97df4a72a8e6a5e8809532487ad80ea0dbd42055edb1e0efabb7b2b",
+        "HARNESS_NO_EXTENSIONS": "20cc2234a97df4a72a8e6a5e8809532487ad80ea0dbd42055edb1e0efabb7b2b",
+        "HARNESS_WITH_EXTENSIONS": "20cc2234a97df4a72a8e6a5e8809532487ad80ea0dbd42055edb1e0efabb7b2b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 27,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "0008061b4fd5a292703dbc128a16a0231a366f404c5b3834894d1c1e52ffb91b",
+        "HARNESS_NO_EXTENSIONS": "0008061b4fd5a292703dbc128a16a0231a366f404c5b3834894d1c1e52ffb91b",
+        "HARNESS_WITH_EXTENSIONS": "0008061b4fd5a292703dbc128a16a0231a366f404c5b3834894d1c1e52ffb91b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 27,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a83d4d4289324bb4fa1d890fdd8c6dfed1ecba10087517b5cca21087add5c6d0",
+        "HARNESS_NO_EXTENSIONS": "a83d4d4289324bb4fa1d890fdd8c6dfed1ecba10087517b5cca21087add5c6d0",
+        "HARNESS_WITH_EXTENSIONS": "a83d4d4289324bb4fa1d890fdd8c6dfed1ecba10087517b5cca21087add5c6d0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 27,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a83d4d4289324bb4fa1d890fdd8c6dfed1ecba10087517b5cca21087add5c6d0",
+        "HARNESS_NO_EXTENSIONS": "a83d4d4289324bb4fa1d890fdd8c6dfed1ecba10087517b5cca21087add5c6d0",
+        "HARNESS_WITH_EXTENSIONS": "a83d4d4289324bb4fa1d890fdd8c6dfed1ecba10087517b5cca21087add5c6d0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 28,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c5c1ff797d5f7c8cb4765b193d2a3997373dfb37718c85fc0d8f6058f7fe6eb5",
+        "HARNESS_NO_EXTENSIONS": "c5c1ff797d5f7c8cb4765b193d2a3997373dfb37718c85fc0d8f6058f7fe6eb5",
+        "HARNESS_WITH_EXTENSIONS": "c5c1ff797d5f7c8cb4765b193d2a3997373dfb37718c85fc0d8f6058f7fe6eb5"
+      },
+      "errors": []
+    },
+    {
+      "seed": 28,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b6f83f72525286d69264585c85db2c5a30da1b5f70db0a125cece35e840cef13",
+        "HARNESS_NO_EXTENSIONS": "b6f83f72525286d69264585c85db2c5a30da1b5f70db0a125cece35e840cef13",
+        "HARNESS_WITH_EXTENSIONS": "b6f83f72525286d69264585c85db2c5a30da1b5f70db0a125cece35e840cef13"
+      },
+      "errors": []
+    },
+    {
+      "seed": 28,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2c5f2acc75e5b98371d07ce7208e450941ca7bd4ea825764ac09e2ed56fba130",
+        "HARNESS_NO_EXTENSIONS": "2c5f2acc75e5b98371d07ce7208e450941ca7bd4ea825764ac09e2ed56fba130",
+        "HARNESS_WITH_EXTENSIONS": "2c5f2acc75e5b98371d07ce7208e450941ca7bd4ea825764ac09e2ed56fba130"
+      },
+      "errors": []
+    },
+    {
+      "seed": 28,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c618b7004c49ef609aa78ad5a5c67589ebd99ca74f7548654e623bf89ba2c32b",
+        "HARNESS_NO_EXTENSIONS": "c618b7004c49ef609aa78ad5a5c67589ebd99ca74f7548654e623bf89ba2c32b",
+        "HARNESS_WITH_EXTENSIONS": "c618b7004c49ef609aa78ad5a5c67589ebd99ca74f7548654e623bf89ba2c32b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 29,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "1260288fd55631a884efaead8e0083abfdd7be3e1cd54e16e196b0981871f492",
+        "HARNESS_NO_EXTENSIONS": "1260288fd55631a884efaead8e0083abfdd7be3e1cd54e16e196b0981871f492",
+        "HARNESS_WITH_EXTENSIONS": "1260288fd55631a884efaead8e0083abfdd7be3e1cd54e16e196b0981871f492"
+      },
+      "errors": []
+    },
+    {
+      "seed": 29,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fc48d6b8d22b849e730fb2a90f77ff26b909a199248179223c69a6f1843c5e33",
+        "HARNESS_NO_EXTENSIONS": "fc48d6b8d22b849e730fb2a90f77ff26b909a199248179223c69a6f1843c5e33",
+        "HARNESS_WITH_EXTENSIONS": "fc48d6b8d22b849e730fb2a90f77ff26b909a199248179223c69a6f1843c5e33"
+      },
+      "errors": []
+    },
+    {
+      "seed": 29,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "40f9d09cac76419e5cfad47dcbb67d770faa7176432c06b330800edd30275714",
+        "HARNESS_NO_EXTENSIONS": "40f9d09cac76419e5cfad47dcbb67d770faa7176432c06b330800edd30275714",
+        "HARNESS_WITH_EXTENSIONS": "40f9d09cac76419e5cfad47dcbb67d770faa7176432c06b330800edd30275714"
+      },
+      "errors": []
+    },
+    {
+      "seed": 29,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "9d85e30289fba4b02ed1e50efa474c855e55a5762bb6b6bb67bac64bd1a22ae5",
+        "HARNESS_NO_EXTENSIONS": "9d85e30289fba4b02ed1e50efa474c855e55a5762bb6b6bb67bac64bd1a22ae5",
+        "HARNESS_WITH_EXTENSIONS": "9d85e30289fba4b02ed1e50efa474c855e55a5762bb6b6bb67bac64bd1a22ae5"
+      },
+      "errors": []
+    },
+    {
+      "seed": 30,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f2b5dc2fbabee96e6ce776d2590a9ee54ef3911ebdfa87ebe95e914a61151451",
+        "HARNESS_NO_EXTENSIONS": "f2b5dc2fbabee96e6ce776d2590a9ee54ef3911ebdfa87ebe95e914a61151451",
+        "HARNESS_WITH_EXTENSIONS": "f2b5dc2fbabee96e6ce776d2590a9ee54ef3911ebdfa87ebe95e914a61151451"
+      },
+      "errors": []
+    },
+    {
+      "seed": 30,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "63a30275c2667db780cb98dac139663dfeace7e2b5b77f77c153d3877de5f3d6",
+        "HARNESS_NO_EXTENSIONS": "63a30275c2667db780cb98dac139663dfeace7e2b5b77f77c153d3877de5f3d6",
+        "HARNESS_WITH_EXTENSIONS": "63a30275c2667db780cb98dac139663dfeace7e2b5b77f77c153d3877de5f3d6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 30,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d35f83caf117a9778c6b5b2b85d3ecd6ee92fdf5ff8da2412a486dc36bff6fa0",
+        "HARNESS_NO_EXTENSIONS": "d35f83caf117a9778c6b5b2b85d3ecd6ee92fdf5ff8da2412a486dc36bff6fa0",
+        "HARNESS_WITH_EXTENSIONS": "d35f83caf117a9778c6b5b2b85d3ecd6ee92fdf5ff8da2412a486dc36bff6fa0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 30,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d35f83caf117a9778c6b5b2b85d3ecd6ee92fdf5ff8da2412a486dc36bff6fa0",
+        "HARNESS_NO_EXTENSIONS": "d35f83caf117a9778c6b5b2b85d3ecd6ee92fdf5ff8da2412a486dc36bff6fa0",
+        "HARNESS_WITH_EXTENSIONS": "d35f83caf117a9778c6b5b2b85d3ecd6ee92fdf5ff8da2412a486dc36bff6fa0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 31,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "de06ccd0e49ccc0be94e9fb9a5fe0e1e266a028290957381c8b22a1f4df9adc3",
+        "HARNESS_NO_EXTENSIONS": "de06ccd0e49ccc0be94e9fb9a5fe0e1e266a028290957381c8b22a1f4df9adc3",
+        "HARNESS_WITH_EXTENSIONS": "de06ccd0e49ccc0be94e9fb9a5fe0e1e266a028290957381c8b22a1f4df9adc3"
+      },
+      "errors": []
+    },
+    {
+      "seed": 31,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "611bfbaae33b0bc73fb62e2e07c806d7eec16c87defe313950b6e8980dc78324",
+        "HARNESS_NO_EXTENSIONS": "611bfbaae33b0bc73fb62e2e07c806d7eec16c87defe313950b6e8980dc78324",
+        "HARNESS_WITH_EXTENSIONS": "611bfbaae33b0bc73fb62e2e07c806d7eec16c87defe313950b6e8980dc78324"
+      },
+      "errors": []
+    },
+    {
+      "seed": 31,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4ac55139d43963387b6f34b76c17b52e9095a626396daa059072120c769d953f",
+        "HARNESS_NO_EXTENSIONS": "4ac55139d43963387b6f34b76c17b52e9095a626396daa059072120c769d953f",
+        "HARNESS_WITH_EXTENSIONS": "4ac55139d43963387b6f34b76c17b52e9095a626396daa059072120c769d953f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 31,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c71cfeb11ac6919a689c3903a9395824dd95b35e2938c480c294909691a8e71f",
+        "HARNESS_NO_EXTENSIONS": "c71cfeb11ac6919a689c3903a9395824dd95b35e2938c480c294909691a8e71f",
+        "HARNESS_WITH_EXTENSIONS": "c71cfeb11ac6919a689c3903a9395824dd95b35e2938c480c294909691a8e71f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 32,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f08d50e44933c91de0591674df660a956c0c796f48fb35f5cebc2db5b6f85740",
+        "HARNESS_NO_EXTENSIONS": "f08d50e44933c91de0591674df660a956c0c796f48fb35f5cebc2db5b6f85740",
+        "HARNESS_WITH_EXTENSIONS": "f08d50e44933c91de0591674df660a956c0c796f48fb35f5cebc2db5b6f85740"
+      },
+      "errors": []
+    },
+    {
+      "seed": 32,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a62454ac4e36ae23c64db99586f8ddb9902ca91b63ed2f54c9f1ce1cd6dfd0de",
+        "HARNESS_NO_EXTENSIONS": "a62454ac4e36ae23c64db99586f8ddb9902ca91b63ed2f54c9f1ce1cd6dfd0de",
+        "HARNESS_WITH_EXTENSIONS": "a62454ac4e36ae23c64db99586f8ddb9902ca91b63ed2f54c9f1ce1cd6dfd0de"
+      },
+      "errors": []
+    },
+    {
+      "seed": 32,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "3e55a6bd788e262783d7c00e3f5e3059cf13ca7c47f20929d687a7acc6b37091",
+        "HARNESS_NO_EXTENSIONS": "3e55a6bd788e262783d7c00e3f5e3059cf13ca7c47f20929d687a7acc6b37091",
+        "HARNESS_WITH_EXTENSIONS": "3e55a6bd788e262783d7c00e3f5e3059cf13ca7c47f20929d687a7acc6b37091"
+      },
+      "errors": []
+    },
+    {
+      "seed": 32,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "664d352831d429e0bc4800e2d0fbb9a9b130a886b157e11311216b138a2d19ba",
+        "HARNESS_NO_EXTENSIONS": "664d352831d429e0bc4800e2d0fbb9a9b130a886b157e11311216b138a2d19ba",
+        "HARNESS_WITH_EXTENSIONS": "664d352831d429e0bc4800e2d0fbb9a9b130a886b157e11311216b138a2d19ba"
+      },
+      "errors": []
+    },
+    {
+      "seed": 33,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b99b896735c1b7ce41e5898a2c6bb1942fd8711dda3941c5c3d117a68482f9d8",
+        "HARNESS_NO_EXTENSIONS": "b99b896735c1b7ce41e5898a2c6bb1942fd8711dda3941c5c3d117a68482f9d8",
+        "HARNESS_WITH_EXTENSIONS": "b99b896735c1b7ce41e5898a2c6bb1942fd8711dda3941c5c3d117a68482f9d8"
+      },
+      "errors": []
+    },
+    {
+      "seed": 33,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "f786664eb841b9411fb4330590aae2238197385fc9ee42f8105a8254d45948fa",
+        "HARNESS_NO_EXTENSIONS": "f786664eb841b9411fb4330590aae2238197385fc9ee42f8105a8254d45948fa",
+        "HARNESS_WITH_EXTENSIONS": "f786664eb841b9411fb4330590aae2238197385fc9ee42f8105a8254d45948fa"
+      },
+      "errors": []
+    },
+    {
+      "seed": 33,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e1327af20e9e43d505a0d8a3dcebd3f14b386497ae8e153cdd5dd335f4a288f6",
+        "HARNESS_NO_EXTENSIONS": "e1327af20e9e43d505a0d8a3dcebd3f14b386497ae8e153cdd5dd335f4a288f6",
+        "HARNESS_WITH_EXTENSIONS": "e1327af20e9e43d505a0d8a3dcebd3f14b386497ae8e153cdd5dd335f4a288f6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 33,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "9a90bc75a5a3b46da674305d7f494817981ac39f3f7846ed9b6583f4f2b6a9e3",
+        "HARNESS_NO_EXTENSIONS": "9a90bc75a5a3b46da674305d7f494817981ac39f3f7846ed9b6583f4f2b6a9e3",
+        "HARNESS_WITH_EXTENSIONS": "9a90bc75a5a3b46da674305d7f494817981ac39f3f7846ed9b6583f4f2b6a9e3"
+      },
+      "errors": []
+    },
+    {
+      "seed": 34,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4c765eb412e159742ad4565ecf5599851cbe179d15e81d713af4edd440cb4f5d",
+        "HARNESS_NO_EXTENSIONS": "4c765eb412e159742ad4565ecf5599851cbe179d15e81d713af4edd440cb4f5d",
+        "HARNESS_WITH_EXTENSIONS": "4c765eb412e159742ad4565ecf5599851cbe179d15e81d713af4edd440cb4f5d"
+      },
+      "errors": []
+    },
+    {
+      "seed": 34,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2e59ef5894def5f602532d0bc67d82b0e10d28f8b80a6492bca0e2420207fb23",
+        "HARNESS_NO_EXTENSIONS": "2e59ef5894def5f602532d0bc67d82b0e10d28f8b80a6492bca0e2420207fb23",
+        "HARNESS_WITH_EXTENSIONS": "2e59ef5894def5f602532d0bc67d82b0e10d28f8b80a6492bca0e2420207fb23"
+      },
+      "errors": []
+    },
+    {
+      "seed": 34,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "789f5b1bfcdd9cae8cae98cde0674537dbb1cf9e7a8288715388e0a58cf14cb8",
+        "HARNESS_NO_EXTENSIONS": "789f5b1bfcdd9cae8cae98cde0674537dbb1cf9e7a8288715388e0a58cf14cb8",
+        "HARNESS_WITH_EXTENSIONS": "789f5b1bfcdd9cae8cae98cde0674537dbb1cf9e7a8288715388e0a58cf14cb8"
+      },
+      "errors": []
+    },
+    {
+      "seed": 34,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e6e9405a8a5d099c31f440065734d38e276eaacf704576fbc79e977f90f52f86",
+        "HARNESS_NO_EXTENSIONS": "e6e9405a8a5d099c31f440065734d38e276eaacf704576fbc79e977f90f52f86",
+        "HARNESS_WITH_EXTENSIONS": "e6e9405a8a5d099c31f440065734d38e276eaacf704576fbc79e977f90f52f86"
+      },
+      "errors": []
+    },
+    {
+      "seed": 35,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b042e727e711a2ba55a6c03462fd6c71b19b6e0df1774f505466b404f79b9b10",
+        "HARNESS_NO_EXTENSIONS": "b042e727e711a2ba55a6c03462fd6c71b19b6e0df1774f505466b404f79b9b10",
+        "HARNESS_WITH_EXTENSIONS": "b042e727e711a2ba55a6c03462fd6c71b19b6e0df1774f505466b404f79b9b10"
+      },
+      "errors": []
+    },
+    {
+      "seed": 35,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fbf359f2c202611a5d52fd624b1e052c075015eca5ad93ad95bd5c0ef88aca60",
+        "HARNESS_NO_EXTENSIONS": "fbf359f2c202611a5d52fd624b1e052c075015eca5ad93ad95bd5c0ef88aca60",
+        "HARNESS_WITH_EXTENSIONS": "fbf359f2c202611a5d52fd624b1e052c075015eca5ad93ad95bd5c0ef88aca60"
+      },
+      "errors": []
+    },
+    {
+      "seed": 35,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "95a9857632c17b4341ff578a811a5e3db3beed521f752b7202464680fb832ebb",
+        "HARNESS_NO_EXTENSIONS": "95a9857632c17b4341ff578a811a5e3db3beed521f752b7202464680fb832ebb",
+        "HARNESS_WITH_EXTENSIONS": "95a9857632c17b4341ff578a811a5e3db3beed521f752b7202464680fb832ebb"
+      },
+      "errors": []
+    },
+    {
+      "seed": 35,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "5be99d631a45f15bde92321e39e03784e9dac7e9ec097b32bcc51feec9653d2d",
+        "HARNESS_NO_EXTENSIONS": "5be99d631a45f15bde92321e39e03784e9dac7e9ec097b32bcc51feec9653d2d",
+        "HARNESS_WITH_EXTENSIONS": "5be99d631a45f15bde92321e39e03784e9dac7e9ec097b32bcc51feec9653d2d"
+      },
+      "errors": []
+    },
+    {
+      "seed": 36,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "521fd0bb8273c7cd528e1ab5164258aabb4916292ab2305b3f6138a423c09eb0",
+        "HARNESS_NO_EXTENSIONS": "521fd0bb8273c7cd528e1ab5164258aabb4916292ab2305b3f6138a423c09eb0",
+        "HARNESS_WITH_EXTENSIONS": "521fd0bb8273c7cd528e1ab5164258aabb4916292ab2305b3f6138a423c09eb0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 36,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "33cc112d35f86db9ddda12c8f0e49484084750aa476580bf681e503ffc3e4334",
+        "HARNESS_NO_EXTENSIONS": "33cc112d35f86db9ddda12c8f0e49484084750aa476580bf681e503ffc3e4334",
+        "HARNESS_WITH_EXTENSIONS": "33cc112d35f86db9ddda12c8f0e49484084750aa476580bf681e503ffc3e4334"
+      },
+      "errors": []
+    },
+    {
+      "seed": 36,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b59b6f9099cf9c4025cfef0e826f3968b67d9f5b1bca19d8c603c58718e1c99a",
+        "HARNESS_NO_EXTENSIONS": "b59b6f9099cf9c4025cfef0e826f3968b67d9f5b1bca19d8c603c58718e1c99a",
+        "HARNESS_WITH_EXTENSIONS": "b59b6f9099cf9c4025cfef0e826f3968b67d9f5b1bca19d8c603c58718e1c99a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 36,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b59b6f9099cf9c4025cfef0e826f3968b67d9f5b1bca19d8c603c58718e1c99a",
+        "HARNESS_NO_EXTENSIONS": "b59b6f9099cf9c4025cfef0e826f3968b67d9f5b1bca19d8c603c58718e1c99a",
+        "HARNESS_WITH_EXTENSIONS": "b59b6f9099cf9c4025cfef0e826f3968b67d9f5b1bca19d8c603c58718e1c99a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 37,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "e76dc6a4f6c290ad4117ad9ee7f283c53dfda39844c5bef454ffb6a84eff818f",
+        "HARNESS_NO_EXTENSIONS": "e76dc6a4f6c290ad4117ad9ee7f283c53dfda39844c5bef454ffb6a84eff818f",
+        "HARNESS_WITH_EXTENSIONS": "e76dc6a4f6c290ad4117ad9ee7f283c53dfda39844c5bef454ffb6a84eff818f"
+      },
+      "errors": []
+    },
+    {
+      "seed": 37,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a3958b7e3c1cd8872dc6fdbdb7ce750fe78e0db57c2d5200c4ab6da99744cf09",
+        "HARNESS_NO_EXTENSIONS": "a3958b7e3c1cd8872dc6fdbdb7ce750fe78e0db57c2d5200c4ab6da99744cf09",
+        "HARNESS_WITH_EXTENSIONS": "a3958b7e3c1cd8872dc6fdbdb7ce750fe78e0db57c2d5200c4ab6da99744cf09"
+      },
+      "errors": []
+    },
+    {
+      "seed": 37,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "24a0f90bed7712109be15ee74a003180278bc4522981abc4695a31668bd7d36e",
+        "HARNESS_NO_EXTENSIONS": "24a0f90bed7712109be15ee74a003180278bc4522981abc4695a31668bd7d36e",
+        "HARNESS_WITH_EXTENSIONS": "24a0f90bed7712109be15ee74a003180278bc4522981abc4695a31668bd7d36e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 37,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "24a0f90bed7712109be15ee74a003180278bc4522981abc4695a31668bd7d36e",
+        "HARNESS_NO_EXTENSIONS": "24a0f90bed7712109be15ee74a003180278bc4522981abc4695a31668bd7d36e",
+        "HARNESS_WITH_EXTENSIONS": "24a0f90bed7712109be15ee74a003180278bc4522981abc4695a31668bd7d36e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 38,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "9e82fef0440fec60fcb18b7f9e76b3d13b192626831f1c7c5ea9759dcdc3d57e",
+        "HARNESS_NO_EXTENSIONS": "9e82fef0440fec60fcb18b7f9e76b3d13b192626831f1c7c5ea9759dcdc3d57e",
+        "HARNESS_WITH_EXTENSIONS": "9e82fef0440fec60fcb18b7f9e76b3d13b192626831f1c7c5ea9759dcdc3d57e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 38,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "98f8a29a61182d4d8dfdd561d3861d07b04456ce3a3a83bb5858632491b7a499",
+        "HARNESS_NO_EXTENSIONS": "98f8a29a61182d4d8dfdd561d3861d07b04456ce3a3a83bb5858632491b7a499",
+        "HARNESS_WITH_EXTENSIONS": "98f8a29a61182d4d8dfdd561d3861d07b04456ce3a3a83bb5858632491b7a499"
+      },
+      "errors": []
+    },
+    {
+      "seed": 38,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "53fe99d9462cdfacda76d6acf9b7ad88041552c39fd60b8be5bb5673aca818f3",
+        "HARNESS_NO_EXTENSIONS": "53fe99d9462cdfacda76d6acf9b7ad88041552c39fd60b8be5bb5673aca818f3",
+        "HARNESS_WITH_EXTENSIONS": "53fe99d9462cdfacda76d6acf9b7ad88041552c39fd60b8be5bb5673aca818f3"
+      },
+      "errors": []
+    },
+    {
+      "seed": 38,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2b4f5a6a2c1f65a02cceadd6e7ae186444921e9f2607128f60354fd92f8cdb72",
+        "HARNESS_NO_EXTENSIONS": "2b4f5a6a2c1f65a02cceadd6e7ae186444921e9f2607128f60354fd92f8cdb72",
+        "HARNESS_WITH_EXTENSIONS": "2b4f5a6a2c1f65a02cceadd6e7ae186444921e9f2607128f60354fd92f8cdb72"
+      },
+      "errors": []
+    },
+    {
+      "seed": 39,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "34f1e918902bff48db2be249f251306633c3c000146e93ac9d3a02b5115a9820",
+        "HARNESS_NO_EXTENSIONS": "34f1e918902bff48db2be249f251306633c3c000146e93ac9d3a02b5115a9820",
+        "HARNESS_WITH_EXTENSIONS": "34f1e918902bff48db2be249f251306633c3c000146e93ac9d3a02b5115a9820"
+      },
+      "errors": []
+    },
+    {
+      "seed": 39,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "db70608125438600e8fec33d9cca5efcc532390c9327a97e2e7efe3ac23f9f65",
+        "HARNESS_NO_EXTENSIONS": "db70608125438600e8fec33d9cca5efcc532390c9327a97e2e7efe3ac23f9f65",
+        "HARNESS_WITH_EXTENSIONS": "db70608125438600e8fec33d9cca5efcc532390c9327a97e2e7efe3ac23f9f65"
+      },
+      "errors": []
+    },
+    {
+      "seed": 39,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a4d93abe6d6ab4cadeb1309d64cf88d3df7cffe457e9c651c83b2c2a23c226fa",
+        "HARNESS_NO_EXTENSIONS": "a4d93abe6d6ab4cadeb1309d64cf88d3df7cffe457e9c651c83b2c2a23c226fa",
+        "HARNESS_WITH_EXTENSIONS": "a4d93abe6d6ab4cadeb1309d64cf88d3df7cffe457e9c651c83b2c2a23c226fa"
+      },
+      "errors": []
+    },
+    {
+      "seed": 39,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "28e56d849a7da33624ca8c445b5207795d6f976b1c6dff7c12128583e2323aaf",
+        "HARNESS_NO_EXTENSIONS": "28e56d849a7da33624ca8c445b5207795d6f976b1c6dff7c12128583e2323aaf",
+        "HARNESS_WITH_EXTENSIONS": "28e56d849a7da33624ca8c445b5207795d6f976b1c6dff7c12128583e2323aaf"
+      },
+      "errors": []
+    },
+    {
+      "seed": 40,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "9db5e3ded155ada2136eb45897d510a9eb81aa1b33a4dc5bd948ea984e3c6a03",
+        "HARNESS_NO_EXTENSIONS": "9db5e3ded155ada2136eb45897d510a9eb81aa1b33a4dc5bd948ea984e3c6a03",
+        "HARNESS_WITH_EXTENSIONS": "9db5e3ded155ada2136eb45897d510a9eb81aa1b33a4dc5bd948ea984e3c6a03"
+      },
+      "errors": []
+    },
+    {
+      "seed": 40,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "ce44695a43ab142a2b38d46f801bd414130ec1d813f1544676a385d8d52594bc",
+        "HARNESS_NO_EXTENSIONS": "ce44695a43ab142a2b38d46f801bd414130ec1d813f1544676a385d8d52594bc",
+        "HARNESS_WITH_EXTENSIONS": "ce44695a43ab142a2b38d46f801bd414130ec1d813f1544676a385d8d52594bc"
+      },
+      "errors": []
+    },
+    {
+      "seed": 40,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fb1a53dd879a0585dea74d9d5c615a5da6f054c2e6ae1ac41d32eabfc165fdf0",
+        "HARNESS_NO_EXTENSIONS": "fb1a53dd879a0585dea74d9d5c615a5da6f054c2e6ae1ac41d32eabfc165fdf0",
+        "HARNESS_WITH_EXTENSIONS": "fb1a53dd879a0585dea74d9d5c615a5da6f054c2e6ae1ac41d32eabfc165fdf0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 40,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "8397b36b7c547e27c8c25d288cddcedf4a73e0417df140512c7e210f1fa1e34e",
+        "HARNESS_NO_EXTENSIONS": "8397b36b7c547e27c8c25d288cddcedf4a73e0417df140512c7e210f1fa1e34e",
+        "HARNESS_WITH_EXTENSIONS": "8397b36b7c547e27c8c25d288cddcedf4a73e0417df140512c7e210f1fa1e34e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 41,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "799a5a4836f3231d9199ca0ef0d5d3a9964da824fe53aabef0680c86fcff10e6",
+        "HARNESS_NO_EXTENSIONS": "799a5a4836f3231d9199ca0ef0d5d3a9964da824fe53aabef0680c86fcff10e6",
+        "HARNESS_WITH_EXTENSIONS": "799a5a4836f3231d9199ca0ef0d5d3a9964da824fe53aabef0680c86fcff10e6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 41,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "8bf18565b3a2cedb64a9f0f8e14f357beffda944580496cd90ecf153a991f327",
+        "HARNESS_NO_EXTENSIONS": "8bf18565b3a2cedb64a9f0f8e14f357beffda944580496cd90ecf153a991f327",
+        "HARNESS_WITH_EXTENSIONS": "8bf18565b3a2cedb64a9f0f8e14f357beffda944580496cd90ecf153a991f327"
+      },
+      "errors": []
+    },
+    {
+      "seed": 41,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d05b07b30bd83ab95b0292c7983cd16c5feb62ce2e0ca4bc08705753fdca644e",
+        "HARNESS_NO_EXTENSIONS": "d05b07b30bd83ab95b0292c7983cd16c5feb62ce2e0ca4bc08705753fdca644e",
+        "HARNESS_WITH_EXTENSIONS": "d05b07b30bd83ab95b0292c7983cd16c5feb62ce2e0ca4bc08705753fdca644e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 41,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d05b07b30bd83ab95b0292c7983cd16c5feb62ce2e0ca4bc08705753fdca644e",
+        "HARNESS_NO_EXTENSIONS": "d05b07b30bd83ab95b0292c7983cd16c5feb62ce2e0ca4bc08705753fdca644e",
+        "HARNESS_WITH_EXTENSIONS": "d05b07b30bd83ab95b0292c7983cd16c5feb62ce2e0ca4bc08705753fdca644e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 42,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "3ed17969896fb1a71ce290dfaa79a5a7137cddfb390d8374f6bd0ac20f59a0f4",
+        "HARNESS_NO_EXTENSIONS": "3ed17969896fb1a71ce290dfaa79a5a7137cddfb390d8374f6bd0ac20f59a0f4",
+        "HARNESS_WITH_EXTENSIONS": "3ed17969896fb1a71ce290dfaa79a5a7137cddfb390d8374f6bd0ac20f59a0f4"
+      },
+      "errors": []
+    },
+    {
+      "seed": 42,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "67c90784ce6fe4446b8f0db7fe4d90e87c0b624aa93733d2b086f81182072138",
+        "HARNESS_NO_EXTENSIONS": "67c90784ce6fe4446b8f0db7fe4d90e87c0b624aa93733d2b086f81182072138",
+        "HARNESS_WITH_EXTENSIONS": "67c90784ce6fe4446b8f0db7fe4d90e87c0b624aa93733d2b086f81182072138"
+      },
+      "errors": []
+    },
+    {
+      "seed": 42,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "ee5c0717dd687f0b419fea904fda2575c091b930d785392f618a30c3d8cfc28c",
+        "HARNESS_NO_EXTENSIONS": "ee5c0717dd687f0b419fea904fda2575c091b930d785392f618a30c3d8cfc28c",
+        "HARNESS_WITH_EXTENSIONS": "ee5c0717dd687f0b419fea904fda2575c091b930d785392f618a30c3d8cfc28c"
+      },
+      "errors": []
+    },
+    {
+      "seed": 42,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a385984c04b38bcc527bab17364fae464dd22777f8b93f15515204401e6c9032",
+        "HARNESS_NO_EXTENSIONS": "a385984c04b38bcc527bab17364fae464dd22777f8b93f15515204401e6c9032",
+        "HARNESS_WITH_EXTENSIONS": "a385984c04b38bcc527bab17364fae464dd22777f8b93f15515204401e6c9032"
+      },
+      "errors": []
+    },
+    {
+      "seed": 43,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "30a5f7e03c6a6230e3c6f584a31076d0b33a21c4787e2b738a98d8fd4f99a691",
+        "HARNESS_NO_EXTENSIONS": "30a5f7e03c6a6230e3c6f584a31076d0b33a21c4787e2b738a98d8fd4f99a691",
+        "HARNESS_WITH_EXTENSIONS": "30a5f7e03c6a6230e3c6f584a31076d0b33a21c4787e2b738a98d8fd4f99a691"
+      },
+      "errors": []
+    },
+    {
+      "seed": 43,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "01ffaec1ceb1ed6fea0d40e48371373d5ddd6aca2e10d857085ad87e4367b9a1",
+        "HARNESS_NO_EXTENSIONS": "01ffaec1ceb1ed6fea0d40e48371373d5ddd6aca2e10d857085ad87e4367b9a1",
+        "HARNESS_WITH_EXTENSIONS": "01ffaec1ceb1ed6fea0d40e48371373d5ddd6aca2e10d857085ad87e4367b9a1"
+      },
+      "errors": []
+    },
+    {
+      "seed": 43,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "b32b52221991d9ed8a30efbfc832d8e7d612c5caa1a3fe2d34b0b62510b9389a",
+        "HARNESS_NO_EXTENSIONS": "b32b52221991d9ed8a30efbfc832d8e7d612c5caa1a3fe2d34b0b62510b9389a",
+        "HARNESS_WITH_EXTENSIONS": "b32b52221991d9ed8a30efbfc832d8e7d612c5caa1a3fe2d34b0b62510b9389a"
+      },
+      "errors": []
+    },
+    {
+      "seed": 43,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d73db3b52819629c361a5691c452b68b04882ad4f19adde1f55e7e15b92852fe",
+        "HARNESS_NO_EXTENSIONS": "d73db3b52819629c361a5691c452b68b04882ad4f19adde1f55e7e15b92852fe",
+        "HARNESS_WITH_EXTENSIONS": "d73db3b52819629c361a5691c452b68b04882ad4f19adde1f55e7e15b92852fe"
+      },
+      "errors": []
+    },
+    {
+      "seed": 44,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4c31456f2a1e3a780057d98a2b432815110bad0410de42cf9aec3570e1a2ed62",
+        "HARNESS_NO_EXTENSIONS": "4c31456f2a1e3a780057d98a2b432815110bad0410de42cf9aec3570e1a2ed62",
+        "HARNESS_WITH_EXTENSIONS": "4c31456f2a1e3a780057d98a2b432815110bad0410de42cf9aec3570e1a2ed62"
+      },
+      "errors": []
+    },
+    {
+      "seed": 44,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c29582ea74db0820cc77d043d7c777eda821602dda6b380f49f528af9dce3e2e",
+        "HARNESS_NO_EXTENSIONS": "c29582ea74db0820cc77d043d7c777eda821602dda6b380f49f528af9dce3e2e",
+        "HARNESS_WITH_EXTENSIONS": "c29582ea74db0820cc77d043d7c777eda821602dda6b380f49f528af9dce3e2e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 44,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d323f9818e6c41dbe4e7b172fd978aad35c6a35785e70eb87211745c3dc7adb9",
+        "HARNESS_NO_EXTENSIONS": "d323f9818e6c41dbe4e7b172fd978aad35c6a35785e70eb87211745c3dc7adb9",
+        "HARNESS_WITH_EXTENSIONS": "d323f9818e6c41dbe4e7b172fd978aad35c6a35785e70eb87211745c3dc7adb9"
+      },
+      "errors": []
+    },
+    {
+      "seed": 44,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "43a933aa32a05f980b4db112572d078c964eab00db37ed4259e9efa66e4a640e",
+        "HARNESS_NO_EXTENSIONS": "43a933aa32a05f980b4db112572d078c964eab00db37ed4259e9efa66e4a640e",
+        "HARNESS_WITH_EXTENSIONS": "43a933aa32a05f980b4db112572d078c964eab00db37ed4259e9efa66e4a640e"
+      },
+      "errors": []
+    },
+    {
+      "seed": 45,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "a2135895be58ff66aed8897205bfae53c5213a4d8778c3b8b016da0719ed7d78",
+        "HARNESS_NO_EXTENSIONS": "a2135895be58ff66aed8897205bfae53c5213a4d8778c3b8b016da0719ed7d78",
+        "HARNESS_WITH_EXTENSIONS": "a2135895be58ff66aed8897205bfae53c5213a4d8778c3b8b016da0719ed7d78"
+      },
+      "errors": []
+    },
+    {
+      "seed": 45,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "1860c93c670f6f8068c2eff11d99f342c3985d4220e2b2bdf68d089e1a74c15c",
+        "HARNESS_NO_EXTENSIONS": "1860c93c670f6f8068c2eff11d99f342c3985d4220e2b2bdf68d089e1a74c15c",
+        "HARNESS_WITH_EXTENSIONS": "1860c93c670f6f8068c2eff11d99f342c3985d4220e2b2bdf68d089e1a74c15c"
+      },
+      "errors": []
+    },
+    {
+      "seed": 45,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "56ee25c80a2dad0d359f25157696bde4601d150c052a4b014b1ced25afc72ed2",
+        "HARNESS_NO_EXTENSIONS": "56ee25c80a2dad0d359f25157696bde4601d150c052a4b014b1ced25afc72ed2",
+        "HARNESS_WITH_EXTENSIONS": "56ee25c80a2dad0d359f25157696bde4601d150c052a4b014b1ced25afc72ed2"
+      },
+      "errors": []
+    },
+    {
+      "seed": 45,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "4fd0ea882cd7c1fd61591d9b37bcdfe9e39425c6855af88cee9de20a4893c15b",
+        "HARNESS_NO_EXTENSIONS": "4fd0ea882cd7c1fd61591d9b37bcdfe9e39425c6855af88cee9de20a4893c15b",
+        "HARNESS_WITH_EXTENSIONS": "4fd0ea882cd7c1fd61591d9b37bcdfe9e39425c6855af88cee9de20a4893c15b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 46,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "20679e73f266ac6887517a0e694bd03feb905ed87e0edcb9da5f703d44ef37cb",
+        "HARNESS_NO_EXTENSIONS": "20679e73f266ac6887517a0e694bd03feb905ed87e0edcb9da5f703d44ef37cb",
+        "HARNESS_WITH_EXTENSIONS": "20679e73f266ac6887517a0e694bd03feb905ed87e0edcb9da5f703d44ef37cb"
+      },
+      "errors": []
+    },
+    {
+      "seed": 46,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "c3dec132958a9c5fd9436f3f917b57c21a77bbd8b4481f3d0a8107f85cc274d9",
+        "HARNESS_NO_EXTENSIONS": "c3dec132958a9c5fd9436f3f917b57c21a77bbd8b4481f3d0a8107f85cc274d9",
+        "HARNESS_WITH_EXTENSIONS": "c3dec132958a9c5fd9436f3f917b57c21a77bbd8b4481f3d0a8107f85cc274d9"
+      },
+      "errors": []
+    },
+    {
+      "seed": 46,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "5d78a076890d6b62e8c30841c025d1ef5f136bbf70ad6a7fd21e2adc36f29fcf",
+        "HARNESS_NO_EXTENSIONS": "5d78a076890d6b62e8c30841c025d1ef5f136bbf70ad6a7fd21e2adc36f29fcf",
+        "HARNESS_WITH_EXTENSIONS": "5d78a076890d6b62e8c30841c025d1ef5f136bbf70ad6a7fd21e2adc36f29fcf"
+      },
+      "errors": []
+    },
+    {
+      "seed": 46,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "3763cd7d0e9223fbc820f0fd4497284fdb92aa0737f77bbc4bb3253775080e40",
+        "HARNESS_NO_EXTENSIONS": "3763cd7d0e9223fbc820f0fd4497284fdb92aa0737f77bbc4bb3253775080e40",
+        "HARNESS_WITH_EXTENSIONS": "3763cd7d0e9223fbc820f0fd4497284fdb92aa0737f77bbc4bb3253775080e40"
+      },
+      "errors": []
+    },
+    {
+      "seed": 47,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fdf91fa90e7a8a60c459b974b17497de6bf07bed550a7a255975b180cf0aa02b",
+        "HARNESS_NO_EXTENSIONS": "fdf91fa90e7a8a60c459b974b17497de6bf07bed550a7a255975b180cf0aa02b",
+        "HARNESS_WITH_EXTENSIONS": "fdf91fa90e7a8a60c459b974b17497de6bf07bed550a7a255975b180cf0aa02b"
+      },
+      "errors": []
+    },
+    {
+      "seed": 47,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "246a48ff63e5547991ff042bac08b4153875e0c42c87842f718392ddcf545853",
+        "HARNESS_NO_EXTENSIONS": "246a48ff63e5547991ff042bac08b4153875e0c42c87842f718392ddcf545853",
+        "HARNESS_WITH_EXTENSIONS": "246a48ff63e5547991ff042bac08b4153875e0c42c87842f718392ddcf545853"
+      },
+      "errors": []
+    },
+    {
+      "seed": 47,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "6cf3778b6763c5e72502f4e8ccd24a5d6a5d8ccf262eeb0ec477e3c280ba97f2",
+        "HARNESS_NO_EXTENSIONS": "6cf3778b6763c5e72502f4e8ccd24a5d6a5d8ccf262eeb0ec477e3c280ba97f2",
+        "HARNESS_WITH_EXTENSIONS": "6cf3778b6763c5e72502f4e8ccd24a5d6a5d8ccf262eeb0ec477e3c280ba97f2"
+      },
+      "errors": []
+    },
+    {
+      "seed": 47,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "2afbdcf686431a28b7a50050f12249dc17aa50df72ed26503485fafada197d24",
+        "HARNESS_NO_EXTENSIONS": "2afbdcf686431a28b7a50050f12249dc17aa50df72ed26503485fafada197d24",
+        "HARNESS_WITH_EXTENSIONS": "2afbdcf686431a28b7a50050f12249dc17aa50df72ed26503485fafada197d24"
+      },
+      "errors": []
+    },
+    {
+      "seed": 48,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "3ec59b2f2002262da554fa79cb2c2e7d1159d2af9257029ed81ef25ee7a21d94",
+        "HARNESS_NO_EXTENSIONS": "3ec59b2f2002262da554fa79cb2c2e7d1159d2af9257029ed81ef25ee7a21d94",
+        "HARNESS_WITH_EXTENSIONS": "3ec59b2f2002262da554fa79cb2c2e7d1159d2af9257029ed81ef25ee7a21d94"
+      },
+      "errors": []
+    },
+    {
+      "seed": 48,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "7c9ec1e688c109e15b320c6944d9397d789e05d0e9f7791e73473b8ea0db9344",
+        "HARNESS_NO_EXTENSIONS": "7c9ec1e688c109e15b320c6944d9397d789e05d0e9f7791e73473b8ea0db9344",
+        "HARNESS_WITH_EXTENSIONS": "7c9ec1e688c109e15b320c6944d9397d789e05d0e9f7791e73473b8ea0db9344"
+      },
+      "errors": []
+    },
+    {
+      "seed": 48,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fa61239e0f709a9c2802a9fb7ed5770ccbb2a4d170b568796e81f4eb38cf0db6",
+        "HARNESS_NO_EXTENSIONS": "fa61239e0f709a9c2802a9fb7ed5770ccbb2a4d170b568796e81f4eb38cf0db6",
+        "HARNESS_WITH_EXTENSIONS": "fa61239e0f709a9c2802a9fb7ed5770ccbb2a4d170b568796e81f4eb38cf0db6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 48,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "fa61239e0f709a9c2802a9fb7ed5770ccbb2a4d170b568796e81f4eb38cf0db6",
+        "HARNESS_NO_EXTENSIONS": "fa61239e0f709a9c2802a9fb7ed5770ccbb2a4d170b568796e81f4eb38cf0db6",
+        "HARNESS_WITH_EXTENSIONS": "fa61239e0f709a9c2802a9fb7ed5770ccbb2a4d170b568796e81f4eb38cf0db6"
+      },
+      "errors": []
+    },
+    {
+      "seed": 49,
+      "steps": 0,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "397ac51ec3c73b55cc72496347f5efb4adfcf7628d96684c86304d9186c867e7",
+        "HARNESS_NO_EXTENSIONS": "397ac51ec3c73b55cc72496347f5efb4adfcf7628d96684c86304d9186c867e7",
+        "HARNESS_WITH_EXTENSIONS": "397ac51ec3c73b55cc72496347f5efb4adfcf7628d96684c86304d9186c867e7"
+      },
+      "errors": []
+    },
+    {
+      "seed": 49,
+      "steps": 1,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "d5c348eb60b235ca32266781b4e7d94dafc3620daab75bec526fbef8d314284c",
+        "HARNESS_NO_EXTENSIONS": "d5c348eb60b235ca32266781b4e7d94dafc3620daab75bec526fbef8d314284c",
+        "HARNESS_WITH_EXTENSIONS": "d5c348eb60b235ca32266781b4e7d94dafc3620daab75bec526fbef8d314284c"
+      },
+      "errors": []
+    },
+    {
+      "seed": 49,
+      "steps": 35,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "0c6e0fde4a893fb3db6445419f6c422331638f486a8f96432e9a387cf499b7f0",
+        "HARNESS_NO_EXTENSIONS": "0c6e0fde4a893fb3db6445419f6c422331638f486a8f96432e9a387cf499b7f0",
+        "HARNESS_WITH_EXTENSIONS": "0c6e0fde4a893fb3db6445419f6c422331638f486a8f96432e9a387cf499b7f0"
+      },
+      "errors": []
+    },
+    {
+      "seed": 49,
+      "steps": 140,
+      "all_match": true,
+      "hashes": {
+        "BASELINE": "37d2bc6eb9dad587ca5bb482f421215e522a53b5ec624a82a849b70d79dddd80",
+        "HARNESS_NO_EXTENSIONS": "37d2bc6eb9dad587ca5bb482f421215e522a53b5ec624a82a849b70d79dddd80",
+        "HARNESS_WITH_EXTENSIONS": "37d2bc6eb9dad587ca5bb482f421215e522a53b5ec624a82a849b70d79dddd80"
+      },
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-06-19T10:03:07-04:00",
+  "holds": [
+    {
+      "topic": "anti_rollback",
+      "reason": "Rollback indexes were not authoritatively parsed from signed metadata offline.",
+      "state": "UNRESOLVED"
+    },
+    {
+      "topic": "restore_suitability",
+      "reason": "The preserved package is older than the live build and remains NOT_YET_ESTABLISHED for restoration.",
+      "state": "HOLD"
+    },
+    {
+      "topic": "super_logical_inventory",
+      "reason": "Trusted host parser for super metadata was not available offline; logical partition set is supported by frozen mount evidence but not fully enumerated from package metadata.",
+      "state": "UNRESOLVED"
+    },
+    {
+      "topic": "fastbootd_support",
+      "reason": "Userspace fastboot support must be confirmed live in a later read-only activation.",
+      "state": "UNRESOLVED"
+    }
+  ]
+}

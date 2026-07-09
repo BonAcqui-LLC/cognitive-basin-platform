@@ -1,0 +1,59 @@
+{
+  "activation_id": "act-3a9ee84498c3",
+  "session_id": "sess-76e5449ad654",
+  "authority_evaluations": 1,
+  "unresolved_holds": [],
+  "last_claim": {
+    "claim_id": "aclaim-63dad7433ad2",
+    "text": "A source can be authoritative within one scope and irrelevant outside it.",
+    "claim_type": "scope_claim",
+    "source_record_id": "",
+    "source_id": "",
+    "scope": "",
+    "jurisdiction": "",
+    "version": "",
+    "confidence": 1.0,
+    "uncertainty": 0.1,
+    "dependency_terms": [
+      "authoritative",
+      "irrelevant",
+      "one",
+      "outside",
+      "scope",
+      "source",
+      "within"
+    ],
+    "cited_records": [
+      "rec-dict-authority",
+      "rec-dict-scope",
+      "rec-ency-compliance",
+      "rec-dict-claim",
+      "rec-stem-formula"
+    ],
+    "conflicts": [
+      "conflict-f8c7777e36e6",
+      "conflict-46510841d457",
+      "conflict-513b944aa341",
+      "conflict-5b9fd1746f67",
+      "conflict-1ec8dbd1f4da",
+      "conflict-e3bfc89845de",
+      "conflict-565f32f73a3b",
+      "conflict-ae446670c009",
+      "conflict-b2a71a47434f",
+      "conflict-25d5ea2f38f9",
+      "conflict-e70d254987bc",
+      "conflict-193b14e37163",
+      "conflict-17431c9dc324",
+      "conflict-7c248e74142a",
+      "conflict-fbf6b8eea194",
+      "conflict-554958973302",
+      "conflict-dbe0e0f847c7",
+      "conflict-dfe36766b511",
+      "conflict-227c8a6ec1fe"
+    ],
+    "support_status": "ambiguous",
+    "guard_recommendation": "WATCH",
+    "notes": "Evaluated via 5 citation route(s); status=ambiguous"
+  },
+  "timestamp": "2026-06-10T19:57:38.684000+00:00"
+}

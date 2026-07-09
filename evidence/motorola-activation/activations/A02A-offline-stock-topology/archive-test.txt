@@ -1,0 +1,11 @@
+{
+  "tested_at": "2026-06-19T10:01:05-04:00",
+  "entry_count": 87,
+  "total_uncompressed_bytes": 8600947970,
+  "duplicate_entries": [],
+  "unsafe_paths": [],
+  "encrypted_entries": [],
+  "symlink_entries": [],
+  "archive_parser": "python zipfile standard library",
+  "result": "PASS"
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "filename":  "XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+        "url":  "https://mirrors.lolinet.com/firmware/lenomola/2023/gnevan/official/RETUS/XT2317-2_GNEVAN_RETUS_14_U1THS34.65-74-1-7-8_subsidy-DEFAULT_regulatory-DEFAULT_cid50_CFC.xml.zip",
+        "source_classification":  "THIRD_PARTY_MIRROR",
+        "model":  "XT2317-2",
+        "codename":  "gnevan",
+        "channel":  "RETUS",
+        "package_build":  "U1THS34.65-74-1-7-8",
+        "live_build":  "U1THS34.65-74-1-7-24",
+        "byte_count":  4190063592,
+        "sha256":  "B3B86713E066002C37877ECF8ABFF525BF147D1EC3207CA04FF0397DDC5E604D",
+        "search_status":  "PRESERVED",
+        "notes":  [
+                      "Best currently preserved candidate in A01.",
+                      "Older than live build based on build identifier suffix.",
+                      "Do not treat as restoration-ready in A01."
+                  ]
+    },
+    {
+        "filename":  "exact-build-search",
+        "url":  "web-search: U1THS34.65-74-1-7-24 + XT2317-2/gnevan",
+        "source_classification":  "UNKNOWN",
+        "model":  "XT2317-2",
+        "codename":  "gnevan",
+        "channel":  "RETUS",
+        "package_build":  "U1THS34.65-74-1-7-24",
+        "live_build":  "U1THS34.65-74-1-7-24",
+        "byte_count":  null,
+        "sha256":  null,
+        "search_status":  "NO_TRUSTWORTHY_EXACT_HIT_OBSERVED",
+        "notes":  [
+                      "Bounded exact-build search produced no trustworthy exact package during A01.",
+                      "Further search deferred to later activation if needed."
+                  ]
+    }
+]

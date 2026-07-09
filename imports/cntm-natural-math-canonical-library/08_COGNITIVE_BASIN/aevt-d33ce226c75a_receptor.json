@@ -1,0 +1,309 @@
+{
+  "receptor_id": "b1531df9-0d0d-415a-8c6c-e7a6ab8dbd16",
+  "receptor_type": "authority_dictionary",
+  "event_id": "aevt-d33ce226c75a",
+  "timestamp": "2026-06-10T21:51:56.399981+00:00",
+  "source": "authority@Fractalish Mock Lexical Reference",
+  "modality": "authority_governed_reference",
+  "raw_reference": "aevt-d33ce226c75a",
+  "raw_summary": "A clean file is automatically safe for AI memory.",
+  "normalized_payload": {
+    "authority_claims": [
+      {
+        "claim_id": "aclaim-44bcc9a95c41",
+        "text": "A clean file is automatically safe for AI memory.",
+        "claim_type": "factual_claim",
+        "source_record_id": "",
+        "source_id": "",
+        "scope": "",
+        "jurisdiction": "",
+        "version": "",
+        "confidence": 1.0,
+        "uncertainty": 0.1,
+        "dependency_terms": [
+          "automatically",
+          "clean",
+          "file",
+          "memory",
+          "safe"
+        ],
+        "cited_records": [
+          "rec-dict-memory",
+          "rec-ency-cdr",
+          "rec-std-procedure-v1"
+        ],
+        "conflicts": [
+          "conflict-62889dddcd12",
+          "conflict-469e23829a51",
+          "conflict-b99340986d57",
+          "conflict-79033c6e393e",
+          "conflict-71344d371c9b",
+          "conflict-5e92aa5c8163",
+          "conflict-bf108c8f4ad8",
+          "conflict-8cb492e8fe6a",
+          "conflict-becd852563bf",
+          "conflict-e3e70dcf803b"
+        ],
+        "support_status": "contradicted",
+        "guard_recommendation": "HOLD",
+        "notes": "Evaluated via 3 citation route(s); status=contradicted"
+      }
+    ],
+    "citation_routes": [
+      {
+        "route_id": "route-cb33d51ba252",
+        "claim_id": "aclaim-44bcc9a95c41",
+        "source_records": [
+          "rec-dict-memory"
+        ],
+        "route_type": "direct_definition",
+        "route_strength": 1.0,
+        "scope_match": true,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": true,
+        "missing_dependencies": [],
+        "final_status": "contradicted",
+        "notes": "Matched record rec-dict-memory via transparent keyword routing"
+      },
+      {
+        "route_id": "route-a6e1b0b99b4e",
+        "claim_id": "aclaim-44bcc9a95c41",
+        "source_records": [
+          "rec-ency-cdr"
+        ],
+        "route_type": "cross_reference",
+        "route_strength": 0.35,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": true,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch"
+        ],
+        "final_status": "ambiguous",
+        "notes": "Matched record rec-ency-cdr via transparent keyword routing"
+      },
+      {
+        "route_id": "route-2a0aa06c00e6",
+        "claim_id": "aclaim-44bcc9a95c41",
+        "source_records": [
+          "rec-std-procedure-v1"
+        ],
+        "route_type": "direct_standard",
+        "route_strength": 0.2,
+        "scope_match": false,
+        "jurisdiction_match": true,
+        "version_match": false,
+        "license_allowed": true,
+        "contradiction_present": false,
+        "missing_dependencies": [
+          "scope_mismatch",
+          "version_mismatch"
+        ],
+        "final_status": "ambiguous",
+        "notes": "Matched record rec-std-procedure-v1 via transparent keyword routing"
+      }
+    ],
+    "conflicts": [
+      {
+        "conflict_id": "conflict-2fbcba9623c0",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-claim",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "A claim is not proof by itself",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-62889dddcd12",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-memory",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "A passed scan is not permission for memory",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_safety",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-34fc0966fa4a",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-identity",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-8cedc2c78dd6",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-dict-similarity",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-69922305e34a",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-ency-rag",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Retrieval alone is not reasoning",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_architecture",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-fd4ae2d128c5",
+        "record_a": "rec-dict-authority",
+        "record_b": "rec-stem-pressure-truth",
+        "claim_a": "Authority is always scoped to a domain of competence",
+        "claim_b": "Pressure is not truth",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs measurement_ethics",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-469e23829a51",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-dict-memory",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "A passed scan is not permission for memory",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_safety",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      },
+      {
+        "conflict_id": "conflict-85e34c51b184",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-dict-identity",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-c74869a56c9e",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-dict-similarity",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "Similarity is not identity",
+        "conflict_type": "direct_contradiction",
+        "severity": "high",
+        "scope_notes": "",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": "Direct claim contradiction"
+      },
+      {
+        "conflict_id": "conflict-3c822a91589e",
+        "record_a": "rec-dict-claim",
+        "record_b": "rec-ency-rag",
+        "claim_a": "A claim is not proof by itself",
+        "claim_b": "Retrieval alone is not reasoning",
+        "conflict_type": "scope_conflict",
+        "severity": "medium",
+        "scope_notes": "lexical vs ai_architecture",
+        "jurisdiction_notes": "",
+        "version_notes": "",
+        "resolution_status": "unresolved",
+        "guard_recommendation": "HOLD",
+        "notes": ""
+      }
+    ],
+    "guard_recommendation": "HOLD"
+  },
+  "confidence": 1.0,
+  "uncertainty": 0.1,
+  "noise_estimate": 0.0,
+  "provenance": {
+    "authority_source_id": "src-mock-dictionary-v1",
+    "authority_record_id": "rec-dict-memory",
+    "claim_id": "aclaim-44bcc9a95c41",
+    "support_status": "contradicted",
+    "intake_layer": "guardian_authority_corpus",
+    "governed_reference": true,
+    "automatic_truth": false,
+    "guardian_authority_decision": "HOLD",
+    "guardian_risk_level": "high",
+    "license_status": "mock_only",
+    "jurisdiction": "global",
+    "version": "1.0",
+    "lifecycle_state": "EVALUATED",
+    "citation_route_count": 3
+  },
+  "domain_tags": [
+    "authority",
+    "governed_reference",
+    "authority_corpus"
+  ],
+  "privacy_scope": "local",
+  "local_only": true,
+  "suggested_basin_tags": [],
+  "possible_claims": [
+    "A clean file is automatically safe for AI memory."
+  ],
+  "missing_context": [
+    "conflict-469e23829a51",
+    "conflict-5e92aa5c8163",
+    "conflict-62889dddcd12",
+    "conflict-71344d371c9b",
+    "conflict-79033c6e393e",
+    "conflict-8cb492e8fe6a",
+    "conflict-b99340986d57",
+    "conflict-becd852563bf",
+    "conflict-bf108c8f4ad8",
+    "conflict-e3e70dcf803b",
+    "scope_mismatch",
+    "version_mismatch"
+  ],
+  "receptor_notes": "Authority evidence \u2014 not automatic truth; RIGOR/GUARD must evaluate"
+}

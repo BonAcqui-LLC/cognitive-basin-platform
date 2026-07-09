@@ -1,0 +1,90 @@
+{
+  "self_id": "oself-b04e77ff807b",
+  "activation_id": "act-fractalish-build-001",
+  "project_id": "fractalish-ai",
+  "purpose": "Build governed Fractalish AI product modules without breaking prior functionality",
+  "operator_constraints": [
+    "local_only",
+    "hold_before_false_closure",
+    "operator_sovereignty"
+  ],
+  "active_narrative": "Operational self maintains routed continuity \u2014 not consciousness.",
+  "active_focus": "Fractal Attractor Memory spine",
+  "current_phase": "v0.1_prototype",
+  "core_commitments": [
+    "HOLD remains sacred",
+    "Pressure is not truth",
+    "Similarity is not identity",
+    "Memory is routed continuity",
+    "MCVA/HOLD/AMCVA behavior preserved"
+  ],
+  "unresolved_loops": [
+    "MCVA/HOLD/AMCVA behavior preserved",
+    "HOLD remains sacred"
+  ],
+  "contradiction_scars": [
+    "scar-d1c9edffa858",
+    "scar-d6c0c1b8c076"
+  ],
+  "hold_regions": [
+    "fog-7fa336905488",
+    "fog-ee2e83a6afcb",
+    "fog-235cbb385e58",
+    "fog-62ace55c83f2",
+    "fog-135eee601f2d",
+    "fog-86d51304948c"
+  ],
+  "recovery_routes": [
+    "replay-f166034878c2",
+    "replay-074b6a93c3e5",
+    "replay-5b071beb4d2c",
+    "replay-b5c0cb381878",
+    "replay-dc641d376f0a",
+    "replay-f2aa941a700b",
+    "replay-bfe11ee8c34d",
+    "replay-4c59df7fecbb",
+    "replay-28a72e9e364d",
+    "replay-6276b62bc015",
+    "replay-993202c6090a",
+    "replay-e9b9ad3f681a",
+    "replay-8f2443ee511c",
+    "replay-5ab2925e98d8",
+    "replay-8959247c7ea6"
+  ],
+  "active_attractors": [
+    "attr-68ac1368ab53",
+    "attr-b63b25d9a0b6"
+  ],
+  "deprioritized_memories": [],
+  "recent_memory_ids": [
+    "mem-34da3cda829e",
+    "mem-18376ae0ebcc",
+    "mem-12ecf48b8046",
+    "mem-80f538dae6b9",
+    "mem-b86fb9c1bc86",
+    "mem-7d175d8da09d",
+    "mem-961425285009",
+    "mem-fc775963aa4b",
+    "mem-ee9bdcc3072b",
+    "mem-af086d13f1ca",
+    "mem-00a772ce370a",
+    "mem-abdc83dfce26",
+    "mem-53f60e5425a2",
+    "mem-e90c29639b4c",
+    "mem-dc2dd36fa803"
+  ],
+  "session_glyph_refs": [
+    "e6d154ccb459cbf1"
+  ],
+  "last_updated": "2026-06-10T23:19:19.521248+00:00",
+  "confidence": 0.7,
+  "uncertainty": 0.3,
+  "non_claims": [
+    "no consciousness claim",
+    "no sentience claim",
+    "no subjective experience claim",
+    "no legal personhood claim",
+    "no life claim",
+    "no autonomy claim beyond bounded activation behavior"
+  ]
+}

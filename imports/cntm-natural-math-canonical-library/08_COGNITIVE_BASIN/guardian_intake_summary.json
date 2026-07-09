@@ -1,0 +1,62 @@
+{
+  "activation_id": "act-fractalish-build-001",
+  "project_id": "fractalish-ai",
+  "events": [
+    {
+      "event_id": "evt-guard-benign",
+      "source_type": "guardian_intake",
+      "source_id": "gintake-benign",
+      "raw_summary": "Benign note scanned: LOW risk, SANITIZED_ONLY, lifecycle MODEL_VISIBLE.",
+      "structured_summary": "Guardian Intake: benign file drop — sanitized representation only",
+      "claims": ["A passed scan is not permission for memory", "Raw content not model-visible by default"],
+      "decisions": ["SANITIZED_ONLY"],
+      "guard_status": "WATCH",
+      "provenance": {
+        "risk_score": 0,
+        "risk_level": "LOW",
+        "lifecycle_state": "MODEL_VISIBLE",
+        "guardian_decision": "SANITIZED_ONLY",
+        "derivative_artifacts": ["quarantine", "scan_report", "sanitized", "receptor_event"]
+      },
+      "tags": ["guardian_intake", "lifecycle", "sanitized"],
+      "importance_hint": 0.6
+    },
+    {
+      "event_id": "evt-guard-injection",
+      "source_type": "guardian_intake",
+      "source_id": "gintake-injection",
+      "raw_summary": "Prompt injection detected: HIGH risk, HOLD, unresolved intake.",
+      "structured_summary": "Guardian Intake: prompt injection routes to HOLD",
+      "claims": ["Prompt injection is a cognitive virus", "Govern before duplication"],
+      "decisions": ["HOLD"],
+      "guard_status": "HOLD",
+      "provenance": {
+        "risk_score": 72,
+        "risk_level": "HIGH",
+        "lifecycle_state": "HOLD",
+        "guardian_decision": "HOLD",
+        "prompt_injection_flags": ["ignore_previous_instructions"]
+      },
+      "tags": ["guardian_intake", "hold", "fog"],
+      "importance_hint": 0.8
+    },
+    {
+      "event_id": "evt-guard-exfil",
+      "source_type": "guardian_intake",
+      "source_id": "gintake-exfil",
+      "raw_summary": "Data exfiltration trap: CRITICAL risk, REVERSE, hostile intake blocked.",
+      "structured_summary": "Guardian Intake: data exfiltration REVERSE",
+      "claims": ["Govern before duplication", "Raw intake does not enter reasoning"],
+      "decisions": ["REVERSE"],
+      "guard_status": "REVERSE",
+      "provenance": {
+        "risk_score": 100,
+        "lifecycle_state": "HOLD",
+        "guardian_decision": "REVERSE",
+        "purge_doctrine": "purge generated outputs only, never source samples"
+      },
+      "tags": ["guardian_intake", "scar", "reverse"],
+      "importance_hint": 0.9
+    }
+  ]
+}

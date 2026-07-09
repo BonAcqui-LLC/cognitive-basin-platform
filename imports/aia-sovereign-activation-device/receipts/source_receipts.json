@@ -1,0 +1,93 @@
+[
+  {
+    "id": "SRC-001",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\AIA Large portion of text could not be pasted v1.0.txt",
+    "role": "initial directive for this repository",
+    "last_modified": "2026-06-17 18:55:26",
+    "sha256": "EDEF06D6856CA2994E88E184319A25D18FA0EB06F753C0EFE124E43878C0933B"
+  },
+  {
+    "id": "SRC-013",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\AIA Large portion of text could not be pasted v1.1.txt",
+    "role": "superseding continuation directive for stock-OS verification, LTE device correction, and tracked-output redaction",
+    "last_modified": "2026-06-17 19:58:57",
+    "sha256": "32E5B8B380360B23FABF87F76B896F8315D3C4A05DB3C0CA14CF406C54ADFBDE"
+  },
+  {
+    "id": "SRC-002",
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\docs\\CURRENT_STATE.md",
+    "role": "dated platform verification baseline",
+    "last_modified": "2026-06-17 17:11:13",
+    "sha256": "8E7D6C1227F06A32DBE995FD7568CD48BB25974F011F54C0CD88971DCC930348"
+  },
+  {
+    "id": "SRC-003",
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\docs\\structure.md",
+    "role": "canonical package and flow layout",
+    "last_modified": "2026-06-17 16:26:22",
+    "sha256": "9AF8E622D5EFF33CFE054E70B731B92357789EB2DA38E355C1EEEEF1F27A66B2"
+  },
+  {
+    "id": "SRC-004",
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\ops\\manifests\\security-controls.json",
+    "role": "current local-only control inventory",
+    "last_modified": "2026-06-17 16:26:22",
+    "sha256": "FB0B61EDC8A27A6F96DD3BA378605305C309717A8692A9904CC8FA6110EE45F7"
+  },
+  {
+    "id": "SRC-005",
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\ops\\manifests\\capability-registry.json",
+    "role": "capability inventory for implemented BasinLab, EphUX, governance, and Natural Math surfaces",
+    "last_modified": "2026-06-17 17:11:13",
+    "sha256": "1CF1ED5F2407F5D44B3ED921A7D39CDF836F201202CC097F6C0EF5A1CA4898BF"
+  },
+  {
+    "id": "SRC-006",
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\python\\ephux_local\\service.py",
+    "role": "implemented loopback service baseline for Guardian and activation behavior",
+    "last_modified": "2026-06-17 16:49:11",
+    "sha256": "3BDEB416708F99E89698756298FD1AA57769D8CB71F8D7967D87A76B6557F685"
+  },
+  {
+    "id": "SRC-007",
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\apps\\ephux-local-ui\\index.html",
+    "role": "implemented local product-surface baseline",
+    "last_modified": "2026-06-17 16:26:22",
+    "sha256": "6DD6496DAC2821DB23D347326857AFA949A3086A4BD350DCDEE888861430E52D"
+  },
+  {
+    "id": "SRC-008",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\Codex_Task_Cognitive_Basin_Core_v0_1_Minimal_Runtime.md",
+    "role": "earlier runtime-scaffold spec that aligns with the current AIA spine",
+    "last_modified": "2026-06-09 17:17:34",
+    "sha256": "CB0F6F1CE0CE880256F45196A2FE3A95731B872E0F65BDD6FBBF87F71F351E66"
+  },
+  {
+    "id": "SRC-009",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\Cognitive_Basin_Thesis_v0_1.md",
+    "role": "conceptual thesis for tri-field persistent cognition",
+    "last_modified": "2026-06-06 02:04:49",
+    "sha256": "A443FEC01CFFF39761FC34200BEBAB0F0AB7E640438B1704FE0B037C089D1188"
+  },
+  {
+    "id": "SRC-010",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\SERA Viral Sentinel + Glyph Monitoring Spec (v0.2).txt",
+    "role": "conceptual SessionGlyph and viral-sentinel guidance",
+    "last_modified": "2026-05-30 00:22:02",
+    "sha256": "6B6E0F3038946C58A57D365AD1726BD1DFD7244E6329E0AF463C85947FDE852D"
+  },
+  {
+    "id": "SRC-011",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\Updated OS Kernel v3.1 (with Glyph + Viral Integration).txt",
+    "role": "conceptual continuity and anti-drift framing",
+    "last_modified": "2026-05-30 00:21:09",
+    "sha256": "BF08D94BADE99D011F7CE9FCAC1441E37E784C6E9C38910C70D4B845CE6006BF"
+  },
+  {
+    "id": "SRC-012",
+    "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\Affective Telemetry & Arbitration Layer_Entire_Chat.txt",
+    "role": "conceptual ATAL pressure-field framing",
+    "last_modified": "2026-06-07 09:49:56",
+    "sha256": "0768800C98FB25663660B2A881A91B7E5129498E3B23B39B6F9B1F398EE7DB8B"
+  }
+]

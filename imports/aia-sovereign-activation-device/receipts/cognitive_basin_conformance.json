@@ -1,0 +1,47 @@
+{
+  "receipt_type": "cognitive_basin_conformance",
+  "recorded_at": "2026-06-17T20:43:13.3710000-04:00",
+  "contract_version": "ternary-mobile-v0.1",
+  "preserved_internal_states": {
+    "epistemic": [
+      "SUPPORTED",
+      "UNRESOLVED",
+      "CONTRADICTED"
+    ],
+    "action": [
+      "EXTEND",
+      "HOLD",
+      "RETRACT"
+    ]
+  },
+  "golden_traces": [
+    {
+      "trace": "supported_trace.json",
+      "expected_epistemic": "SUPPORTED",
+      "expected_action": "EXTEND",
+      "status": "aligned"
+    },
+    {
+      "trace": "hold_trace.json",
+      "expected_epistemic": "UNRESOLVED",
+      "expected_action": "HOLD",
+      "status": "aligned"
+    },
+    {
+      "trace": "contradiction_trace.json",
+      "expected_epistemic": "CONTRADICTED",
+      "expected_action": "RETRACT",
+      "status": "aligned"
+    },
+    {
+      "trace": "device_review_trace.json",
+      "expected_epistemic": "SUPPORTED",
+      "expected_action": "EXTEND",
+      "status": "aligned"
+    }
+  ],
+  "known_differences": [
+    "No direct fixture-export pipeline from cognitive-basin-platform is wired yet.",
+    "Android runtime traces are still local deterministic fixtures rather than imported canonical fixtures."
+  ]
+}

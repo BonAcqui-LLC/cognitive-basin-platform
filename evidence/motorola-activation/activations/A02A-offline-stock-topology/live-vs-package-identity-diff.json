@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-06-19T10:03:07-04:00",
+  "differences": [
+    {
+      "field": "build_fingerprint",
+      "live_value": "motorola/gnevan_g/gnevan:14/U1THS34.65-74-1-7-24/111802-edae6:user/release-keys",
+      "package_value": "motorola/gnevan_g/gnevan:14/U1THS34.65-74-1-7-8/2e589-1f965e:user/release-keys",
+      "classification": "VALUE_DIFFERENCE"
+    },
+    {
+      "field": "build_id",
+      "live_value": "U1THS34.65-74-1-7-24",
+      "package_value": "U1THS34.65-74-1-7-8",
+      "classification": "VALUE_DIFFERENCE"
+    },
+    {
+      "field": "build_incremental",
+      "live_value": "111802-edae6",
+      "package_value": "2e589-1f965e",
+      "classification": "VALUE_DIFFERENCE"
+    },
+    {
+      "field": "bootloader_version",
+      "live_value": "MBM-2.1-gnevan_g-5ba36-U1THS34.65-74-1-7-24-111802",
+      "package_value": "MBM-2.1-gnevan_g-5ba36-U1THS34.65-74-1-7-8-2e589",
+      "classification": "VALUE_DIFFERENCE"
+    },
+    {
+      "field": "baseband_version",
+      "live_value": "MT6769G_TC2.PR5.SP.V9.2.P21.02.40R",
+      "package_value": "MT6769G_TC2.PR5.SP.V9.2.P17.02.35R",
+      "classification": "VALUE_DIFFERENCE"
+    }
+  ],
+  "notes": [
+    "Package build suffix -8 is older than live build suffix -24 and remains visible throughout this activation.",
+    "System, vendor, and bootloader version strings may differ within one signed release family and are described rather than auto-classified as contradictions."
+  ]
+}

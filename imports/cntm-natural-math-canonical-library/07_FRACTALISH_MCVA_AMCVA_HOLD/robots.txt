@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fractalish.com/sitemap.xml
