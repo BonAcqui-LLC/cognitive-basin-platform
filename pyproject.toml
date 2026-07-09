@@ -29,4 +29,5 @@ include = [
     "provider_lab*",
     "python*",
     "sandbox_lab*",
+    "specificity_engine*",
 ]

@@ -1,7 +1,7 @@
 {
-  "version": "0.7.0",
-  "last_updated": "2026-06-18",
-  "source": "cognitive-basin-platform predictive world interoception tranche",
+  "version": "0.8.0",
+  "last_updated": "2026-07-08",
+  "source": "cognitive-basin-platform specificity engine v0.3 tranche",
   "capabilities": {
     "ternary.epistemic": {
       "description": "SUPPORTED / UNRESOLVED / CONTRADICTED truth-state contract",
@@ -882,8 +882,50 @@
       "last_verified_commit": "",
       "last_verified_ci_run": ""
     },
+    "specificity_engine.measurement": {
+      "description": "Deterministic target-conditioned GSR and NGR measurement with content-addressed immutable receipts",
+      "required_evidence": ["source:python/specificity_engine/measurement.py", "test:tests/test_specificity_engine.py"],
+      "implementation_path": "python/specificity_engine/measurement.py",
+      "evidence_path": "tests/test_specificity_engine.py",
+      "test_path": "tests/test_specificity_engine.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCALLY VERIFIED"],
+      "limitations": ["Targets, comparison modes, and weights require domain-specific validation; no universal metric validity is claimed."],
+      "security_classification": "DETERMINISTIC_LOCAL_MEASUREMENT",
+      "deployment_state": "LOCAL_ONLY",
+      "provider_dependency": "none",
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "specificity_engine.governance_replay": {
+      "description": "Calibratable structural-debt assessment, explicit Cognitive Basin and Natural Math adapters, and hash-chained verified replay",
+      "required_evidence": ["source:python/specificity_engine/debt.py", "source:python/specificity_engine/adapters.py", "source:python/specificity_engine/ledger.py", "test:tests/test_specificity_engine.py"],
+      "implementation_path": "python/specificity_engine/ledger.py",
+      "evidence_path": "tests/test_specificity_engine.py",
+      "test_path": "tests/test_specificity_engine.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCALLY VERIFIED"],
+      "limitations": ["Default debt thresholds are policy starting points and require calibration before deployment enforcement."],
+      "security_classification": "HASH_CHAINED_LOCAL_GOVERNANCE",
+      "deployment_state": "LOCAL_ONLY",
+      "provider_dependency": "none",
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
+    "specificity_engine.acceptance": {
+      "description": "Ten deterministic acceptance scenarios covering measurement, namespace separation, tamper detection, degradation, repair, and replay",
+      "required_evidence": ["source:python/specificity_engine/acceptance.py", "source:python/specificity_engine/demo.py", "test:tests/test_specificity_engine_acceptance.py"],
+      "implementation_path": "python/specificity_engine/acceptance.py",
+      "evidence_path": "tests/test_specificity_engine_acceptance.py",
+      "test_path": "tests/test_specificity_engine_acceptance.py",
+      "states": ["IMPLEMENTED", "TESTED", "LOCALLY VERIFIED"],
+      "limitations": ["Acceptance proves deterministic local behavior and does not establish empirical universality."],
+      "security_classification": "LOCAL_ACCEPTANCE_DEMONSTRATION",
+      "deployment_state": "LOCAL_ONLY",
+      "provider_dependency": "none",
+      "last_verified_commit": "",
+      "last_verified_ci_run": ""
+    },
     "cognitive_basin.acceptance.aggregate": {
-      "description": "Aggregate deterministic acceptance manifest spanning BasinLab, EphUX local, provider, sandbox, evaluation, Natural Math, memory governance, action permits, connector suites, operational consciousness, and predictive cognition",
+      "description": "Aggregate deterministic acceptance manifest spanning BasinLab, EphUX local, provider, sandbox, evaluation, Natural Math, memory governance, action permits, connector suites, operational consciousness, predictive cognition, and specificity measurement",
       "required_evidence": ["source:python/cognitive_basin/acceptance.py", "test:tests/test_cognitive_basin_acceptance.py"],
       "implementation_path": "python/cognitive_basin/acceptance.py",
       "evidence_path": "tests/test_cognitive_basin_acceptance.py",

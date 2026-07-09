@@ -21,6 +21,7 @@ from python.natural_math_lab.acceptance import run_acceptance_suite as run_natur
 from python.predictive_cognition.acceptance import run_acceptance_suite as run_predictive_cognition_acceptance
 from python.provider_lab.acceptance import run_acceptance_suite as run_provider_acceptance
 from python.sandbox_lab.acceptance import run_acceptance_suite as run_sandbox_acceptance
+from python.specificity_engine.acceptance import run_acceptance_suite as run_specificity_acceptance
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -81,6 +82,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "connector_lab": ["Fixture-backed connector execution only; no production deployment or live writes."],
             "consciousness_lab": ["Operational machine-consciousness layer only; no claim of subjective experience or sentience."],
             "predictive_cognition": ["Machine-native predictive cognition only; no claim of subjective experience or hidden mental-state access."],
+            "specificity_engine": result.get("limitations", ["Deterministic local measurement only."]),
         }
         skipped_map = {
             "basinlab": ["No production commit or deployment."],
@@ -94,6 +96,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "connector_lab": ["No live external writes and no production deployment."],
             "consciousness_lab": ["No subjective-experience claims and no autonomous external authority."],
             "predictive_cognition": ["No production deployment and no unrestricted autonomous learning."],
+            "specificity_engine": ["No universal metric claim and no uncalibrated production enforcement."],
         }
         return result, _suite_metadata(
             name,
@@ -116,6 +119,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
     connector_lab, connector_meta = run_named("connector_lab", run_connector_lab_acceptance, "connector_lab")
     consciousness_lab, consciousness_meta = run_named("consciousness_lab", run_consciousness_acceptance, "consciousness_lab")
     predictive_cognition, predictive_cognition_meta = run_named("predictive_cognition", run_predictive_cognition_acceptance, "predictive_cognition")
+    specificity_engine, specificity_meta = run_named("specificity_engine", run_specificity_acceptance, "specificity_engine")
     summary = {
         "passed": all(
             [
@@ -130,6 +134,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
                 connector_lab["passed"],
                 consciousness_lab["passed"],
                 predictive_cognition["passed"],
+                specificity_engine["passed"],
             ]
         ),
         "exact_commit": exact_commit,
@@ -145,6 +150,7 @@ def run_acceptance_suite(artifact_dir: str | Path | None = None) -> dict:
             "connector_lab": connector_meta,
             "consciousness_lab": consciousness_meta,
             "predictive_cognition": predictive_cognition_meta,
+            "specificity_engine": specificity_meta,
         },
     }
     if root:
