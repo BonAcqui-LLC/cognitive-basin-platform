@@ -21,7 +21,8 @@ def test_aggregate_acceptance_passes(tmp_path):
     assert "connector_lab" in summary["suites"]
     assert "consciousness_lab" in summary["suites"]
     assert "predictive_cognition" in summary["suites"]
-    assert len(summary["suites"]) == 11
+    assert "specificity_engine" in summary["suites"]
+    assert len(summary["suites"]) == 12
     assert (tmp_path / "combined-acceptance-manifest.json").exists()
 
 

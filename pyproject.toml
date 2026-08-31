@@ -29,6 +29,7 @@ include = [
     "provider_lab*",
     "python*",
     "sandbox_lab*",
+    "specificity_engine*",
 ]
 
 [tool.pytest.ini_options]
